@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d3qo7qbmoodr4"]
+
+[resource]
+resource_name = "FlashlightGlass"
+cull_mode = 2
+albedo_color = Color(0.75, 1, 1, 1)
+roughness = 0.5
+use_z_clip_scale = true
+z_clip_scale = 0.5

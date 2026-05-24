@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://cwkajorua7f4r"]
+
+[ext_resource type="Script" uid="uid://b6yw8jfqp252b" path="res://Scripts/Equipment/Weapons/WeaponResource.cs" id="1_qshmv"]
+
+[resource]
+script = ExtResource("1_qshmv")
+weaponType = 1
+Name = "Base Pistol"
+Damage = 20.0
+FireRate = 2.0
+Range = 1.5
+CurrentAmmo = 6
+MaxAmmo = 60
+Magazines = 6
+MagazineSize = 6
+metadata/_custom_type_script = "uid://b6yw8jfqp252b"

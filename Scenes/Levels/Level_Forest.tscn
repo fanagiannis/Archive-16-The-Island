@@ -1,0 +1,839 @@
+[gd_scene load_steps=84 format=3 uid="uid://6bsirxkr1ksy"]
+
+[ext_resource type="Script" uid="uid://dlohclqb33upa" path="res://Scripts/Level/Level.cs" id="1_gav48"]
+[ext_resource type="Script" uid="uid://bshcylehfgxen" path="res://Scripts/Entities/Enemies/EnemyManager.cs" id="2_4epcp"]
+[ext_resource type="Texture2D" uid="uid://btor43djk5ind" path="res://Textures/Materials/Forest Ground/Textures/Ground068_1K-JPG_Color.jpg" id="2_muxfg"]
+[ext_resource type="Texture2D" uid="uid://dixs2uncx4hlv" path="res://Textures/Materials/Forest Ground/Textures/Ground068_1K-JPG_NormalDX.jpg" id="3_43yya"]
+[ext_resource type="Texture2D" uid="uid://bothcilbitkpy" path="res://Textures/Materials/Forest Ground/Textures/Ground103_1K-JPG_Color.jpg" id="4_a6y8w"]
+[ext_resource type="Texture2D" uid="uid://d850v6pkp5d3" path="res://Textures/Materials/Forest Ground/Textures/Ground103_1K-JPG_NormalDX.jpg" id="5_gav48"]
+[ext_resource type="PackedScene" uid="uid://ga7pu5sw3tun" path="res://Scenes/LevelAssets/Forest/CutLog.tscn" id="7_oo2l8"]
+[ext_resource type="Script" uid="uid://c6167jfr4rows" path="res://addons/proton_scatter/src/scatter.gd" id="8_3gjhc"]
+[ext_resource type="PackedScene" uid="uid://dr2ogpgurap0y" path="res://Scenes/Items/Pickable/PickUp_Flashlight.tscn" id="8_li658"]
+[ext_resource type="PackedScene" uid="uid://cyd2hrtikbabc" path="res://Scenes/LevelAssets/Areas/Area_Camping.tscn" id="8_ony65"]
+[ext_resource type="PackedScene" uid="uid://2e3jr4xxd31n" path="res://Scenes/LevelAssets/Forest/Axe.tscn" id="8_oo2l8"]
+[ext_resource type="PackedScene" uid="uid://bl5f4wm3n4v88" path="res://Scenes/LevelAssets/Forest/PSXTent.tscn" id="9_f50mj"]
+[ext_resource type="Script" uid="uid://c8vbguim5arf5" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="9_horwd"]
+[ext_resource type="PackedScene" uid="uid://i51i858ncwov" path="res://Scenes/LevelAssets/Forest/PSXCampfire.tscn" id="10_2rgin"]
+[ext_resource type="Script" uid="uid://cdwtkkjbsc0xg" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="10_4epcp"]
+[ext_resource type="Script" uid="uid://dbndw8p05yam7" path="res://addons/terrain_3d/utils/terrain_3d_objects.gd" id="10_56qd6"]
+[ext_resource type="PackedScene" uid="uid://brlcbmd15etsh" path="res://Scenes/LevelAssets/Forest/OakTreeA.tscn" id="11_2axe5"]
+[ext_resource type="Script" uid="uid://18o35kwp4phg" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="11_ony65"]
+[ext_resource type="Script" uid="uid://71ul2fwr5fjw" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="12_5fgg3"]
+[ext_resource type="Script" uid="uid://cb7go2lapwq8l" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="13_56qd6"]
+[ext_resource type="PackedScene" uid="uid://bxtvwvojlm3se" path="res://Scenes/Levels/Forest/Plank.tscn" id="14_k0rrg"]
+[ext_resource type="Script" uid="uid://4gotshoa8f0g" path="res://addons/proton_scatter/src/scatter_item.gd" id="15_v3h85"]
+[ext_resource type="PackedScene" uid="uid://c4ycybado7r08" path="res://Imports/Assets/Meshes/Harbor/PSXCabin.glb" id="16_na6ty"]
+[ext_resource type="PackedScene" uid="uid://b2ntbbwiuet5i" path="res://Scenes/LevelAssets/Cabin/ExitDoorB.tscn" id="16_q1wci"]
+[ext_resource type="Script" uid="uid://b5ris1v2p0auy" path="res://addons/proton_scatter/src/scatter_shape.gd" id="16_s0gur"]
+[ext_resource type="Script" uid="uid://8ma4dmtcn21t" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="17_820pb"]
+[ext_resource type="PackedScene" uid="uid://cdtjf2hxrjrhb" path="res://Scenes/LevelAssets/Cabin/PSXWindow.glb" id="17_lrffj"]
+[ext_resource type="Script" uid="uid://eulxn88if63o" path="res://addons/proton_scatter/src/modifiers/project_on_terrain3d.gd" id="17_q0gpo"]
+[ext_resource type="PackedScene" uid="uid://c60vxitdiykim" path="res://Imports/Assets/Meshes/Harbor/PSXBucket.glb" id="18_kmskq"]
+[ext_resource type="Script" uid="uid://0yealjhygpc7" path="res://addons/proton_scatter/src/modifiers/remove_outside_shapes.gd" id="19_n1rip"]
+[ext_resource type="PackedScene" uid="uid://ddb6jtp3ecv4o" path="res://Imports/Assets/Meshes/Harbor/PSXBarrel.glb" id="19_qpbtb"]
+[ext_resource type="PackedScene" uid="uid://dakg6oi1s47ph" path="res://Imports/Assets/PSXFenceA.glb" id="20_7igot"]
+[ext_resource type="Script" uid="uid://baq2k6tet34wd" path="res://addons/proton_scatter/src/cache/scatter_cache.gd" id="21_v3h85"]
+[ext_resource type="PackedScene" uid="uid://bf7mxbxli00tl" path="res://Scenes/Entities/Enemies/Enemy_Dark_Figure.tscn" id="22_3gjhc"]
+[ext_resource type="PackedScene" uid="uid://divrsr1exulyw" path="res://Scenes/Levels/Forest/PSXWood.glb" id="22_depuf"]
+[ext_resource type="PackedScene" uid="uid://dc46sbiocpq6g" path="res://Imports/Assets/Meshes/Harbor/PSXLogPile.glb" id="23_0dejq"]
+[ext_resource type="PackedScene" uid="uid://ceasryr64jrb8" path="res://Scenes/Entities/Enemies/Enemy_Abomination.tscn" id="23_horwd"]
+[ext_resource type="PackedScene" uid="uid://dwte5rliekb6v" path="res://Imports/Assets/Meshes/Harbor/PSXBrokenBoatglb.glb" id="24_6no0m"]
+[ext_resource type="Script" uid="uid://cwn63ttli2rr7" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="24_eap8e"]
+[ext_resource type="PackedScene" uid="uid://csylp3n173ums" path="res://Imports/Assets/Meshes/Harbor/PSXSignHarbor.glb" id="25_o7hy3"]
+[ext_resource type="PackedScene" uid="uid://ce02a0v7upnle" path="res://Scenes/LevelAssets/Forest/WaterPlane.tscn" id="26_5fgg3"]
+[ext_resource type="PackedScene" uid="uid://ped6glp6krcw" path="res://Imports/Assets/Meshes/Harbor/PSXSignKeepOut.glb" id="26_7ynvl"]
+[ext_resource type="PackedScene" uid="uid://bh3cahede5ybb" path="res://Imports/Assets/Meshes/Harbor/PSXSign_Lighthouse.glb" id="28_nyno3"]
+[ext_resource type="PackedScene" uid="uid://m7iut13hmgpy" path="res://Scenes/LevelAssets/Forest/FenceA.tscn" id="28_q0gpo"]
+[ext_resource type="PackedScene" uid="uid://cd71c4f1p5a4g" path="res://Imports/Assets/Meshes/Harbor/PSXSign_WreckB.glb" id="29_doqvy"]
+[ext_resource type="PackedScene" uid="uid://c5yr3ocig12hc" path="res://Imports/Assets/Meshes/Camp/Table.glb" id="30_s0gur"]
+[ext_resource type="PackedScene" uid="uid://dik25ns1gnhsy" path="res://Scenes/Levels/Forest/Lighthouse.tscn" id="33_eap8e"]
+[ext_resource type="PackedScene" uid="uid://dg0wx5wtaedk5" path="res://Scenes/Levels/Forest/Boat.tscn" id="34_1r527"]
+[ext_resource type="PackedScene" uid="uid://cy1tkxf333cky" path="res://Scenes/Levels/Forest/Harbor.tscn" id="35_f24k4"]
+[ext_resource type="PackedScene" uid="uid://dk2dpggenu277" path="res://Scenes/Levels/Forest/Lantern.tscn" id="44_depuf"]
+[ext_resource type="PackedScene" uid="uid://df1pd2drqo11c" path="res://Imports/Assets/Meshes/Axe/PSXAxe.glb" id="48_vgrq2"]
+[ext_resource type="PackedScene" uid="uid://drtiompdw3ga1" path="res://Imports/Assets/Meshes/Harbor/PSXSign_Wreck_Shrine.glb" id="50_ouwue"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_awgfw"]
+ground_bottom_color = Color(0.154839, 0.15629, 0.181573, 1)
+sun_angle_max = 110.33
+use_debanding = false
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_j2rwf"]
+sky_material = SubResource("ProceduralSkyMaterial_awgfw")
+
+[sub_resource type="Environment" id="Environment_l208q"]
+background_mode = 2
+sky = SubResource("Sky_j2rwf")
+sky_custom_fov = 53.5
+ambient_light_color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 1.85
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0545
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_3gjhc"]
+vertices = PackedVector3Array(3.0030003, 0.25025, -9.5095005, 4.5045004, 0.25025, -9.009001, 5.005, 0.25025, -9.75975, 2.7527502, 0.25025, -11.011001, -1.7517501, 0.25025, -13.763751, -1.7517501, 0.25025, -13.0130005, 1.5015001, 0.25025, -11.011001, 6.0060005, 0.25025, -13.763751, 0.25025, 0.25025, -6.2562504, 1.7517501, 0.25025, -9.259251, 1.25125, 0.25025, -9.5095005, 6.0060005, 0.25025, -9.75975, -2.5025, 0.25025, -8.75875, -2.5025, 0.25025, -12.762751, 12.512501, 0.25025, -10.760751, 12.512501, 0.25025, -12.012001, 11.76175, 0.25025, -12.762751, 9.5095005, 0.25025, -12.762751, 6.75675, 0.25025, -8.25825, 6.0060005, 0.25025, -7.7577505, 11.5115, 0.25025, -5.005, 11.76175, 0.25025, -5.5055003, 13.0130005, 0.25025, -5.5055003, 13.5135, 0.25025, -4.5045004, 16.5165, 0.25025, -4.5045004, 16.5165, 0.25025, -7.0070004, 8.75875, 0.25025, -13.763751, 6.75675, 0.25025, -9.259251, -6.0060005, 0.25025, -10.760751, -6.75675, 0.25025, -10.760751, -7.0070004, 0.25025, -9.75975, -7.7577505, 0.25025, -9.75975, -8.008, 0.25025, -8.75875, -8.75875, 0.25025, -8.75875, -8.75875, 0.25025, -7.5075, -8.008, 0.25025, -7.2572503, -4.7547503, 0.25025, -12.012001, -5.75575, 0.25025, -11.76175, -5.75575, 0.25025, -4.25425, -5.75575, 0.25025, -3.2532501, -4.5045004, 0.25025, -3.0030003, -5.5055003, 0.25025, -5.5055003, -2.7527502, 0.25025, -0.5005, -1.25125, 0.25025, -0.5005, -1.001, 0.25025, -1.25125, -4.5045004, 0.25025, -1.7517501, -5.75575, 0.25025, -1.5015001, -5.75575, 0.25025, -0.25025, -3.0030003, 0.25025, 0, -8.25825, 0.25025, -5.5055003, -7.0070004, 0.25025, -5.5055003, -3.2532501, 0.25025, -8.75875, -5.5055003, 0.25025, -6.5065002, -4.7547503, 0.25025, -12.762751, 11.76175, 0.25025, -3.0030003, 12.012001, 0.25025, -3.5035002, 11.5115, 0.25025, -3.75375, 10.26025, 0.25025, -2.7527502, 3.75375, 0.25025, 2.5025, 4.25425, 0.25025, 2.5025, 4.5045004, 0.25025, 1.7517501, 3.2532501, 0.25025, 1.5015001, 5.005, 0.25025, -7.7577505, 1.7517501, 0.25025, -4.7547503, 1.7517501, 0.25025, -3.5035002, 6.0060005, 0.25025, 1.7517501, -1.001, 0.25025, 1.001, 2.002, 0.25025, 1.7517501, 10.26025, 0.25025, -1.5015001, -2.5025, 2.7527502, -7.5075, -4.25425, 2.7527502, -6.2562504, -4.25425, 2.7527502, -5.75575, -1.001, 2.7527502, -2.5025, 0.75075006, 2.7527502, -4.004, -1.001, 0.25025, -3.0030003, 0.25025, 0.25025, -4.004, -2.5025, 0.25025, -7.0070004, -3.75375, 0.25025, -6.2562504, 12.262251, 0.25025, -2.7527502, 13.0130005, 0.25025, -3.5035002, 9.5095005, 0.25025, 6.75675, 12.012001, 0.25025, 6.5065002, 15.265251, 0.5005, 4.5045004, 12.012001, 0.25025, -1.001, 10.510501, 0.25025, -1.001, 13.26325, 0.5005, 7.7577505, 13.26325, 0.5005, 9.009001, 13.763751, 0.75075006, 9.5095005, 15.515501, 0.75075006, 9.5095005, 15.515501, 0.75075006, 8.75875, 15.015, 0.75075006, 6.5065002, 6.0060005, 0.25025, 3.5035002, 14.7647505, 0.5005, 5.005, 16.5165, 1.001, 8.5085, 16.5165, 0.75075006, 6.5065002, 17.5175, 0.5005, -3.0030003, 16.5165, 0.25025, -3.75375, 17.5175, 0.75075006, 4.5045004, -1.25125, 0.25025, 1.5015001, 1.001, 0.25025, 6.5065002, 2.2522502, 0.25025, 3.5035002, 1.7517501, 0.25025, 3.2532501, -2.7527502, 0.25025, 1.5015001, -0.5005, 0.25025, 6.0060005, -5.75575, 0.25025, 6.0060005, 1.001, 0.25025, 7.7577505, 0.25025, 0.25025, 8.008, 0.25025, 0.25025, 8.25825, 1.25125, 0.25025, 8.5085, 4.5045004, 0.25025, 3.5035002, 5.5055003, 0.25025, 12.762751, 8.5085, 0.25025, 8.75875, 3.5035002, 0.25025, 3.5035002, 6.5065002, 0.25025, 11.76175, 4.5045004, 0.25025, 13.763751, 5.5055003, 0.25025, 13.5135, 1.25125, 0.25025, 9.75975, 6.5065002, 0.25025, 12.512501, 7.5075, 0.25025, 11.5115, 7.7577505, 0.25025, 10.510501, 8.5085, 0.25025, 10.510501, 9.5095005, 0.25025, 8.5085, 0.5005, 0.25025, 14.514501, 4.5045004, 0.25025, 14.514501, 0.5005, 0.25025, 10.01, -0.75075006, 0.25025, 8.75875, -1.001, 0.25025, 7.7577505, -0.5005, 0.25025, 14.7647505, -0.75075006, 0.25025, 9.5095005, -4.7547503, 0.25025, 10.760751, -3.2532501, 0.25025, 24.524502, -1.5015001, 0.25025, 24.524502, -1.5015001, 0.25025, 23.77375, -3.75375, 0.25025, 24.024002, -4.7547503, 0.25025, 15.015, -3.75375, 0.25025, 15.765751, -0.5005, 0.25025, 23.5235, -1.001, 0.25025, 6.5065002, -5.75575, 0.25025, 10.01)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 3), PackedInt32Array(3, 4, 7), PackedInt32Array(10, 9, 8), PackedInt32Array(2, 3, 11), PackedInt32Array(11, 3, 7), PackedInt32Array(5, 6, 13), PackedInt32Array(13, 6, 10), PackedInt32Array(13, 10, 12), PackedInt32Array(12, 10, 8), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(21, 20, 18), PackedInt32Array(18, 20, 19), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(26, 17, 7), PackedInt32Array(7, 17, 11), PackedInt32Array(11, 17, 27), PackedInt32Array(27, 17, 18), PackedInt32Array(18, 17, 14), PackedInt32Array(18, 14, 21), PackedInt32Array(21, 14, 25), PackedInt32Array(25, 22, 21), PackedInt32Array(30, 29, 28), PackedInt32Array(32, 31, 30), PackedInt32Array(34, 33, 32), PackedInt32Array(34, 32, 35), PackedInt32Array(35, 32, 30), PackedInt32Array(37, 36, 28), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 41), PackedInt32Array(43, 42, 44), PackedInt32Array(44, 42, 40), PackedInt32Array(44, 40, 41), PackedInt32Array(46, 45, 47), PackedInt32Array(47, 45, 48), PackedInt32Array(48, 45, 42), PackedInt32Array(50, 49, 35), PackedInt32Array(36, 13, 28), PackedInt32Array(28, 13, 51), PackedInt32Array(51, 13, 12), PackedInt32Array(30, 28, 35), PackedInt32Array(35, 28, 52), PackedInt32Array(52, 28, 51), PackedInt32Array(36, 53, 13), PackedInt32Array(41, 38, 52), PackedInt32Array(52, 38, 50), PackedInt32Array(52, 50, 35), PackedInt32Array(42, 45, 40), PackedInt32Array(55, 54, 56), PackedInt32Array(56, 54, 57), PackedInt32Array(59, 58, 60), PackedInt32Array(60, 58, 61), PackedInt32Array(62, 19, 63), PackedInt32Array(63, 19, 64), PackedInt32Array(61, 64, 65), PackedInt32Array(65, 64, 57), PackedInt32Array(57, 64, 20), PackedInt32Array(20, 64, 19), PackedInt32Array(43, 44, 66), PackedInt32Array(66, 44, 67), PackedInt32Array(67, 44, 61), PackedInt32Array(61, 44, 64), PackedInt32Array(56, 57, 20), PackedInt32Array(1, 62, 0), PackedInt32Array(0, 62, 9), PackedInt32Array(9, 62, 8), PackedInt32Array(8, 62, 63), PackedInt32Array(65, 60, 61), PackedInt32Array(57, 68, 65), PackedInt32Array(70, 69, 71), PackedInt32Array(71, 69, 72), PackedInt32Array(72, 69, 73), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(54, 55, 78), PackedInt32Array(78, 55, 79), PackedInt32Array(81, 80, 82), PackedInt32Array(82, 80, 83), PackedInt32Array(83, 80, 84), PackedInt32Array(84, 80, 65), PackedInt32Array(86, 85, 87), PackedInt32Array(87, 85, 88), PackedInt32Array(88, 85, 89), PackedInt32Array(89, 85, 90), PackedInt32Array(80, 91, 65), PackedInt32Array(82, 92, 81), PackedInt32Array(93, 89, 94), PackedInt32Array(94, 89, 90), PackedInt32Array(96, 95, 79), PackedInt32Array(79, 95, 83), PackedInt32Array(83, 95, 82), PackedInt32Array(82, 95, 97), PackedInt32Array(65, 68, 84), PackedInt32Array(83, 78, 79), PackedInt32Array(90, 85, 92), PackedInt32Array(92, 85, 81), PackedInt32Array(24, 96, 23), PackedInt32Array(23, 96, 79), PackedInt32Array(98, 66, 67), PackedInt32Array(101, 100, 99), PackedInt32Array(67, 101, 98), PackedInt32Array(98, 101, 102), PackedInt32Array(102, 101, 103), PackedInt32Array(103, 101, 99), PackedInt32Array(102, 47, 48), PackedInt32Array(47, 102, 104), PackedInt32Array(104, 102, 103), PackedInt32Array(106, 105, 107), PackedInt32Array(107, 105, 108), PackedInt32Array(109, 91, 99), PackedInt32Array(99, 91, 108), PackedInt32Array(108, 91, 111), PackedInt32Array(108, 111, 110), PackedInt32Array(59, 109, 58), PackedInt32Array(58, 109, 112), PackedInt32Array(111, 113, 110), PackedInt32Array(115, 114, 110), PackedInt32Array(110, 114, 116), PackedInt32Array(110, 116, 108), PackedInt32Array(110, 113, 117), PackedInt32Array(118, 113, 119), PackedInt32Array(111, 120, 119), PackedInt32Array(108, 105, 99), PackedInt32Array(121, 111, 80), PackedInt32Array(80, 111, 91), PackedInt32Array(111, 119, 113), PackedInt32Array(99, 100, 112), PackedInt32Array(123, 122, 114), PackedInt32Array(114, 122, 116), PackedInt32Array(116, 122, 124), PackedInt32Array(112, 109, 99), PackedInt32Array(107, 125, 106), PackedInt32Array(106, 125, 126), PackedInt32Array(124, 122, 127), PackedInt32Array(125, 128, 126), PackedInt32Array(126, 128, 129), PackedInt32Array(131, 130, 132), PackedInt32Array(132, 130, 133), PackedInt32Array(135, 134, 127), PackedInt32Array(127, 134, 129), PackedInt32Array(127, 129, 128), PackedInt32Array(127, 128, 124), PackedInt32Array(132, 133, 136), PackedInt32Array(136, 133, 135), PackedInt32Array(136, 135, 127), PackedInt32Array(104, 103, 137), PackedInt32Array(138, 104, 129), PackedInt32Array(129, 104, 126), PackedInt32Array(126, 104, 137)]
+geometry_parsed_geometry_type = 1
+
+[sub_resource type="Resource" id="Resource_doqvy"]
+script = ExtResource("11_ony65")
+amount = 6000
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_j2uv3"]
+script = ExtResource("12_5fgg3")
+position = Vector3(0.15, 0.15, 0.15)
+scale = Vector3(1, 1, 1)
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_gbb6j"]
+script = ExtResource("13_56qd6")
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+restrict_height = true
+
+[sub_resource type="Resource" id="Resource_tdwpq"]
+script = ExtResource("17_q0gpo")
+terrain_node = NodePath("../Terrain3D")
+
+[sub_resource type="Resource" id="Resource_60b2k"]
+script = ExtResource("19_n1rip")
+negative_shapes_only = true
+
+[sub_resource type="Resource" id="Resource_81a1s"]
+script = ExtResource("9_horwd")
+stack = Array[ExtResource("10_4epcp")]([SubResource("Resource_doqvy"), SubResource("Resource_j2uv3"), SubResource("Resource_gbb6j"), SubResource("Resource_tdwpq"), SubResource("Resource_60b2k")])
+
+[sub_resource type="Resource" id="Resource_s0gur"]
+script = ExtResource("17_820pb")
+size = Vector3(1.25, 1, 1.25)
+metadata/_custom_type_script = "uid://8ma4dmtcn21t"
+
+[sub_resource type="Resource" id="Resource_1r527"]
+script = ExtResource("17_820pb")
+size = Vector3(1000, 1000, 1000)
+metadata/_custom_type_script = "uid://8ma4dmtcn21t"
+
+[sub_resource type="Resource" id="Resource_na6ty"]
+script = ExtResource("24_eap8e")
+radius = 15.0
+metadata/_custom_type_script = "uid://cwn63ttli2rr7"
+
+[sub_resource type="Resource" id="Resource_q1wci"]
+script = ExtResource("24_eap8e")
+radius = 13.707321
+
+[sub_resource type="Resource" id="Resource_lrffj"]
+script = ExtResource("24_eap8e")
+radius = 13.069035
+
+[sub_resource type="Resource" id="Resource_kmskq"]
+script = ExtResource("24_eap8e")
+radius = 10.529074
+
+[sub_resource type="Resource" id="Resource_qpbtb"]
+script = ExtResource("24_eap8e")
+radius = 20.74826
+
+[sub_resource type="Resource" id="Resource_7igot"]
+script = ExtResource("24_eap8e")
+radius = 20.74826
+
+[sub_resource type="Resource" id="Resource_ffcto"]
+script = ExtResource("24_eap8e")
+radius = 26.110626
+
+[sub_resource type="Resource" id="Resource_depuf"]
+script = ExtResource("24_eap8e")
+radius = 21.03379
+
+[sub_resource type="Resource" id="Resource_f24k4"]
+script = ExtResource("24_eap8e")
+radius = 75.382935
+
+[sub_resource type="Resource" id="Resource_6no0m"]
+script = ExtResource("24_eap8e")
+radius = 24.433426
+
+[sub_resource type="Gradient" id="Gradient_2a3p7"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mj0yi"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ty5sy"]
+noise = SubResource("FastNoiseLite_mj0yi")
+color_ramp = SubResource("Gradient_2a3p7")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_muxfg"]
+_shader_parameters = {
+&"bias_distance": 8727.500130050223,
+&"blend_sharpness": 0.0,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": true,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_ty5sy"),
+&"projection_threshold": 0.8
+}
+world_background = 0
+texture_filtering = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56qd6"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_q0gpo"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_56qd6")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_muxfg"]
+name = "Ground068_1K-JPG_Color"
+albedo_texture = ExtResource("2_muxfg")
+normal_texture = ExtResource("3_43yya")
+uv_scale = 1.0
+detiling_rotation = 1.0
+detiling_shift = 1.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_a6y8w"]
+name = "Ground103_1K-JPG_Color"
+id = 1
+albedo_texture = ExtResource("4_a6y8w")
+normal_texture = ExtResource("5_gav48")
+uv_scale = 1.0
+detiling_rotation = 1.0
+detiling_shift = 1.0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_a6y8w"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_q0gpo")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_muxfg"), SubResource("Terrain3DTextureAsset_a6y8w")])
+
+[node name="World" type="Node3D" node_paths=PackedStringArray("playerSpawn")]
+script = ExtResource("1_gav48")
+LevelName = "FOREST"
+playerSpawn = NodePath("PlayerSpawn")
+
+[node name="EnemyManager" type="Node" parent="."]
+script = ExtResource("2_4epcp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660249, 0.378879, -0.32626736, 0, 0.6525357, 0.757758, 0.5, -0.65623796, 0.5651123, 0, 36.0983, 22.6606)
+light_color = Color(0.38170326, 0.38170323, 0.38170323, 1)
+light_energy = 1.22
+light_indirect_energy = 0.855
+light_volumetric_fog_energy = 5.292
+light_specular = 0.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l208q")
+
+[node name="SM_PSX_Water" parent="." instance=ExtResource("26_5fgg3")]
+transform = Transform3D(1500, 0, 0, 0, 1000, 0, 0, 0, 1500, -0.978302, -20.294903, -9.624664)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_3gjhc")
+
+[node name="Blockout" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Forest" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Walls" type="Node3D" parent="NavigationRegion3D/Forest"]
+
+[node name="Columns" type="Node3D" parent="NavigationRegion3D/Forest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.18, 0)
+
+[node name="Floors" type="Node3D" parent="NavigationRegion3D/Forest"]
+
+[node name="Doors" type="Node3D" parent="NavigationRegion3D/Forest"]
+
+[node name="Tent" parent="NavigationRegion3D/Forest" instance=ExtResource("9_f50mj")]
+transform = Transform3D(1.4359125, 0, 1.3921765, 0, 2, 0, -1.3921765, 0, 1.4359125, -1.6338539, 0, -5.023981)
+
+[node name="Trees" type="Node3D" parent="NavigationRegion3D/Forest"]
+
+[node name="PSXOakTreeA" parent="NavigationRegion3D/Forest/Trees" instance=ExtResource("11_2axe5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.444632, 0, -1.9657745)
+
+[node name="Meshes" type="Node3D" parent="NavigationRegion3D/Forest"]
+
+[node name="PSXCampfire" parent="NavigationRegion3D/Forest/Meshes" instance=ExtResource("10_2rgin")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.203402, 0, -1.4949744)
+
+[node name="PSXAxe" parent="NavigationRegion3D/Forest/Meshes" instance=ExtResource("8_oo2l8")]
+transform = Transform3D(-0.060308963, -1.6923864, -1.0640447, 0.0957693, -1.0657525, 1.6896745, -1.9967953, -1.4901161e-07, 0.11317655, -1.7652626, 0.955225, 0.40077996)
+
+[node name="PSXCutLog" parent="NavigationRegion3D/Forest/Meshes" instance=ExtResource("7_oo2l8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.7458391, 0, 0.4480214)
+
+[node name="Table2" parent="NavigationRegion3D/Forest/Meshes" instance=ExtResource("30_s0gur")]
+transform = Transform3D(0.2677867, 0.08479103, 0.53018945, -0.03368037, 0.59395707, -0.07797791, -0.5358694, 0.0050407834, 0.26984936, 77.88977, 4.261648, 225.20554)
+
+[node name="Areas" type="Node3D" parent="NavigationRegion3D/Forest"]
+
+[node name="AreaRest" parent="NavigationRegion3D/Forest/Areas" instance=ExtResource("8_ony65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.112076, 4.569277, 221.36223)
+name = "Rest Camp"
+
+[node name="PSXFenceA" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("28_q0gpo")]
+transform = Transform3D(1.4323786, 0.6597939, -2.5520508, -0.32293177, 2.9265459, 0.5753635, 2.6161056, 4.399312e-09, 1.4683301, -4.192711, 0.45960426, 9.870514)
+
+[node name="PSXFenceA11" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("28_q0gpo")]
+transform = Transform3D(1.7965287, 0.83328736, -2.2534683, 0.02773574, 2.8064065, 1.059865, 2.4024394, -0.6555263, 1.6728928, -6.9705505, 0.42480564, 5.076462)
+
+[node name="PSXFenceA2" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("28_q0gpo")]
+transform = Transform3D(2.9303598, 0.2971555, 0.5698159, -0.3242957, 2.980258, 0.11355075, -0.5548188, -0.1725111, 2.9431984, 0.34889984, -0.52116394, 11.205078)
+
+[node name="PSXFenceA5" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("28_q0gpo")]
+transform = Transform3D(1.8091525, 0.39709085, 2.3599336, -0.14389108, 2.9711096, -0.38962087, -2.3887782, 0.12177011, 1.810776, 5.481102, -0.8815639, 8.414185)
+
+[node name="PSXFenceA6" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("28_q0gpo")]
+transform = Transform3D(1.1606464, 0.06478053, 2.7656288, -0.041754514, 2.9992456, -0.052729607, -2.7660723, -0.018092357, 1.1612563, 7.8659363, -1.4892061, 3.3439026)
+
+[node name="PSXFenceA8" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("28_q0gpo")]
+transform = Transform3D(-1.0818036, 0.23683794, 2.7881193, -0.016602382, 2.988639, -0.260313, -2.798111, -0.109298944, -1.0763959, 8.029648, -1.5971994, -2.394989)
+
+[node name="PSXFenceA9" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("28_q0gpo")]
+transform = Transform3D(-2.021386, 0.3102822, 2.1949317, -0.04236817, 2.9645169, -0.45809138, -2.2163496, -0.3396582, -1.993095, 4.9016724, -1.4736466, -7.3082733)
+
+[node name="PSXLantern18" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.49240556, 0.01920822, -0.08466264, -0.023463437, 0.49890667, -0.023273617, 0.083583415, 0.026893087, 0.49223024, -1.5287399, 1.3828306, 10.013992)
+
+[node name="PSXWood11" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("22_depuf")]
+transform = Transform3D(-0.08291753, 0.019208206, -0.49270245, -0.02335655, 0.49890652, 0.023380782, 0.4925232, 0.026893027, -0.08183888, -1.6031494, 1.1434689, 10.522827)
+
+[node name="PSXLantern21" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.3575122, -0.036907222, -0.34759587, -0.034166947, 0.49113455, -0.087289594, 0.34787586, 0.08616678, 0.34865123, -7.2833405, 1.414999, 0.18031311)
+
+[node name="PSXWood14" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("22_depuf")]
+transform = Transform3D(-0.34632698, -0.036907192, -0.35874152, -0.08741004, 0.4911345, 0.033857428, 0.34988144, 0.08616672, -0.34663838, -7.615814, 1.1113029, 0.52523804)
+
+[node name="PSXLantern20" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("44_depuf")]
+transform = Transform3D(-0.34419084, 0.04011824, 0.3604486, -0.03416696, 0.49113455, -0.08728959, -0.3610613, -0.08471942, -0.3353466, 2.7814255, -0.05528307, -7.2144012)
+
+[node name="PSXWood13" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("22_depuf")]
+transform = Transform3D(0.35922685, 0.040118255, 0.34546575, -0.08741005, 0.49113452, 0.033857428, -0.3366237, -0.08471936, 0.3598709, 3.126625, -0.35897923, -7.5466003)
+
+[node name="PSXLantern19" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("44_depuf")]
+transform = Transform3D(-0.054632246, 0.08328354, 0.48997876, -0.03416696, 0.49113455, -0.08728959, -0.49583054, -0.04301982, -0.04797248, 7.1928787, 0.17980814, 0.5325012)
+
+[node name="PSXWood12" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("22_depuf")]
+transform = Transform3D(0.4897821, 0.083283514, 0.056367904, -0.087410055, 0.49113455, 0.03385743, -0.049728923, -0.043019775, 0.49565747, 7.6688232, -0.123888016, 0.4777832)
+
+[node name="AreaHarbor" parent="NavigationRegion3D/Forest/Areas" instance=ExtResource("8_ony65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.65356, 1.4457476, 211.29294)
+name = "Harbor"
+
+[node name="Collision" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.864986, 19.845322)
+
+[node name="HarborPathway" type="Node3D" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" groups=["Wood"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -195.01917, 0, -205.15196)
+
+[node name="PSXPlank3" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" groups=["Terrain"] instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.1982733, 0.011633356, -0.5039899, -0.12708203, 1.2646523, -0.2729556, 0.48784354, 0.3008642, 1.1668288, 182.16339, -15.26565, 275.0379)
+
+[node name="PSXPlank4" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.0170205, 0.015680587, -0.8095822, -0.20126554, 1.2638613, -0.22835618, 0.7843222, 0.30398765, 0.991176, 182.94598, -14.828474, 273.22968)
+
+[node name="PSXPlank5" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.0854598, 0.045293376, -0.7139504, -0.21091591, 1.2599849, -0.24073355, 0.68358696, 0.31683856, 1.059397, 183.67354, -14.504988, 272.0274)
+
+[node name="PSXPlank6" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.161344, 0.045293353, -0.5824332, -0.18138894, 1.2599847, -0.26369727, 0.55531794, 0.31683862, 1.1319166, 184.4868, -14.271531, 270.99695)
+
+[node name="PSXPlank7" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(0.9293839, 0.0452934, -0.9078514, -0.25295448, 1.2599849, -0.19609244, 0.8730748, 0.31683862, 0.90958977, 185.32426, -14.011288, 269.70502)
+
+[node name="PSXPlank8" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.0409225, 0.04529337, -0.77744997, -0.2249052, 1.2599847, -0.22771871, 0.74558556, 0.3168386, 1.0167179, 186.5377, -13.817107, 268.69168)
+
+[node name="PSXPlank9" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(0.7590767, 0.038909137, -1.054651, -0.27239665, 1.262321, -0.14948471, 1.0196089, 0.30827215, 0.7452286, 187.8922, -13.759184, 268.03024)
+
+[node name="PSXPlank10" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(0.9241237, 0.045293406, -0.91320527, -0.25408304, 1.2599847, -0.19462784, 0.8783149, 0.3168386, 0.9045308, 188.8378, -13.590688, 267.0987)
+
+[node name="PSXPlank11" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.0853102, 0.07532181, -0.7116376, -0.21096638, 1.2690011, -0.18742763, 0.6838089, 0.27196056, 1.0716542, 189.91304, -13.448892, 266.1826)
+
+[node name="PSXPlank12" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(0.84520096, 0.074873485, -0.9849005, -0.2542137, 1.2690823, -0.121678375, 0.9544686, 0.2717061, 0.8397413, 191.12386, -13.313304, 265.22867)
+
+[node name="PSXPlank13" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.0333093, 0.08876917, -0.9404212, -0.25597665, 1.367966, -0.15213364, 0.909257, 0.28423357, 1.0258963, 192.3579, -13.147164, 264.02924)
+
+[node name="PSXPlank14" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(0.94851035, 0.094994165, -0.7289062, -0.23398148, 1.1670619, -0.1523787, 0.6968364, 0.26256946, 0.94099754, 193.24788, -12.931046, 262.87076)
+
+[node name="PSXPlank15" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.1948688, 0.13545008, -0.7168974, -0.25135225, 1.3678688, -0.16049027, 0.68491644, 0.2656847, 1.1917636, 194.11305, -12.763081, 261.74945)
+
+[node name="PSXPlank16" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.0994169, 0.13545008, -0.85611665, -0.26891392, 1.3678688, -0.12892008, 0.82399493, 0.26568472, 1.1002016, 194.83153, -12.572335, 260.56604)
+
+[node name="PSXPlank17" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(0.91767156, 0.06646032, -0.60287803, -0.19400132, 1.0681003, -0.17755365, 0.5746671, 0.2544501, 0.90278065, 195.64001, -12.422394, 259.53595)
+
+[node name="PSXPlank18" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.0848342, 0.060653396, -0.5093681, -0.16935015, 1.1671201, -0.22170027, 0.48420578, 0.27230802, 1.0636697, 196.34102, -12.242601, 258.47736)
+
+[node name="PSXPlank19" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.1395403, 0.07076225, -0.81021005, -0.24048927, 1.3616401, -0.21931908, 0.77692497, 0.31769273, 1.1204726, 196.99368, -12.036059, 257.20044)
+
+[node name="PSXPlank20" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.3285903, 0.07076224, -0.4357065, -0.16460542, 1.3616401, -0.28078642, 0.40957597, 0.3176927, 1.3005071, 197.79424, -11.819353, 256.09332)
+
+[node name="PSXPlank21" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.320067, 0.16607882, -0.43570653, -0.26205492, 1.3462859, -0.2807864, 0.3856806, 0.34631142, 1.3005071, 198.2947, -11.500902, 254.62492)
+
+[node name="PSXPlank22" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.301862, 0.3125444, -0.40923157, -0.37224674, 1.3399898, -0.1608078, 0.3557904, 0.2583463, 1.3291615, 203.81274, -6.3501964, 224.32997)
+
+[node name="PSXPlank23" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.3467805, 0.34937757, 0.15529719, -0.32854593, 1.3483737, -0.1842421, -0.19554904, 0.14079398, 1.3791076, 204.24272, -6.1804595, 222.25758)
+
+[node name="PSXPlank24" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.2993529, 0.35907337, 0.37782034, -0.29156122, 1.3418925, -0.27260837, -0.43205768, 0.1743263, 1.3202032, 203.99918, -5.8915215, 220.09479)
+
+[node name="PSXPlank25" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.3391005, 0.35907337, 0.19461733, -0.3264392, 1.3418925, -0.22969703, -0.24545258, 0.1743263, 1.3672466, 203.4718, -5.5110083, 218.25201)
+
+[node name="PSXPlank26" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.3335403, 0.3590734, -0.2296438, -0.38152444, 1.3418925, -0.11731322, 0.19002384, 0.17432629, 1.3760456, 203.58272, -5.2740936, 216.31229)
+
+[node name="PSXPlank27" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.2411578, 0.34603044, -0.54753083, -0.38446373, 1.3460132, -0.020854555, 0.52126247, 0.1688498, 1.2883227, 203.95607, -5.040186, 214.1579)
+
+[node name="PSXPlank28" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.0861652, 0.3460304, -0.81271636, -0.3793001, 1.3460132, 0.06617214, 0.7977319, 0.1688498, 1.1380306, 204.84804, -5.0062127, 212.05914)
+
+[node name="PSXPlank" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.2244915, -0.033507403, -0.43531328, -0.06413251, 1.268302, -0.27802327, 0.431865, 0.2833499, 1.1929817, 180.91815, -16.082817, 278.1458)
+
+[node name="PSXPlank2" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/HarborPathway" instance=ExtResource("14_k0rrg")]
+transform = Transform3D(1.1982898, -0.02222559, -0.5035945, -0.10446086, 1.2595947, -0.30415264, 0.49314237, 0.32082224, 1.1592598, 181.47932, -15.686196, 276.61444)
+
+[node name="PSXBoatglb" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" groups=["Wood"] instance=ExtResource("34_1r527")]
+transform = Transform3D(-0.0030368236, 0, -1.9999977, 0, 2, 0, 1.9999977, 0, -0.0030368236, -13.315155, -15.615441, 85.06293)
+
+[node name="PSXHarbor" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" groups=["Wood"] instance=ExtResource("35_f24k4")]
+transform = Transform3D(-1.9318517, 0, 0.51763785, 0, 2, 0, -0.51763785, 0, -1.9318517, -17.398483, -17.406466, 84.49432)
+
+[node name="Harbor" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/PSXHarbor" index="0" groups=["Wood"]]
+
+[node name="StaticBody3D" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/PSXHarbor/Harbor" index="0" groups=["Wood"]]
+
+[node name="CollisionShape3D" parent="NavigationRegion3D/Forest/Areas/AreaHarbor/PSXHarbor/Harbor/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.3841858e-07, 1.4901161e-08, 1.0000001, -1.9073486e-06, 4.656613e-10, -1.8626451e-09, 1, 0, 0, 0)
+
+[node name="PSXCabin" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("16_na6ty")]
+transform = Transform3D(0.45095927, 0, 0.6607842, 0, 0.8, 0, -0.6607842, 0, 0.45095927, -1.5501862, -1.2097296, 23.934875)
+
+[node name="ExitDoor" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("16_q1wci")]
+transform = Transform3D(0.2073399, 0, -0.13967879, 0, 0.25, 0, 0.13967879, 0, 0.2073399, -0.50649315, -4.578249, 28.28536)
+Locked = true
+
+[node name="PSXWindow" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("17_lrffj")]
+transform = Transform3D(0.57735157, 0, -0.3958095, 0, 0.7, 0, 0.3958095, 0, 0.57735157, 3.3118448, -4.096979, 22.734316)
+
+[node name="PSXWindow4" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("17_lrffj")]
+transform = Transform3D(0.57735157, 0, -0.3958095, 0, 0.7, 0, 0.3958095, 0, 0.57735157, -2.221746, -2.6731932, 18.94071)
+
+[node name="PSXWindow5" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("17_lrffj")]
+transform = Transform3D(0.57735157, 0, -0.3958095, 0, 0.7, 0, 0.3958095, 0, 0.57735157, -6.3846626, -2.673193, 25.061863)
+
+[node name="PSXWindow2" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("17_lrffj")]
+transform = Transform3D(0.40438068, 0, 0.57138103, 0, 0.7, 0, -0.57138103, 0, 0.40438068, 2.0055242, -2.673193, 18.581038)
+
+[node name="PSXWindow3" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("17_lrffj")]
+transform = Transform3D(0.3883606, 0, 0.5823883, 0, 0.7, 0, -0.5823883, 0, 0.3883606, -5.097593, -4.096979, 29.190123)
+
+[node name="PSXBucket" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("18_kmskq")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -12.941071, -15.898785, 74.87805)
+
+[node name="PSXBarrel" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("19_qpbtb")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -17.185349, -15.493577, 81.14188)
+
+[node name="PSXBarrel2" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("19_qpbtb")]
+transform = Transform3D(0.29509786, 0.054011535, 0, -0.051980868, 0.2840031, -0.08148756, -0.014670895, 0.08015602, 0.2887209, 7.8568573, -7.7465086, 35.72766)
+
+[node name="PSXBarrel3" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("19_qpbtb")]
+transform = Transform3D(0.29509786, 0.054011535, 0, -0.051980868, 0.2840031, -0.08148756, -0.014670895, 0.08015602, 0.2887209, 6.4318786, -7.322695, 35.186226)
+
+[node name="PSXBarrel4" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("19_qpbtb")]
+transform = Transform3D(0.29509786, 0.054011535, 0, -0.051980868, 0.2840031, -0.08148756, -0.014670895, 0.08015602, 0.2887209, 7.796029, -7.350795, 34.36658)
+
+[node name="PSXFenceA" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(-1.842194, -0.09815613, -2.3657315, -0.4264993, 2.96215, 0.2092128, 2.3290377, 0.46479794, -1.8329055, -12.518194, -14.029863, 64.89535)
+
+[node name="PSXFenceA2" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(-1.0698117, -0.052397445, -2.8022773, -0.60827696, 2.932326, 0.17738989, 2.7359645, 0.63144493, -1.0563024, -15.328018, -15.3457, 70.28523)
+
+[node name="PSXFenceA3" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(-2.3992429, -3.5390258e-08, -1.8010101, -0.2982752, 2.9585714, 0.397352, 1.7761389, 0.49684685, -2.3661103, -8.537522, -13.191294, 60.6315)
+
+[node name="PSXFenceA4" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(-1.6143982, 0.90558684, -2.3608541, -0.30616754, 2.7103872, 1.2490261, 2.509976, 0.9130807, -1.3661274, -0.6257019, -11.642674, 51.477295)
+
+[node name="PSXFenceA5" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(-2.019493, -0.21043983, -2.2084758, -0.17372859, 2.9923027, -0.12626648, 2.2116656, 0.04289359, -2.026498, -4.208249, -12.45262, 56.144547)
+
+[node name="PSXFenceA6" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(1.7257439, 0, 2.4539373, 0.40641043, 2.9585717, -0.28581014, -2.4200492, 0.4968469, 1.7019122, -7.192698, -14.472579, 66.12456)
+
+[node name="PSXFenceA7" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(0.9832368, 0, 2.8342981, 0.46940413, 2.9585714, -0.1628394, -2.7951574, 0.4968469, 0.9696587, -10.809296, -15.713346, 71.81302)
+
+[node name="PSXFenceA8" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(2.4488666, 0, 1.7329319, 0.28700066, 2.9585714, -0.4055706, -1.7090006, 0.4968469, 2.4150488, -2.5519211, -13.594846, 61.483017)
+
+[node name="PSXFenceA9" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(1.999495, 0.46518078, 2.1876087, 0.18089792, 2.8911383, -0.7801247, -2.2291918, 0.65186286, 1.8988887, 5.8518066, -12.239669, 51.367004)
+
+[node name="PSXFenceA11" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(0.8103149, 0.6663182, 2.8105898, 0.23275661, 2.8945332, -0.75332516, -2.8790996, 0.42153788, 0.73013115, 10.332129, -8.086927, 29.231306)
+
+[node name="PSXFenceA12" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(0.52831626, 0.6663182, 2.8769615, 0.30613416, 2.8945332, -0.726606, -2.9372034, 0.4215379, 0.44174865, 12.3258915, -7.4758472, 22.186947)
+
+[node name="PSXFenceA13" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(2.3984275, 0.44495746, 1.746299, -0.16111732, 2.9484174, -0.5299746, -1.7948776, 0.32991546, 2.381086, 4.6811724, -4.189456, 10.048629)
+
+[node name="PSXFenceA14" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(2.8951938, 0.4449575, 0.64797074, -0.35866126, 2.9484174, -0.4221303, -0.69943887, 0.32991546, 2.8986108, -1.9031816, -3.4257126, 12.103472)
+
+[node name="PSXFenceA10" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("20_7igot")]
+transform = Transform3D(1.5539415, 0.46518072, 2.5236635, 0.32393843, 2.8911383, -0.73238134, -2.5456495, 0.65186286, 1.4473231, 2.0065308, -12.914104, 56.703613)
+
+[node name="PSXLantern2" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.38129807, -0.011598909, -0.3232294, -0.013610797, 0.4986602, -0.033950146, 0.32315087, 0.034689005, 0.37996072, -130.50378, 2.4603837, -15.855988)
+
+[node name="PSXWood" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("22_depuf")]
+transform = Transform3D(-0.35406396, -0.012758821, -0.42068502, -0.03739784, 0.5485262, 0.014839404, 0.41921353, 0.03815791, -0.35398299, -130.83603, 2.2732103, -15.456512)
+
+[node name="PSXLantern16" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(-0.2377523, -0.025268687, -0.4391302, -0.054282732, 0.49704388, 0.0007882863, 0.43649432, 0.04804919, -0.23908997, -19.619415, 0.104144335, -61.093002)
+
+[node name="PSXWood9" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("22_depuf")]
+transform = Transform3D(-0.4839668, -0.02779557, 0.25981447, 0.0006556759, 0.54674834, 0.059713647, -0.26129618, 0.052854083, -0.48107255, -20.082916, -0.0464499, -61.35283)
+
+[node name="PSXLantern17" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(-0.13580108, 0.14408088, 0.45912823, 0.2105429, 0.44676504, -0.07792685, -0.4327007, 0.17216727, -0.18201283, 12.057739, -5.1934485, 16.161697)
+
+[node name="PSXWood10" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("22_depuf")]
+transform = Transform3D(0.5045088, 0.15848908, 0.15116963, -0.08489835, 0.4914417, -0.23189953, -0.20189916, 0.18938403, 0.47525835, 12.4991455, -5.407189, 15.9077)
+
+[node name="PSXLantern15" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(-0.15269881, 0.19093959, -0.4361481, 0.11511131, 0.45924768, 0.16075096, 0.46198756, -0.051318154, -0.18421178, 0.53900146, -10.872156, 52.55356)
+
+[node name="PSXWood8" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("22_depuf")]
+transform = Transform3D(-0.480355, 0.2100335, 0.16626786, 0.1772736, 0.50517255, -0.1259952, -0.20083122, -0.056450058, -0.5089012, 0.014953613, -10.838049, 52.3826)
+
+[node name="PSXLantern8" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.32490215, 0.0043519177, 0.38002592, 0.039469726, 0.4968772, -0.039434623, -0.37799567, 0.055623762, 0.32252944, -0.56562805, -11.939829, 59.128906)
+
+[node name="PSXLantern9" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.3094442, 0, 0.39273953, 0, 0.49999994, 0, -0.3927395, 0, 0.30944425, -5.2860203, -3.0440083, 22.662563)
+
+[node name="PSXLantern11" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(-0.39004606, 0, 0.31283244, 0, 0.49999994, 0, -0.31283244, 0, -0.39004606, -5.4484963, -2.942015, 29.53609)
+
+[node name="PSXLantern12" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.40886906, 0, -0.28779534, 0, 0.49999994, 0, 0.28779534, 0, 0.40886906, 2.1005664, -0.9930835, 18.349312)
+
+[node name="PSXLantern10" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.3094442, 0, 0.39273953, 0, 0.49999994, 0, -0.3927395, 0, 0.30944425, -1.5673281, -3.0440083, 17.289686)
+
+[node name="PSXLantern13" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(-0.28455368, 0, -0.4111317, 0, 0.49999994, 0, 0.41113168, 0, -0.2845537, -0.1327891, -2.942015, 28.5558)
+
+[node name="PSXLantern14" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(-0.28455368, 0, -0.4111317, 0, 0.49999994, 0, 0.41113168, 0, -0.2845537, 3.5859032, -2.942015, 23.182922)
+
+[node name="PSXWood7" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("22_depuf")]
+transform = Transform3D(0.41929212, 0.0047871545, -0.35590908, -0.04322394, 0.54656506, -0.043570146, 0.353307, 0.061186254, 0.4170498, -0.1568451, -12.131242, 59.447144)
+
+[node name="PSXLantern7" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(-0.434003, 0.033646144, -0.24598664, 0.079562806, 0.48810968, -0.07361168, 0.2351834, -0.10303809, -0.42903614, -5.304077, -11.923405, 59.497955)
+
+[node name="PSXWood6" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("22_depuf")]
+transform = Transform3D(-0.27227503, 0.03701073, 0.47644168, -0.080662236, 0.5369208, -0.08780545, -0.47102016, -0.113342, -0.26037228, -5.5841675, -12.147666, 59.078094)
+
+[node name="PSXLantern6" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.21583533, 0.032657396, 0.44983187, 0.0795628, 0.48810962, -0.07361167, -0.4439425, 0.10335572, 0.20550601, -10.574432, -13.515321, 68.52258)
+
+[node name="PSXWood5" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("22_depuf")]
+transform = Transform3D(0.49565303, 0.035923216, -0.23566423, -0.08066223, 0.5369207, -0.08780544, 0.22432497, 0.11369134, 0.48913458, -10.102234, -13.739582, 68.700745)
+
+[node name="PSXLantern5" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.21583527, 0.032657392, 0.4498318, -0.024472058, 0.49880075, -0.024470512, -0.45035124, -0.0114534255, 0.21691605, -14.576675, -14.8603945, 78.31943)
+
+[node name="PSXWood4" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("22_depuf")]
+transform = Transform3D(0.49565306, 0.03592322, -0.23566426, -0.027012765, 0.548681, 0.026823724, 0.23685099, -0.012598752, 0.4962287, -14.104477, -15.037768, 78.54431)
+
+[node name="PSXLantern4" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.12575488, -0.0593753, 0.4802711, 0.0150398845, 0.49646202, 0.05743891, -0.48369363, -1.8124249e-09, 0.12665105, -16.496277, -14.760115, 85.29706)
+
+[node name="PSXWood3" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("22_depuf")]
+transform = Transform3D(0.528785, -0.065312795, -0.13645774, 0.06324103, 0.5461084, -0.016319923, 0.1374302, -6.3038463e-12, 0.5325534, -15.965698, -14.848995, 85.42197)
+
+[node name="PSXLantern3" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("44_depuf")]
+transform = Transform3D(0.12513538, 0.0771224, 0.4779051, -0.019535266, 0.49401632, -0.07460722, -0.48369363, 0, 0.12665105, -17.841965, -14.690011, 91.54739)
+
+[node name="PSXWood2" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("22_depuf")]
+transform = Transform3D(0.52617997, 0.08483464, -0.13578549, -0.08214357, 0.543418, 0.021197887, 0.13743016, 0, 0.53255326, -17.355194, -14.919093, 91.6723)
+
+[node name="PSXLogPile" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("23_0dejq")]
+transform = Transform3D(0.99699086, 0.077519484, -1.8626451e-09, -0.07477021, 0.96163195, -0.26395723, -0.020461828, 0.26316294, 0.9645344, -2.202204, -6.1022053, 38.25927)
+
+[node name="PSXBrokenBoatglb" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("24_6no0m")]
+transform = Transform3D(-0.31473124, 0.35277855, 1.7937438, 0.5735634, 1.7472836, -0.2430034, -1.7357979, 0.5133934, -0.40553385, 9.230173, -10.334579, 43.74557)
+
+[node name="PSXSignHarbor" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("25_o7hy3")]
+transform = Transform3D(-1.9278102, 0, -0.53249204, 0, 2, 0, 0.53249204, 0, -1.9278102, 1.6541595, -9.767817, 47.48886)
+
+[node name="PSXCutLog2" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("7_oo2l8")]
+transform = Transform3D(1.9392451, 0.47419685, -0.120273374, -0.4865917, 1.9204798, -0.27383596, 0.050565213, 0.29477954, 1.9775106, 8.15242, -9.228415, 38.025925)
+
+[node name="PSXSign_Wreck_Shrine" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("50_ouwue")]
+transform = Transform3D(-0.18815307, -0.09354003, -0.56200415, -0.029696168, 0.5926637, -0.08870103, 0.56896096, 0, -0.19048212, -19.224335, -0.29077256, -62.404358)
+
+[node name="PSXSignKeepOut" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("26_7ynvl")]
+transform = Transform3D(-1.8231883, 0.503801, 0.64974606, 0.47456515, 1.9355063, -0.16912507, -0.67139643, 0, -1.8839394, 12.04306, -5.699254, 10.51593)
+
+[node name="PSXSign_Lighthouse" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("28_nyno3")]
+transform = Transform3D(0.636424, 0.088618, 0.76623183, -0.03614405, 0.99571335, -0.08513764, -0.77049196, 0.026488923, 0.63689893, -20.562378, -0.8809279, -59.977036)
+
+[node name="PSXSign_Lighthouse2" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("28_nyno3")]
+transform = Transform3D(-0.78405106, 0, 0.6206963, 0, 1, 0, -0.6206963, 0, -0.78405106, -129.31427, 1.7625005, -15.191666)
+
+[node name="PSXSign_WreckB" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("29_doqvy")]
+transform = Transform3D(-0.8712684, 0, -0.96482706, 0, 1.3, 0, 0.96482706, 0, -0.8712684, -28.982239, -0.63391864, -168.44275)
+
+[node name="PSXLighthouseNoMat" parent="NavigationRegion3D/Forest/Areas" instance=ExtResource("33_eap8e")]
+transform = Transform3D(0.9418818, 0, -0.3359448, 0, 1, 0, 0.3359448, 0, 0.9418818, -266.10486, -8.293325, 333.28476)
+
+[node name="SpotLight3D" parent="NavigationRegion3D/Forest/Areas/PSXLighthouseNoMat" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 56.46876, -2.9381678)
+light_color = Color(0.99525684, 0.6849829, 1.92523e-06, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 10.0
+spot_range = 224.93
+spot_attenuation = 0.3
+
+[node name="Trees" type="Node3D" parent="NavigationRegion3D"]
+process_physics_priority = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.112072, 0, 0)
+script = ExtResource("8_3gjhc")
+enabled = false
+render_mode = 1
+keep_static_colliders = true
+force_rebuild_on_load = false
+modifier_stack = SubResource("Resource_81a1s")
+Performance/use_chunks = false
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+metadata/_custom_type_script = "uid://c6167jfr4rows"
+
+[node name="ScatterItem" type="Node3D" parent="NavigationRegion3D/Trees"]
+physics_interpolation_mode = 1
+script = ExtResource("15_v3h85")
+source = 0
+path = "../../Forest/Trees/PSXOakTreeA"
+
+[node name="ScatterShape" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(500, 0, -1.4901149e-05, 0, 500, 0, 1.4901149e-05, 0, 500, 0, 0, 0)
+script = ExtResource("16_s0gur")
+shape = SubResource("Resource_s0gur")
+
+[node name="ProtonScatterCache" type="Node" parent="NavigationRegion3D/Trees"]
+script = ExtResource("21_v3h85")
+cache_file = "res://addons/proton_scatter/cache/Level_Forest_2156498369_scatter_cache.res"
+metadata/_custom_type_script = "uid://baq2k6tet34wd"
+
+[node name="ExludeShape" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -514.613, 0)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_1r527")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="ExludeShape3" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.561172, 0, -1.1903076)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_na6ty")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="ExludeShape4" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -215.42088, -6.0380955, -186.26144)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_q1wci")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="ExludeShape6" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.45682, -6.0380955, -247.27805)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_lrffj")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="ExludeShape7" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.976807, 31.434069, -162.01566)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_kmskq")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="ExludeShape8" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.66142, -6.976408, 6.371912)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_qpbtb")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="ExludeShape9" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.35542, -1.387579, 25.68778)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_7igot")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="ExludeShape10" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.11269, -11.425488, 229.90393)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_ffcto")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="ExludeShape11" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.18308, -11.425488, 222.32243)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_depuf")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="ExludeShape12" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -227.22653, -11.425488, 340.91705)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_f24k4")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="ExludeShape5" type="Node3D" parent="NavigationRegion3D/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.49564, 8.904493, 7.5106564)
+script = ExtResource("16_s0gur")
+negative = true
+shape = SubResource("Resource_6no0m")
+metadata/_custom_type_script = "uid://b5ris1v2p0auy"
+
+[node name="Terrain3DObjects" type="Node3D" parent="NavigationRegion3D"]
+script = ExtResource("10_56qd6")
+metadata/_custom_type_script = "uid://dbndw8p05yam7"
+
+[node name="Terrain3D" type="Terrain3D" parent="NavigationRegion3D" groups=["Terrain"]]
+data_directory = "res://Scenes/Levels/Forest/Data"
+material = SubResource("Terrain3DMaterial_muxfg")
+assets = SubResource("Terrain3DAssets_a6y8w")
+save_16_bit = true
+label_size = 24
+collision_shape_size = 8
+collision_radius = 32
+collision_layer = 255
+mesh_size = 8
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="PlayerSpawn" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 191.31075, 0.644609, 167.33833)
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="Item" parent="Interactables" instance=ExtResource("8_li658")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 175.55128, -13.262299, 292.91144)
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="EnemyBase" parent="Enemies" instance=ExtResource("22_3gjhc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.129712, 0.96392286, 3.8458273)
+
+[node name="EnemyDarkFigure" parent="Enemies" instance=ExtResource("23_horwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.721549, 1.035819, -4.3830414)
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="Events" type="Node3D" parent="."]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+light_color = Color(1, 0.5647059, 0.03529412, 1)
+light_energy = 2.805
+omni_range = 30.994398
+
+[node name="Debug" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Debug"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 152.853, 250)
+visible = false
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Debug"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 267.438, -26.431684, -261.18228)
+visible = false
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Debug"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 250, 152.853, 0)
+visible = false
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Debug"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -250, 152.853, 0)
+visible = false
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Debug"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 152.85295, -250)
+visible = false
+
+[node name="PSXAxe" parent="." instance=ExtResource("48_vgrq2")]
+transform = Transform3D(2, 0, 0, 0, 0.7305661, 1.861793, 0, -1.861793, 0.7305661, 192.23102, -4.332453, 252.0924)
+
+[editable path="NavigationRegion3D/Forest/Trees/PSXOakTreeA"]
+[editable path="NavigationRegion3D/Forest/Areas/AreaHarbor"]
+[editable path="NavigationRegion3D/Forest/Areas/AreaHarbor/PSXHarbor"]
+[editable path="NavigationRegion3D/Forest/Areas/PSXLighthouseNoMat"]

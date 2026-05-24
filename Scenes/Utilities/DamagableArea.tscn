@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://buwv0y0a377xk"]
+
+[ext_resource type="Script" uid="uid://dgkjjtar2jlf8" path="res://Scripts/Utilities/DamagableArea.cs" id="1_nukij"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nukij"]
+height = 0.6069641
+radius = 0.42773438
+
+[node name="DamagableArea" type="Area3D"]
+script = ExtResource("1_nukij")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_nukij")
+
+[connection signal="body_entered" from="." to="." method="OnEnter"]

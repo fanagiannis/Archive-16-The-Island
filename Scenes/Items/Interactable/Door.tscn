@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxvpdx4hbovfq"]
+
+[ext_resource type="Script" uid="uid://beq8hnjmogvq6" path="res://Scripts/Interactable/Door.cs" id="1_ci758"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ci758"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_psg40"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.01
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ci758"]
+next_pass = SubResource("StandardMaterial3D_psg40")
+albedo_color = Color(0.68235296, 0.27450982, 0, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ci758"]
+size = Vector3(0.29989624, 2.1817017, 1)
+
+[sub_resource type="Animation" id="Animation_ci758"]
+resource_name = "Door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, -0.5, 0, 1)
+
+[sub_resource type="Animation" id="Animation_psg40"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7egy"]
+_data = {
+&"Door": SubResource("Animation_ci758"),
+&"RESET": SubResource("Animation_psg40")
+}
+
+[node name="Door" type="Node3D"]
+
+[node name="Body" type="StaticBody3D" parent="." node_paths=PackedStringArray("itemLabel")]
+script = ExtResource("1_ci758")
+name = "Door"
+itemLabel = NodePath("ItemLabel")
+
+[node name="Mesh" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(0.14969917, 0, 0, 0, 2.1613333, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ci758")
+surface_material_override/0 = SubResource("StandardMaterial3D_ci758")
+
+[node name="Mesh Collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014633179, 0.0020446777, 0)
+shape = SubResource("BoxShape3D_ci758")
+
+[node name="ItemLabel" type="Label3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21844852, 0.25592303, -0.34836525)
+
+[node name="Animation" type="AnimationPlayer" parent="Body"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_k7egy")
+}
+
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="Body"]

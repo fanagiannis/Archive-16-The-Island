@@ -1,0 +1,159 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwya5aqu4o0g2"]
+
+[ext_resource type="Script" uid="uid://dlohclqb33upa" path="res://Scripts/Level/Level.cs" id="1_vswtx"]
+[ext_resource type="PackedScene" uid="uid://btvj7vivdcipb" path="res://Scenes/Dev/StairsPlaceholder.tscn" id="2_1achi"]
+[ext_resource type="PackedScene" uid="uid://dhs8rgwvhuaxx" path="res://Scenes/LevelAssets/Cabin/WoodenFloor.tscn" id="3_cjt38"]
+[ext_resource type="PackedScene" uid="uid://d1ffnbt2sysup" path="res://Scenes/LevelAssets/Cabin/ExitDoor.tscn" id="4_pjdyf"]
+[ext_resource type="PackedScene" uid="uid://dr2ogpgurap0y" path="res://Scenes/Items/Pickable/PickUp_Flashlight.tscn" id="6_1achi"]
+[ext_resource type="PackedScene" uid="uid://bhurf4iloqjn8" path="res://Scenes/Items/Pickable/PickUp.tscn" id="9_pnrr0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_awgfw"]
+sky_top_color = Color(0.524999, 0.699586, 0.930476, 1)
+sky_horizon_color = Color(0.885751, 0.528093, 0.662718, 1)
+ground_bottom_color = Color(0.154839, 0.15629, 0.181573, 1)
+sun_angle_max = 252.28
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_j2rwf"]
+sky_material = SubResource("ProceduralSkyMaterial_awgfw")
+
+[sub_resource type="Environment" id="Environment_l208q"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_j2rwf")
+sky_custom_fov = 49.5
+ambient_light_color = Color(0.29219013, 0.29219, 0.29219002, 1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_yj8jm"]
+vertices = PackedVector3Array(7.4558773, 0.3175769, -4.950532, 8.205877, 0.3175769, -5.200532, 8.205877, 0.3175769, -7.950532, -8.044123, 0.3175769, -7.950532, -1.0441227, 0.3175769, -5.200532, -8.044123, 0.3175769, -5.200532, -2.0441227, 0.3175769, -5.200532, -0.7941227, 0.3175769, -4.450532, 7.4558773, 0.3175769, -4.450532, -8.044123, 6.067577, -7.950532, -8.044123, 6.067577, 8.299468, 8.205877, 6.067577, 8.299468, 8.205877, 6.067577, -7.950532, -8.044123, 0.3175769, 5.049468, -2.0441227, 0.3175769, 5.049468, 1.9558773, 0.3175769, 1.299468, -0.7941227, 0.3175769, 1.799468, 2.2058773, 0.3175769, 1.799468, 5.9558773, 0.3175769, 1.799468, 6.2058773, 0.3175769, 3.299468, 7.4558773, 0.3175769, 3.299468, 7.4558773, 0.3175769, -2.950532, -0.7941227, 0.3175769, -0.45053196, -0.044122696, 0.3175769, -0.45053196, 0.2058773, 0.3175769, -2.700532, -0.7941227, 0.3175769, -2.950532, 1.9558773, 0.3175769, -2.450532, 2.2058773, 0.5675769, 2.799468, -0.7941227, 0.3175769, 3.299468, 6.4558773, 3.317577, -1.700532, 6.2058773, 3.317577, 2.799468, 7.4558773, 3.317577, 3.299468, 7.4558773, 3.317577, -2.950532, 3.5392103, 1.8175769, 2.799468, 1.9558773, 0.5675769, 3.299468, 6.0808773, 3.317577, 3.299468, -0.7941227, 3.317577, -2.950532, -0.7941227, 3.317577, -1.950532, 7.7058773, 0.3175769, 4.799468, 6.2058773, 0.3175769, 4.799468, 5.9558773, 0.3175769, 5.549468, 8.205877, 0.3175769, 8.299468, 8.205877, 0.3175769, 5.049468, 2.2058773, 0.3175769, 5.549468, -8.044123, 0.3175769, 8.299468, 2.2058773, 0.5675769, 4.799468)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(6, 5, 3), PackedInt32Array(4, 6, 3), PackedInt32Array(8, 7, 0), PackedInt32Array(0, 7, 4), PackedInt32Array(12, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(5, 6, 13), PackedInt32Array(13, 6, 14), PackedInt32Array(17, 16, 15), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(17, 15, 18), PackedInt32Array(18, 15, 26), PackedInt32Array(18, 26, 21), PackedInt32Array(24, 25, 26), PackedInt32Array(26, 25, 21), PackedInt32Array(17, 27, 16), PackedInt32Array(16, 27, 28), PackedInt32Array(30, 29, 31), PackedInt32Array(31, 29, 32), PackedInt32Array(31, 35, 30), PackedInt32Array(30, 35, 33), PackedInt32Array(33, 35, 27), PackedInt32Array(27, 35, 34), PackedInt32Array(27, 34, 28), PackedInt32Array(37, 36, 29), PackedInt32Array(29, 36, 32), PackedInt32Array(38, 42, 39), PackedInt32Array(39, 42, 40), PackedInt32Array(40, 42, 41), PackedInt32Array(43, 40, 41), PackedInt32Array(13, 14, 44), PackedInt32Array(44, 14, 43), PackedInt32Array(44, 43, 41), PackedInt32Array(14, 45, 43)]
+sample_partition_type = 1
+geometry_parsed_geometry_type = 0
+agent_height = 1.0
+
+[node name="World" type="Node3D" node_paths=PackedStringArray("playerSpawn")]
+script = ExtResource("1_vswtx")
+LevelName = "RECEPTION"
+playerSpawn = NodePath("PlayerSpawn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660249, 0.31250513, -0.39030778, 7.450581e-09, 0.7806165, 0.6250104, 0.5, -0.54127514, 0.6760335, 0, 36.0983, 22.6606)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l208q")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_yj8jm")
+
+[node name="Blockout" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Wall" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 2.859, -3.679)
+use_collision = true
+size = Vector3(10, 6, 0.181)
+
+[node name="Wall2" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 2.859, 4.119)
+use_collision = true
+size = Vector3(10, 6, 0.181)
+
+[node name="Wall3" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.15704, 2.859363, -0.131271)
+use_collision = true
+size = Vector3(9.01338, 6, 0.181)
+
+[node name="_ReceptionBalcony" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.9905577, 2.723872, 0.5769199)
+use_collision = true
+size = Vector3(8.723267, 0.306, 2.8790283)
+
+[node name="_ReceptionBalcony2" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.374278, 2.723872, -2.4854884)
+use_collision = true
+size = Vector3(2.5984497, 0.306, 10.111588)
+
+[node name="_ReceptionBalcony3" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.819509, 0.16841483, -4.0854254)
+use_collision = true
+size = Vector3(0.21670532, 1.1694795, 7.3020096)
+
+[node name="_ReceptionBalcony5" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.819509, 0.16841483, 3.5297623)
+use_collision = true
+size = Vector3(0.21670532, 1.1694795, 7.3020096)
+
+[node name="_ReceptionBalcony4" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.532674, 0.16841483, -0.18237567)
+use_collision = true
+size = Vector3(0.21670532, 1.1694795, 8.018532)
+
+[node name="Wall4" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5663595, 2.859363, -0.131271)
+use_collision = true
+size = Vector3(9.01338, 6, 0.181)
+
+[node name="_ReceptionDesk" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.8695704, 0.29023647, -0.5648495)
+use_collision = true
+size = Vector3(2.9026184, 1.2773438, 0.7645874)
+
+[node name="_ReceptionDesk2" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.42385346, 0.29023647, 0.5318243)
+use_collision = true
+size = Vector3(0.7380676, 1.2773438, 2.5477905)
+
+[node name="stairs" parent="NavigationRegion3D/Blockout" instance=ExtResource("2_1achi")]
+transform = Transform3D(-0.41048595, 0, 5.7550313e-08, 0, 0.5739702, 0, -3.588582e-08, 0, -0.65829885, -1.3934903, -2.932423, 3.7039487)
+
+[node name="Reception" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Walls" type="Node3D" parent="NavigationRegion3D/Reception"]
+
+[node name="Columns" type="Node3D" parent="NavigationRegion3D/Reception"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.18, 0)
+
+[node name="Floors" type="Node3D" parent="NavigationRegion3D/Reception"]
+
+[node name="WoodenFloor" parent="NavigationRegion3D/Reception/Floors" groups=["Wood"] instance=ExtResource("3_cjt38")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 15.874143, -0.1527741, -0.110601366)
+
+[node name="WoodenFloor2" parent="NavigationRegion3D/Reception/Floors" groups=["Wood"] instance=ExtResource("3_cjt38")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 5.7979875, 0)
+
+[node name="Doors" type="Node3D" parent="NavigationRegion3D/Reception"]
+
+[node name="PlayerSpawn" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.036671, 1, 0)
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="ExitDoorHallwayOutdoors" parent="Doors" instance=ExtResource("4_pjdyf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.311261, 0.9312569, 1.2085638)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Tag = "DH0"
+
+[node name="Events" type="Node3D" parent="."]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.226774, 5.769129, 0)
+light_color = Color(0.9999998, 0.6410427, 0.2106039, 1)
+light_energy = 12.68
+light_indirect_energy = 1.4
+spot_range = 17.805
+spot_attenuation = 0.95
+spot_angle = 88.7
+
+[node name="Item3" parent="." instance=ExtResource("9_pnrr0")]
+transform = Transform3D(0.14254485, 0, -0.14028887, 0, 0.2, 0, 0.14028887, 0, 0.14254485, 14.094708, 0.8779335, 3.5009716)
+
+[node name="Item" parent="." instance=ExtResource("6_1achi")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 14.084202, 0.81170136, -4.050023)

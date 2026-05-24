@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://doxn2nmwmp7a4"]
+
+[ext_resource type="PackedScene" uid="uid://ctgjifxgqvrsu" path="res://Imports/Assets/Meshes/Weapons/Pistol/PSXPistol.glb" id="1_radsf"]
+[ext_resource type="Script" uid="uid://b138f0gyd3ocj" path="res://Scripts/Equipment/Weapons/Weapon.cs" id="2_tae78"]
+[ext_resource type="Resource" uid="uid://cwkajorua7f4r" path="res://Scripts/Equipment/Weapons/Weapon_Base.tres" id="3_wgtdu"]
+[ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="4_k8e5v"]
+[ext_resource type="Material" uid="uid://bjkg10dxer77t" path="res://Textures/VFX/MuzzleFlash.tres" id="4_n7xaq"]
+
+[sub_resource type="Animation" id="Animation_wgtdu"]
+resource_name = "MuzzleFlash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_n7xaq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8e5v"]
+_data = {
+&"MuzzleFlash": SubResource("Animation_wgtdu"),
+&"RESET": SubResource("Animation_n7xaq")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7xaq"]
+albedo_color = Color(0.7877825, 0.31160802, 0, 1)
+
+[node name="PSXPistol" node_paths=PackedStringArray("animator", "muzzleanimator", "pistolFireCast", "muzzleFlash", "ammoCount") instance=ExtResource("1_radsf")]
+script = ExtResource("2_tae78")
+WeaponData = ExtResource("3_wgtdu")
+animator = NodePath("AnimationPlayer")
+muzzleanimator = NodePath("GunRig/Skeleton3D/PistolRaycast/MuzzleAnimator")
+pistolFireCast = NodePath("GunRig/Skeleton3D/PistolRaycast")
+muzzleFlash = NodePath("GunRig/Skeleton3D/PistolRaycast/MuzzleFlashh")
+ammoCount = NodePath("GunRig/Skeleton3D/PistolChamber/AmmoDisplay")
+
+[node name="GunRig" parent="." index="0"]
+transform = Transform3D(-4.371139e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.371139e-09, 0, 0, 0)
+
+[node name="PistolChamber" parent="GunRig/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="AmmoDisplay" type="Label3D" parent="GunRig/Skeleton3D/PistolChamber" index="0"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.7551599, 0.80960155, 0.6712956)
+billboard = 1
+no_depth_test = true
+render_priority = 10
+text = "Ammo"
+font = ExtResource("4_k8e5v")
+
+[node name="PistolRaycast" type="RayCast3D" parent="GunRig/Skeleton3D" index="1"]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, -2.6159978, 0.84292096, -1.4210855e-14)
+target_position = Vector3(0, -100, 0)
+
+[node name="MuzzleFlashh" type="SpotLight3D" parent="GunRig/Skeleton3D/PistolRaycast" index="0"]
+transform = Transform3D(1.9106856e-14, -10, -4.371139e-07, -4.371139e-07, -4.371139e-07, 10, -9.999999, 0, -4.3711384e-07, -0.06679487, -0.009758472, 1.1477546e-07)
+light_color = Color(0.87203544, 0.5456238, 0.053113878, 1)
+light_energy = 16.0
+light_indirect_energy = 6.0
+spot_range = 1392.904
+spot_angle = 81.3
+
+[node name="MuzzleAnimator" type="AnimationPlayer" parent="GunRig/Skeleton3D/PistolRaycast" index="1"]
+root_node = NodePath("../MuzzleFlashh")
+libraries = {
+&"": SubResource("AnimationLibrary_k8e5v")
+}
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="GunRig/Skeleton3D/PistolRaycast" index="2"]
+material_override = SubResource("StandardMaterial3D_n7xaq")
+amount = 1
+sub_emitter = NodePath(".")
+process_material = ExtResource("4_n7xaq")

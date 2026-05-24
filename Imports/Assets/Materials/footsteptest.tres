@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MaterialFootstep" load_steps=3 format=3 uid="uid://cw0llq2xosa3j"]
+
+[ext_resource type="Script" uid="uid://cfs28riswyejx" path="res://addons/godot_material_footsteps/resources/material_footstep.gd" id="1_280nw"]
+[ext_resource type="AudioStream" uid="uid://chw2cc66efd50" path="res://Imports/Assets/Audio/SFX/Footsteps/Tiles-20260209T195310Z-3-001/Tiles/Steps_tiles-007.ogg" id="1_jd0ab"]
+
+[resource]
+script = ExtResource("1_280nw")
+movement_sound = ExtResource("1_jd0ab")
+metadata/_custom_type_script = "uid://cfs28riswyejx"

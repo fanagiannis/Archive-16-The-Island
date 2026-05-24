@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bitc7iqn1vone"]
+
+[ext_resource type="PackedScene" uid="uid://bei4nhkf8lwdo" path="res://Scenes/PlayerController.tscn" id="1_dw7t6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_awgfw"]
+sky_top_color = Color(0.524999, 0.699586, 0.930476, 1)
+sky_horizon_color = Color(0.885751, 0.528093, 0.662718, 1)
+ground_bottom_color = Color(0.154839, 0.15629, 0.181573, 1)
+sun_angle_max = 252.28
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_j2rwf"]
+sky_material = SubResource("ProceduralSkyMaterial_awgfw")
+
+[sub_resource type="Environment" id="Environment_l208q"]
+background_mode = 2
+sky = SubResource("Sky_j2rwf")
+ambient_light_color = Color(0.838897, 0.838897, 0.838897, 1)
+
+[node name="World" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_dw7t6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.677289, 1, 0)
+WalkSpeed = 2.0
+SprintSpeed = 4.0
+CrouchSpeed = 1.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.402876, -0.296126, 0, 0.592253, 0.805752, 0.5, -0.697802, 0.512906, 0, 36.0983, 22.6606)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l208q")
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="Events" type="Node3D" parent="."]

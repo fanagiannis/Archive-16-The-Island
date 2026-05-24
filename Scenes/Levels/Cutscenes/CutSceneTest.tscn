@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccff32gv22o3i"]
+
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_wdvmd"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_wdvmd"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nia6l"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_wdvmd"]
+
+[sub_resource type="Animation" id="Animation_2blcv"]
+resource_name = "camera test"
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 2,
+"values": [Vector3(-3.3017166, 0, 0), Vector3(1.628, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wdvmd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.3017166, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xurol"]
+_data = {
+&"RESET": SubResource("Animation_wdvmd"),
+&"camera test": SubResource("Animation_2blcv")
+}
+
+[node name="CutSceneTest" type="Node3D"]
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.8491796, 0, 0.5281041, 0, 1, 0, -0.5281041, 0, 0.8491796, -1.4171562, 0, 3.0303307)
+script = ExtResource("1_wdvmd")
+look_at_mode = 2
+look_at_target = NodePath("../MeshInstance3D")
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3017166, 0, 0)
+mesh = SubResource("CapsuleMesh_nia6l")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1743062, 0, -4.0610847)
+mesh = SubResource("PrismMesh_wdvmd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xurol")
+}
+autoplay = "camera test"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.8491796, 0, 0.5281041, 0, 1, 0, -0.5281041, 0, 0.8491796, -1.4171562, 0, 3.0303307)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_wdvmd")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.1593795)
+light_color = Color(0.6369272, 0.6369029, 9.62615e-07, 1)
+spot_range = 68.489

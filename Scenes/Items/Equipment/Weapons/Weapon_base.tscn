@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5onu1jvwvb7a"]
+
+[ext_resource type="Script" uid="uid://b138f0gyd3ocj" path="res://Scripts/Equipment/Weapons/Weapon.cs" id="1_6rgiy"]
+[ext_resource type="Resource" uid="uid://cwkajorua7f4r" path="res://Scripts/Equipment/Weapons/Weapon_Base.tres" id="2_v18us"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bs0im"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bs0im"]
+size = Vector3(1, 0.13919067, 0.15942383)
+
+[node name="WeaponBase" type="AnimatableBody3D"]
+transform = Transform3D(-8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("1_6rgiy")
+WeaponData = ExtResource("2_v18us")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.1400948, 0, 0, 0, 0.16101134, 0, 0, 0)
+mesh = SubResource("BoxMesh_bs0im")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.6293945e-05, -0.0020751953)
+shape = SubResource("BoxShape3D_bs0im")

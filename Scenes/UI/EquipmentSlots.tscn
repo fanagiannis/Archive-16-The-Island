@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvbasddw54taf"]
+
+[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_4d477"]
+[ext_resource type="Script" uid="uid://c5yqiklnqy6v" path="res://Scripts/UI/Elements/Equipment/EquipmentScreen.cs" id="2_q0yot"]
+[ext_resource type="PackedScene" uid="uid://cyp3muskqrk86" path="res://Scenes/UI/EquipmentSlot.tscn" id="3_xhgcr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4d477"]
+font_size = 20
+
+[node name="EquipmentSlots" type="Panel" node_paths=PackedStringArray("EquipmentSlotContainer")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4d477")
+script = ExtResource("2_q0yot")
+SlotInstance = ExtResource("3_xhgcr")
+EquipmentSlotContainer = NodePath("EquipmentSlots")
+
+[node name="EquipmentLabel" type="Panel" parent="."]
+layout_mode = 1
+offset_top = -36.0
+offset_right = 300.0
+offset_bottom = 1.0
+theme = ExtResource("1_4d477")
+
+[node name="EquipmentLabelText" type="Label" parent="EquipmentLabel"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 124.0
+offset_bottom = 36.0
+theme = ExtResource("1_4d477")
+text = "EQUIPMENT"
+label_settings = SubResource("LabelSettings_4d477")
+vertical_alignment = 1
+
+[node name="EquipmentSlots" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4d477")
+theme_override_constants/separation = 140
+alignment = 1

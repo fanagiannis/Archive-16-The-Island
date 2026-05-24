@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bksee3xx6dh03"]
+
+[ext_resource type="Script" uid="uid://c0u4yp8623mnd" path="res://Scripts/Dialogue/DialogueDisplay.cs" id="1_165wq"]
+[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_ioyp2"]
+
+[node name="DialogueDisplay" type="PanelContainer" node_paths=PackedStringArray("nameLabel")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -1080.0
+offset_right = 40.0
+offset_bottom = -880.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_ioyp2")
+script = ExtResource("1_165wq")
+nameLabel = NodePath("HBoxContainer/Name")
+
+[node name="HBoxContainer" type="BoxContainer" parent="."]
+clip_contents = true
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_ioyp2")
+vertical = true
+
+[node name="Name" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_ioyp2")
+text = "NAME"
+uppercase = true
+
+[node name="Dialogue" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ioyp2")
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+fit_content = true
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("1_ioyp2")
+text = "CLOSE
+"
+alignment = 2

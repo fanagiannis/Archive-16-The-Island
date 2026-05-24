@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8htc2c6l0va5"]
+
+[ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="1_4a1ut"]
+[ext_resource type="Script" uid="uid://bq5gotd52oprb" path="res://Scripts/Interactable/PickableItem.cs" id="2_ptj8d"]
+[ext_resource type="PackedScene" uid="uid://doxn2nmwmp7a4" path="res://Scenes/Items/Equipment/Weapons/Pistol.tscn" id="3_4a1ut"]
+[ext_resource type="AudioStream" uid="uid://t7e0ogiypivi" path="res://Examples/Assets/SFX/Debug/Damaged.wav" id="4_sf7we"]
+[ext_resource type="PackedScene" uid="uid://ctgjifxgqvrsu" path="res://Imports/Assets/Meshes/Weapons/Pistol/PSXPistol.glb" id="5_ptj8d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0xsm"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.01
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfd85"]
+next_pass = SubResource("StandardMaterial3D_p0xsm")
+albedo_color = Color(0.41568628, 0.6039216, 0, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kxr1a"]
+radius = 2.3220751
+
+[node name="Item" instance=ExtResource("1_4a1ut")]
+script = ExtResource("2_ptj8d")
+itemScene = ExtResource("3_4a1ut")
+name = "Pickable"
+itemAudio = ExtResource("4_sf7we")
+
+[node name="Mesh" parent="." index="0"]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_vfd85")
+
+[node name="PSXPistol" parent="." index="1" instance=ExtResource("5_ptj8d")]
+
+[node name="Skeleton3D" parent="PSXPistol/GunRig" index="0"]
+bones/0/rotation = Quaternion(1.5454312e-08, -1.5454312e-08, 0.7071068, 0.7071068)
+bones/3/rotation = Quaternion(-1.8134727e-07, -5.0268337e-08, 0.975732, -0.21896799)
+
+[node name="MeshCollider" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4237573, 0, 0)
+shape = SubResource("SphereShape3D_kxr1a")
+disabled = true
+
+[editable path="PSXPistol"]

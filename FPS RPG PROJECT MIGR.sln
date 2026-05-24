@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPS RPG PROJECT MIGR", "FPS RPG PROJECT MIGR.csproj", "{87BE8A71-1772-4F07-9CBD-5AFE8BE6A28C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87BE8A71-1772-4F07-9CBD-5AFE8BE6A28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87BE8A71-1772-4F07-9CBD-5AFE8BE6A28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87BE8A71-1772-4F07-9CBD-5AFE8BE6A28C}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{87BE8A71-1772-4F07-9CBD-5AFE8BE6A28C}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{87BE8A71-1772-4F07-9CBD-5AFE8BE6A28C}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{87BE8A71-1772-4F07-9CBD-5AFE8BE6A28C}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

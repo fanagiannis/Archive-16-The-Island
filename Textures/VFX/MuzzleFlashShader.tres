@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c2u4yvhpajvcn"]
+
+[ext_resource type="Shader" uid="uid://wrcbqye2jxv" path="res://Textures/VFX/MuzzleFlashShader.gdshader" id="1_7h07a"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7h07a")
+shader_parameter/particles_anim_h_frames = 0
+shader_parameter/particles_anim_v_frames = 0

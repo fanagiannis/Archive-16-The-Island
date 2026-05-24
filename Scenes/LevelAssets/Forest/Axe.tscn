@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://2e3jr4xxd31n"]
+
+[ext_resource type="PackedScene" uid="uid://df1pd2drqo11c" path="res://Imports/Assets/Meshes/Axe/PSXAxe.glb" id="1_7d5rk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ateu3"]
+radius = 0.036132813
+height = 0.37512207
+
+[node name="PSXAxe" instance=ExtResource("1_7d5rk")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0072631836, 0)
+shape = SubResource("CapsuleShape3D_ateu3")

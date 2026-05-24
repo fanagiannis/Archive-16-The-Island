@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc5teqgsi61iw"]
+
+[ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="1_ymnv3"]
+[ext_resource type="Script" uid="uid://bq5gotd52oprb" path="res://Scripts/Interactable/PickableItem.cs" id="2_kq7e0"]
+[ext_resource type="PackedScene" uid="uid://btth61mgoo4bi" path="res://Scenes/Items/Equipment/Flashlight.tscn" id="3_kq7e0"]
+[ext_resource type="AudioStream" uid="uid://t7e0ogiypivi" path="res://Examples/Assets/SFX/Debug/Damaged.wav" id="3_o7d2x"]
+[ext_resource type="PackedScene" uid="uid://bpn0ep1pu0ukf" path="res://Imports/Assets/Meshes/Flashlight/PSXFlashlight.glb" id="5_4iusc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0xsm"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.01
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfd85"]
+next_pass = SubResource("StandardMaterial3D_p0xsm")
+albedo_color = Color(0.41568628, 0.6039216, 0, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kq7e0"]
+radius = 0.8548451
+
+[node name="Item" instance=ExtResource("1_ymnv3")]
+script = ExtResource("2_kq7e0")
+itemScene = ExtResource("3_kq7e0")
+name = "Pickable"
+itemAudio = ExtResource("3_o7d2x")
+
+[node name="Mesh" parent="." index="0"]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_vfd85")
+
+[node name="MeshCollider" parent="." index="1"]
+shape = SubResource("SphereShape3D_kq7e0")
+disabled = true
+
+[node name="PSXFlashlight" parent="." index="4" instance=ExtResource("5_4iusc")]
+
+[editable path="PSXFlashlight"]

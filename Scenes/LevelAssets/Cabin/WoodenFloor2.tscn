@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://4jfbwsanpr77"]
+
+[ext_resource type="PackedScene" uid="uid://dg4orl626r3s3" path="res://Imports/Assets/WoodenFloor.glb" id="1_apxkq"]
+[ext_resource type="Material" uid="uid://vaebkhbnatth" path="res://Imports/Assets/Materials/Mat_WoodenFloor2.tres" id="3_opicy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_emr2l"]
+margin = 0.255
+size = Vector3(2.07, 0.033203125, 1.03)
+
+[node name="WoodenFloor" type="StaticBody3D"]
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007990003, -0.00684765, 0.048572063)
+shape = SubResource("BoxShape3D_emr2l")
+
+[node name="Mesh" parent="." instance=ExtResource("1_apxkq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0075525045, 0, 0.048390865)
+
+[node name="WoodenFLoor" parent="Mesh" index="0"]
+transform = Transform3D(1.0298263, 0, 0, 0, 1.716377, 0, 0, 0, 0.51491314, 0, 0.01, 0)
+material_override = ExtResource("3_opicy")
+surface_material_override/0 = ExtResource("3_opicy")
+
+[editable path="Mesh"]

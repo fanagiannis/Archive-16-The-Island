@@ -1,0 +1,8 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://bjkg10dxer77t"]
+
+[resource]
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 92.099976
+gravity = Vector3(0, 0, 0)
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0

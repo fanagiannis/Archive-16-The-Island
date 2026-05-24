@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxtvwvojlm3se"]
+
+[ext_resource type="PackedScene" uid="uid://blgjinjkuf1hq" path="res://Imports/Assets/Meshes/Harbor/PSXPlank.glb" id="1_2oonc"]
+
+[node name="PSXPlank" groups=["Wood"] instance=ExtResource("1_2oonc")]
+
+[node name="Plank" parent="." index="0" groups=["Wood"]]
+
+[node name="StaticBody3D" parent="Plank" index="0" groups=["Wood"]]
+
+[node name="CollisionShape3D" parent="Plank/StaticBody3D" index="0" groups=["Wood"]]

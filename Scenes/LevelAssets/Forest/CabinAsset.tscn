@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3img484dcqoi"]
+
+[ext_resource type="PackedScene" uid="uid://bpyd4wensq1fi" path="res://Scenes/LevelAssets/Cabin/CabbinWall.tscn" id="2_yk857"]
+[ext_resource type="PackedScene" uid="uid://cba6br41o4lwb" path="res://Scenes/LevelAssets/Cabin/WoodenLog.tscn" id="3_h2vl7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xy7vy"]
+size = Vector3(9.91394, 5.442627, 5.442627)
+
+[node name="CabinAsset" type="StaticBody3D"]
+
+[node name="CabbinWall" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32998633, 0, -1.085159)
+
+[node name="WoodenLog" parent="." instance=ExtResource("3_h2vl7")]
+transform = Transform3D(-5.1108216e-08, -1, 0, 1.1692197, -4.371139e-08, 0, 0, 0, 1, -2.6192954, 2.3133905, 3.5787544)
+
+[node name="CabbinWall2" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5903454, 2.5321496, 1.2146832)
+
+[node name="WoodenLog2" parent="." instance=ExtResource("3_h2vl7")]
+transform = Transform3D(-5.1108216e-08, -1, 0, 1.1692197, -4.371139e-08, 0, 0, 0, 1, -2.6192954, 2.3133905, -1.1354542)
+
+[node name="CabbinWall3" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5903454, 0, 1.2146832)
+
+[node name="CabbinWall4" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32998633, 2.542439, -1.085159)
+
+[node name="CabbinWall5" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.335686, 0, -1.085159)
+
+[node name="CabbinWall6" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.335686, 2.542439, -1.085159)
+
+[node name="WoodenLog3" parent="." instance=ExtResource("3_h2vl7")]
+transform = Transform3D(-5.1108216e-08, -1, 0, 1.1692197, -4.371139e-08, 0, 0, 0, 1, 2.0109472, 2.3133907, -1.1737742)
+
+[node name="WoodenLog4" parent="." instance=ExtResource("3_h2vl7")]
+transform = Transform3D(-5.1108216e-08, -1, 0, 1.1692197, -4.371139e-08, 0, 0, 0, 1, 6.674423, 2.313391, -1.1737742)
+
+[node name="CabbinWall7" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32998633, 0, 3.5097852)
+
+[node name="CabbinWall8" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32998633, 2.542439, 3.5097852)
+
+[node name="CabbinWall9" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.335686, 0, 3.5097852)
+
+[node name="CabbinWall10" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.335686, 2.542439, 3.5097852)
+
+[node name="WoodenLog5" parent="." instance=ExtResource("3_h2vl7")]
+transform = Transform3D(-5.1108216e-08, -1, 0, 1.1692197, -4.371139e-08, 0, 0, 0, 1, 2.0109472, 2.3133907, 3.5624528)
+
+[node name="WoodenLog6" parent="." instance=ExtResource("3_h2vl7")]
+transform = Transform3D(-5.1108216e-08, -1, 0, 1.1692197, -4.371139e-08, 0, 0, 0, 1, 6.674423, 2.313391, 3.5557804)
+
+[node name="CabbinWall11" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.609399, 2.5321496, 1.2146828)
+
+[node name="CabbinWall12" parent="." instance=ExtResource("2_yk857")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.609399, 0, 1.2146828)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1098022, 2.3634033, 1.3758545)
+shape = SubResource("BoxShape3D_xy7vy")

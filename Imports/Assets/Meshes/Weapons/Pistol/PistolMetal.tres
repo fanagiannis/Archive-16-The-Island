@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://y6jr1y6vfac2"]
+
+[resource]
+resource_name = "PistolMetal"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.76703846, 0.76703846, 0.76703846, 1)
+roughness = 0.5
+use_z_clip_scale = true
+z_clip_scale = 0.5

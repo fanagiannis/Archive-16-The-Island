@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://m7iut13hmgpy"]
+
+[ext_resource type="PackedScene" uid="uid://dakg6oi1s47ph" path="res://Imports/Assets/PSXFenceA.glb" id="1_7eat8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wredy"]
+size = Vector3(2.0195618, 0.65026855, 0.18145752)
+
+[node name="PSXFenceA" instance=ExtResource("1_7eat8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015731812, 0.27886963, -0.030303955)
+shape = SubResource("BoxShape3D_wredy")

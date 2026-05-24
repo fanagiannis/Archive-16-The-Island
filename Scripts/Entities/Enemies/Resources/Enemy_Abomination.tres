@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://c8383bjsh1o20"]
+
+[ext_resource type="Script" uid="uid://di1wi3mj6g74k" path="res://Scripts/Entities/Enemies/EnemyData.cs" id="1_eluey"]
+
+[resource]
+script = ExtResource("1_eluey")
+Name = "Abomination"
+maxHP = 100000.0
+Damage = 150.0
+walk_speed = 0.7
+sprint_speed = 2.0
+metadata/_custom_type_script = "uid://di1wi3mj6g74k"

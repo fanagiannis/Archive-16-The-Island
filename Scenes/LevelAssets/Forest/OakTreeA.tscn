@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://brlcbmd15etsh"]
+
+[ext_resource type="PackedScene" uid="uid://crbcjta1mt13n" path="res://Imports/Assets/Meshes/Trees/PSXOakTreeA.glb" id="1_qmuhu"]
+[ext_resource type="Script" uid="uid://xex7eqfct4ts" path="res://Scripts/RenderManager.cs" id="2_7kjvi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qmuhu"]
+height = 2.291504
+radius = 0.20605469
+
+[node name="PSXOakTreeA" instance=ExtResource("1_qmuhu")]
+script = ExtResource("2_7kjvi")
+
+[node name="CollisionShape3D" parent="SnowyBush A_001/StaticBody3D" index="0"]
+process_physics_priority = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9633106, 0)
+disabled = true
+
+[node name="Collision" type="CollisionShape3D" parent="." index="1" groups=["Tree"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0021973, 0)
+shape = SubResource("CylinderShape3D_qmuhu")
+
+[node name="VisibilityNotifier" type="VisibleOnScreenEnabler3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7571528, 0)
+aabb = AABB(-0.20425853, -1, -0.2639893, 0.40851706, 2, 0.5279786)

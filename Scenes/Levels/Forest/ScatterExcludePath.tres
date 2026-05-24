@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ProtonScatterPathShape" load_steps=2 format=3 uid="uid://w2fwp6plailf"]
+
+[ext_resource type="Script" uid="uid://d01ihdabfa46i" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="1_7cguw"]
+
+[resource]
+script = ExtResource("1_7cguw")
+metadata/_custom_type_script = "uid://d01ihdabfa46i"

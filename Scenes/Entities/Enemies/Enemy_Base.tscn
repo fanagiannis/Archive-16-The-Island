@@ -1,0 +1,146 @@
+[gd_scene load_steps=22 format=3 uid="uid://cuelvyq8vnrjt"]
+
+[ext_resource type="Script" uid="uid://efhmw0hmwri7" path="res://Scripts/Entities/Enemies/Enemy.cs" id="1_15to1"]
+[ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="1_ckedh"]
+[ext_resource type="Resource" uid="uid://cbu7g5xmt1i3s" path="res://Scripts/Entities/Enemies/Resources/Enemy_Base.tres" id="2_dpvde"]
+[ext_resource type="Script" uid="uid://s05w1caa0fyt" path="res://Scripts/Entities/Enemies/AI/Sensors/Vision.cs" id="3_nl5xj"]
+[ext_resource type="Script" uid="uid://cj8aq0jppcqa7" path="res://Scripts/Entities/Enemies/EnemyBehavior.cs" id="4_hm7f4"]
+[ext_resource type="Script" uid="uid://biai72n2fa7hr" path="res://Scripts/Entities/Enemies/AI/Sensors/DamageArea.cs" id="4_xn5tr"]
+[ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="5_sc6nj"]
+[ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="5_y2haf"]
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="7_uvuk6"]
+[ext_resource type="Script" uid="uid://cw22yurt5l74k" path="res://addons/beehave/nodes/composites/selector_reactive.gd" id="8_4j00o"]
+[ext_resource type="Script" uid="uid://dorri1tul8gfx" path="res://addons/beehave/nodes/decorators/delayer.gd" id="8_nl5xj"]
+[ext_resource type="Script" uid="uid://crs3fv4tmgkev" path="res://Scripts/Entities/Enemies/AI/Conditions/BT_Condition_PlayerSpotted.gd" id="9_0rbfc"]
+[ext_resource type="Script" uid="uid://crkjak4kyv56m" path="res://addons/beehave/nodes/decorators/inverter.gd" id="9_drl87"]
+[ext_resource type="Script" uid="uid://bsa5phymp8pnh" path="res://Scripts/Entities/Enemies/AI/Tasks/BTTask_Set_RandomTargetPosition.gd" id="9_k111r"]
+[ext_resource type="Script" uid="uid://dtwv54q2e415b" path="res://Scripts/Entities/Enemies/AI/Tasks/BTTask_MoveTo_RandomTargetPosition.gd" id="10_nl5xj"]
+[ext_resource type="Script" uid="uid://cq3cx0h4piira" path="res://Scripts/Entities/Enemies/AI/Tasks/BTTask_Chase_Player.gd" id="11_4j00o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k111r"]
+radius = 3.8993392
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4j00o"]
+size = Vector3(0.7, 2, 1.8660889)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r50or"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpvde"]
+albedo_color = Color(0.69245994, 1.8410012e-06, 7.70092e-07, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dpvde"]
+
+[node name="EnemyBase" type="CharacterBody3D" node_paths=PackedStringArray("HPDisplay", "DamageArea")]
+script = ExtResource("1_15to1")
+enemyData = ExtResource("2_dpvde")
+HPDisplay = NodePath("HP")
+DamageArea = NodePath("DamageArea")
+
+[node name="Vision" type="Area3D" parent="." node_paths=PackedStringArray("VisionSphere")]
+script = ExtResource("3_nl5xj")
+VisionSphere = NodePath("VisionCone")
+
+[node name="VisionCone" type="CollisionShape3D" parent="Vision"]
+transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_k111r")
+debug_color = Color(0, 0.43826386, 0.21267879, 0.41960785)
+
+[node name="DamageArea" type="Area3D" parent="."]
+script = ExtResource("4_xn5tr")
+
+[node name="DamageHitbox" type="CollisionShape3D" parent="DamageArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5669556)
+visible = false
+shape = SubResource("BoxShape3D_4j00o")
+debug_color = Color(0.64757043, 0, 0.13092834, 0.41960785)
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="DamageArea/DamageHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0009765625)
+size = Vector3(1, 1, 0.8808594)
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_r50or")
+surface_material_override/0 = SubResource("StandardMaterial3D_dpvde")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_dpvde")
+
+[node name="HP" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1470604, 0)
+billboard = 1
+text = "HP"
+font = ExtResource("1_ckedh")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="AI" type="Node" parent="." node_paths=PackedStringArray("enemyNavigation", "enemyVision")]
+script = ExtResource("4_hm7f4")
+enemyNavigation = NodePath("../NavigationAgent3D")
+enemyVision = NodePath("../Vision")
+
+[node name="Blackboard" type="Node" parent="."]
+script = ExtResource("5_sc6nj")
+blackboard = {
+"AgentPosition": Vector3(0, 0, 0),
+"AgentSpeed": 2.0,
+"PlayerPosition": Vector3(0, 0, 0),
+"PlayerSpotted": false,
+"TargetPosition": Vector3(0, 0, 0)
+}
+metadata/_custom_type_script = "uid://dme5f24l0edsf"
+
+[node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("5_y2haf")
+blackboard = NodePath("../Blackboard")
+actor = NodePath("..")
+metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
+
+[node name="BTSelector" type="Node" parent="BehaviorTree"]
+script = ExtResource("8_4j00o")
+metadata/_custom_type_script = "uid://cw22yurt5l74k"
+
+[node name="HuntPlayerSequence" type="Node" parent="BehaviorTree/BTSelector"]
+script = ExtResource("7_uvuk6")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="ConditionLeaf" type="Node" parent="BehaviorTree/BTSelector/HuntPlayerSequence"]
+script = ExtResource("9_0rbfc")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="HuntPlayer" type="Node" parent="BehaviorTree/BTSelector/HuntPlayerSequence"]
+script = ExtResource("11_4j00o")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="RoamSequence" type="Node" parent="BehaviorTree/BTSelector"]
+script = ExtResource("7_uvuk6")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="InverterDecorator" type="Node" parent="BehaviorTree/BTSelector/RoamSequence"]
+script = ExtResource("9_drl87")
+metadata/_custom_type_script = "uid://crkjak4kyv56m"
+
+[node name="ConditionLeaf" type="Node" parent="BehaviorTree/BTSelector/RoamSequence/InverterDecorator"]
+script = ExtResource("9_0rbfc")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="DelayDecorator" type="Node" parent="BehaviorTree/BTSelector/RoamSequence"]
+script = ExtResource("8_nl5xj")
+wait_time = 1.0
+metadata/_custom_type_script = "uid://dorri1tul8gfx"
+
+[node name="SetPatrolPoint" type="Node" parent="BehaviorTree/BTSelector/RoamSequence/DelayDecorator"]
+script = ExtResource("9_k111r")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="RoamDelay" type="Node" parent="BehaviorTree/BTSelector/RoamSequence"]
+script = ExtResource("8_nl5xj")
+wait_time = 2.0
+metadata/_custom_type_script = "uid://dorri1tul8gfx"
+
+[node name="MoveToPatrolPoint" type="Node" parent="BehaviorTree/BTSelector/RoamSequence/RoamDelay"]
+script = ExtResource("10_nl5xj")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[connection signal="body_entered" from="DamageArea" to="DamageArea" method="OnEnter"]
+[connection signal="body_exited" from="DamageArea" to="DamageArea" method="OnExit"]

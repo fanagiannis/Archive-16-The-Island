@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://i51i858ncwov"]
+
+[ext_resource type="PackedScene" uid="uid://benedv1uuc6wu" path="res://Imports/Assets/Meshes/Camp/Campfire/PSXCampfire.glb" id="1_i7r1r"]
+[ext_resource type="PackedScene" uid="uid://buwv0y0a377xk" path="res://Scenes/Utilities/DamagableArea.tscn" id="2_ahmys"]
+
+[node name="PSXCampfire" instance=ExtResource("1_i7r1r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Cylinder_032/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20500001, 0)
+disabled = true
+
+[node name="DamagableArea" parent="Cylinder_032" index="1" instance=ExtResource("2_ahmys")]
+
+[node name="CollisionShape3D" parent="Cylinder_032/DamagableArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27572268, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+light_color = Color(1, 0.48235294, 0, 1)
+light_energy = 5.0
+omni_range = 11.137246
+
+[editable path="Cylinder_032/DamagableArea"]

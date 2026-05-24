@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpyd4wensq1fi"]
+
+[ext_resource type="PackedScene" uid="uid://cba6br41o4lwb" path="res://Scenes/LevelAssets/Cabin/WoodenLog.tscn" id="1_cbmga"]
+
+[node name="CabbinWall" type="StaticBody3D"]
+
+[node name="WoodenLog" parent="." instance=ExtResource("1_cbmga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44, 0)
+
+[node name="WoodenLog2" parent="." instance=ExtResource("1_cbmga")]
+
+[node name="WoodenLog3" parent="." instance=ExtResource("1_cbmga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88, 0)
+
+[node name="WoodenLog4" parent="." instance=ExtResource("1_cbmga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76, 0)
+
+[node name="WoodenLog5" parent="." instance=ExtResource("1_cbmga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3199999, 0)
+
+[node name="WoodenLog6" parent="." instance=ExtResource("1_cbmga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1999998, 0)

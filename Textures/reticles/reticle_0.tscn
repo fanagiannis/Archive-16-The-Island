@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://coqpusufa8a6k"]
+
+[ext_resource type="Script" uid="uid://h3epvt0vaa4u" path="res://Textures/reticles/Reticle.cs" id="1_dkdl3"]
+[ext_resource type="Texture2D" uid="uid://b85yqd15ltp7n" path="res://Imports/Assets/UI/WeaponCrosshair.png" id="1_mtftv"]
+[ext_resource type="Texture2D" uid="uid://byofqird2rthh" path="res://Imports/Assets/UI/IdleCrosshair.png" id="3_wwle8"]
+
+[node name="Reticle" type="CenterContainer" node_paths=PackedStringArray("CurrentReticleContainer")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dkdl3")
+lerpSpeed = 0.03
+Reticles = Array[Texture2D]([ExtResource("3_wwle8"), ExtResource("1_mtftv")])
+CurrentReticleContainer = NodePath("Crosshair")
+targetscalemin = 0.05
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("3_wwle8")

@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://calw0fe4j7uyy"]
+
+[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_u82gr"]
+[ext_resource type="Script" uid="uid://dwgjmatgbnfvh" path="res://Scripts/UI/Elements/Equipment/InventorySlotControlPanel.cs" id="2_0k5kl"]
+
+[node name="InventoryControlPanel" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -12.0
+offset_right = 17.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_u82gr")
+theme_override_constants/separation = 0
+script = ExtResource("2_0k5kl")
+
+[node name="UseButton" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("1_u82gr")
+text = "USE
+"
+
+[node name="DiscardButton" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("1_u82gr")
+text = "DISCARD
+"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("1_u82gr")
+text = "BACK
+"

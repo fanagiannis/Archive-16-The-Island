@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7dpyndxbkcvl"]
+
+[ext_resource type="PackedScene" uid="uid://epbdkaxxg0gy" path="res://Imports/PlayerAssets/GodotProjectArms.glb" id="1_c6c5x"]
+
+[node name="GodotProjectArms" instance=ExtResource("1_c6c5x")]
+
+[node name="Arms" parent="LVA4_Armature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="Nails" parent="LVA4_Armature/Skeleton3D" index="1"]
+cast_shadow = 0

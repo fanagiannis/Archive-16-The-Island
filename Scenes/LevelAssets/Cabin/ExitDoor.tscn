@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1ffnbt2sysup"]
+
+[ext_resource type="PackedScene" uid="uid://bhqqyrap3djud" path="res://Imports/Assets/PSXCabinDoor.glb" id="1_nctdr"]
+[ext_resource type="Script" uid="uid://bcs8oh4n1arb3" path="res://Scripts/Interactable/ExitDoor.cs" id="2_lfbxn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bmeh"]
+size = Vector3(1.713562, 2.3593445, 0.32617188)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7bmeh"]
+
+[node name="ExitDoor" type="StaticBody3D" node_paths=PackedStringArray("DoorPlayerSpawnPoint")]
+script = ExtResource("2_lfbxn")
+DoorPlayerSpawnPoint = NodePath("SpawnPoint")
+name = "Door"
+
+[node name="PSXCabinDoor" parent="." instance=ExtResource("1_nctdr")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 0, 0, 0)
+
+[node name="Door" parent="PSXCabinDoor/Mesh" index="0"]
+transform = Transform3D(5.311294, 0, 0, 0, 1, 0, 0, 0, 2.469612, 1.6107898, -0.13023289, 2.4375696)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009674072, 0.09754944, -0.045898438)
+shape = SubResource("BoxShape3D_7bmeh")
+
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnPoint"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("SphereMesh_7bmeh")
+
+[editable path="PSXCabinDoor"]

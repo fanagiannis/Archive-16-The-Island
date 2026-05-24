@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d4h6rg277o1o3"]
+
+[resource]
+resource_name = "PistolBullet"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063314, 0.5919362, 0.15202333, 1)
+roughness = 0.5
+use_z_clip_scale = true
+z_clip_scale = 0.5

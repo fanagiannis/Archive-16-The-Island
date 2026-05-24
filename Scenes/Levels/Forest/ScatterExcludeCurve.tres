@@ -1,0 +1,10 @@
+[gd_resource type="Curve3D" format=3 uid="uid://85hpm27841kw"]
+
+[resource]
+closed = true
+bake_interval = 1.75
+_data = {
+"points": PackedVector3Array(267.438, -26.431684, -261.18228, 0, 0, 0, 267.438, -26.431684, -261.18228),
+"tilts": PackedFloat32Array(0)
+}
+point_count = 1

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl5f4wm3n4v88"]
+
+[ext_resource type="PackedScene" uid="uid://cnh6p4drnbxvj" path="res://Imports/Assets/Meshes/Camp/Tent/PSXCampTent.glb" id="1_mkgkt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ss34s"]
+size = Vector3(338.54816, 132.5282, 639.5481)
+
+[node name="Tent" instance=ExtResource("1_mkgkt")]
+
+[node name="CollisionShape3D" parent="Nail_004/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.77309, 65.76407, 300.27936)
+shape = SubResource("BoxShape3D_ss34s")

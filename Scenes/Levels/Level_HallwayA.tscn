@@ -1,0 +1,251 @@
+[gd_scene load_steps=9 format=3 uid="uid://herm7w3q01aw"]
+
+[ext_resource type="Script" uid="uid://dlohclqb33upa" path="res://Scripts/Level/Level.cs" id="1_4wqqp"]
+[ext_resource type="PackedScene" uid="uid://btvj7vivdcipb" path="res://Scenes/Dev/StairsPlaceholder.tscn" id="4_mxxch"]
+[ext_resource type="PackedScene" uid="uid://cuelvyq8vnrjt" path="res://Scenes/Entities/Enemies/Enemy_Base.tscn" id="5_jnw1k"]
+[ext_resource type="PackedScene" uid="uid://dhs8rgwvhuaxx" path="res://Scenes/LevelAssets/Cabin/WoodenFloor.tscn" id="7_tpt4o"]
+[ext_resource type="PackedScene" uid="uid://d1ffnbt2sysup" path="res://Scenes/LevelAssets/Cabin/ExitDoor.tscn" id="9_aeeh1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_awgfw"]
+sky_top_color = Color(0.524999, 0.699586, 0.930476, 1)
+sky_horizon_color = Color(0.885751, 0.528093, 0.662718, 1)
+ground_bottom_color = Color(0.154839, 0.15629, 0.181573, 1)
+sun_angle_max = 252.28
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_j2rwf"]
+sky_material = SubResource("ProceduralSkyMaterial_awgfw")
+
+[sub_resource type="Environment" id="Environment_l208q"]
+background_mode = 2
+background_energy_multiplier = 2.34
+sky = SubResource("Sky_j2rwf")
+ambient_light_source = 3
+ambient_light_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+ambient_light_energy = 8.75
+
+[node name="World2" type="Node3D" node_paths=PackedStringArray("playerSpawn")]
+script = ExtResource("1_4wqqp")
+LevelName = "HALLWAY A"
+playerSpawn = NodePath("PlayerSpawn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660249, 0.31250513, -0.39030778, 7.450581e-09, 0.7806165, 0.6250104, 0.5, -0.54127514, 0.6760335, 0, 36.0983, 22.6606)
+light_energy = 0.075
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 2.875
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l208q")
+
+[node name="PlayerSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0116515, 0.58774555, -1.9772577)
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="Doors" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1783986, 0, 0)
+
+[node name="ExitDoorReception" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.375821, 0.91518295, -11.002659)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Tag = "DHA"
+
+[node name="ExitDoor100" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.410036, 0.91518295, -8.533289)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA100"
+
+[node name="ExitDoor102" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.4100366, 0.91518295, -4.025011)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA102"
+
+[node name="ExitDoorMaintenance" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-1, 0, -2.7814184e-07, 0, 1, 0, 2.7814184e-07, 0, -1, 4.85914, 0.91518295, 3.4421077)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHAM"
+
+[node name="ExitDoor106" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-1, 0, -2.7814184e-07, 0, 1, 0, 2.7814184e-07, 0, -1, 1.9700605, 0.91518295, 3.4421077)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA106"
+
+[node name="ExitDoor101" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-1, 0, -2.7814184e-07, 0, 1, 0, 2.7814184e-07, 0, -1, 0.9724027, 0.91518295, -3.4358861)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA101"
+
+[node name="ExitDoor111" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-1, 0, -2.7814184e-07, 0, 1, 0, 2.7814184e-07, 0, -1, 0.9724027, 0.91518295, -3.4358861)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA106"
+
+[node name="ExitDoor103" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-1, 0, -2.7814184e-07, 0, 1, 0, 2.7814184e-07, 0, -1, -4.6572304, 0.91518295, -3.435886)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA103"
+
+[node name="ExitDoorKitchen" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1278465, 0.91518295, -6.975232)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHAK"
+
+[node name="ExitDoor108" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-1, 0, -2.7814184e-07, 0, 1, 0, 2.7814184e-07, 0, -1, -2.1475506, 0.91518295, 3.4421077)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA108"
+
+[node name="ExitDoor110" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-1, 0, -2.7814184e-07, 0, 1, 0, 2.7814184e-07, 0, -1, -7.8827696, 0.91518295, 3.4421082)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA110"
+
+[node name="ExitDoor104" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.4100366, 0.91518295, 1.0927172)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA104"
+
+[node name="ExitDoor105" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.216321, 0.91518295, -1.83934)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA105"
+
+[node name="ExitDoor107" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.216321, 0.91518295, -5.1130285)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA107"
+
+[node name="ExitDoor109" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.216321, 0.91518295, -7.7604346)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA109"
+
+[node name="ExitDoor112" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.4233813, 0.91518295, -11.9132)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHAG"
+
+[node name="ExitDoorStorage" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3557262, 0.91518295, -13.893785)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHAS"
+
+[node name="ExitDoor10X" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.216321, 0.91518295, 2.2500544)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "DHA10X"
+
+[node name="ExitDoorHallwayB" parent="Doors" instance=ExtResource("9_aeeh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.218786, 4.5665193, -13.958891)
+SceneToLoad = "res://Scenes/Levels/Level_HallwayB.tscn"
+Tag = "DHB2"
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="EnemyBase" parent="Enemies" instance=ExtResource("5_jnw1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8321643, 1.0975392, 2.6610186)
+
+[node name="Events" type="Node3D" parent="."]
+
+[node name="Cabin" type="Node3D" parent="."]
+
+[node name="Walls" type="Node3D" parent="Cabin"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1783986, 0, 0)
+
+[node name="Columns" type="Node3D" parent="Cabin"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1783986, -1.18, 0)
+
+[node name="Floors" type="Node3D" parent="Cabin"]
+
+[node name="WoodenFloor" parent="Cabin/Floors" groups=["Wood"] instance=ExtResource("7_tpt4o")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="WoodenFloor2" parent="Cabin/Floors" groups=["Wood"] instance=ExtResource("7_tpt4o")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -2.887497, 4.065332, -2.152317)
+
+[node name="WoodenFloor4" parent="Cabin/Floors" groups=["Wood"] instance=ExtResource("7_tpt4o")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 13.435596, 6.28426, -2.152317)
+
+[node name="WoodenFloor3" parent="Cabin/Floors" groups=["Wood"] instance=ExtResource("7_tpt4o")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.102985, 3.5469122, 3.2751436)
+
+[node name="Blockout" type="Node3D" parent="."]
+
+[node name="WALL" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 8.089535, 0.86279297, 4.550472)
+use_collision = true
+size = Vector3(0.5303955, 2.725586, 4.1865234)
+
+[node name="WALL9" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 1, 14.201149, 0.86279297, -8.3536)
+use_collision = true
+size = Vector3(0.5303955, 2.725586, 4.1865234)
+
+[node name="WALL10" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 1, 11.04562, 0.86279297, -8.3536)
+use_collision = true
+size = Vector3(0.5303955, 2.725586, 4.1865234)
+
+[node name="WALL11" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 1, 5.8640704, 5.5259047, -8.3536)
+use_collision = true
+size = Vector3(0.5303955, 0.72387695, 4.1865234)
+
+[node name="WALL2" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 2, 0, -1, 0, -4.371139e-08, 5.875807, 0.86279297, 2.5905366)
+use_collision = true
+size = Vector3(0.23248291, 2.725586, 4.1865234)
+
+[node name="WALL5" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 4, 0, -1, 0, -4.371139e-08, 9.142225, 0.86279297, -6.28591)
+use_collision = true
+size = Vector3(0.23248291, 2.725586, 10.71936)
+
+[node name="WALL4" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 3.9349108, 0.86279297, -1.8743985)
+use_collision = true
+size = Vector3(0.23248291, 2.725586, 8.962891)
+
+[node name="WALL7" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -6.735038, 0.86279297, -1.894479)
+use_collision = true
+size = Vector3(0.23248291, 2.725586, 17.015503)
+
+[node name="WALL6" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -1.757556, 1.2988281, -1.8743985)
+use_collision = true
+size = Vector3(3.985382, 3.161621, 8.962891)
+
+[node name="WALL3" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 2, 0, -1, 0, -4.371139e-08, -0.08561897, 0.86279297, 6.533902)
+use_collision = true
+size = Vector3(0.23248291, 2.725586, 16.109375)
+
+[node name="WALL8" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 4, 0, -1, 0, -4.371139e-08, 3.242262, 0.86279297, -10.334929)
+use_collision = true
+size = Vector3(0.23248291, 2.725586, 22.765137)
+
+[node name="stairs" parent="Blockout" instance=ExtResource("4_mxxch")]
+transform = Transform3D(-0.5441348, 0, 5.7550313e-08, 0, 0.64518523, 0, -4.756977e-08, 0, -0.65829885, 1.4677439, -2.932423, -9.709569)

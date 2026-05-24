@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://byhy3suos8lgv"]
+
+[ext_resource type="PackedScene" uid="uid://cb570pqh5r8gj" path="res://Imports/Assets/PSXTree.glb" id="1_i64vq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i64vq"]
+radius = 0.5263672
+height = 7.3867188
+
+[node name="PSXTree" instance=ExtResource("1_i64vq")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1896362, 0)
+shape = SubResource("CapsuleShape3D_i64vq")

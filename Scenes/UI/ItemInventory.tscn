@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://c47net1e1dvps"]
+
+[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_e0hce"]
+[ext_resource type="Script" uid="uid://kfaowqw2sl1q" path="res://Scripts/UI/Elements/Inventory/Inventory.cs" id="2_cpj8l"]
+[ext_resource type="PackedScene" uid="uid://bh6wx7phu3w6x" path="res://Scenes/UI/InventorySlot.tscn" id="2_nte6x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nte6x"]
+
+[node name="ItemInventory" type="Panel" node_paths=PackedStringArray("ExitButton", "SlotContainer")]
+offset_right = 600.0
+offset_bottom = 300.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_e0hce")
+script = ExtResource("2_cpj8l")
+ExitButton = NodePath("Inventory Panel Tools/Button")
+SlotInstance = ExtResource("2_nte6x")
+SlotContainer = NodePath("Inventory Panel Tools/VBoxContainer")
+
+[node name="Inventory Panel Tools" type="Panel" parent="."]
+layout_mode = 1
+offset_top = -25.0
+offset_right = 600.0
+
+[node name="Button" type="Button" parent="Inventory Panel Tools"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_bottom = 25.0
+grow_horizontal = 0
+theme = ExtResource("1_e0hce")
+theme_override_font_sizes/font_size = 16
+text = "CLOSE"
+
+[node name="Label" type="Label" parent="Inventory Panel Tools"]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 25.0
+text = "INVENTORY"
+label_settings = SubResource("LabelSettings_nte6x")
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inventory Panel Tools"]
+custom_minimum_size = Vector2(80, 64)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 70.0
+offset_right = 540.00024
+offset_bottom = 297.99994
+theme = ExtResource("1_e0hce")
+theme_override_constants/separation = 90
+alignment = 1
+
+[connection signal="pressed" from="Inventory Panel Tools/Button" to="." method="hide"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cba6br41o4lwb"]
+
+[ext_resource type="PackedScene" uid="uid://jnequ6r2k3qt" path="res://Imports/Assets/WoodenLog.glb" id="1_ja0yp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ja0yp"]
+height = 4.36
+radius = 0.22
+
+[node name="WoodenLog" type="StaticBody3D"]
+
+[node name="WoodenLog" parent="." instance=ExtResource("1_ja0yp")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 2.3841858e-07, 0, 0)
+shape = SubResource("CylinderShape3D_ja0yp")

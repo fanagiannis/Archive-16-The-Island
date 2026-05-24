@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm3xm7n1k1dx0"]
+
+[ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="1_24s0o"]
+[ext_resource type="Script" uid="uid://c15tcrr4h6a6a" path="res://Scripts/Interactable/InteractableEventItem.cs" id="2_24s0o"]
+[ext_resource type="AudioStream" uid="uid://cfcclt4jh4oye" path="res://Examples/Assets/SFX/Debug/Death.wav" id="3_0tls3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgxno"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.01
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tls3"]
+next_pass = SubResource("StandardMaterial3D_mgxno")
+albedo_color = Color(0.9490196, 0, 0, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+
+[node name="EventItem" instance=ExtResource("1_24s0o")]
+script = ExtResource("2_24s0o")
+name = "Activate"
+description = ""
+itemAudio = ExtResource("3_0tls3")
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0tls3")

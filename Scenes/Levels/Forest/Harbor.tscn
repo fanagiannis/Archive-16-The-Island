@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy1tkxf333cky"]
+
+[ext_resource type="PackedScene" uid="uid://c75afxalg0jou" path="res://Imports/Assets/Meshes/PSXHarbor.glb" id="1_tg3wh"]
+
+[node name="PSXHarbor" instance=ExtResource("1_tg3wh")]
+
+[node name="CollisionShape3D" parent="Harbor/StaticBody3D" index="0" groups=["Wood"]]

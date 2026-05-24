@@ -1,0 +1,15 @@
+[gd_resource type="SphereMesh" load_steps=2 format=3 uid="uid://cloaska7g2v3y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frpxt"]
+transparency = 1
+blend_mode = 1
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.9843137, 0.972549, 0, 0.24705882)
+proximity_fade_distance = 0.01
+distance_fade_mode = 2
+distance_fade_min_distance = 3.0
+distance_fade_max_distance = 0.0
+
+[resource]
+material = SubResource("StandardMaterial3D_frpxt")

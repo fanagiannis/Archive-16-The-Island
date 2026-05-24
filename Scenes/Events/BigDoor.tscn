@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4gtne366x4x1"]
+
+[ext_resource type="Script" uid="uid://c7tt2kbghjvoa" path="res://Scripts/Events/AnimatedEvents/BigDoor.cs" id="1_ns337"]
+
+[sub_resource type="Animation" id="Animation_ns337"]
+resource_name = "Door"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 0, 0, -2.5)
+
+[sub_resource type="Animation" id="Animation_u1jmp"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u1jmp"]
+_data = {
+&"Door": SubResource("Animation_ns337"),
+&"RESET": SubResource("Animation_u1jmp")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_i7yjy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i7yjy"]
+size = Vector3(0.49891162, 1.989502, 3.9077759)
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_ns337")
+ID = "A1"
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Door")
+root_motion_local = true
+libraries = {
+&"": SubResource("AnimationLibrary_u1jmp")
+}
+playback_auto_capture = false
+
+[node name="Door" type="AnimatableBody3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Door"]
+transform = Transform3D(0.3432302, 0, 0, 0, 1.9806886, 0, 0, 0, 3.8133185, 0, 0, 0)
+mesh = SubResource("BoxMesh_i7yjy")
+
+[node name="MeshCollider" type="CollisionShape3D" parent="Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.029352784, -0.0020751953, -0.01626587)
+shape = SubResource("BoxShape3D_i7yjy")

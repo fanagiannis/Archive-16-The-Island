@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cnjpnm0gwvf53"]
+
+[resource]
+transparency = 1
+albedo_color = Color(0.99999994, 0.990508, 0.054238364, 0.5294118)
+proximity_fade_distance = 0.01
+distance_fade_mode = 2
+distance_fade_min_distance = 5.0
+distance_fade_max_distance = 0.0
+stencil_flags = 2

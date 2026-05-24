@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2ntbbwiuet5i"]
+
+[ext_resource type="Script" uid="uid://bcs8oh4n1arb3" path="res://Scripts/Interactable/ExitDoor.cs" id="1_1u5df"]
+[ext_resource type="PackedScene" uid="uid://bapavnpr0q7mk" path="res://Imports/Assets/Meshes/Harbor/PSXDoor.glb" id="2_1u5df"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bmeh"]
+size = Vector3(1.713562, 2.3593445, 0.32617188)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7bmeh"]
+
+[node name="ExitDoor" type="StaticBody3D" node_paths=PackedStringArray("DoorPlayerSpawnPoint")]
+script = ExtResource("1_1u5df")
+DoorPlayerSpawnPoint = NodePath("SpawnPoint")
+name = "Door"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009674072, 0.09754944, -0.045898438)
+shape = SubResource("BoxShape3D_7bmeh")
+
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnPoint"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("SphereMesh_7bmeh")
+
+[node name="PSXDoor" parent="." instance=ExtResource("2_1u5df")]

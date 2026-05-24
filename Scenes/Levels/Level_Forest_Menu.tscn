@@ -1,0 +1,208 @@
+[gd_scene load_steps=26 format=3 uid="uid://cwxqkprq5eqfi"]
+
+[ext_resource type="Script" uid="uid://dlohclqb33upa" path="res://Scripts/Level/Level.cs" id="1_3umqj"]
+[ext_resource type="PackedScene" uid="uid://bl5f4wm3n4v88" path="res://Scenes/LevelAssets/Forest/PSXTent.tscn" id="2_svwvx"]
+[ext_resource type="PackedScene" uid="uid://i51i858ncwov" path="res://Scenes/LevelAssets/Forest/PSXCampfire.tscn" id="3_1qoww"]
+[ext_resource type="PackedScene" uid="uid://2e3jr4xxd31n" path="res://Scenes/LevelAssets/Forest/Axe.tscn" id="4_xo6ui"]
+[ext_resource type="PackedScene" uid="uid://ga7pu5sw3tun" path="res://Scenes/LevelAssets/Forest/CutLog.tscn" id="5_h5t83"]
+[ext_resource type="PackedScene" uid="uid://m7iut13hmgpy" path="res://Scenes/LevelAssets/Forest/FenceA.tscn" id="6_ykdjo"]
+[ext_resource type="PackedScene" uid="uid://brlcbmd15etsh" path="res://Scenes/LevelAssets/Forest/OakTreeA.tscn" id="7_0680s"]
+[ext_resource type="PackedScene" uid="uid://dr2ogpgurap0y" path="res://Scenes/Items/Pickable/PickUp_Flashlight.tscn" id="8_0skgo"]
+[ext_resource type="Texture2D" uid="uid://btor43djk5ind" path="res://Textures/Materials/Forest Ground/Textures/Ground068_1K-JPG_Color.jpg" id="9_ad5d5"]
+[ext_resource type="Texture2D" uid="uid://dixs2uncx4hlv" path="res://Textures/Materials/Forest Ground/Textures/Ground068_1K-JPG_NormalDX.jpg" id="10_ym0aa"]
+[ext_resource type="Texture2D" uid="uid://bothcilbitkpy" path="res://Textures/Materials/Forest Ground/Textures/Ground103_1K-JPG_Color.jpg" id="11_qbk8e"]
+[ext_resource type="Texture2D" uid="uid://d850v6pkp5d3" path="res://Textures/Materials/Forest Ground/Textures/Ground103_1K-JPG_NormalDX.jpg" id="12_xv8fu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_awgfw"]
+sky_top_color = Color(0.524999, 0.699586, 0.930476, 1)
+sky_horizon_color = Color(0.885751, 0.528093, 0.662718, 1)
+ground_bottom_color = Color(0.154839, 0.15629, 0.181573, 1)
+sun_angle_max = 252.28
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_j2rwf"]
+sky_material = SubResource("ProceduralSkyMaterial_awgfw")
+
+[sub_resource type="Environment" id="Environment_l208q"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_j2rwf")
+sky_custom_fov = 61.5
+ambient_light_color = Color(0.29219013, 0.29219, 0.29219002, 1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_yj8jm"]
+sample_partition_type = 1
+geometry_parsed_geometry_type = 0
+agent_height = 1.0
+
+[sub_resource type="Gradient" id="Gradient_2a3p7"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mj0yi"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ty5sy"]
+noise = SubResource("FastNoiseLite_mj0yi")
+color_ramp = SubResource("Gradient_2a3p7")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_muxfg"]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.310000014725,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_ty5sy"),
+&"projection_threshold": 0.8,
+&"world_noise_fragment_normals": false,
+&"world_noise_height": 64.0,
+&"world_noise_lod_distance": 7500.0,
+&"world_noise_max_octaves": 4,
+&"world_noise_min_octaves": 2,
+&"world_noise_offset": Vector3(0, 0, 0),
+&"world_noise_region_blend": 0.33,
+&"world_noise_scale": 5.0
+}
+world_background = 2
+show_navigation = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nvux"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_besi3"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_3nvux")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_muxfg"]
+name = "Ground068_1K-JPG_Color"
+albedo_texture = ExtResource("9_ad5d5")
+normal_texture = ExtResource("10_ym0aa")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_a6y8w"]
+name = "Ground103_1K-JPG_Color"
+id = 1
+albedo_texture = ExtResource("11_qbk8e")
+normal_texture = ExtResource("12_xv8fu")
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_a6y8w"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_besi3")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_muxfg"), SubResource("Terrain3DTextureAsset_a6y8w")])
+
+[node name="World" type="Node3D" node_paths=PackedStringArray("playerSpawn")]
+script = ExtResource("1_3umqj")
+LevelName = "FOREST"
+playerSpawn = NodePath("PlayerSpawn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660249, 0.31250513, -0.39030778, 7.450581e-09, 0.7806165, 0.6250104, 0.5, -0.54127514, 0.6760335, 0, 36.0983, 22.6606)
+light_energy = 0.0
+light_indirect_energy = 1.25
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l208q")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_yj8jm")
+
+[node name="Blockout" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Forest" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Walls" type="Node3D" parent="NavigationRegion3D/Forest"]
+
+[node name="Columns" type="Node3D" parent="NavigationRegion3D/Forest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.18, 0)
+
+[node name="Floors" type="Node3D" parent="NavigationRegion3D/Forest"]
+
+[node name="Doors" type="Node3D" parent="NavigationRegion3D/Forest"]
+
+[node name="Tent" parent="NavigationRegion3D/Forest" instance=ExtResource("2_svwvx")]
+transform = Transform3D(1.4359125, 0, 1.3921765, 0, 2, 0, -1.3921765, 0, 1.4359125, -1.6338539, 0, -5.023981)
+
+[node name="PSXCampfire" parent="NavigationRegion3D/Forest" instance=ExtResource("3_1qoww")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.203402, 0, -1.4949744)
+
+[node name="PSXAxe" parent="NavigationRegion3D/Forest" instance=ExtResource("4_xo6ui")]
+transform = Transform3D(-0.060308963, -1.6923864, -1.0640447, 0.0957693, -1.0657525, 1.6896745, -1.9967953, -1.4901161e-07, 0.11317655, -1.7652626, 0.955225, 0.40077996)
+
+[node name="PSXCutLog" parent="NavigationRegion3D/Forest" instance=ExtResource("5_h5t83")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.7458391, 0, 0.4480214)
+
+[node name="PSXFenceA" parent="NavigationRegion3D/Forest" instance=ExtResource("6_ykdjo")]
+transform = Transform3D(1.840614, 0, 0.782394, 0, 2, 0, -0.782394, 0, 1.840614, 1.228147, 0, 3.4631243)
+
+[node name="PSXOakTreeA" parent="NavigationRegion3D/Forest" instance=ExtResource("7_0680s")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.444632, 0, -1.9657745)
+
+[node name="Item" parent="NavigationRegion3D/Forest" instance=ExtResource("8_0skgo")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.5253668, 0.8933029, 0.42428446)
+
+[node name="PlayerSpawn" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2.0896878, 0)
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="Events" type="Node3D" parent="."]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+light_color = Color(1, 0.5647059, 0.03529412, 1)
+light_energy = 2.805
+omni_range = 30.994398
+
+[node name="Terrain3D" type="Terrain3D" parent="." groups=["Terrain"]]
+data_directory = "res://Scenes/Levels/Forest/Data"
+material = SubResource("Terrain3DMaterial_muxfg")
+assets = SubResource("Terrain3DAssets_a6y8w")
+save_16_bit = true
+label_size = 24
+collision_shape_size = 8
+collision_radius = 16
+collision_layer = 255
+mesh_size = 8
+vertex_spacing = 100.0
+show_navigation = true
+top_level = true
+metadata/_edit_lock_ = true
+
+[editable path="NavigationRegion3D/Forest/PSXOakTreeA"]

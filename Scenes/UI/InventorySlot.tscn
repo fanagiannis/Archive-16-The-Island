@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh6wx7phu3w6x"]
+
+[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_owa7q"]
+[ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="2_dqrds"]
+[ext_resource type="Script" uid="uid://dpycsefn1p11p" path="res://Scripts/UI/Elements/Inventory/InventorySlot.cs" id="2_wycv1"]
+[ext_resource type="AudioStream" uid="uid://24471br7pior" path="res://Imports/Assets/Audio/SFX/UI/addons_kenney_interface_sounds_toggle_001.wav" id="3_tvb4d"]
+[ext_resource type="AudioStream" uid="uid://1aou04sraark" path="res://Imports/Assets/Audio/SFX/UI/addons_kenney_interface_sounds_close_001.wav" id="4_ptkm8"]
+[ext_resource type="PackedScene" uid="uid://calw0fe4j7uyy" path="res://Scenes/UI/InventoryControlPanel.tscn" id="5_tvb4d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wycv1"]
+line_spacing = 0.0
+font = ExtResource("2_dqrds")
+font_size = 12
+outline_size = 1
+
+[node name="InventorySlot" type="Panel" node_paths=PackedStringArray("slotButton", "slotNameLabel")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_owa7q")
+script = ExtResource("2_wycv1")
+useSound = ExtResource("3_tvb4d")
+emptySound = ExtResource("4_ptkm8")
+slotButton = NodePath("SlotButton")
+slotNameLabel = NodePath("SlotButton/SlotName")
+ControlPanelScene = ExtResource("5_tvb4d")
+
+[node name="SlotButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_owa7q")
+icon_alignment = 1
+
+[node name="SlotName" type="Label" parent="SlotButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = 33.0
+offset_right = 35.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_wycv1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1

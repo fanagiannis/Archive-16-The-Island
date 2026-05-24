@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dr2ogpgurap0y"]
+
+[ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="1_d7wx8"]
+[ext_resource type="Script" uid="uid://dgpoebp775kk0" path="res://Scripts/Interactable/PickUp.cs" id="2_lr4u6"]
+[ext_resource type="PackedScene" uid="uid://cc5teqgsi61iw" path="res://Scenes/Items/Pickable/Pickable_Flashlight.tscn" id="3_nw3dx"]
+[ext_resource type="Texture2D" uid="uid://b85yqd15ltp7n" path="res://Imports/Assets/UI/WeaponCrosshair.png" id="4_d7wx8"]
+[ext_resource type="PackedScene" uid="uid://bpn0ep1pu0ukf" path="res://Imports/Assets/Meshes/Flashlight/PSXFlashlight.glb" id="5_lr4u6"]
+[ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="6_8ye75"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d7wx8"]
+radius = 0.52875906
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ye75"]
+albedo_color = Color(1, 0.85, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.8509804, 0, 1)
+emission_energy_multiplier = 5.45
+distance_fade_mode = 1
+distance_fade_max_distance = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lr4u6"]
+lifetime_randomness = 0.25
+emission_shape = 2
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 0.385, 0)
+color = Color(1, 0.9666667, 0, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_wrrt5"]
+radius = 0.001
+height = 0.001
+
+[node name="Item" node_paths=PackedStringArray("Item") instance=ExtResource("1_d7wx8")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("2_lr4u6")
+Item = NodePath("Instance")
+name = "Flashlight"
+description = ""
+itemAudio = null
+
+[node name="Mesh" parent="." index="0"]
+visible = false
+gi_mode = 2
+mesh = null
+
+[node name="MeshCollider" parent="." index="1"]
+shape = SubResource("SphereShape3D_d7wx8")
+
+[node name="Instance" parent="." index="4" instance=ExtResource("3_nw3dx")]
+visible = false
+name = "Flashlight"
+itemIcon = ExtResource("4_d7wx8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="5"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0912885, 0)
+light_color = Color(0.70895946, 0.6795859, 0, 1)
+distance_fade_enabled = true
+omni_range = 0.1348477
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="6"]
+material_override = SubResource("StandardMaterial3D_8ye75")
+amount = 50
+fixed_fps = 15
+process_material = SubResource("ParticleProcessMaterial_lr4u6")
+draw_pass_1 = SubResource("SphereMesh_wrrt5")
+
+[node name="PSXFlashlight" parent="." index="7" instance=ExtResource("5_lr4u6")]
+
+[node name="Cylinder_028" parent="PSXFlashlight" index="0"]
+surface_material_override/0 = ExtResource("6_8ye75")
+surface_material_override/1 = ExtResource("6_8ye75")
+surface_material_override/2 = ExtResource("6_8ye75")
+surface_material_override/3 = ExtResource("6_8ye75")
+
+[editable path="PSXFlashlight"]

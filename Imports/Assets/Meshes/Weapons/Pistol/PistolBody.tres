@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dp4blbih2co3"]
+
+[resource]
+resource_name = "PistolBody"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.18749134, 0.18749134, 0.18749134, 1)
+use_z_clip_scale = true
+z_clip_scale = 0.5

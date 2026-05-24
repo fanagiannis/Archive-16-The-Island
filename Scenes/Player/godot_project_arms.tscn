@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://5g6r5y4u2fkk"]
+
+[ext_resource type="PackedScene" uid="uid://bo2pg11p68ejh" path="res://Imports/PlayerAssets/GodotProjectArms.glb" id="1_glp7j"]
+
+[node name="GodotProjectArms" instance=ExtResource("1_glp7j")]
+
+[node name="Cuff_L" parent="LVA4_Armature/Skeleton3D" index="1"]
+visible = false
+
+[node name="Cuff_R" parent="LVA4_Armature/Skeleton3D" index="2"]
+visible = false
+
+[node name="Nails" parent="LVA4_Armature/Skeleton3D" index="3"]
+visible = false
+
+[node name="Hoodie" parent="LVA4_Armature/Skeleton3D" index="4"]
+visible = false
+
+[node name="Gorka" parent="LVA4_Armature/Skeleton3D" index="5"]
+visible = false
+
+[node name="Undershirt" parent="LVA4_Armature/Skeleton3D" index="6"]
+visible = false
+
+[node name="Blouse" parent="LVA4_Armature/Skeleton3D" index="7"]
+visible = false
+
+[node name="Blouse 2" parent="LVA4_Armature/Skeleton3D" index="8"]
+visible = false
+
+[node name="Knuckled gloves" parent="LVA4_Armature/Skeleton3D" index="9"]
+visible = false
+
+[node name="Mechanix gloves" parent="LVA4_Armature/Skeleton3D" index="10"]
+visible = false
+
+[node name="Knuckled fingerless" parent="LVA4_Armature/Skeleton3D" index="11"]
+visible = false
+
+[node name="Cloth gloves" parent="LVA4_Armature/Skeleton3D" index="12"]
+visible = false
+
+[node name="Cloth gloves fingerless" parent="LVA4_Armature/Skeleton3D" index="13"]
+visible = false
+
+[node name="Mechanix gloves fingerless" parent="LVA4_Armature/Skeleton3D" index="14"]
+visible = false
+
+[node name="Mesh gloves" parent="LVA4_Armature/Skeleton3D" index="15"]
+visible = false
+
+[node name="Ring" parent="LVA4_Armature/Skeleton3D" index="16"]
+visible = false
+
+[node name="Watch" parent="LVA4_Armature/Skeleton3D" index="17"]
+visible = false
+
+[node name="Watch strap" parent="LVA4_Armature/Skeleton3D" index="18"]
+visible = false
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="LVA4_Armature" index="1"]
+transform = Transform3D(0.93158305, 0.36336485, 0.010908411, 0.010908321, -0.05793477, 0.998261, 0.36336482, -0.929844, -0.05793477, 0.33821186, -0.25085378, -0.28658095)
+bone_name = "handIK.R"
+bone_idx = 68
+use_external_skeleton = true
+external_skeleton = NodePath("../Skeleton3D")

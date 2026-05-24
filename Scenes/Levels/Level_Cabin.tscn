@@ -1,0 +1,185 @@
+[gd_scene load_steps=13 format=3 uid="uid://bdrwqq7opc1ec"]
+
+[ext_resource type="Script" uid="uid://dlohclqb33upa" path="res://Scripts/Level/Level.cs" id="1_wj57g"]
+[ext_resource type="PackedScene" uid="uid://dhs8rgwvhuaxx" path="res://Scenes/LevelAssets/Cabin/WoodenFloor.tscn" id="2_pdyso"]
+[ext_resource type="PackedScene" uid="uid://bpyd4wensq1fi" path="res://Scenes/LevelAssets/Cabin/CabbinWall.tscn" id="3_pdyso"]
+[ext_resource type="PackedScene" uid="uid://cba6br41o4lwb" path="res://Scenes/LevelAssets/Cabin/WoodenLog.tscn" id="4_f8cdn"]
+[ext_resource type="PackedScene" uid="uid://4jfbwsanpr77" path="res://Scenes/LevelAssets/Cabin/WoodenFloor2.tscn" id="5_av1gc"]
+[ext_resource type="PackedScene" uid="uid://bwnliqpfenw11" path="res://Scenes/Entities/NPCs/NPC.tscn" id="6_gajtk"]
+[ext_resource type="PackedScene" uid="uid://d1ffnbt2sysup" path="res://Scenes/LevelAssets/Cabin/ExitDoor.tscn" id="7_kdvhr"]
+[ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="9_wj57g"]
+[ext_resource type="PackedScene" uid="uid://pq8bjmaeawo5" path="res://Scenes/Items/Pickable/PickableItem.tscn" id="10_pwsdw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_awgfw"]
+sky_top_color = Color(0.524999, 0.699586, 0.930476, 1)
+sky_horizon_color = Color(0.885751, 0.528093, 0.662718, 1)
+ground_bottom_color = Color(0.154839, 0.15629, 0.181573, 1)
+sun_angle_max = 252.28
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_j2rwf"]
+sky_material = SubResource("ProceduralSkyMaterial_awgfw")
+
+[sub_resource type="Environment" id="Environment_l208q"]
+background_mode = 2
+background_energy_multiplier = 1.9
+sky = SubResource("Sky_j2rwf")
+ambient_light_source = 3
+ambient_light_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+
+[node name="World2" type="Node3D" node_paths=PackedStringArray("playerSpawn", "exitDoors")]
+script = ExtResource("1_wj57g")
+LevelName = "CABIN"
+playerSpawn = NodePath("PlayerSpawn")
+exitDoors = [NodePath("Cabin/Doors/ExitDoorHallwayA"), NodePath("Cabin/Doors/ExitDoorHallwayB")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660249, 0.31250513, -0.39030778, 7.450581e-09, 0.7806165, 0.6250104, 0.5, -0.54127514, 0.6760335, 0, 36.0983, 22.6606)
+light_energy = 1.21
+light_indirect_energy = 0.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l208q")
+
+[node name="PlayerSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0116515, 0.58774555, -1.9772577)
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="Item" parent="Interactables" instance=ExtResource("9_wj57g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2556796, 3.1125095, -1.9629043)
+
+[node name="Item2" parent="Interactables" instance=ExtResource("10_pwsdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.755117, 0.5487694, -4.3208857)
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="Npc" parent="NPCs" instance=ExtResource("6_gajtk")]
+transform = Transform3D(-0.9999486, 0, 0.010140151, 0, 1, 0, -0.010140151, 0, -0.9999486, 4.5792856, 0.048788086, -1.3799202)
+
+[node name="Events" type="Node3D" parent="."]
+
+[node name="Cabin" type="Node3D" parent="."]
+
+[node name="Walls" type="Node3D" parent="Cabin"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1783986, 0, 0)
+
+[node name="CabbinWall" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42999998, 0.21999998, -0.41999984)
+
+[node name="CabbinWall2" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.7622874, 0.21999998, -2.8199997)
+
+[node name="CabbinWall3" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13, 0.21999998, -0.41999984)
+
+[node name="CabbinWall4" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42999998, 0.21999998, -5.1800003)
+
+[node name="CabbinWall5" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13, 0.21999998, -5.1800003)
+
+[node name="CabbinWall6" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42999998, 2.8500001, -0.41999984)
+
+[node name="CabbinWall7" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8199997, 2.8500001, -2.8199997)
+
+[node name="CabbinWall8" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13, 2.8500001, -0.41999984)
+
+[node name="CabbinWall9" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42999998, 2.8500001, -5.1800003)
+
+[node name="CabbinWall10" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13, 2.8500001, -5.1800003)
+
+[node name="CabbinWall11" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.3489356, 0.21999998, -2.82)
+
+[node name="CabbinWall12" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.3489356, 2.8051252, -2.82)
+
+[node name="CabbinWall13" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(-4.9165568e-08, 0, 1, 0, 1, 0, -1.1247771, 0, -4.371139e-08, 0.20007527, 2.8051252, -2.8199997)
+
+[node name="CabbinWall14" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13, 2.773828, -3.4750419)
+
+[node name="CabbinWall15" parent="Cabin/Walls" instance=ExtResource("3_pdyso")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.9028392, 2.8051252, -1.2785027)
+
+[node name="Columns" type="Node3D" parent="Cabin"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1783986, -1.18, 0)
+
+[node name="WoodenLog" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.7399998, 1.78, -0.43)
+
+[node name="WoodenLog2" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.8800001, 1.7800002, -0.43)
+
+[node name="WoodenLog3" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.7399998, 1.78, -5.19)
+
+[node name="WoodenLog4" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.8800001, 1.7800002, -5.19)
+
+[node name="WoodenLog5" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 6.4600005, 1.7800003, -0.43)
+
+[node name="WoodenLog6" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 6.4600005, 1.7800003, -5.19)
+
+[node name="WoodenLog7" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.8800001, 1.7800002, -3.5206635)
+
+[node name="WoodenLog8" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.7399998, 6.1349998, -0.43)
+
+[node name="WoodenLog9" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.8800001, 6.1349998, -0.43)
+
+[node name="WoodenLog10" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.7399998, 6.1349998, -5.19)
+
+[node name="WoodenLog11" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.8800001, 6.1349998, -5.19)
+
+[node name="WoodenLog12" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 6.4648285, 6.135, -0.43)
+
+[node name="WoodenLog13" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 6.4648285, 6.135, -5.19)
+
+[node name="WoodenLog14" parent="Cabin/Columns" instance=ExtResource("4_f8cdn")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.8800001, 6.1349998, -3.523423)
+
+[node name="Floors" type="Node3D" parent="Cabin"]
+
+[node name="WoodenFloor" parent="Cabin/Floors" groups=["Wood"] instance=ExtResource("2_pdyso")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="WoodenFloor2" parent="Cabin/Floors" instance=ExtResource("5_av1gc")]
+transform = Transform3D(3.289, 0, 0, 0, 1, 0, 0, 0, 4.968001, -1.5455995, 2.6301029, -3.1305757)
+
+[node name="WoodenFloor3" parent="Cabin/Floors" instance=ExtResource("5_av1gc")]
+transform = Transform3D(3.289, 0, 0, 0, 1, 0, 0, 0, 4.968001, 5.1969934, 2.6299999, -1.2291198)
+
+[node name="WoodenFloor4" parent="Cabin/Floors" instance=ExtResource("2_pdyso")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 5.1844735, 0)
+
+[node name="Doors" type="Node3D" parent="Cabin"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1783986, 0, 0)
+
+[node name="ExitDoorHallwayA" parent="Cabin/Doors" instance=ExtResource("7_kdvhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.128249, 0.91518295, -8.253126)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Tag = "DOORR2CA"
+
+[node name="ExitDoorHallwayB" parent="Cabin/Doors" instance=ExtResource("7_kdvhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1415486, 0.91518295, -8.253574)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Tag = "B1"
+
+[node name="Blockout" type="Node3D" parent="."]

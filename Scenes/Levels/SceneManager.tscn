@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://c85cvv78x2vc4"]
+
+[ext_resource type="PackedScene" uid="uid://bei4nhkf8lwdo" path="res://Scenes/PlayerController.tscn" id="1_26csl"]
+[ext_resource type="Script" uid="uid://dvjyv2br3m44f" path="res://Scripts/SceneManager/SceneManager.cs" id="1_o727u"]
+[ext_resource type="PackedScene" uid="uid://dsomyl6jo07b7" path="res://Scenes/Levels/Menu/LoadingScreen.tscn" id="2_b8fpo"]
+[ext_resource type="PackedScene" uid="uid://bufbt05hc3uk2" path="res://Scenes/Levels/Menu/MainMenu.tscn" id="4_qt5fn"]
+[ext_resource type="Script" uid="uid://dd4xuht61uq6j" path="res://Scripts/UI/MainMenu.cs" id="5_38h0w"]
+[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="5_vx4fo"]
+[ext_resource type="Script" uid="uid://da77n8tvxqrwt" path="res://Scenes/ChunkLoader.cs" id="7_vx4fo"]
+
+[sub_resource type="Animation" id="Animation_qt5fn"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_38h0w"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_b8fpo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_38h0w"]
+_data = {
+&"FadeIn": SubResource("Animation_qt5fn"),
+&"FadeOut": SubResource("Animation_38h0w"),
+&"RESET": SubResource("Animation_b8fpo")
+}
+
+[node name="SceneManager" type="Node3D" node_paths=PackedStringArray("ManagerAnimator", "loadingScreen", "MainMenu")]
+script = ExtResource("1_o727u")
+ManagerAnimator = NodePath("MainMenu/MainMenuUIAnimation")
+loadingScreen = NodePath("LoadingScreen")
+PlayerScene = ExtResource("1_26csl")
+Scenes = PackedStringArray("res://Scenes/Levels/Level_Outdoor.tscn", "res://Scenes/Levels/Level_Reception.tscn", "res://Scenes/Levels/Dev/MovementTestbed/MovementTestbed.tscn", "res://Scenes/Levels/Level_Forest.tscn", "res://Scenes/Levels/Menu/MainMenu3DBG.tscn")
+MainMenu = NodePath("MainMenu")
+
+[node name="MainMenu" parent="." node_paths=PackedStringArray("_LevelSelectionScreen", "_LevelsLabel") instance=ExtResource("4_qt5fn")]
+script = ExtResource("5_38h0w")
+MainMenuTheme = ExtResource("5_vx4fo")
+_LevelSelectionScreen = NodePath("Dev_Levels")
+_LevelsLabel = NodePath("Dev_Levels/VBoxContainer")
+MainGameLevelPath = "res://Scenes/Levels/Level_Forest.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="FadeRect" type="ColorRect" parent="MainMenu"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MainMenuUIAnimation" type="AnimationPlayer" parent="MainMenu"]
+libraries = {
+&"": SubResource("AnimationLibrary_38h0w")
+}
+
+[node name="LoadingScreen" parent="." instance=ExtResource("2_b8fpo")]
+visible = false
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="ChunkManager" type="Node3D" parent="."]
+script = ExtResource("7_vx4fo")
+
+[editable path="MainMenu"]
+[editable path="LoadingScreen"]

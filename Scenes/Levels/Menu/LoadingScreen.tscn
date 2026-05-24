@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsomyl6jo07b7"]
+
+[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_8qwyw"]
+[ext_resource type="Script" uid="uid://bd4lrkq7il22m" path="res://Scripts/SceneManager/LoadingScreen.cs" id="1_iio4q"]
+
+[node name="LoadingScreen" type="Control" node_paths=PackedStringArray("LoadingBar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_iio4q")
+LoadingBar = NodePath("CanvasLayer/ProgressBar")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -180.0
+offset_right = 239.99963
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_8qwyw")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -12.0
+offset_right = 45.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8qwyw")
+text = "LOADING"
