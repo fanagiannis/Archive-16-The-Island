@@ -22,17 +22,20 @@ script = ExtResource("2_0k5kl")
 [node name="UseButton" type="Button" parent="."]
 layout_mode = 2
 theme = ExtResource("1_u82gr")
+theme_override_font_sizes/font_size = 20
 text = "USE
 "
 
 [node name="DiscardButton" type="Button" parent="."]
 layout_mode = 2
 theme = ExtResource("1_u82gr")
+theme_override_font_sizes/font_size = 20
 text = "DISCARD
 "
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 2
 theme = ExtResource("1_u82gr")
+theme_override_font_sizes/font_size = 20
 text = "BACK
 "

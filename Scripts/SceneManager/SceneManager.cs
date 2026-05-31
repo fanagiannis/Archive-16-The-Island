@@ -72,7 +72,7 @@ public partial class SceneManager : Node
 			// NOW start loading
 			//SetSelectedScene(0);
 			
-			StartLoading(Scenes[4],null);
+			//StartLoading(Scenes[4],null);
 		}
 	}
 
@@ -211,6 +211,29 @@ public partial class SceneManager : Node
 		
 	}
 
+	public void ReturnToMainMenu()
+	{
+		GD.Print("Returning to Main Menu...");
+
+		// 1. Wipe the 3D level from memory
+		UnloadScene();
+
+		// 2. Destroy the player completely
+		if (_isPlayerLoaded && playerInstance != null)
+		{
+			playerInstance.QueueFree();
+			playerInstance = null;
+			_isPlayerLoaded = false;
+		}
+
+		// 3. Show and completely refresh the menu UI state
+		if (MainMenu != null)
+		{
+			MainMenu.Visible = true;
+			MainMenu.ResetToDefaultState(); // <-- Fires your new cleanup method!
+		}
+	}
+
 	public void ExitGame()
 	{
 		QueueFree();
@@ -260,6 +283,11 @@ public partial class SceneManager : Node
 	public bool Isloading()
 	{
 		return _isLoading;
+	}
+
+	public void ResetIsLoading()
+	{
+		_isLoading = false;
 	}
 
 	public void SetSelectedScene(int index)

@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dg7v4h5uypd8n"]
+
+[ext_resource type="Texture2D" uid="uid://dvqasjym0n6sy" path="res://Imports/Assets/Materials/Water/T_PSX_Caustics_Atlas.png" id="1_ec6uv"]
+
+[resource]
+albedo_texture = ExtResource("1_ec6uv")

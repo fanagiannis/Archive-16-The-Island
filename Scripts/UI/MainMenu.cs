@@ -43,8 +43,8 @@ public partial class MainMenu : Control
     {
         // Handle the Start button press (e.g., start the game)
         GD.Print("Start button pressed!");
-        LoadMainGame();
-        //LoadLevelList();
+        //LoadMainGame();
+        LoadLevelList();
        // SceneManager.Instance.Start();
         // Hide the main menu panel if needed
         //_mainMenuPanel.Visible = false;
@@ -61,6 +61,33 @@ public partial class MainMenu : Control
         // Handle the Exit button press (e.g., exit the game)
         GD.Print("Exit button pressed!");
         SceneManager.Instance.ExitGame();
+    }
+
+    public void ResetToDefaultState()
+    {
+        // 1. Snap the visibility back to the primary Title Screen view
+        _mainMenuPanel.Visible = true;
+        _LevelSelectionScreen.Visible = false;
+
+        // 2. CRITICAL: Destroy old dynamic level buttons so they don't duplicate!
+        foreach (Button button in LevelButtons)
+        {
+            if (IsInstanceValid(button))
+            {
+                button.QueueFree();
+            }
+        }
+        // Clear the tracking list entirely
+        LevelButtons.Clear();
+
+        // 3. Make sure the cursor is unfrozen and visible
+        Input.MouseMode = Input.MouseModeEnum.Visible;
+
+        // 4. Give focus back to the start button for gamepad/keyboard users
+        _startButton.GrabFocus();
+        SceneManager.Instance.ResetIsLoading();
+
+        GD.Print("Main Menu state completely reset and cleaned.");
     }
 
     private void LoadLevelList()
@@ -83,8 +110,7 @@ public partial class MainMenu : Control
         {
             if(button==_backButton)
                 break;
-            button.QueueFree();
-        }*/
+            button.QueueFree();        }*/
         foreach (String level in levelsList)
         {
             Button button = new Button();

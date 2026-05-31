@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cuik5yc3q423l"]
+
+[ext_resource type="Shader" uid="uid://btgu4sm7y0bku" path="res://Imports/Assets/Meshes/Shrine/ShaderVS.tres" id="1_xlow0"]
+
+[resource]
+shader = ExtResource("1_xlow0")

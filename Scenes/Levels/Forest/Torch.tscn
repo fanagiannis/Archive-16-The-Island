@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd4dbnxeftrn3"]
+
+[ext_resource type="Material" uid="uid://d3dfg3dej4fyh" path="res://Textures/VFX/ShaderMat_Fire.tres" id="1_0uugc"]
+[ext_resource type="ArrayMesh" uid="uid://brvajsvtaoijp" path="res://Textures/VFX/cylinder_thick.obj" id="1_lvpnj"]
+[ext_resource type="PackedScene" uid="uid://beivki6vd3r3a" path="res://Imports/Assets/Meshes/Harbor/PSXTorch.glb" id="3_yf6d1"]
+
+[node name="Torch" type="StaticBody3D"]
+
+[node name="CylinderThick" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.255, 0, 0, 0, 0.52, 0, 0, 0, 0.255, 0, 1.5969936, 0)
+mesh = ExtResource("1_lvpnj")
+surface_material_override/0 = ExtResource("1_0uugc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2314553, 0)
+light_color = Color(1, 0.57254905, 0, 1)
+light_energy = 2.85
+
+[node name="PSXTorch" parent="." instance=ExtResource("3_yf6d1")]

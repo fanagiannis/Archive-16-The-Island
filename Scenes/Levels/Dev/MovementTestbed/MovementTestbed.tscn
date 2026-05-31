@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://db2h3t17k37pe"]
+[gd_scene load_steps=20 format=3 uid="uid://db2h3t17k37pe"]
 
 [ext_resource type="Material" uid="uid://cjnmdufilepcn" path="res://Examples/Assets/Materials/DarkFloorMeterByMeter.tres" id="1_kf2sy"]
 [ext_resource type="Script" uid="uid://dlohclqb33upa" path="res://Scripts/Level/Level.cs" id="1_ondxm"]
@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="8_doek8"]
 [ext_resource type="PackedScene" uid="uid://pq8bjmaeawo5" path="res://Scenes/Items/Pickable/PickableItem.tscn" id="9_n7kwy"]
 [ext_resource type="PackedScene" uid="uid://c4gtne366x4x1" path="res://Scenes/Events/BigDoor.tscn" id="11_j3klr"]
-[ext_resource type="PackedScene" uid="uid://cuelvyq8vnrjt" path="res://Scenes/Entities/Enemies/Enemy_Base.tscn" id="13_jysla"]
-[ext_resource type="Resource" uid="uid://oax6o1m62hgp" path="res://Scripts/Entities/Enemies/Resources/Enemy_Base_Heavy.tres" id="14_f01sx"]
 [ext_resource type="PackedScene" uid="uid://buwv0y0a377xk" path="res://Scenes/Utilities/DamagableArea.tscn" id="14_ondxm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_awgfw"]
@@ -78,16 +76,6 @@ assosiatedEvent = NodePath("../../NavigationRegion3D/Events/Door")
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="Enemies" type="Node3D" parent="."]
-
-[node name="EnemyBase" parent="Enemies" instance=ExtResource("13_jysla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.904042, 1.4999986, 2.5938704)
-
-[node name="EnemyBase2" parent="Enemies" instance=ExtResource("13_jysla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.904042, 1.4999986, -6.39213)
-
-[node name="EnemyBaseHeavy" parent="Enemies" instance=ExtResource("13_jysla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.904042, 1.4999986, 11.89717)
-enemyData = ExtResource("14_f01sx")
 
 [node name="Doors" type="Node3D" parent="."]
 
@@ -227,7 +215,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.708916, 0.7558334, 8.5921
 
 [node name="Door" parent="NavigationRegion3D/Events" instance=ExtResource("11_j3klr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.654658, 1.4328313, 5.6394463)
-
-[editable path="Enemies/EnemyBase"]
-[editable path="Enemies/EnemyBase2"]
-[editable path="Enemies/EnemyBaseHeavy"]

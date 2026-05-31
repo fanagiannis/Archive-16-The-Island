@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://2ggeffxo45tr"]
+
+[ext_resource type="Script" uid="uid://mgamkkejnkle" path="res://Scripts/Level/Area.cs" id="1_vgmdp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ja8yv"]
+radius = 48.30663
+
+[node name="Area" type="Area3D" node_paths=PackedStringArray("label")]
+script = ExtResource("1_vgmdp")
+label = NodePath("Label3D")
+name = "Camping"
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ja8yv")
+debug_color = Color(0, 0.59953696, 0.7077709, 1)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.478674, 0)

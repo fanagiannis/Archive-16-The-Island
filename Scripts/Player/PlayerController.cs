@@ -19,6 +19,7 @@ public partial class PlayerController : CharacterBody3D
 	public Mouse           Mouse;
 	public InteractionSystem Interaction;
 	public PlayerUIController PlayerUI;
+	public PauseMenu PauseMenuUI;
 	public EquipmentController EquipmentControl; 
 	public EquipmentManager EquipmentManager; 
 	public Camera3D playercamera ;
@@ -71,6 +72,8 @@ public partial class PlayerController : CharacterBody3D
 	public string SprintInputAction;
 	[Export]
 	public string InteractInputAction;
+	[Export]
+	public string PauseInputAction;
 
 	private float _currentSpeed;
 
@@ -89,6 +92,7 @@ public partial class PlayerController : CharacterBody3D
 	private bool _isMoving=false;
 	private bool _isSprinting=false;
 	private bool _isMovesSlow=false;
+	private bool _isPaused=false;
 
 #region READY
 
@@ -149,6 +153,8 @@ public partial class PlayerController : CharacterBody3D
 
 		PlayerUI = GetNode<PlayerUIController>("UI");
 
+		PauseMenuUI = GetNode<PauseMenu>("UI/PauseMenu");
+
 		EquipmentControl = GetNode<EquipmentController>("Head");
 
 		EquipmentManager = GetNode<EquipmentManager>("Head/CameraSmooth/Camera3D/Equipment");
@@ -181,9 +187,27 @@ public partial class PlayerController : CharacterBody3D
 			PlayerUI.GetInventoryExitButton().Pressed+=ControllerEnablerHandler;
 			PlayerUI.GetInventoryExitButton().Pressed+=UIEnablerHandler;	
 		}
+		if (PauseMenuUI != null)
+		{
+			PauseMenuUI.OnResume += () =>
+			{
+				EnableController(true);
+				EnableUI(false);
+				_isPaused=false;
+				
+				// Input.MouseMode = Input.MouseModeEnum.Captured;
+			};
+
+			PauseMenuUI.OnExit+= () =>
+			{
+				SceneManager.Instance.ReturnToMainMenu();
+			};
+
+		}
+
 		#endregion
 
-		
+
 		EnableController(false);
 		EnableUI(true);
 
@@ -198,6 +222,27 @@ public partial class PlayerController : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		#region PAUSE
+		if (IsInputPressed(InteractInputAction, Key.Tab, justPressed: true) && _controllerEnabled )
+		{
+			if(!_isPaused)
+			{
+				_isPaused=true;
+				
+			}
+			else if(_isPaused)
+			{
+				_isPaused=false;
+			}
+			EnableController(!_isPaused);
+			EnableUI(_isPaused);
+			
+			PauseMenuUI.Visible = _isPaused;
+			GetTree().Paused = _isPaused;
+
+			
+		}
+		#endregion
 		#region Floor and Gravity
 		if (isOnFloorCustom())
 		{

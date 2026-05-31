@@ -1,0 +1,48 @@
+[gd_resource type="ShaderMaterial" load_steps=11 format=3 uid="uid://d3dfg3dej4fyh"]
+
+[ext_resource type="Shader" uid="uid://c7e3kdk4hi2y2" path="res://Textures/VFX/Fire.tres" id="1_rkaou"]
+[ext_resource type="Texture2D" uid="uid://qocbse37jaeg" path="res://Textures/Materials/LeLu's Noise Pack/T_Noise_HU85k.png" id="2_rkaou"]
+
+[sub_resource type="Gradient" id="Gradient_xkxhj"]
+offsets = PackedFloat32Array(0, 0.2266289, 0.5750708, 0.9946381)
+colors = PackedColorArray(0, 0, 0, 1, 0.61596906, 0.15479791, 0.12684813, 0.6784314, 1.224127, 0.82948893, 0.3159837, 1, 1.6978991, 1.1310291, 0.45339122, 0.63529414)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0vd2q"]
+gradient = SubResource("Gradient_xkxhj")
+
+[sub_resource type="Gradient" id="Gradient_0vd2q"]
+offsets = PackedFloat32Array(0, 0.39678285, 0.74530834)
+colors = PackedColorArray(0, 0, 0, 1, 0.6996528, 0.6996537, 0.699653, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_thlwh"]
+gradient = SubResource("Gradient_0vd2q")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_rkaou"]
+offsets = PackedFloat32Array(0, 0.5522788)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k2prd"]
+gradient = SubResource("Gradient_rkaou")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_k2prd"]
+offsets = PackedFloat32Array(0, 0.91957104)
+colors = PackedColorArray(0.02266289, 0.02266289, 0.02266289, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xkxhj"]
+gradient = SubResource("Gradient_k2prd")
+fill_from = Vector2(1, 1)
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rkaou")
+shader_parameter/DisplacementSpeed = Vector2(2, 4)
+shader_parameter/DisplacementScale = Vector2(-0.085, -0.055)
+shader_parameter/TextureDisplacement = SubResource("GradientTexture2D_thlwh")
+shader_parameter/DisplacementIntensity = 0.2
+shader_parameter/Speed = Vector2(0, 1)
+shader_parameter/Scale = Vector2(2, 2)
+shader_parameter/TextureBase = ExtResource("2_rkaou")
+shader_parameter/Texture_Add = SubResource("GradientTexture2D_k2prd")
+shader_parameter/Texture_Substract = SubResource("GradientTexture2D_xkxhj")
+shader_parameter/Color_Pallete = SubResource("GradientTexture1D_0vd2q")
