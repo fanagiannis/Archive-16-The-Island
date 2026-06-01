@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FetchQuest" load_steps=2 format=3 uid="uid://dfud0h4p1bp5p"]
+
+[ext_resource type="Script" uid="uid://7ppodbmqltim" path="res://Scripts/Level/FetchQuest.cs" id="1_41kqt"]
+
+[resource]
+script = ExtResource("1_41kqt")
+RequiredAmount = 6
+QuestId = "1"
+Title = "The Stage"
+Description = "Gather Information about the rogue agents."
+ObjectiveTarget = "Corpse"
+metadata/_custom_type_script = "uid://7ppodbmqltim"

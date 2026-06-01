@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://jncixgr0r1wt"]
+
+[ext_resource type="Script" uid="uid://bjgj08s6x0p0w" path="res://Scripts/Interactable/Corpse.cs" id="1_55cpy"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_y7w4u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knw07"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vw2nf"]
+render_priority = 1
+next_pass = SubResource("StandardMaterial3D_knw07")
+transparency = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.01
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4uxd1"]
+next_pass = SubResource("StandardMaterial3D_vw2nf")
+albedo_color = Color(0.0008296779, 0, 0.7537193, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_knw07"]
+size = Vector3(1.2769165, 1.8878174, 0.99134827)
+
+[node name="Corpse" type="StaticBody3D"]
+script = ExtResource("1_55cpy")
+name = "Corpse"
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_y7w4u")
+surface_material_override/0 = SubResource("StandardMaterial3D_4uxd1")
+
+[node name="MeshCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.06829071)
+shape = SubResource("BoxShape3D_knw07")
+
+[node name="Item Label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8824947, 0)
+
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]

@@ -1,4 +1,5 @@
 using System;
+using System.Data.Common;
 using Godot;
 
 namespace PolarBears.PlayerControllerAddon;
@@ -18,7 +19,7 @@ public partial class HealthSystem : Node3D
 	[Signal]
 	delegate void RegenerateHealthEventHandler(float delta);
 	[Signal]
-	delegate void DiedEventHandler();
+	public delegate void DiedEventHandler();
 	[Signal]
 	delegate void FullyRecoveredEventHandler();
 
@@ -154,6 +155,7 @@ public partial class HealthSystem : Node3D
 	private Node3D _head;
 	private AnimationPlayer _animationPlayer;
 	private ShaderMaterial _blurMaterial;
+	[Export]private DeathScreen _deathScreen;
 
 	public struct HealthSystemInitParams
 	{
@@ -199,6 +201,8 @@ public partial class HealthSystem : Node3D
 		
 		_blurMaterial.SetShaderParameter(Constants.BLUR_SHADER_LIMIT, 0.0f);
 		_blurMaterial.SetShaderParameter(Constants.BLUR_SHADER_BLUR, 0.0f);
+
+		//_deathScreen = GetNode<DeathScreen>("UI/DeathScreen");
 		
 		_animationPlayer = initParams.AnimationPlayer;
 	}
@@ -274,7 +278,13 @@ public partial class HealthSystem : Node3D
 		if (newPosition.Y < CameraHeightOnDeath) { newPosition.Y = CameraHeightOnDeath; }
 		
 		_head.Position = newPosition;
+
+		EmitSignal(SignalName.Died);
+
+		if(_deathScreen!=null)
+			_deathScreen.Visible=true;
 		
+		/*
 		_currentBlurLimit = Mathf.Lerp(
 			_currentBlurLimit, BlurLimitTargetValue, BlurLimitSpeedOnDeath * delta);
 		
@@ -282,6 +292,7 @@ public partial class HealthSystem : Node3D
 		
 		_currentBlur = Mathf.Lerp(_currentBlur, BlurTargetValue, BlurSpeedOnDeath * delta);
 		_blurMaterial.SetShaderParameter(Constants.BLUR_SHADER_BLUR, _currentBlur);	
+		
 		
 		if (_currentBlurLimit >= BlurLimitValueToStartFadeOut && _currentBlur >= BlurValueToStartFadeOut)
 		{
@@ -298,9 +309,10 @@ public partial class HealthSystem : Node3D
 			{
 				GD.Print("reload");
 				// Reload the current scene
+				
 				GetTree().ReloadCurrentScene();
 			}
-		}
+		}*/
 	}
 
 	private void HandleVignetteShader(float delta)

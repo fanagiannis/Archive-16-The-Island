@@ -8,6 +8,8 @@ public partial class Level : Node3D
 	EnemyManager enemyManager;
 	[Export] string LevelName;
 	[Export] Node3D playerSpawn;
+	[Export] Node3D questNode;
+	[Export] public CompleteLevelItem completeLevelItem;
 	private List<ExitDoor> exitDoors = new List<ExitDoor>();
 	//AREAS
 	private List<Area> levelAreas = new List<Area>();
@@ -17,6 +19,7 @@ public partial class Level : Node3D
 	Node3D DoorNode;
 	Node3D AreasNode;
 	int difficulty = 0;
+	[Export]private FetchQuest LevelQuest;
 	
 	public override void _Ready()
 	{
@@ -32,12 +35,38 @@ public partial class Level : Node3D
 		//GD.Print(enemies.Count);
 		//GD.Print(exitDoors.Count);
 		enemyManager.DisableAllEnemies();
+
+		if(questNode!=null)
+		{
+			int corpsecount = 0;
+			foreach(Node3D node in questNode.GetChildren())
+			{
+				corpsecount++;
+			}
+			LevelQuest.RequiredAmount = corpsecount;
+			GD.Print("Test : "+corpsecount);
+		}
 		
 	}
+
+    public override void _EnterTree()
+    {
+        base._EnterTree();
+		//CUT FOR SAVE SYSTEM
+		SceneManager.Instance.GetQuestManager().Reset();
+		LevelQuest.Reset();
+		SceneManager.Instance.GetQuestManager().AcceptQuest(GetQuest());
+		//CUT FOR SAVE SYSTEM
+    }
 
 	public override void _Process(double delta)
 	{
 		//GD.Print(lastArea);
+	}
+
+	public void MissionAcomplished()
+	{
+
 	}
 
 	public void SetDifficulty(int value)
@@ -119,6 +148,11 @@ public partial class Level : Node3D
 			
 		}
 		return null;
+	}
+
+	public Quest GetQuest()
+	{
+		return LevelQuest;
 	}
 
 }

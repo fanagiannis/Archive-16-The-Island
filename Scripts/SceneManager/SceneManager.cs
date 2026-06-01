@@ -11,10 +11,13 @@ public partial class SceneManager : Node
 	public ChunkLoader ChunkLoader;
 	[Export] Godot.AnimationPlayer ManagerAnimator;
 	[Export] PlayerController playerInstance;
+	[Export] QuestManager questManager;
 	[Export] LoadingScreen loadingScreen;
 	[Export] PackedScene PlayerScene;
 	[Export] Node3D MainMenuBackground;
-	AudioStreamPlayer3D AudioPlayer;
+	[Export] public VictoryScreen victoryScreen;
+	
+ 	AudioStreamPlayer3D AudioPlayer;
 	Vector3 PlayerPosition;
 	int selectedScene=0;
 	[Export] string[] Scenes; //ARRAY
@@ -26,7 +29,6 @@ public partial class SceneManager : Node
 	bool _isPlayerLoaded=false;
 	string EntranceTag = null;
 	private static SceneManager _instance;
-
     public static SceneManager Instance
     {
         get
@@ -138,6 +140,7 @@ public partial class SceneManager : Node
 	public void SceneLoadedEvent(PackedScene scene, string Tag)
 	{
 		UnloadScene();
+		ResetIsLoading();
 		loadingScreen.SetVisibility(false);
 
 		var levelNode = scene.Instantiate();
@@ -183,11 +186,12 @@ public partial class SceneManager : Node
 
 		// 4. Activate and Teleport
 		ActivatePlayer();
-
 		// 5. Cleanup
 		EntranceTag = null;
 		_isLoading = false;
-		GD.Print($"Scene loaded successfully. Player at: {PlayerSpawn}");
+		//GD.Print($"Scene loaded successfully. Player at: {PlayerSpawn}");
+	//GD.Print(CurrentLevel.GetQuest());
+		//Log.Instance.SetLog(CurrentLevel.GetQuest().Title,5);
 	}
 	public void ActivatePlayer()
 	{
@@ -207,6 +211,7 @@ public partial class SceneManager : Node
 		playerInstance.TeleportTo(PlayerSpawn);
 		playerInstance.PlayerUI.FadeIn();
 		ChunkLoader.Player = playerInstance;
+		
 
 		
 	}
@@ -295,6 +300,11 @@ public partial class SceneManager : Node
 		selectedScene = index;
 		SceneToLoad = Scenes[selectedScene];
 	}
+	
+	public PlayerController GetPlayer()
+	{
+		return playerInstance;
+	}
 
 	public Vector3 GetPlayerPosition()
 	{
@@ -307,9 +317,19 @@ public partial class SceneManager : Node
 		
 	}
 
+	public Level GetCurrentLevel()
+	{
+		return CurrentLevel;
+	}
+
 	public String[] GetLevelsList()
 	{
 		return Scenes;
+	}
+
+	public QuestManager GetQuestManager()
+	{
+		return questManager;
 	}
 
 }

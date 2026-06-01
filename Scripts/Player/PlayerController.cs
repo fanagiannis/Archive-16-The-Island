@@ -154,7 +154,6 @@ public partial class PlayerController : CharacterBody3D
 		PlayerUI = GetNode<PlayerUIController>("UI");
 
 		PauseMenuUI = GetNode<PauseMenu>("UI/PauseMenu");
-
 		EquipmentControl = GetNode<EquipmentController>("Head");
 
 		EquipmentManager = GetNode<EquipmentManager>("Head/CameraSmooth/Camera3D/Equipment");
@@ -174,6 +173,12 @@ public partial class PlayerController : CharacterBody3D
 		};
 
 		HealthSystem.Init(healthSystemParams);
+
+		HealthSystem.Died += () =>
+		{
+			EnableController(false);
+			EnableUI(true);
+		};
 
 		Mouse = GetNode<Mouse>("Mouse");
 		Mouse.Init(Head, playercamera, HealthSystem.IsDead);
@@ -210,7 +215,7 @@ public partial class PlayerController : CharacterBody3D
 
 		EnableController(false);
 		EnableUI(true);
-
+		
 		
 
 	}
@@ -243,6 +248,11 @@ public partial class PlayerController : CharacterBody3D
 			
 		}
 		#endregion
+
+		#region DEATH
+
+		#endregion
+
 		#region Floor and Gravity
 		if (isOnFloorCustom())
 		{
