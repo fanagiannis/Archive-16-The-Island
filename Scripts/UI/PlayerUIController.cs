@@ -15,10 +15,12 @@ public partial class PlayerUIController : Control
 	Label InteractPrompt;
 	Vitality VitalityController;
 	public DialogueDisplay DialogueController;
+	public NoteDisplay NoteController;
 	public override void _Ready()
 	{
 		InteractPrompt = GetNode<Label>("Interact Prompt");
 		DialogueController = GetNode<DialogueDisplay>("DialogueDisplay");
+		NoteController = GetNode<NoteDisplay>("NoteDisplay");
 		SetReticleLabel("");
 		SetEquipmentSlotVisibility(true);
 		//SetUIVisibility(false);
@@ -55,6 +57,12 @@ public partial class PlayerUIController : Control
 	{
 		SetEquipmentSlotVisibility(false);
 		DialogueController.ShowDialogueScreen(npc,dialoguue);
+	}
+
+	public void ReadNote(string note,string notetext)
+	{
+		SetEquipmentSlotVisibility(false);
+		NoteController.ShowNoteScreen(note,notetext);
 	}
 
 	public void EndDialogue()

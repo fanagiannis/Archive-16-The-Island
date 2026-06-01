@@ -3,25 +3,21 @@ using PolarBears.PlayerControllerAddon;
 using System;
 using System.Text.Json;
 
-public partial class NPC : Interactable
+public partial class Note : Interactable
 {
-	[Export(PropertyHint.File,"*.json")]
-	public string DialogueFilePath{get; set;}
-	public string _npcName;
-	public string _dialogueContent;
-	[Export] Godot.AnimationPlayer animator;
-	[Export] Camera3D npccamera;
+	[Export(PropertyHint.File, "*.json")]
+    public string NoteFilePath { get; set; }
+
+    private string _noteTitle = "Unknown";
+    private string _noteContent = "No text found.";
 	public override void _Ready()
 	{
-		if(animator==null)
-			return;
-		animator.Play("Idle");
 		LoadJsonText();
 	}
 
 	public override void _Process(double delta)
 	{
-		animator.Play("Idle");
+		
 	}
 
     public override void Interact()
@@ -34,40 +30,35 @@ public partial class NPC : Interactable
       //  base.SetOutline(set);
     }
 
-	public Camera3D GetCamera()
+	public string GetNoteName()
 	{
-		return npccamera;
+		return _noteTitle;
 	}
 
-	public string GetNPCName()
+	public string GetNoteText()
 	{
-		return _npcName;
+		return _noteContent ;
 	}
 
-	public string GetDialogue()
-	{
-		return _dialogueContent;
-	}
-	
 	private void LoadJsonText()
     {
         // 1. Check if the file path is set and the file exists
-        if (string.IsNullOrEmpty(DialogueFilePath) || !FileAccess.FileExists(DialogueFilePath))
+        if (string.IsNullOrEmpty(NoteFilePath) || !FileAccess.FileExists(NoteFilePath))
         {
-            GD.PrintErr($"JSON file not found at path: {DialogueFilePath}");
+            GD.PrintErr($"JSON file not found at path: {NoteFilePath}");
             return;
         }
 
         // 2. Open the file and read the raw string data
-        using var file = FileAccess.Open(DialogueFilePath, FileAccess.ModeFlags.Read);
+        using var file = FileAccess.Open(NoteFilePath, FileAccess.ModeFlags.Read);
         string jsonText = file.GetAsText();
 
         // 3. Deserialize the JSON string into our C# class
         try 
         {
             var data = JsonSerializer.Deserialize<NoteData>(jsonText);
-            _npcName = data.Name;
-            _dialogueContent = data.Dialogue;
+            _noteTitle = data.Title;
+            _noteContent = data.Content;
         }
         catch (Exception e)
         {
@@ -79,8 +70,8 @@ public partial class NPC : Interactable
     // The property names here must match the keys in your JSON exactly.
     private class NoteData
     {
-        public string Name { get; set; }
-        public string Dialogue { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
     }
 	
 }

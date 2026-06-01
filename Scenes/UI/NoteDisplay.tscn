@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bksee3xx6dh03"]
+[gd_scene load_steps=3 format=3 uid="uid://c5ph5tuxwtdcb"]
 
-[ext_resource type="Script" uid="uid://c0u4yp8623mnd" path="res://Scripts/Dialogue/DialogueDisplay.cs" id="1_165wq"]
-[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_ioyp2"]
+[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_13mec"]
+[ext_resource type="Script" uid="uid://bxu0dled47erq" path="res://Scripts/Dialogue/NoteDisplay.cs" id="2_13mec"]
 
-[node name="DialogueDisplay" type="PanelContainer" node_paths=PackedStringArray("nameLabel", "dialogueLabel")]
+[node name="NoteDisplay" type="PanelContainer" node_paths=PackedStringArray("nameLabel", "dialogueLabel")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -11,12 +11,12 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -960.0
 offset_top = -1080.0
-offset_right = 40.0
-offset_bottom = -880.0
+offset_right = -60.0
+offset_bottom = -280.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("1_ioyp2")
-script = ExtResource("1_165wq")
+theme = ExtResource("1_13mec")
+script = ExtResource("2_13mec")
 nameLabel = NodePath("HBoxContainer/Name")
 dialogueLabel = NodePath("HBoxContainer/Dialogue")
 
@@ -24,20 +24,20 @@ dialogueLabel = NodePath("HBoxContainer/Dialogue")
 clip_contents = true
 layout_direction = 2
 layout_mode = 2
-theme = ExtResource("1_ioyp2")
+theme = ExtResource("1_13mec")
 vertical = true
 
 [node name="Name" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme = ExtResource("1_ioyp2")
+theme = ExtResource("1_13mec")
 theme_override_font_sizes/font_size = 25
 text = "NAME"
 uppercase = true
 
 [node name="Dialogue" type="RichTextLabel" parent="HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_ioyp2")
+theme = ExtResource("1_13mec")
 text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 fit_content = true
 
@@ -47,8 +47,8 @@ layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme = ExtResource("1_ioyp2")
-theme_override_font_sizes/font_size = 25
+theme = ExtResource("1_13mec")
+theme_override_font_sizes/font_size = 20
 text = "CLOSE
 "
 alignment = 2

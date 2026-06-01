@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://6bsirxkr1ksy"]
+[gd_scene load_steps=117 format=3 uid="uid://6bsirxkr1ksy"]
 
 [ext_resource type="Script" uid="uid://dlohclqb33upa" path="res://Scripts/Level/Level.cs" id="1_gav48"]
 [ext_resource type="Script" uid="uid://bshcylehfgxen" path="res://Scripts/Entities/Enemies/EnemyManager.cs" id="2_4epcp"]
@@ -77,12 +77,14 @@
 [ext_resource type="PackedScene" uid="uid://drtiompdw3ga1" path="res://Imports/Assets/Meshes/Harbor/PSXSign_Wreck_Shrine.glb" id="50_ouwue"]
 [ext_resource type="PackedScene" uid="uid://qiu5twf58tgl" path="res://Imports/Assets/Meshes/PSXWoodenBox.glb" id="53_k18t4"]
 [ext_resource type="PackedScene" uid="uid://ddorl0p3r7v8c" path="res://Imports/Assets/Meshes/Harbor/PSXBanner.glb" id="55_tdwpq"]
+[ext_resource type="PackedScene" uid="uid://bwnliqpfenw11" path="res://Scenes/Entities/NPCs/NPC.tscn" id="57_rpn7r"]
 [ext_resource type="PackedScene" uid="uid://dvquodpff62wu" path="res://Scenes/LevelAssets/Areas/Area_Harbor.tscn" id="59_x7lwa"]
 [ext_resource type="PackedScene" uid="uid://5gbhaf4u14ov" path="res://Scenes/LevelAssets/Shrine/AbominationHead.tscn" id="67_4c1py"]
 [ext_resource type="PackedScene" uid="uid://br8xk2qnptbki" path="res://Imports/Assets/Meshes/Shrine/PSXFemaleSpikedHead.glb" id="69_1gqhe"]
 [ext_resource type="PackedScene" uid="uid://bvkadmliegcfl" path="res://Imports/Assets/Meshes/Shrine/PSXHeadSoldierA.glb" id="72_re1ak"]
 [ext_resource type="PackedScene" uid="uid://dw8ij6cxwsf0p" path="res://Imports/Assets/Meshes/Shrine/PSXHeadCovered.glb" id="73_af71l"]
 [ext_resource type="PackedScene" uid="uid://jncixgr0r1wt" path="res://Scenes/Items/Interactable/Corpse.tscn" id="82_44he2"]
+[ext_resource type="PackedScene" uid="uid://dbf1akmlgywsy" path="res://Scenes/Items/Interactable/PaperNote.tscn" id="84_jasyc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_awgfw"]
 ground_bottom_color = Color(0.154839, 0.15629, 0.181573, 1)
@@ -109,35 +111,35 @@ vertices = PackedVector3Array(-2.2931213, 2.7334557, -7.5123596, -4.0431213, 2.7
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 8), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 5), PackedInt32Array(13, 12, 11), PackedInt32Array(13, 11, 14), PackedInt32Array(14, 11, 15), PackedInt32Array(15, 11, 16), PackedInt32Array(16, 11, 17), PackedInt32Array(20, 19, 22), PackedInt32Array(22, 19, 21), PackedInt32Array(21, 19, 18), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 27), PackedInt32Array(25, 27, 26), PackedInt32Array(27, 28, 26), PackedInt32Array(30, 29, 31), PackedInt32Array(31, 29, 33), PackedInt32Array(31, 33, 32), PackedInt32Array(34, 31, 32), PackedInt32Array(37, 36, 35), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 41), PackedInt32Array(43, 42, 44), PackedInt32Array(44, 42, 46), PackedInt32Array(44, 46, 45), PackedInt32Array(49, 48, 47), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 47), PackedInt32Array(55, 54, 52), PackedInt32Array(52, 54, 53), PackedInt32Array(60, 59, 56), PackedInt32Array(56, 59, 58), PackedInt32Array(56, 58, 57), PackedInt32Array(62, 61, 63), PackedInt32Array(63, 61, 64), PackedInt32Array(64, 61, 60), PackedInt32Array(60, 61, 65), PackedInt32Array(65, 59, 60), PackedInt32Array(66, 63, 67), PackedInt32Array(67, 63, 68), PackedInt32Array(68, 63, 64), PackedInt32Array(70, 69, 71), PackedInt32Array(71, 69, 74), PackedInt32Array(71, 74, 73), PackedInt32Array(71, 73, 72), PackedInt32Array(76, 75, 72), PackedInt32Array(72, 75, 78), PackedInt32Array(72, 78, 77), PackedInt32Array(72, 77, 71), PackedInt32Array(82, 81, 79), PackedInt32Array(79, 81, 80), PackedInt32Array(85, 84, 83), PackedInt32Array(88, 87, 86), PackedInt32Array(83, 89, 88), PackedInt32Array(86, 90, 88), PackedInt32Array(88, 90, 91), PackedInt32Array(88, 91, 85), PackedInt32Array(88, 85, 83), PackedInt32Array(95, 94, 92), PackedInt32Array(92, 94, 93), PackedInt32Array(96, 99, 97), PackedInt32Array(97, 99, 98), PackedInt32Array(100, 98, 101), PackedInt32Array(101, 98, 99), PackedInt32Array(101, 99, 102), PackedInt32Array(102, 99, 103), PackedInt32Array(102, 104, 101), PackedInt32Array(106, 105, 107), PackedInt32Array(107, 105, 108), PackedInt32Array(110, 109, 111), PackedInt32Array(111, 109, 112), PackedInt32Array(108, 113, 107), PackedInt32Array(107, 113, 112), PackedInt32Array(115, 114, 116), PackedInt32Array(116, 114, 111), PackedInt32Array(116, 111, 112), PackedInt32Array(116, 112, 113), PackedInt32Array(115, 117, 114), PackedInt32Array(118, 122, 119), PackedInt32Array(119, 122, 120), PackedInt32Array(120, 122, 121), PackedInt32Array(124, 123, 125), PackedInt32Array(125, 123, 127), PackedInt32Array(127, 123, 126), PackedInt32Array(121, 122, 130), PackedInt32Array(130, 122, 118), PackedInt32Array(130, 118, 129), PackedInt32Array(130, 129, 128), PackedInt32Array(132, 135, 128), PackedInt32Array(128, 134, 130), PackedInt32Array(130, 136, 121), PackedInt32Array(121, 136, 131), PackedInt32Array(131, 136, 126), PackedInt32Array(126, 136, 127), PackedInt32Array(127, 133, 125), PackedInt32Array(125, 135, 132), PackedInt32Array(135, 134, 128), PackedInt32Array(134, 136, 130), PackedInt32Array(136, 133, 127), PackedInt32Array(133, 135, 125), PackedInt32Array(135, 136, 134), PackedInt32Array(136, 135, 133), PackedInt32Array(123, 137, 126)]
 geometry_parsed_geometry_type = 1
 
-[sub_resource type="Resource" id="Resource_qtxkk"]
+[sub_resource type="Resource" id="Resource_rpn7r"]
 script = ExtResource("11_ony65")
 amount = 6000
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_jasyc"]
+[sub_resource type="Resource" id="Resource_8mdsj"]
 script = ExtResource("12_5fgg3")
 position = Vector3(0.15, 0.15, 0.15)
 scale = Vector3(1, 1, 1)
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_rpn7r"]
+[sub_resource type="Resource" id="Resource_anrck"]
 script = ExtResource("13_56qd6")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_8mdsj"]
+[sub_resource type="Resource" id="Resource_ujj8j"]
 script = ExtResource("17_q0gpo")
 terrain_node = NodePath("../Terrain3D")
 
-[sub_resource type="Resource" id="Resource_anrck"]
+[sub_resource type="Resource" id="Resource_4ot0y"]
 script = ExtResource("19_n1rip")
 negative_shapes_only = true
 
-[sub_resource type="Resource" id="Resource_ujj8j"]
+[sub_resource type="Resource" id="Resource_11h8x"]
 script = ExtResource("9_horwd")
-stack = Array[ExtResource("10_4epcp")]([SubResource("Resource_qtxkk"), SubResource("Resource_jasyc"), SubResource("Resource_rpn7r"), SubResource("Resource_8mdsj"), SubResource("Resource_anrck")])
+stack = Array[ExtResource("10_4epcp")]([SubResource("Resource_rpn7r"), SubResource("Resource_8mdsj"), SubResource("Resource_anrck"), SubResource("Resource_ujj8j"), SubResource("Resource_4ot0y")])
 
 [sub_resource type="Resource" id="Resource_s0gur"]
 script = ExtResource("17_820pb")
@@ -277,7 +279,7 @@ script = ExtResource("1_gav48")
 LevelName = "FOREST"
 playerSpawn = NodePath("PlayerSpawn")
 questNode = NodePath("QuestItems")
-completeLevelItem = NodePath("NavigationRegion3D/Forest/Areas/AreaHarbor/BoatExit")
+completeLevelItem = NodePath("NavigationRegion3D/Forest/Areas/AreaRest/BoatExit")
 LevelQuest = ExtResource("2_iwxad")
 
 [node name="EnemyManager" type="Node" parent="."]
@@ -638,9 +640,6 @@ transform = Transform3D(1.9897403, 0.20232095, 3.0148164e-09, -0.19858418, 1.952
 [node name="PSXRockMediumB" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("28_j2hmn")]
 transform = Transform3D(2.8596194, 0.90696, 0, -0.90696, 2.8596194, 0, 0, 0, 3, 17.051437, -6.298877, 0.6595154)
 
-[node name="BoatExit" parent="NavigationRegion3D/Forest/Areas/AreaHarbor" instance=ExtResource("30_qtxkk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8805237, -10.232685, 48.08835)
-
 [node name="AreaShrine" parent="NavigationRegion3D/Forest/Areas" instance=ExtResource("32_60b2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.53662, -4.0164185, 16.445755)
 name = "Shrine"
@@ -881,6 +880,9 @@ transform = Transform3D(0.4897821, 0.083283514, 0.056367904, -0.087410055, 0.491
 
 [node name="Table2" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("30_s0gur")]
 transform = Transform3D(0.2677867, 0.08479103, 0.53018945, -0.03368037, 0.59395707, -0.07797791, -0.5358694, 0.0050407834, 0.26984936, 9.534096, -2.3603501, 3.8779144)
+
+[node name="BoatExit" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("30_qtxkk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8920364, -0.43333197, -0.31625366)
 
 [node name="AreaLighthouse" parent="NavigationRegion3D/Forest/Areas" instance=ExtResource("36_e3rq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -269.64697, -21.019302, 337.1296)
@@ -1260,6 +1262,14 @@ transform = Transform3D(1.4919652, 0, 0.15504812, 0, 1.5000002, 0, -0.15504812, 
 [node name="Table2" parent="NavigationRegion3D/Forest/Areas/AreaLighthouse" instance=ExtResource("30_s0gur")]
 transform = Transform3D(0.49972248, 0.0068207313, 0.33201066, 0.0034527662, 0.5997341, -0.017517531, -0.33206272, 0.016500462, 0.49946204, 11.825409, 12.961321, 5.2481995)
 
+[node name="PaperNote" parent="NavigationRegion3D/Forest/Areas/AreaLighthouse" instance=ExtResource("84_jasyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 345.6365, 26.192581, -117.70598)
+NoteFilePath = "res://Scenes/Items/Interactable/JSON/Notes/Note.json"
+name = "test"
+
+[node name="Npc" parent="NavigationRegion3D/Forest/Areas/AreaLighthouse" instance=ExtResource("57_rpn7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 340.03885, 24.828722, -118.97301)
+
 [node name="AreaCamping" parent="NavigationRegion3D/Forest/Areas" instance=ExtResource("8_ony65")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.270609, 0, -4.522993)
 
@@ -1309,7 +1319,7 @@ script = ExtResource("8_3gjhc")
 render_mode = 1
 keep_static_colliders = true
 force_rebuild_on_load = false
-modifier_stack = SubResource("Resource_ujj8j")
+modifier_stack = SubResource("Resource_11h8x")
 Performance/use_chunks = false
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://c6167jfr4rows"
@@ -1425,12 +1435,12 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="PlayerSpawn" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 197.22688, -5.6561856, 254.57642)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 73.00349, 6.035619, 228.03275)
 
 [node name="Interactables" type="Node3D" parent="."]
 
 [node name="Item" parent="Interactables" instance=ExtResource("8_li658")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 175.55128, -13.262299, 292.91144)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 77.824425, 4.8406963, 226.19781)
 
 [node name="NPCs" type="Node3D" parent="."]
 
@@ -1479,10 +1489,10 @@ visible = false
 [node name="QuestItems" type="Node3D" parent="."]
 
 [node name="Corpse" parent="QuestItems" instance=ExtResource("82_44he2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.06622, -4.777672, 239.94113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.32143, 4.940216, 214.86412)
 
 [node name="Corpse2" parent="QuestItems" instance=ExtResource("82_44he2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.06622, -5.939205, 248.96553)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.416046, 4.489462, 210.773)
 
 [editable path="NavigationRegion3D/Forest/Trees/PSXOakTreeA"]
 [editable path="NavigationRegion3D/Forest/Areas/AreaHarbor"]

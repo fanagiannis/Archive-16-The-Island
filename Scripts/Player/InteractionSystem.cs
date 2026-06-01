@@ -9,6 +9,8 @@ public partial class InteractionSystem : Node
 	delegate void InteractionEventHandler();
 	[Signal]
 	delegate void NPCInteractionEventHandler();
+	[Signal]
+	delegate void NoteInteractionEventHandler();
 	[Export] RayCast3D interactionRaycast;
 	[Export] Interactable itemToInteract;
 	//[Export] NPC npcToInteract;
@@ -89,11 +91,18 @@ public partial class InteractionSystem : Node
 
 		else
 		{
+			if (itemToInteract is Note note)
+			{
+				//NPC npc = Interaction.GetInteractable() as NPC;
+				itemToInteract.Interact();
+				playerUI.ReadNote(note.GetNoteName(), note.GetNoteText());
+				EmitSignal(SignalName.NoteInteraction);
+			}
 			if (itemToInteract is NPC npc)
 			{
 				//NPC npc = Interaction.GetInteractable() as NPC;
 				itemToInteract.Interact();
-				playerUI.BeginDialogue(npc.name, "AAAAAAAA");
+				playerUI.BeginDialogue(npc.GetNPCName(), npc.GetDialogue());
 				EmitSignal(SignalName.NPCInteraction);
 				PossessCamera(npc.GetCamera());
 			}

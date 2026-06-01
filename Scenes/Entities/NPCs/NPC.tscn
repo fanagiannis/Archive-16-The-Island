@@ -8,6 +8,7 @@ size = Vector3(1, 1.526001, 1)
 
 [node name="Npc" type="CharacterBody3D" node_paths=PackedStringArray("animator", "npccamera", "itemLabel")]
 script = ExtResource("1_0en5t")
+DialogueFilePath = "res://Scenes/Items/Interactable/JSON/Dialogues/Dialogue.json"
 animator = NodePath("Skeleton_Minion/AnimationPlayer")
 npccamera = NodePath("NPC Camera")
 name = "Pelopas"
