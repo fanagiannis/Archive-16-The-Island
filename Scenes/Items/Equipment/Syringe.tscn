@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqjgbcnvkbur6"]
+
+[ext_resource type="PackedScene" uid="uid://d3bw6kngi7a10" path="res://Imports/Assets/Meshes/Equipment/PSXSyringe.glb" id="1_aqudp"]
+[ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="2_ccu0h"]
+
+[node name="PSXSyringe" instance=ExtResource("1_aqudp")]
+
+[node name="Syringe" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ccu0h")

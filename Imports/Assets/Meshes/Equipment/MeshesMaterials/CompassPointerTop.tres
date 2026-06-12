@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d3ctd1r3ak08q"]
+
+[resource]
+resource_name = "CompassPointerTop"
+cull_mode = 2
+albedo_color = Color(0.62967473, 0.62967485, 0.62967455, 1)
+use_z_clip_scale = true
+z_clip_scale = 0.5

@@ -1,0 +1,174 @@
+[gd_scene load_steps=11 format=3 uid="uid://dd3rbfdolmdby"]
+
+[ext_resource type="PackedScene" uid="uid://bhurf4iloqjn8" path="res://Scenes/Items/Pickable/PickUp.tscn" id="1_xnsb8"]
+[ext_resource type="PackedScene" uid="uid://dn0rueln7j8k" path="res://Scenes/Items/Equipment/Detector.tscn" id="2_7tkil"]
+[ext_resource type="AudioStream" uid="uid://bdluavsl4rqhe" path="res://Imports/Assets/Audio/SFX/SFX_item_Pickup.wav" id="2_oynaj"]
+[ext_resource type="PackedScene" uid="uid://c10cl6gyw05s3" path="res://Imports/Assets/Meshes/Equipment/PSXScanner.glb" id="3_2vrkd"]
+[ext_resource type="Texture2D" uid="uid://did3l16ru2hlj" path="res://Imports/Assets/UI/Icons/Icon_Meter.png" id="3_3gv25"]
+[ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="4_s2ea7"]
+[ext_resource type="PackedScene" uid="uid://bmo47d84xjiyg" path="res://Imports/Assets/Meshes/Equipment/PSXScannerPickableMaterial.glb" id="4_wervn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2ea7"]
+albedo_color = Color(1, 0.85, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.8509804, 0, 1)
+emission_energy_multiplier = 5.45
+distance_fade_mode = 1
+distance_fade_max_distance = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wervn"]
+lifetime_randomness = 0.25
+emission_shape = 2
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 0.385, 0)
+color = Color(1, 0.9666667, 0, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_oynaj"]
+radius = 0.001
+height = 0.001
+
+[node name="Item" instance=ExtResource("1_xnsb8")]
+name = "Detector"
+itemAudio = ExtResource("2_oynaj")
+itemIcon = ExtResource("3_3gv25")
+
+[node name="Mesh" parent="." index="0"]
+visible = false
+
+[node name="Item" parent="." index="4"]
+transform = Transform3D(0.245, 0, 0, 0, 0.245, 0, 0, 0, 0.245, 0, 0, 0)
+itemScene = ExtResource("2_7tkil")
+name = "Detector"
+itemIcon = ExtResource("3_3gv25")
+
+[node name="PSXScanner" parent="." index="5" instance=ExtResource("3_2vrkd")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+visible = false
+
+[node name="Text_004" parent="PSXScanner/Cylinder_037" index="3"]
+visible = false
+
+[node name="Text_005" parent="PSXScanner/Cylinder_037" index="4"]
+visible = false
+
+[node name="Text_006" parent="PSXScanner/Cylinder_037" index="5"]
+visible = false
+
+[node name="Text_007" parent="PSXScanner/Cylinder_037" index="6"]
+visible = false
+
+[node name="Text_008" parent="PSXScanner/Cylinder_037" index="7"]
+visible = false
+
+[node name="Text_009" parent="PSXScanner/Cylinder_037" index="8"]
+visible = false
+
+[node name="Text_010" parent="PSXScanner/Cylinder_037" index="9"]
+visible = false
+
+[node name="Text_011" parent="PSXScanner/Cylinder_037" index="10"]
+visible = false
+
+[node name="Text_012" parent="PSXScanner/Cylinder_037" index="11"]
+visible = false
+
+[node name="Text_013" parent="PSXScanner/Cylinder_037" index="12"]
+visible = false
+
+[node name="Text_014" parent="PSXScanner/Cylinder_037" index="13"]
+visible = false
+
+[node name="Text_015" parent="PSXScanner/Cylinder_037" index="14"]
+visible = false
+
+[node name="Text_016" parent="PSXScanner/Cylinder_037" index="15"]
+visible = false
+
+[node name="Text_017" parent="PSXScanner/Cylinder_037" index="16"]
+visible = false
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="6"]
+material_override = SubResource("StandardMaterial3D_s2ea7")
+amount = 50
+fixed_fps = 15
+process_material = SubResource("ParticleProcessMaterial_wervn")
+draw_pass_1 = SubResource("SphereMesh_oynaj")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="7"]
+physics_interpolation_mode = 2
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0912885, 0)
+light_color = Color(0.70895946, 0.6795859, 0, 1)
+distance_fade_enabled = true
+omni_range = 0.1348477
+
+[node name="PSXScannerPickableMaterial" parent="." index="8" instance=ExtResource("4_wervn")]
+physics_interpolation_mode = 2
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="Cylinder_037" parent="PSXScannerPickableMaterial" index="0"]
+surface_material_override/0 = ExtResource("4_s2ea7")
+surface_material_override/1 = ExtResource("4_s2ea7")
+surface_material_override/2 = ExtResource("4_s2ea7")
+surface_material_override/3 = ExtResource("4_s2ea7")
+surface_material_override/4 = ExtResource("4_s2ea7")
+surface_material_override/5 = ExtResource("4_s2ea7")
+surface_material_override/6 = ExtResource("4_s2ea7")
+surface_material_override/7 = ExtResource("4_s2ea7")
+surface_material_override/8 = ExtResource("4_s2ea7")
+surface_material_override/9 = ExtResource("4_s2ea7")
+
+[node name="Sphere_003" parent="PSXScannerPickableMaterial/Cylinder_037" index="1"]
+visible = false
+
+[node name="Sphere_004" parent="PSXScannerPickableMaterial/Cylinder_037" index="2"]
+visible = false
+
+[node name="Text_004" parent="PSXScannerPickableMaterial/Cylinder_037" index="3"]
+visible = false
+
+[node name="Text_005" parent="PSXScannerPickableMaterial/Cylinder_037" index="4"]
+visible = false
+
+[node name="Text_006" parent="PSXScannerPickableMaterial/Cylinder_037" index="5"]
+visible = false
+
+[node name="Text_007" parent="PSXScannerPickableMaterial/Cylinder_037" index="6"]
+visible = false
+
+[node name="Text_008" parent="PSXScannerPickableMaterial/Cylinder_037" index="7"]
+visible = false
+
+[node name="Text_009" parent="PSXScannerPickableMaterial/Cylinder_037" index="8"]
+visible = false
+
+[node name="Text_010" parent="PSXScannerPickableMaterial/Cylinder_037" index="9"]
+visible = false
+
+[node name="Text_011" parent="PSXScannerPickableMaterial/Cylinder_037" index="10"]
+visible = false
+
+[node name="Text_012" parent="PSXScannerPickableMaterial/Cylinder_037" index="11"]
+visible = false
+
+[node name="Text_013" parent="PSXScannerPickableMaterial/Cylinder_037" index="12"]
+visible = false
+
+[node name="Text_014" parent="PSXScannerPickableMaterial/Cylinder_037" index="13"]
+visible = false
+
+[node name="Text_015" parent="PSXScannerPickableMaterial/Cylinder_037" index="14"]
+visible = false
+
+[node name="Text_016" parent="PSXScannerPickableMaterial/Cylinder_037" index="15"]
+visible = false
+
+[node name="Text_017" parent="PSXScannerPickableMaterial/Cylinder_037" index="16"]
+visible = false
+
+[editable path="Item"]
+[editable path="Item/PSXPistol"]
+[editable path="PSXScanner"]
+[editable path="PSXScannerPickableMaterial"]

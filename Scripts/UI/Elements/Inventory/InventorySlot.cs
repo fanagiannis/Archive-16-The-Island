@@ -12,7 +12,7 @@ public partial class InventorySlot : Panel
 	[Export] string SlotName;
 	[Export] Texture2D SlotIcon;
 	private Label _slotlabel;
-	private PickableItem slotItem;
+	[Export]public PickableItem slotItem;
 
 	private int SlotIndex;
 	//Item item;
@@ -108,12 +108,25 @@ public partial class InventorySlot : Panel
 
 	public void Use()
 	{
-		Log.Instance.SetLog(SlotIndex + " Used", 1);
+		//Log.Instance.SetLog(SlotIndex + " Used", 1);
 		if (slotItem == null)
 		{
 			return;
 		}
-		if (EquipmentManager.Instance.CanPickup())
+
+		if (slotItem is Consumable consumable)
+		{
+			consumable.Consume();
+			ResetSlot();
+		}
+
+		if (slotItem is Battery bconsumable)
+		{
+			bconsumable.Consume();
+			ResetSlot();
+		}
+		
+		else if (EquipmentManager.Instance.CanPickup() )
 		{
 			EquipmentManager.Instance.AddEquipment(slotItem);
 			Inventory.Instance.RemoveItemAtIndex(SlotIndex);

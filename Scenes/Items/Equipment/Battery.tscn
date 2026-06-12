@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjushym3rpbtv"]
+
+[ext_resource type="PackedScene" uid="uid://c56ekwmy44po5" path="res://Imports/Assets/Meshes/Equipment/PSXBattery.glb" id="1_j7unq"]
+[ext_resource type="Script" uid="uid://bbehi65nl65lq" path="res://Scripts/Equipment/Consumable.cs" id="2_xsdch"]
+
+[node name="PSXBattery" instance=ExtResource("1_j7unq")]
+script = ExtResource("2_xsdch")
+name = "Battery"

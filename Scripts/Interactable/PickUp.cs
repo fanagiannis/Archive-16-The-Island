@@ -16,7 +16,11 @@ public partial class PickUp : Interactable
 		Log.Instance.SetLog("Picked Up "+name,1);
 		SetInteracted(true);
 		//this.ExitInteraction();
-        QueueFree();
+		audioPlayer.Stream = itemAudio;
+		audioPlayer.Finished += QueueFree;  
+        audioPlayer.Play();
+		Hide();
+        //QueueFree();
     }
 
 	public PickableItem GetPickableItem()

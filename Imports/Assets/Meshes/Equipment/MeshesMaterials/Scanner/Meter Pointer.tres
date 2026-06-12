@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cisix67pv8dfm"]
+
+[resource]
+resource_name = "Meter Pointer"
+cull_mode = 2
+albedo_color = Color(0.41987807, 0.0035162766, 0, 1)
+use_z_clip_scale = true
+z_clip_scale = 0.5

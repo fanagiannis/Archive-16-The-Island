@@ -5,6 +5,7 @@ public partial class NoteDisplay : PanelContainer
 {
 	[Export]Label nameLabel;
 	[Export]RichTextLabel dialogueLabel;
+	[Export]AudioStream audio;
 	public override void _Ready()
 	{
 		Hide();
@@ -22,8 +23,16 @@ public partial class NoteDisplay : PanelContainer
 
 	public void HideNoteScreen()
 	{
-		SetLabel("","");
-		Hide();
+		
+		AudioStreamPlayer sfxplayer = new AudioStreamPlayer();
+        sfxplayer.Stream = audio;
+        
+        AddChild(sfxplayer);
+        sfxplayer.Finished += sfxplayer.QueueFree;  
+        sfxplayer.Play();
+        
+        SetLabel("", "");
+        Hide();
 	}
 
 	public void SetLabel(string setname,string setdialogue)

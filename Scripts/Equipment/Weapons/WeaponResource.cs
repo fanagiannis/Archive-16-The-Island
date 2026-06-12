@@ -93,4 +93,9 @@ public partial class WeaponResource : Resource
     {
         return Damage;
     }
+
+    public int GetMagazineSize()
+    {
+        return MagazineSize;
+    }
 }

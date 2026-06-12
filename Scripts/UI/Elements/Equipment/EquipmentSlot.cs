@@ -90,6 +90,7 @@ public partial class EquipmentSlot : Panel
 		{
 			return; 
 		}
+		
 		if(EquipmentManager.Instance.CanPickup())
 		{
 			EquipmentManager.Instance.AddEquipment(slotItem);

@@ -1,30 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://chxxeffxgomod"]
+[gd_scene load_steps=12 format=3 uid="uid://chxxeffxgomod"]
 
 [ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="1_3uyq7"]
 [ext_resource type="Script" uid="uid://dgpoebp775kk0" path="res://Scripts/Interactable/PickUp.cs" id="2_6vv32"]
 [ext_resource type="PackedScene" uid="uid://b8htc2c6l0va5" path="res://Scenes/Items/Pickable/Pickable_Pistol.tscn" id="3_l13d7"]
-[ext_resource type="Texture2D" uid="uid://dhbgx0w5yya0g" path="res://icon.svg" id="4_yd77k"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0xsm"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-grow = true
-grow_amount = 0.01
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfd85"]
-next_pass = SubResource("StandardMaterial3D_p0xsm")
-albedo_color = Color(0.41568628, 0.6039216, 0, 1)
-stencil_mode = 1
-stencil_flags = 2
-stencil_color = Color(1, 1, 1, 1)
+[ext_resource type="Texture2D" uid="uid://cha1muf2jpat0" path="res://Imports/Assets/UI/Icons/Icon_Pistol.png" id="4_yd77k"]
+[ext_resource type="PackedScene" uid="uid://ctgjifxgqvrsu" path="res://Imports/Assets/Meshes/Weapons/Pistol/PSXPistol.glb" id="5_6vv32"]
+[ext_resource type="AudioStream" uid="uid://dn4l2n4ngdte2" path="res://Imports/Assets/Audio/SFX/SFX_Pistol_Pickup.mp3" id="5_fh1bt"]
+[ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="6_l13d7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3uyq7"]
-radius = 3.0
+radius = 0.9982942
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l13d7"]
+albedo_color = Color(1, 0.85, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.8509804, 0, 1)
+emission_energy_multiplier = 5.45
+distance_fade_mode = 1
+distance_fade_max_distance = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yd77k"]
+lifetime_randomness = 0.25
+emission_shape = 2
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 0.385, 0)
+color = Color(1, 0.9666667, 0, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_fh1bt"]
+radius = 0.001
+height = 0.001
 
 [node name="Item" node_paths=PackedStringArray("Item") instance=ExtResource("1_3uyq7")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
@@ -32,15 +39,45 @@ script = ExtResource("2_6vv32")
 Item = NodePath("Instance")
 name = "Pistol"
 description = ""
-itemAudio = null
+itemAudio = ExtResource("5_fh1bt")
+itemIcon = ExtResource("4_yd77k")
 
 [node name="Mesh" parent="." index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_vfd85")
+mesh = null
 
 [node name="MeshCollider" parent="." index="1"]
 shape = SubResource("SphereShape3D_3uyq7")
 
 [node name="Instance" parent="." index="4" instance=ExtResource("3_l13d7")]
+transform = Transform3D(0.285, 0, 0, 0, 0.285, 0, 0, 0, 0.285, 0, 0.16344868, 0)
 visible = false
 name = "Pistol"
+itemAudio = ExtResource("5_fh1bt")
 itemIcon = ExtResource("4_yd77k")
+
+[node name="PSXPistol" parent="." index="5" instance=ExtResource("5_6vv32")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="PistolChamber" parent="PSXPistol/GunRig/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("6_l13d7")
+surface_material_override/1 = ExtResource("6_l13d7")
+surface_material_override/2 = ExtResource("6_l13d7")
+surface_material_override/3 = ExtResource("6_l13d7")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="6"]
+material_override = SubResource("StandardMaterial3D_l13d7")
+amount = 50
+fixed_fps = 15
+process_material = SubResource("ParticleProcessMaterial_yd77k")
+draw_pass_1 = SubResource("SphereMesh_fh1bt")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="7"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0912885, 0)
+light_color = Color(0.70895946, 0.6795859, 0, 1)
+distance_fade_enabled = true
+omni_range = 0.1348477
+
+[editable path="Instance"]
+[editable path="Instance/PSXPistol"]
+[editable path="PSXPistol"]

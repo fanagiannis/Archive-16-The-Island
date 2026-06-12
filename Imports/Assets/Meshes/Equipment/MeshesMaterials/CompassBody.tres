@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dqom52buvgm8h"]
+
+[ext_resource type="Texture2D" uid="uid://buwdg0chcbau4" path="res://Imports/Assets/Meshes/Equipment/PSXCompass_Plastic003_1K-JPG_Color.jpg" id="1_60apk"]
+
+[resource]
+resource_name = "CompassBody"
+cull_mode = 2
+albedo_texture = ExtResource("1_60apk")
+use_z_clip_scale = true
+z_clip_scale = 0.5

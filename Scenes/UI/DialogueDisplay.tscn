@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bksee3xx6dh03"]
+[gd_scene load_steps=4 format=3 uid="uid://bksee3xx6dh03"]
 
 [ext_resource type="Script" uid="uid://c0u4yp8623mnd" path="res://Scripts/Dialogue/DialogueDisplay.cs" id="1_165wq"]
 [ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_ioyp2"]
+[ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="3_5gqfu"]
 
 [node name="DialogueDisplay" type="PanelContainer" node_paths=PackedStringArray("nameLabel", "dialogueLabel")]
 anchors_preset = 7
@@ -31,6 +32,7 @@ vertical = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("1_ioyp2")
+theme_override_fonts/font = ExtResource("3_5gqfu")
 theme_override_font_sizes/font_size = 25
 text = "NAME"
 uppercase = true
@@ -38,6 +40,7 @@ uppercase = true
 [node name="Dialogue" type="RichTextLabel" parent="HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ioyp2")
+theme_override_fonts/normal_font = ExtResource("3_5gqfu")
 text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 fit_content = true
 
@@ -48,6 +51,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource("1_ioyp2")
+theme_override_fonts/font = ExtResource("3_5gqfu")
 theme_override_font_sizes/font_size = 25
 text = "CLOSE
 "

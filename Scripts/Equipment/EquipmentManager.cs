@@ -185,6 +185,7 @@ public partial class EquipmentManager : Node3D
 		if (equipmentNodes[currentequipmentIndex] is Equipment equipment)
 		{
 			//equipment.Visible = false;
+			SetEquipped(false);
 		}
 	}
 
@@ -214,14 +215,23 @@ public partial class EquipmentManager : Node3D
 	{
 		return equipment.Count>0;
 	}
-	public Weapon GetEquippedWeapon()
+	public Equipment GetEquippedWeapon()
 	{
 		if (equipmentNodes[currentequipmentIndex] is Weapon weapon)
 		{
 			return weapon;
 		}
+		if (equipmentNodes[currentequipmentIndex] is Flashlight flashlight)
+		{
+			return flashlight;
+		}
+		if (equipmentNodes[currentequipmentIndex] is ItemDetector detector)
+		{
+			return detector;
+		}
 		return null;
 	}
+	
 
 	public void SetAim(bool set)
 	{

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c30un8hl6qftw"]
+
+[ext_resource type="Script" uid="uid://bq5gotd52oprb" path="res://Scripts/Interactable/PickableItem.cs" id="1_irtv3"]
+[ext_resource type="PackedScene" uid="uid://dn0rueln7j8k" path="res://Scenes/Items/Equipment/Detector.tscn" id="2_4tq71"]
+[ext_resource type="PackedScene" uid="uid://c10cl6gyw05s3" path="res://Imports/Assets/Meshes/Equipment/PSXScanner.glb" id="3_ueq2g"]
+
+[node name="Item" type="StaticBody3D"]
+script = ExtResource("1_irtv3")
+itemScene = ExtResource("2_4tq71")
+name = "Detector"
+
+[node name="Detector" parent="." instance=ExtResource("3_ueq2g")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

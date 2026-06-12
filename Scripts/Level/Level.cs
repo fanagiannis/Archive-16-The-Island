@@ -5,6 +5,7 @@ using System.Linq;
 
 public partial class Level : Node3D
 {
+	[Export] Node3D NorthPoint;
 	EnemyManager enemyManager;
 	[Export] string LevelName;
 	[Export] Node3D playerSpawn;
@@ -153,6 +154,11 @@ public partial class Level : Node3D
 	public Quest GetQuest()
 	{
 		return LevelQuest;
+	}
+
+	public Node3D GetNorthPoint()
+	{
+		return NorthPoint;
 	}
 
 }

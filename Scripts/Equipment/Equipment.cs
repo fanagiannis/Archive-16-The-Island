@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 public partial class Equipment : Node3D
 {
 	[Export]public PackedScene equipmentscene;
-	[Export]protected AudioEffect equipmentsound;
+	[Export]protected AudioStream equipmentsound;
 	[Export]protected string name;
 	
 	// Called when the node enters the scene tree for the first time.
@@ -20,11 +20,21 @@ public partial class Equipment : Node3D
 
 	public virtual void Use()
 	{
-		GD.Print("Equipment Used");
+		//GD.Print("Equipment Used");
+		
 	}
 
 	public string GetName()
 	{
 		return name;
+	}
+
+	public void PlayEquipmentSound()
+	{
+		AudioStreamPlayer3D audioplayer = new AudioStreamPlayer3D();
+		AddChild(audioplayer);
+		audioplayer.Stream=equipmentsound;
+		audioplayer.Play();
+		audioplayer.Finished += () => audioplayer.QueueFree();
 	}
 }

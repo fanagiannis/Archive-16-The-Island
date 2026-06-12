@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://deuqwntw4ovkq"]
+
+[ext_resource type="Texture2D" uid="uid://bxrt3w8maorfs" path="res://Imports/Assets/Meshes/Equipment/PSXScanner_Plastic002_1K-JPG_Color.jpg" id="1_otojo"]
+
+[resource]
+resource_name = "MeterSwitches"
+cull_mode = 2
+albedo_texture = ExtResource("1_otojo")
+texture_filter = 2
+use_z_clip_scale = true
+z_clip_scale = 0.5

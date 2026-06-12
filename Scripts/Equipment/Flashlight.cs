@@ -21,7 +21,8 @@ public partial class Flashlight : Equipment
     }
     public override void Use()
     {
-        //base.Use();
+        base.Use();
+		PlayEquipmentSound();
 		if(spotLight!=null)
 		{
 			if(spotLight.Visible)
@@ -80,4 +81,6 @@ public partial class Flashlight : Equipment
 	{
 		return hasBattery;
 	}
+
+	public void ResetBatteryLife() => BatteryLife = 100;
 }

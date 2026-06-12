@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cld84k05red6w"]
+
+[ext_resource type="PackedScene" uid="uid://c04vpcg7n7bw8" path="res://Imports/Assets/Meshes/Equipment/PSXCompass.glb" id="1_hwyy0"]
+[ext_resource type="Script" uid="uid://clirfaijoagpy" path="res://Scripts/Equipment/Equipment.cs" id="2_pow0u"]
+[ext_resource type="Script" uid="uid://b6uugch33jrlk" path="res://Scripts/Equipment/CompassPointer.cs" id="3_q2iwn"]
+
+[node name="PSXCompass" instance=ExtResource("1_hwyy0")]
+transform = Transform3D(-1, 5.076666e-08, -7.117223e-08, 0, 0.8141154, 0.5807029, 8.742278e-08, 0.5807029, -0.81411546, 0, 0.10188624, 0)
+script = ExtResource("2_pow0u")
+name = "Compass"
+
+[node name="Compass" parent="." index="0"]
+cast_shadow = 0
+
+[node name="CompassPointer" parent="Compass" index="0"]
+cast_shadow = 0
+script = ExtResource("3_q2iwn")
+
+[node name="Text" parent="Compass" index="1"]
+cast_shadow = 0
+
+[node name="Text_001" parent="Compass" index="2"]
+cast_shadow = 0
+
+[node name="Text_002" parent="Compass" index="3"]
+cast_shadow = 0
+
+[node name="Text_003" parent="Compass" index="4"]
+cast_shadow = 0

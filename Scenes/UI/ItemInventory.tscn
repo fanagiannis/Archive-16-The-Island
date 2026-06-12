@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c47net1e1dvps"]
+[gd_scene load_steps=6 format=3 uid="uid://c47net1e1dvps"]
 
 [ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_e0hce"]
 [ext_resource type="Script" uid="uid://kfaowqw2sl1q" path="res://Scripts/UI/Elements/Inventory/Inventory.cs" id="2_cpj8l"]
 [ext_resource type="PackedScene" uid="uid://bh6wx7phu3w6x" path="res://Scenes/UI/InventorySlot.tscn" id="2_nte6x"]
+[ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="4_cpj8l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nte6x"]
 
@@ -31,6 +32,8 @@ offset_left = -60.0
 offset_bottom = 25.0
 grow_horizontal = 0
 theme = ExtResource("1_e0hce")
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_cpj8l")
 theme_override_font_sizes/font_size = 16
 text = "CLOSE"
 
@@ -38,6 +41,7 @@ text = "CLOSE"
 layout_mode = 0
 offset_right = 140.0
 offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("4_cpj8l")
 text = "INVENTORY"
 label_settings = SubResource("LabelSettings_nte6x")
 vertical_alignment = 1

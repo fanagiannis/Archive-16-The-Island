@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://doxn2nmwmp7a4"]
+[gd_scene load_steps=11 format=3 uid="uid://doxn2nmwmp7a4"]
 
 [ext_resource type="PackedScene" uid="uid://ctgjifxgqvrsu" path="res://Imports/Assets/Meshes/Weapons/Pistol/PSXPistol.glb" id="1_radsf"]
 [ext_resource type="Script" uid="uid://b138f0gyd3ocj" path="res://Scripts/Equipment/Weapons/Weapon.cs" id="2_tae78"]
 [ext_resource type="Resource" uid="uid://cwkajorua7f4r" path="res://Scripts/Equipment/Weapons/Weapon_Base.tres" id="3_wgtdu"]
 [ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="4_k8e5v"]
+[ext_resource type="AudioStream" uid="uid://buqfjwnxn4ekj" path="res://Imports/Assets/Audio/SFX/SFX_Pistol_Shoot.wav" id="4_lwirl"]
 [ext_resource type="Material" uid="uid://bjkg10dxer77t" path="res://Textures/VFX/MuzzleFlash.tres" id="4_n7xaq"]
 
 [sub_resource type="Animation" id="Animation_wgtdu"]
@@ -54,6 +55,7 @@ muzzleanimator = NodePath("GunRig/Skeleton3D/PistolRaycast/MuzzleAnimator")
 pistolFireCast = NodePath("GunRig/Skeleton3D/PistolRaycast")
 muzzleFlash = NodePath("GunRig/Skeleton3D/PistolRaycast/MuzzleFlashh")
 ammoCount = NodePath("GunRig/Skeleton3D/PistolChamber/AmmoDisplay")
+equipmentsound = ExtResource("4_lwirl")
 
 [node name="GunRig" parent="." index="0"]
 transform = Transform3D(-4.371139e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.371139e-09, 0, 0, 0)

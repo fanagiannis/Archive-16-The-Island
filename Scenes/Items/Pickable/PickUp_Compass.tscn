@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://rl2ttnok3v5c"]
+
+[ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="1_wppx8"]
+[ext_resource type="Script" uid="uid://dgpoebp775kk0" path="res://Scripts/Interactable/PickUp.cs" id="2_8fcxc"]
+[ext_resource type="PackedScene" uid="uid://c032aspt8frso" path="res://Scenes/Items/Pickable/Pickable_Compass.tscn" id="3_0l45k"]
+[ext_resource type="AudioStream" uid="uid://bdluavsl4rqhe" path="res://Imports/Assets/Audio/SFX/SFX_item_Pickup.wav" id="3_kbmtq"]
+[ext_resource type="Texture2D" uid="uid://dti5c2lcwnylj" path="res://Imports/Assets/UI/Icons/Icon_Compass.png" id="4_wppx8"]
+[ext_resource type="PackedScene" uid="uid://c04vpcg7n7bw8" path="res://Imports/Assets/Meshes/Equipment/PSXCompass.glb" id="6_wppx8"]
+[ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="7_rn70e"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d7wx8"]
+radius = 0.52875906
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ye75"]
+albedo_color = Color(1, 0.85, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.8509804, 0, 1)
+emission_energy_multiplier = 5.45
+distance_fade_mode = 1
+distance_fade_max_distance = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lr4u6"]
+lifetime_randomness = 0.25
+emission_shape = 2
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 0.385, 0)
+color = Color(1, 0.9666667, 0, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_wrrt5"]
+radius = 0.001
+height = 0.001
+
+[node name="Item" node_paths=PackedStringArray("Item") instance=ExtResource("1_wppx8")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("2_8fcxc")
+Item = NodePath("Item")
+name = "Compass"
+description = ""
+itemAudio = ExtResource("3_kbmtq")
+itemIcon = ExtResource("4_wppx8")
+
+[node name="Mesh" parent="." index="0"]
+gi_mode = 2
+mesh = null
+
+[node name="MeshCollider" parent="." index="1"]
+shape = SubResource("SphereShape3D_d7wx8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="4"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0912885, 0)
+light_color = Color(0.70895946, 0.6795859, 0, 1)
+distance_fade_enabled = true
+omni_range = 0.1348477
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_8ye75")
+amount = 50
+fixed_fps = 15
+process_material = SubResource("ParticleProcessMaterial_lr4u6")
+draw_pass_1 = SubResource("SphereMesh_wrrt5")
+
+[node name="Item" parent="." index="6" instance=ExtResource("3_0l45k")]
+transform = Transform3D(0.695, 0, 0, 0, 0.695, 0, 0, 0, 0.695, 0, 0, 0)
+visible = false
+name = "Compass"
+itemIcon = ExtResource("4_wppx8")
+
+[node name="PSXCompass" parent="." index="7" instance=ExtResource("6_wppx8")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Compass" parent="PSXCompass" index="0"]
+surface_material_override/0 = ExtResource("7_rn70e")
+surface_material_override/1 = ExtResource("7_rn70e")
+
+[node name="CompassPointer" parent="PSXCompass/Compass" index="0"]
+surface_material_override/0 = ExtResource("7_rn70e")
+surface_material_override/1 = ExtResource("7_rn70e")
+
+[node name="Text" parent="PSXCompass/Compass" index="1"]
+surface_material_override/0 = ExtResource("7_rn70e")
+
+[node name="Text_001" parent="PSXCompass/Compass" index="2"]
+surface_material_override/0 = ExtResource("7_rn70e")
+
+[node name="Text_002" parent="PSXCompass/Compass" index="3"]
+surface_material_override/0 = ExtResource("7_rn70e")
+
+[node name="Text_003" parent="PSXCompass/Compass" index="4"]
+surface_material_override/0 = ExtResource("7_rn70e")
+
+[editable path="Item"]
+[editable path="Item/PSXCompass"]
+[editable path="PSXCompass"]

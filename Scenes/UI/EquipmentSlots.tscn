@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvbasddw54taf"]
+[gd_scene load_steps=6 format=3 uid="uid://bvbasddw54taf"]
 
 [ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_4d477"]
 [ext_resource type="Script" uid="uid://c5yqiklnqy6v" path="res://Scripts/UI/Elements/Equipment/EquipmentScreen.cs" id="2_q0yot"]
 [ext_resource type="PackedScene" uid="uid://cyp3muskqrk86" path="res://Scenes/UI/EquipmentSlot.tscn" id="3_xhgcr"]
+[ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="4_011wm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4d477"]
 font_size = 20
@@ -37,6 +38,7 @@ offset_left = 2.0
 offset_right = 124.0
 offset_bottom = 36.0
 theme = ExtResource("1_4d477")
+theme_override_fonts/font = ExtResource("4_011wm")
 text = "EQUIPMENT"
 label_settings = SubResource("LabelSettings_4d477")
 vertical_alignment = 1

@@ -122,6 +122,7 @@ public partial class InteractionSystem : Node
 					EmitSignal(SignalName.Interaction);
 				}
 			}
+			
 
 			if (itemToInteract is PickUp pickUp)
 			{
@@ -134,6 +135,7 @@ public partial class InteractionSystem : Node
 				if (pickUp != null && itemToInteract != null && !Inventory.Instance.InventoryFull())
 				{
 					//equipmentManager.AddEquipment(itemScene);
+					//GD.Print("PICKED");
 					Inventory.Instance.AddItem(pickUp.GetPickableItem());
 					EmitSignal(SignalName.Interaction);
 				}

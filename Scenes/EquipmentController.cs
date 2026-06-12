@@ -98,7 +98,8 @@ public partial class EquipmentController : Node3D
 	{
 		if (equipmentManager != null && equipmentManager.GetEquippedWeapon() != null)
 		{
-			equipmentManager.GetEquippedWeapon().Reload();
+			if(equipmentManager.GetEquippedWeapon() is Weapon weapon)
+				weapon.Reload();
 		}
 	}
 	public async Task ChangeEquipmentState()

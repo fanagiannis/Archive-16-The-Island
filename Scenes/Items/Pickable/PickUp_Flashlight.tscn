@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dr2ogpgurap0y"]
+[gd_scene load_steps=12 format=3 uid="uid://dr2ogpgurap0y"]
 
 [ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="1_d7wx8"]
 [ext_resource type="Script" uid="uid://dgpoebp775kk0" path="res://Scripts/Interactable/PickUp.cs" id="2_lr4u6"]
 [ext_resource type="PackedScene" uid="uid://cc5teqgsi61iw" path="res://Scenes/Items/Pickable/Pickable_Flashlight.tscn" id="3_nw3dx"]
-[ext_resource type="Texture2D" uid="uid://b85yqd15ltp7n" path="res://Imports/Assets/UI/WeaponCrosshair.png" id="4_d7wx8"]
+[ext_resource type="AudioStream" uid="uid://bdluavsl4rqhe" path="res://Imports/Assets/Audio/SFX/SFX_item_Pickup.wav" id="3_wrrt5"]
+[ext_resource type="Texture2D" uid="uid://dehb5funs1o8f" path="res://Imports/Assets/UI/Icons/Icon_Flashlight.png" id="4_pnjs2"]
 [ext_resource type="PackedScene" uid="uid://bpn0ep1pu0ukf" path="res://Imports/Assets/Meshes/Flashlight/PSXFlashlight.glb" id="5_lr4u6"]
 [ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="6_8ye75"]
 
@@ -38,10 +39,10 @@ script = ExtResource("2_lr4u6")
 Item = NodePath("Instance")
 name = "Flashlight"
 description = ""
-itemAudio = null
+itemAudio = ExtResource("3_wrrt5")
+itemIcon = ExtResource("4_pnjs2")
 
 [node name="Mesh" parent="." index="0"]
-visible = false
 gi_mode = 2
 mesh = null
 
@@ -51,7 +52,7 @@ shape = SubResource("SphereShape3D_d7wx8")
 [node name="Instance" parent="." index="4" instance=ExtResource("3_nw3dx")]
 visible = false
 name = "Flashlight"
-itemIcon = ExtResource("4_d7wx8")
+itemIcon = ExtResource("4_pnjs2")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="5"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0912885, 0)

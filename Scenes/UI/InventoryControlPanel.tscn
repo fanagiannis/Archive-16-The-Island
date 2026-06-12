@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://calw0fe4j7uyy"]
+[gd_scene load_steps=4 format=3 uid="uid://calw0fe4j7uyy"]
 
 [ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_u82gr"]
 [ext_resource type="Script" uid="uid://dwgjmatgbnfvh" path="res://Scripts/UI/Elements/Equipment/InventorySlotControlPanel.cs" id="2_0k5kl"]
+[ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="3_0k5kl"]
 
 [node name="InventoryControlPanel" type="VBoxContainer"]
 anchors_preset = 8
@@ -22,6 +23,8 @@ script = ExtResource("2_0k5kl")
 [node name="UseButton" type="Button" parent="."]
 layout_mode = 2
 theme = ExtResource("1_u82gr")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_0k5kl")
 theme_override_font_sizes/font_size = 20
 text = "USE
 "
@@ -29,6 +32,8 @@ text = "USE
 [node name="DiscardButton" type="Button" parent="."]
 layout_mode = 2
 theme = ExtResource("1_u82gr")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_0k5kl")
 theme_override_font_sizes/font_size = 20
 text = "DISCARD
 "
@@ -36,6 +41,8 @@ text = "DISCARD
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 2
 theme = ExtResource("1_u82gr")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_0k5kl")
 theme_override_font_sizes/font_size = 20
 text = "BACK
 "

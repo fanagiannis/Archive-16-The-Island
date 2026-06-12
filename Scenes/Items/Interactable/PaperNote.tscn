@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbf1akmlgywsy"]
+[gd_scene load_steps=5 format=3 uid="uid://dbf1akmlgywsy"]
 
 [ext_resource type="Script" uid="uid://c36f1t8lqsjum" path="res://Scripts/Entities/Note.cs" id="1_clgrm"]
 [ext_resource type="PackedScene" uid="uid://m6v7n2aa72dg" path="res://Imports/Assets/Meshes/Camp/PSXPaper.glb" id="2_clgrm"]
+[ext_resource type="AudioStream" uid="uid://y2drk5j7ompw" path="res://Imports/Assets/Audio/SFX/SFX_Note.mp3" id="2_ikhpt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0en5t"]
 size = Vector3(1, 1.526001, 1)
@@ -9,7 +10,7 @@ size = Vector3(1, 1.526001, 1)
 [node name="PaperNote" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.083748e-05, -0.0088477135, 0)
 script = ExtResource("1_clgrm")
-JsonFilePath = "res://Scenes/Items/Interactable/JSON/Notes/Note.json"
+itemAudio = ExtResource("2_ikhpt")
 
 [node name="PSXPaper" parent="." instance=ExtResource("2_clgrm")]
 
@@ -22,3 +23,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6549573, 0)
 visible = false
 text = "test
 "
+
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]

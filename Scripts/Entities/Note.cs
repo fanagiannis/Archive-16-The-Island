@@ -12,6 +12,7 @@ public partial class Note : Interactable
     private string _noteContent = "No text found.";
 	public override void _Ready()
 	{
+        audioPlayer = GetNode<AudioStreamPlayer3D>("AudioPlayer");
 		LoadJsonText();
 	}
 
@@ -23,6 +24,8 @@ public partial class Note : Interactable
     public override void Interact()
     {
         base.Interact();
+        audioPlayer.Stream= itemAudio; 
+        audioPlayer.Play();
     }
 
     public override void SetOutline(bool set)

@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=3 uid="uid://s1sxvwv1saa3"]
+
+[ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="1_bfrv3"]
+[ext_resource type="Script" uid="uid://bq31ujwy6qpiy" path="res://Scripts/Equipment/Battery.cs" id="2_llkft"]
+[ext_resource type="PackedScene" uid="uid://b8htc2c6l0va5" path="res://Scenes/Items/Pickable/Pickable_Pistol.tscn" id="4_0o6nm"]
+[ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="4_llkft"]
+[ext_resource type="AudioStream" uid="uid://qxi70pjcfqbp" path="res://Imports/Assets/Audio/SFX/SFX_Pickup_Ammo.mp3" id="4_n4w2d"]
+[ext_resource type="Texture2D" uid="uid://u2vjq007cpm1" path="res://Imports/Assets/UI/Icons/Icon_Battery.png" id="5_0o6nm"]
+[ext_resource type="PackedScene" uid="uid://cjushym3rpbtv" path="res://Scenes/Items/Equipment/Battery.tscn" id="6_0o6nm"]
+[ext_resource type="PackedScene" uid="uid://c56ekwmy44po5" path="res://Imports/Assets/Meshes/Equipment/PSXBattery.glb" id="7_llkft"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0o6nm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bynnv"]
+radius = 0.27037236
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ob3ui"]
+albedo_color = Color(1, 0.85, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.8509804, 0, 1)
+emission_energy_multiplier = 5.45
+distance_fade_mode = 1
+distance_fade_max_distance = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_llkft"]
+lifetime_randomness = 0.25
+emission_shape = 2
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 0.385, 0)
+color = Color(1, 0.9666667, 0, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_0o6nm"]
+radius = 0.001
+height = 0.001
+
+[node name="Item" instance=ExtResource("1_bfrv3")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("2_llkft")
+ConsumeAmmount = 0
+itemScene = ExtResource("6_0o6nm")
+name = "Battery"
+description = ""
+itemAudio = ExtResource("4_n4w2d")
+itemIcon = ExtResource("5_0o6nm")
+
+[node name="Mesh" parent="." index="0"]
+visible = false
+mesh = SubResource("CapsuleMesh_0o6nm")
+surface_material_override/0 = ExtResource("4_llkft")
+
+[node name="MeshCollider" parent="." index="1"]
+shape = SubResource("SphereShape3D_bynnv")
+
+[node name="Item" parent="." index="4" instance=ExtResource("4_0o6nm")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0, 0)
+visible = false
+itemScene = ExtResource("6_0o6nm")
+name = "Battery"
+itemIcon = ExtResource("5_0o6nm")
+
+[node name="PSXPistol" parent="Item" index="1"]
+transform = Transform3D(-0.035, 0, 0, 0, 0.095, 0, 0, 0, -0.105, 0, 0, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_ob3ui")
+amount = 50
+fixed_fps = 15
+process_material = SubResource("ParticleProcessMaterial_llkft")
+draw_pass_1 = SubResource("SphereMesh_0o6nm")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="6"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0912885, 0)
+light_color = Color(0.70895946, 0.6795859, 0, 1)
+distance_fade_enabled = true
+omni_range = 0.1348477
+
+[node name="PSXBattery" parent="." index="7" instance=ExtResource("7_llkft")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Battery" parent="PSXBattery" index="0"]
+surface_material_override/0 = ExtResource("4_llkft")
+surface_material_override/1 = ExtResource("4_llkft")
+surface_material_override/2 = ExtResource("4_llkft")
+
+[editable path="Item"]
+[editable path="Item/PSXPistol"]
+[editable path="PSXBattery"]

@@ -652,16 +652,16 @@ visible = false
 
 [node name="Skeleton3D" parent="Head/CameraSmooth/Camera3D/GodotProjectArms/LVA4_Armature" index="0"]
 bones/1/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
-bones/3/position = Vector3(0.15612885, 0.41704953, 0.13107242)
+bones/3/position = Vector3(0.15585473, 0.41704953, 0.13107242)
 bones/3/rotation = Quaternion(-0.7071067, 0, 0, 0.7071068)
-bones/4/rotation = Quaternion(-0.1456823, 0.5487634, -0.52663136, 0.6326885)
-bones/4/scale = Vector3(1.4424151, 0.48064005, 1.442415)
-bones/5/position = Vector3(-0.119873784, 0.40862697, 0.12580127)
-bones/6/rotation = Quaternion(-0.2677973, -0.31322488, 0.30341765, 0.8591348)
-bones/6/scale = Vector3(1.3589739, 0.54147446, 1.3589741)
-bones/9/rotation = Quaternion(-0.41989326, -0.610062, 0.37623733, 0.55674016)
-bones/10/rotation = Quaternion(0.3330581, 0.11387463, 0.056170158, 0.9343179)
-bones/11/rotation = Quaternion(-0.038184676, -0.18499297, -0.056334, 0.9803806)
+bones/4/rotation = Quaternion(-0.14013098, 0.5556616, -0.5331386, 0.622388)
+bones/4/scale = Vector3(1.4452262, 0.47877163, 1.4452262)
+bones/5/position = Vector3(-0.123512425, 0.40862697, 0.12580127)
+bones/6/rotation = Quaternion(-0.27273783, -0.3051562, 0.2957827, 0.8631376)
+bones/6/scale = Vector3(1.3612225, 0.53968835, 1.3612227)
+bones/9/rotation = Quaternion(-0.4230573, -0.6108818, 0.37381986, 0.5550717)
+bones/10/rotation = Quaternion(0.34244758, 0.11443435, 0.05502087, 0.9309174)
+bones/11/rotation = Quaternion(-0.043810062, -0.18656643, -0.054423578, 0.979955)
 bones/12/rotation = Quaternion(0.10475202, 0.020426368, -0.023414843, 0.99401283)
 bones/13/position = Vector3(4.253313e-08, 0.06492268, -1.6186704e-08)
 bones/13/rotation = Quaternion(-0.021425769, 0.20401044, 0.1654232, 0.9646532)
@@ -683,32 +683,32 @@ bones/27/rotation = Quaternion(-0.015459503, 0.052895308, 0.395258, 0.91691566)
 bones/28/rotation = Quaternion(0.37683278, -0.59025985, 0.018939065, 0.71360475)
 bones/29/rotation = Quaternion(0.04804936, 0.00027764039, 0.36088815, 0.9313705)
 bones/30/rotation = Quaternion(-0.060791977, 0.020285571, 0.3482503, 0.93520826)
-bones/31/rotation = Quaternion(0.013576839, -0.054121967, -0.0028812834, 0.99843794)
-bones/32/rotation = Quaternion(0.013241461, -0.1487416, -0.0041581923, 0.9887787)
-bones/33/rotation = Quaternion(0.013389969, -0.11109447, -0.003652565, 0.993713)
+bones/31/rotation = Quaternion(0.013575428, -0.054621268, -0.0028880741, 0.9984107)
+bones/32/rotation = Quaternion(0.013236305, -0.1499695, -0.0041746404, 0.9885933)
+bones/33/rotation = Quaternion(0.013387184, -0.11186394, -0.0036629268, 0.9936266)
 bones/34/rotation = Quaternion(0.8627004, 0.18465324, -0.26383367, -0.38992706)
-bones/35/rotation = Quaternion(0.01357665, -0.054121993, -0.0028815053, 0.99843794)
-bones/36/rotation = Quaternion(-0.02317425, -0.062077865, 0.023939567, 0.997515)
-bones/37/rotation = Quaternion(-6.858523e-08, 0.122234985, 3.8962305e-08, 0.99250126)
-bones/39/rotation = Quaternion(-0.42698467, 0.47759295, -0.49124348, 0.59014314)
+bones/35/rotation = Quaternion(0.013575233, -0.05462129, -0.002888282, 0.9984107)
+bones/36/rotation = Quaternion(-0.023162303, -0.06257483, 0.023951104, 0.99748397)
+bones/37/rotation = Quaternion(-8.4175106e-08, 0.12077542, 3.1270883e-08, 0.99267995)
+bones/39/rotation = Quaternion(-0.42060348, 0.48400307, -0.49524397, 0.586146)
 bones/40/rotation = Quaternion(0.06670815, -0.0943323, -0.08499372, 0.9896603)
-bones/41/rotation = Quaternion(-0.06153919, 0.19770744, -0.1189322, 0.9710716)
+bones/41/rotation = Quaternion(-0.046785377, 0.1799862, -0.11226431, 0.97612137)
 bones/51/position = Vector3(-0.0007933108, 0.059851095, -0.000653869)
 bones/51/rotation = Quaternion(0.06784294, 0.031333636, -0.13678437, 0.9877782)
 bones/55/position = Vector3(0.00034548962, 0.061507687, 0.0009602425)
 bones/55/rotation = Quaternion(0.19488339, 0.0022451936, -0.038810983, 0.98005575)
 bones/56/rotation = Quaternion(0.04631516, -0.06403667, 0.0896932, 0.992829)
-bones/61/rotation = Quaternion(0.013567415, 0.057368606, 0.0029254218, 0.9982567)
-bones/62/rotation = Quaternion(0.01320198, 0.15799402, 0.004282005, 0.9873426)
-bones/63/rotation = Quaternion(0.013365235, 0.117748186, 0.0037421728, 0.99294657)
+bones/61/rotation = Quaternion(0.013583122, 0.05194151, 0.002851633, 0.99855375)
+bones/62/rotation = Quaternion(0.013263523, 0.14345564, 0.004087373, 0.9895595)
+bones/63/rotation = Quaternion(0.0134055335, 0.1068303, 0.003595089, 0.99418044)
 bones/64/rotation = Quaternion(0.8627004, -0.18465324, 0.26383376, -0.389927)
-bones/65/rotation = Quaternion(0.013567226, 0.057368632, 0.0029256174, 0.9982567)
-bones/66/rotation = Quaternion(-0.023096578, 0.065309264, -0.024014523, 0.9973087)
-bones/67/rotation = Quaternion(-1.4957319e-08, -0.013117549, 1.6307203e-08, 0.99991405)
-bones/68/position = Vector3(0.3206508, 0.075347096, -0.11851576)
+bones/65/rotation = Quaternion(0.013582952, 0.051941533, 0.0028518254, 0.99855375)
+bones/66/rotation = Quaternion(-0.02322602, 0.059917256, -0.023889314, 0.9976471)
+bones/67/rotation = Quaternion(-2.6990644e-08, -0.024909433, 6.99349e-09, 0.9996897)
+bones/68/position = Vector3(0.32066438, 0.076591685, -0.118588)
 bones/68/rotation = Quaternion(-0.93920344, -0.22683191, 0.10566528, 0.23511498)
-bones/69/position = Vector3(-0.19908841, 0.019554555, -0.13009915)
-bones/69/rotation = Quaternion(-0.9812716, -0.10758126, -0.11232479, 0.113646105)
+bones/69/position = Vector3(-0.1997778, 0.019554526, -0.13009915)
+bones/69/rotation = Quaternion(-0.9815254, -0.10059477, -0.10331547, 0.12575656)
 bones/70/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
 
 [node name="Arms" parent="Head/CameraSmooth/Camera3D/GodotProjectArms/LVA4_Armature/Skeleton3D" index="0"]
@@ -983,6 +983,7 @@ vertical_alignment = 1
 script = ExtResource("31_wbmb7")
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
+visible = false
 material = ExtResource("6_j5tfu")
 layout_mode = 1
 anchors_preset = 15
@@ -1086,6 +1087,7 @@ script = ExtResource("26_ej8ma")
 [connection signal="pressed" from="UI/NoteDisplay/Button" to="." method="UIEnablerHandler"]
 [connection signal="pressed" from="UI/NoteDisplay/Button" to="Head" method="CheckEquipmentSlotVisibillity"]
 [connection signal="pressed" from="UI/NoteDisplay/Button" to="UI/NoteDisplay" method="HideNoteScreen"]
+[connection signal="pressed" from="UI/NoteDisplay/Button" to="." method="set_visible" binds= [true]]
 [connection signal="pressed" from="UI/NoteDisplay/Button" to="UI/Reticle" method="set_visible" binds= [true]]
 [connection signal="pressed" from="UI/NoteDisplay/Button" to="UI/Interact Prompt" method="set_visible" binds= [true]]
 

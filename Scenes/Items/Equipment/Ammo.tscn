@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b74gkhhalxcod"]
+
+[ext_resource type="PackedScene" uid="uid://bu8sr0vxm7ces" path="res://Imports/Assets/Meshes/Equipment/PSXBullet.glb" id="1_fx5a7"]
+[ext_resource type="Script" uid="uid://bbehi65nl65lq" path="res://Scripts/Equipment/Consumable.cs" id="2_5w5g1"]
+[ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="3_yi8c7"]
+
+[node name="PSXBullet" instance=ExtResource("1_fx5a7")]
+script = ExtResource("2_5w5g1")
+name = "Ammo"
+
+[node name="Cylinder_033" parent="." index="0"]
+surface_material_override/0 = ExtResource("3_yi8c7")
+surface_material_override/1 = ExtResource("3_yi8c7")
+surface_material_override/2 = ExtResource("3_yi8c7")

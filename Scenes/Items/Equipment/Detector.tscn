@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn0rueln7j8k"]
+
+[ext_resource type="PackedScene" uid="uid://c10cl6gyw05s3" path="res://Imports/Assets/Meshes/Equipment/PSXScanner.glb" id="1_iduk5"]
+[ext_resource type="Script" uid="uid://bp51l0bwug6xu" path="res://Scripts/Equipment/ItemDetector.cs" id="2_boyam"]
+[ext_resource type="AudioStream" uid="uid://cjf06kfhnp7sx" path="res://Imports/Assets/Audio/SFX/SFX_MeterBuzz.mp3" id="3_b6kob"]
+[ext_resource type="Material" uid="uid://dwgyo8wax04jv" path="res://Imports/Assets/Meshes/Equipment/MeshesMaterials/Scanner/OnLed.tres" id="3_qof2p"]
+[ext_resource type="Material" uid="uid://cp26lwj3iwgp3" path="res://Imports/Assets/Meshes/Equipment/MeshesMaterials/Scanner/OffLed.tres" id="4_s83ch"]
+[ext_resource type="AudioStream" uid="uid://cox36yruu03qp" path="res://Imports/Assets/Audio/SFX/SFX_MeterLED.wav" id="5_s83ch"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qof2p"]
+radius = 0.85
+
+[node name="PSXScanner" node_paths=PackedStringArray("detectorLED") instance=ExtResource("1_iduk5")]
+transform = Transform3D(-1.0687646e-08, 9.023768e-09, 0.32, 0.20643978, 0.24450482, 4.3432787e-16, -0.24450482, 0.20643978, -1.3987644e-08, 0, 0, -0.12866148)
+script = ExtResource("2_boyam")
+detectorLED = NodePath("Cylinder_037/Sphere_002")
+audioEffect = ExtResource("3_b6kob")
+detectionRange = 100.0
+closeThreshold = 10.0
+mediumThreshold = 30.0
+ScanTimer = 0.5
+
+[node name="Sphere_002" parent="Cylinder_037" index="0"]
+transform = Transform3D(0.445816, 0, 0, 0, 0.47062382, 0, 0, 0, 0.445816, 4.9639153, 1.4748561, -2.0408988)
+mesh = SubResource("SphereMesh_qof2p")
+surface_material_override/0 = ExtResource("4_s83ch")
+ledONMaterial = ExtResource("3_qof2p")
+ledOFFMaterial = ExtResource("4_s83ch")
+audioEffect = ExtResource("5_s83ch")

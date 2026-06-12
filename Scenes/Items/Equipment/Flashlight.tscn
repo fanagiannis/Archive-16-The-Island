@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://btth61mgoo4bi"]
+[gd_scene load_steps=6 format=3 uid="uid://btth61mgoo4bi"]
 
 [ext_resource type="Script" uid="uid://ehmvwhv35hjq" path="res://Scripts/Equipment/Flashlight.cs" id="1_qgfru"]
+[ext_resource type="AudioStream" uid="uid://dugmwcwjoavbq" path="res://Imports/Assets/Audio/SFX/UI/kenney_ui-audio/Audio/click2.ogg" id="2_4ypda"]
 [ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="2_7ftfr"]
 [ext_resource type="PackedScene" uid="uid://bpn0ep1pu0ukf" path="res://Imports/Assets/Meshes/Flashlight/PSXFlashlight.glb" id="2_aqqkm"]
 
@@ -11,6 +12,7 @@ size = Vector3(0.22961426, 0.22796631, 1.3466187)
 script = ExtResource("1_qgfru")
 spotLight = NodePath("Light")
 LifeDisplay = NodePath("LifeDisplay")
+equipmentsound = ExtResource("2_4ypda")
 name = "Flashlight"
 
 [node name="LifeDisplay" type="Label3D" parent="."]

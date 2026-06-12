@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5ph5tuxwtdcb"]
+[gd_scene load_steps=4 format=3 uid="uid://c5ph5tuxwtdcb"]
 
 [ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_13mec"]
 [ext_resource type="Script" uid="uid://bxu0dled47erq" path="res://Scripts/Dialogue/NoteDisplay.cs" id="2_13mec"]
+[ext_resource type="AudioStream" uid="uid://dkdnccrvnicr6" path="res://Imports/Assets/Audio/SFX/SFX_NoteCollect.wav" id="3_p7mpa"]
 
 [node name="NoteDisplay" type="PanelContainer" node_paths=PackedStringArray("nameLabel", "dialogueLabel")]
 anchors_preset = 7
@@ -19,6 +20,7 @@ theme = ExtResource("1_13mec")
 script = ExtResource("2_13mec")
 nameLabel = NodePath("HBoxContainer/Name")
 dialogueLabel = NodePath("HBoxContainer/Dialogue")
+audio = ExtResource("3_p7mpa")
 
 [node name="HBoxContainer" type="BoxContainer" parent="."]
 clip_contents = true

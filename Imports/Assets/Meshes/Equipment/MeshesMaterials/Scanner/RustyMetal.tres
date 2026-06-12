@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://lxnx61fr177y"]
+
+[ext_resource type="Texture2D" uid="uid://crrr7bukoe1f0" path="res://Imports/Assets/Meshes/Equipment/PSXScanner_Metal025_1K-JPG_Color.jpg" id="1_w4gcp"]
+
+[resource]
+resource_name = "RustyMetal"
+cull_mode = 2
+albedo_texture = ExtResource("1_w4gcp")
+texture_filter = 2
+use_z_clip_scale = true
+z_clip_scale = 0.5

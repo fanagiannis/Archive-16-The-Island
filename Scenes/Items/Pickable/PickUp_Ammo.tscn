@@ -1,0 +1,81 @@
+[gd_scene load_steps=15 format=3 uid="uid://cecb8kvxwgac"]
+
+[ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="1_ebh10"]
+[ext_resource type="Script" uid="uid://bv21xtquf7itr" path="res://Scripts/Equipment/Ammo.cs" id="2_qdh1t"]
+[ext_resource type="PackedScene" uid="uid://cjushym3rpbtv" path="res://Scenes/Items/Equipment/Battery.tscn" id="3_msqva"]
+[ext_resource type="PackedScene" uid="uid://b74gkhhalxcod" path="res://Scenes/Items/Equipment/Ammo.tscn" id="3_qdh1t"]
+[ext_resource type="AudioStream" uid="uid://qxi70pjcfqbp" path="res://Imports/Assets/Audio/SFX/SFX_Pickup_Ammo.mp3" id="4_msqva"]
+[ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="4_vvenp"]
+[ext_resource type="PackedScene" uid="uid://b8htc2c6l0va5" path="res://Scenes/Items/Pickable/Pickable_Pistol.tscn" id="5_qwg3m"]
+[ext_resource type="Texture2D" uid="uid://2df0pcn2fikc" path="res://Imports/Assets/UI/Icons/Icon_Ammo.png" id="5_vvenp"]
+[ext_resource type="PackedScene" uid="uid://bu8sr0vxm7ces" path="res://Imports/Assets/Meshes/Equipment/PSXBullet.glb" id="7_ebh10"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0o6nm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bynnv"]
+radius = 0.5428799
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ob3ui"]
+albedo_color = Color(1, 0.85, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.8509804, 0, 1)
+emission_energy_multiplier = 5.45
+distance_fade_mode = 1
+distance_fade_max_distance = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_llkft"]
+lifetime_randomness = 0.25
+emission_shape = 2
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 0.385, 0)
+color = Color(1, 0.9666667, 0, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_0o6nm"]
+radius = 0.001
+height = 0.001
+
+[node name="Item" instance=ExtResource("1_ebh10")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("2_qdh1t")
+ConsumeAmmount = 12
+itemScene = ExtResource("3_qdh1t")
+name = "Ammo"
+description = ""
+itemAudio = ExtResource("4_msqva")
+itemIcon = ExtResource("5_vvenp")
+
+[node name="Mesh" parent="." index="0"]
+transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, 0, 0, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_0o6nm")
+surface_material_override/0 = ExtResource("4_vvenp")
+
+[node name="MeshCollider" parent="." index="1"]
+shape = SubResource("SphereShape3D_bynnv")
+
+[node name="Item" parent="." index="4" instance=ExtResource("5_qwg3m")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+visible = false
+itemScene = ExtResource("3_msqva")
+name = "Battery"
+itemAudio = ExtResource("4_msqva")
+itemIcon = ExtResource("5_vvenp")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_ob3ui")
+amount = 50
+fixed_fps = 15
+process_material = SubResource("ParticleProcessMaterial_llkft")
+draw_pass_1 = SubResource("SphereMesh_0o6nm")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="6"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0912885, 0)
+light_color = Color(0.70895946, 0.6795859, 0, 1)
+distance_fade_enabled = true
+omni_range = 0.1348477
+
+[node name="PSXBullet" parent="." index="7" instance=ExtResource("7_ebh10")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
