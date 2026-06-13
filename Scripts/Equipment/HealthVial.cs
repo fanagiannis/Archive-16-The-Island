@@ -1,12 +1,14 @@
 using Godot;
+using PolarBears.PlayerControllerAddon;
 using System;
 
 public partial class HealthVial : Consumable
 {
+	PlayerController player ;//= SceneManager.Instance.GetPlayer();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		base._Ready();
+		PlayerController player = SceneManager.Instance.GetPlayer();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,24 +17,21 @@ public partial class HealthVial : Consumable
 		
 	}
 
+    public override void Interact()
+    {
+        base.Interact();
+    }
+
+
     public override void Consume()
 	{
-		/*
-		SceneManager.Instance.GetPlayer().HealthSystem.Heal();
-		if(equipment==null)
+		
+		PlayerController player = SceneManager.Instance.GetPlayer();
+		if(player!=null)
 		{
-			Log.Instance.SetLog("No Equipped Item",5);
-			return;
+			player.HealthSystem.Heal(ConsumeAmmount);
 		}
-		else  
-		{
-			if(equipment is Flashlight flashlight)
-				flashlight.ResetBatteryLife();
-			else
-			{
-				Log.Instance.SetLog("No Flashlight Equipped",5);
-				return;
-			}
-		}*/
+		else
+			GD.Print("NULL PLAYER");
 	}
 }

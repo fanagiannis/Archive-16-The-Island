@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqjgbcnvkbur6"]
+[gd_scene load_steps=6 format=3 uid="uid://bqjgbcnvkbur6"]
 
 [ext_resource type="PackedScene" uid="uid://d3bw6kngi7a10" path="res://Imports/Assets/Meshes/Equipment/PSXSyringe.glb" id="1_aqudp"]
 [ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="2_ccu0h"]
+[ext_resource type="Script" uid="uid://d3npad2kyfs55" path="res://Scripts/Equipment/HealthVial.cs" id="2_nevpb"]
+[ext_resource type="AudioStream" uid="uid://bdluavsl4rqhe" path="res://Imports/Assets/Audio/SFX/SFX_item_Pickup.wav" id="3_aqacv"]
+[ext_resource type="Texture2D" uid="uid://cgagx41snq4hw" path="res://Imports/Assets/UI/Icons/Icon_Syringe.png" id="4_ueidj"]
 
 [node name="PSXSyringe" instance=ExtResource("1_aqudp")]
+script = ExtResource("2_nevpb")
+ConsumeAmmount = 20
+itemScene = null
+name = "Syringe"
+itemAudio = ExtResource("3_aqacv")
+itemIcon = ExtResource("4_ueidj")
 
 [node name="Syringe" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_ccu0h")

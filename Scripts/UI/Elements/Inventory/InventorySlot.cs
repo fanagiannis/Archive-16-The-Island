@@ -114,17 +114,23 @@ public partial class InventorySlot : Panel
 			return;
 		}
 
-		if (slotItem is Consumable consumable)
+		else if (slotItem is Consumable consumable)
 		{
 			consumable.Consume();
 			ResetSlot();
 		}
-
-		if (slotItem is Battery bconsumable)
+/*
+		else if (slotItem is Battery bconsumable)
 		{
 			bconsumable.Consume();
 			ResetSlot();
 		}
+
+		else if (slotItem is HealthVial hconsumable)
+		{
+			hconsumable.Consume();
+			ResetSlot();
+		}*/
 		
 		else if (EquipmentManager.Instance.CanPickup() )
 		{

@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd3rbfdolmdby"]
+[gd_scene load_steps=10 format=3 uid="uid://dd3rbfdolmdby"]
 
 [ext_resource type="PackedScene" uid="uid://bhurf4iloqjn8" path="res://Scenes/Items/Pickable/PickUp.tscn" id="1_xnsb8"]
 [ext_resource type="PackedScene" uid="uid://dn0rueln7j8k" path="res://Scenes/Items/Equipment/Detector.tscn" id="2_7tkil"]
-[ext_resource type="AudioStream" uid="uid://bdluavsl4rqhe" path="res://Imports/Assets/Audio/SFX/SFX_item_Pickup.wav" id="2_oynaj"]
 [ext_resource type="PackedScene" uid="uid://c10cl6gyw05s3" path="res://Imports/Assets/Meshes/Equipment/PSXScanner.glb" id="3_2vrkd"]
 [ext_resource type="Texture2D" uid="uid://did3l16ru2hlj" path="res://Imports/Assets/UI/Icons/Icon_Meter.png" id="3_3gv25"]
 [ext_resource type="Material" uid="uid://cnjpnm0gwvf53" path="res://Imports/Assets/Materials/PickUpMaterial.tres" id="4_s2ea7"]
@@ -32,11 +31,7 @@ height = 0.001
 
 [node name="Item" instance=ExtResource("1_xnsb8")]
 name = "Detector"
-itemAudio = ExtResource("2_oynaj")
 itemIcon = ExtResource("3_3gv25")
-
-[node name="Mesh" parent="." index="0"]
-visible = false
 
 [node name="Item" parent="." index="4"]
 transform = Transform3D(0.245, 0, 0, 0, 0.245, 0, 0, 0, 0.245, 0, 0, 0)
@@ -90,14 +85,14 @@ visible = false
 [node name="Text_017" parent="PSXScanner/Cylinder_037" index="16"]
 visible = false
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="6"]
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." index="6"]
 material_override = SubResource("StandardMaterial3D_s2ea7")
 amount = 50
 fixed_fps = 15
 process_material = SubResource("ParticleProcessMaterial_wervn")
 draw_pass_1 = SubResource("SphereMesh_oynaj")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="7"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="." index="7"]
 physics_interpolation_mode = 2
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0912885, 0)
 light_color = Color(0.70895946, 0.6795859, 0, 1)

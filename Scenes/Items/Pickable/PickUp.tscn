@@ -1,48 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhurf4iloqjn8"]
+[gd_scene load_steps=8 format=3 uid="uid://bhurf4iloqjn8"]
 
 [ext_resource type="PackedScene" uid="uid://bxgajncg5b5g6" path="res://Scenes/Items/Interactable/Item.tscn" id="1_xp6yv"]
 [ext_resource type="Script" uid="uid://dgpoebp775kk0" path="res://Scripts/Interactable/PickUp.cs" id="2_vbjon"]
-[ext_resource type="SphereMesh" uid="uid://cloaska7g2v3y" path="res://Assets/Asset_Pickup.tres" id="3_58000"]
 [ext_resource type="PackedScene" uid="uid://b8htc2c6l0va5" path="res://Scenes/Items/Pickable/Pickable_Pistol.tscn" id="3_mgo3k"]
-[ext_resource type="Texture2D" uid="uid://dhbgx0w5yya0g" path="res://icon.svg" id="4_xp6yv"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0xsm"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-grow = true
-grow_amount = 0.01
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfd85"]
-next_pass = SubResource("StandardMaterial3D_p0xsm")
-albedo_color = Color(0.41568628, 0.6039216, 0, 1)
-stencil_mode = 1
-stencil_flags = 2
-stencil_color = Color(1, 1, 1, 1)
+[ext_resource type="PackedScene" uid="uid://bqjgbcnvkbur6" path="res://Scenes/Items/Equipment/Syringe.tscn" id="5_bynnv"]
+[ext_resource type="AudioStream" uid="uid://bdluavsl4rqhe" path="res://Imports/Assets/Audio/SFX/SFX_item_Pickup.wav" id="6_8ak30"]
+[ext_resource type="Texture2D" uid="uid://cgagx41snq4hw" path="res://Imports/Assets/UI/Icons/Icon_Syringe.png" id="6_bynnv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bynnv"]
-radius = 2.2977667
+radius = 1.0937345
 
 [node name="Item" node_paths=PackedStringArray("Item") instance=ExtResource("1_xp6yv")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = ExtResource("2_vbjon")
 Item = NodePath("Item")
-name = "Pistol"
+name = "Syringe"
 description = ""
-itemAudio = null
+itemAudio = ExtResource("6_8ak30")
+itemIcon = ExtResource("6_bynnv")
 
 [node name="Mesh" parent="." index="0"]
-mesh = ExtResource("3_58000")
-surface_material_override/0 = SubResource("StandardMaterial3D_vfd85")
+visible = false
+surface_material_override/0 = null
 
 [node name="MeshCollider" parent="." index="1"]
 shape = SubResource("SphereShape3D_bynnv")
 
 [node name="Item" parent="." index="4" instance=ExtResource("3_mgo3k")]
+transform = Transform3D(0.335, 0, 0, 0, 0.335, 0, 0, 0, 0.335, 0, 0, 0)
 visible = false
-name = "Pistol"
-itemIcon = ExtResource("4_xp6yv")
+itemScene = ExtResource("5_bynnv")
+name = "Syringe"
+itemAudio = ExtResource("6_8ak30")
+itemIcon = ExtResource("6_bynnv")

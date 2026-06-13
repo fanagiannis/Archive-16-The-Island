@@ -1,6 +1,7 @@
 using System;
 using System.Data.Common;
 using Godot;
+using Godot.Collections;
 
 namespace PolarBears.PlayerControllerAddon;
 
@@ -156,6 +157,14 @@ public partial class HealthSystem : Node3D
 	private AnimationPlayer _animationPlayer;
 	private ShaderMaterial _blurMaterial;
 	[Export]private DeathScreen _deathScreen;
+	//[Export]private HealthDisplay healthDisplay;
+	bool _IsHealing=false;
+	bool _IsDamaged=false;
+	float targetHealValue=100;
+	[ExportSubgroup("Breathing")]
+	[Export] Array<AudioStream> BreathingSounds;
+	AudioStreamPlayer3D breathaudio;
+	private int _currentBreathIndex = -1;
 
 	public struct HealthSystemInitParams
 	{
@@ -205,7 +214,16 @@ public partial class HealthSystem : Node3D
 		//_deathScreen = GetNode<DeathScreen>("UI/DeathScreen");
 		
 		_animationPlayer = initParams.AnimationPlayer;
+
+		breathaudio = new AudioStreamPlayer3D();
+		AddChild(breathaudio);
+		
 	}
+
+    public override void _Ready()
+    {
+        
+    }
 	
 	public override void _Process(double delta)
 	{
@@ -219,11 +237,17 @@ public partial class HealthSystem : Node3D
 		HandleCameraRotationOnHit(deltaConverted);
 		HandleDamageOnFall();
 
-		HandleHealthRegeneration(deltaConverted);
+		HandleHealthRegeneration(deltaConverted,targetHealValue);
+
+		//healthDisplay.UpdateHealthUI(CurrentHealth,MaxHealth);
+
+		GD.Print(GetCurrentHealth()+"/"+MaxHealth);
+		Breath();
 	}
 	
 	public void TakeDamage(float amount)
 	{
+		_IsDamaged=true;
 		if (_dead)
 		{
 			return;
@@ -246,6 +270,12 @@ public partial class HealthSystem : Node3D
 		}
 
 		_lastHitTime = DateTime.UtcNow;
+	}
+
+	public void Heal(float value)
+	{
+		_IsHealing=true;
+		targetHealValue = CurrentHealth + value;
 	}
 
 	public float GetCurrentHealth() { return CurrentHealth; }
@@ -317,7 +347,8 @@ public partial class HealthSystem : Node3D
 
 	private void HandleVignetteShader(float delta)
 	{
-		if (Mathf.IsEqualApprox(CurrentHealth, MaxHealth))
+		//if(_IsHealing!=true) return;
+		if (Mathf.IsEqualApprox(CurrentHealth, targetHealValue))//MaxHealth))
 		{
 			_currentHealthInPrevFrame = CurrentHealth;
 			_currentMultiplierMidValue = InitialMultiplierMidVal;
@@ -325,7 +356,7 @@ public partial class HealthSystem : Node3D
 			return;
 		}
 		
-		float healthNormalized = CurrentHealth / MaxHealth;
+		float healthNormalized = CurrentHealth / targetHealValue;// MaxHealth;
 		float healthReverted = 1.0f - healthNormalized;
 		
 		float newAnimationSpeed = Mathf.Lerp(SpeedMin, SpeedMax, healthReverted);
@@ -370,12 +401,13 @@ public partial class HealthSystem : Node3D
 
 	private void HandleDistortionShader(float delta)
 	{
-		if (Mathf.IsEqualApprox(CurrentHealth, MaxHealth))
+		//if(_IsHealing!=true) return;
+		if (Mathf.IsEqualApprox(CurrentHealth,targetHealValue))// MaxHealth))
 		{
 			return;
 		}
 
-		float healthNormalized = CurrentHealth / MaxHealth;
+		float healthNormalized = CurrentHealth / targetHealValue;//MaxHealth;
 		float healthReverted = 1 - healthNormalized;
 		
 		_distortionMaterial.SetShaderParameter(
@@ -484,10 +516,19 @@ public partial class HealthSystem : Node3D
 
 	private DateTime? _lastHitTime;
 
-	private void HandleHealthRegeneration(float delta)
+	private void HandleHealthRegeneration(float delta,float value)
 	{
-		if (_lastHitTime == null || _dead) return;
+		if (_lastHitTime == null || _dead || !_IsHealing) return;
 		
+		if(targetHealValue >MaxHealth)
+		{
+			_IsDamaged=false;
+			targetHealValue  = MaxHealth;
+		}
+			
+		//Log.Instance.SetLog(CurrentHealth.ToString() +"/"+ targetHealValue.ToString(),1);
+		
+
 		DateTime lastHitTimeConverted = (DateTime)_lastHitTime;
 		
 		double differenceInSeconds = (DateTime.UtcNow - lastHitTimeConverted).TotalSeconds;
@@ -498,16 +539,53 @@ public partial class HealthSystem : Node3D
 			return;
 		}
 		
-		if (Mathf.IsEqualApprox(CurrentHealth, MaxHealth))
+		if (Mathf.IsEqualApprox(CurrentHealth, targetHealValue ))
 		{
-			CurrentHealth = MaxHealth;
+			CurrentHealth = targetHealValue ;
 			_lastHitTime = null;
+			_IsHealing=false;
 			EmitSignal(SignalName.FullyRecovered);
 			return;
 		}
 
 		CurrentHealth += delta * RegenerationSpeed;
-		CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
+		CurrentHealth = Mathf.Clamp(CurrentHealth, 0, targetHealValue);
 		EmitSignal(SignalName.RegenerateHealth,0f);
+	}
+
+	private void Breath()
+	{
+		// If we are at max health or not damaged, stop breathing and reset
+		if (!_IsDamaged || CurrentHealth >= MaxHealth)
+		{
+			if (breathaudio != null && breathaudio.Playing)
+			{
+				breathaudio.Stop();
+				_currentBreathIndex = -1; // Reset the tracker
+			}
+			return; 
+		}
+
+		// Safety checks
+		if (breathaudio == null || BreathingSounds == null || BreathingSounds.Count == 0 || CurrentHealth <= 0) 
+			return;
+
+		// Calculate which sound to play
+		float value = (float)MaxHealth / CurrentHealth;
+		int valueInt = Convert.ToInt32(value);
+		int soundIndex = Mathf.Clamp(valueInt - 1, 0, BreathingSounds.Count - 1);
+
+		// ONLY update the stream if the health threshold changed the index
+		if (_currentBreathIndex != soundIndex)
+		{
+			_currentBreathIndex = soundIndex;
+			breathaudio.Stream = BreathingSounds[soundIndex];
+			breathaudio.Play();
+		}
+		// Safety net: if it stopped playing for some reason, start it again
+		else if (!breathaudio.Playing)
+		{
+			breathaudio.Play();
+		}
 	}
 }
