@@ -7,10 +7,16 @@ public partial class Area : Area3D
 {
 	//DEBUG
 	[Export]Label3D label;
+	
 	//DEBUG
+	[Export] public float MaxDistance = 2000.0f;
 	bool discovered=false;
 	bool isActive=false;
 	[Export]string name;
+	Camera3D camera ;
+	bool _Inzone=false;
+	private double _checkTimer = 0.0;
+    private double _checkInterval = 0.5;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -23,6 +29,32 @@ public partial class Area : Area3D
 	public override void _Process(double delta)
 	{
 		label.Text=isActive.ToString();
+
+		_checkTimer += delta;
+		//Camera3D camera = GetViewport().GetCamera3D();
+		if (_checkTimer < _checkInterval) 
+			return;
+        _checkTimer = 0.0;
+		/*
+		if(_OnSight==false)
+		{
+			UpdateCollision(_OnSight);
+			return;
+		}
+			*/
+		camera = GetViewport().GetCamera3D();
+        if (camera == null) 
+			return;
+		float distance= GlobalPosition.DistanceSquaredTo(camera.GlobalPosition);
+
+		_Inzone= distance<=MaxDistance;
+		UpdateVisible(_Inzone);
+	}
+
+	public void UpdateVisible(bool set)
+	{
+
+		this.Visible=set;
 	}
 
 	public void Discover(Node3D body)

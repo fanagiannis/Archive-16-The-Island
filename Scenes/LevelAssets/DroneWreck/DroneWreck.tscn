@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://skt4i5nttlfs"]
+
+[ext_resource type="ArrayMesh" uid="uid://cde76oi3vtit5" path="res://Imports/Assets/Meshes/DroneWreck/PSXDrone.obj" id="1_2v8ki"]
+[ext_resource type="Material" uid="uid://r074647u5es2" path="res://Imports/Assets/Meshes/DroneWreck/DroneMaterial.tres" id="2_kqbxp"]
+[ext_resource type="Material" uid="uid://bwur7mdkdrgku" path="res://Imports/Assets/Meshes/DroneWreck/DronePropellerMaterial.tres" id="4_oqin5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqbxp"]
+radius = 1.2841797
+height = 19.930634
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2v8ki"]
+size = Vector3(4.7628784, 0.39257813, 2.1346588)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqbxp"]
+size = Vector3(9.282532, 0.4179077, 2.1010742)
+
+[node name="DroneWreck" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2v8ki")
+surface_material_override/0 = ExtResource("2_kqbxp")
+surface_material_override/1 = ExtResource("2_kqbxp")
+surface_material_override/2 = ExtResource("4_oqin5")
+
+[node name="CollisionBody" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.2546614e-08, 0.28703308)
+shape = SubResource("CapsuleShape3D_kqbxp")
+
+[node name="CollisionWing" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9556235, 0.29459077, 0, -0.29459077, 0.9556235, -1.341219, 0.5319343, -0.26496926)
+shape = SubResource("BoxShape3D_2v8ki")
+
+[node name="CollisionWing2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6459045, 0.58164746, 0.040504068)
+shape = SubResource("BoxShape3D_kqbxp")

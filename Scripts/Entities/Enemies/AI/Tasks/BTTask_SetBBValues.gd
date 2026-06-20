@@ -9,7 +9,10 @@ func _ready():
 func tick(actor: Node, blackboard) -> int:
 	var speed = actor.GetCurentSpeed()
 	blackboard.set_value("AgentSpeed", speed)
-	#print(blackboard.get_value("AgentSpeed"))
+	var hp = actor.GetHP();
+	blackboard.set_value("HealthPoints", hp)
+	var damaged = actor.GetIsDamaged();
+	blackboard.set_value("IsDamaged", damaged)
 	return SUCCESS
 
 #	

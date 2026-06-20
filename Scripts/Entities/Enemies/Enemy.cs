@@ -11,7 +11,7 @@ public partial class Enemy : CharacterBody3D
 	
 	protected EnemyBehavior enemyBehavior;
 	//VITALITY
-	protected float HP=1;
+	protected float HP=100;
 	protected float current_speed;
 	protected bool isDead=false;
 	protected bool isEnabled = true;
@@ -55,7 +55,7 @@ public partial class Enemy : CharacterBody3D
 		HP=Mathf.Min(HP,enemyData.GetMaxHP());
 	}
 
-	public void Dead()
+	public virtual void Dead()
 	{
 		if(HP<=0)
 		{
@@ -90,6 +90,11 @@ public partial class Enemy : CharacterBody3D
 		else if(difficultyIndex>0)
 			current_speed = enemyData.sprint_speed;
 		enemyBehavior.SetBlackboardValue("AgentSpeed",current_speed);
+	}
+
+	public float GetHP()
+	{
+		return HP;
 	}
 
 	public EnemyBehavior GetBehaviorAgent()

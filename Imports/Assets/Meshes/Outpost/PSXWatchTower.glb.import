@@ -1,0 +1,61 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bs7lt63om722o"
+path="res://.godot/imported/PSXWatchTower.glb-97172d260999521ccb6c26c185667c28.scn"
+
+[deps]
+
+source_file="res://Imports/Assets/Meshes/Outpost/PSXWatchTower.glb"
+dest_files=["res://.godot/imported/PSXWatchTower.glb-97172d260999521ccb6c26c185667c28.scn"]
+
+[params]
+
+nodes/root_type="StaticBody3D"
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"DarkWood": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Imports/Assets/Meshes/Outpost/Materials/DarkWood.tres",
+"use_external/path": "uid://cwvksgd3wi88q"
+},
+"HarborWood": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Imports/Assets/Meshes/Outpost/Materials/HarborWood.tres",
+"use_external/path": "uid://ytej2yht2uhm"
+}
+},
+"nodes": {
+"PATH:WatchTower": {
+"generate/occluder": 1,
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

@@ -38,4 +38,5 @@ public partial class EnemyManager : Node
 			enemy.SetEnabled(false);
 		}
 	}
+
 }

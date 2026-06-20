@@ -4,17 +4,17 @@
 
 [resource]
 shader = ExtResource("1_ygo4l")
-shader_parameter/exposure = 0.7000000095
-shader_parameter/contrast = 1.00000002375
+shader_parameter/exposure = 0.6750000083125001
+shader_parameter/contrast = 1.1050000287375
 shader_parameter/saturation = 1.0000000475
 shader_parameter/enable_pixelate = true
-shader_parameter/pixel_factor = 1.700000057
+shader_parameter/pixel_factor = 1.80000006175
 shader_parameter/enable_posterize = true
-shader_parameter/color_levels = 12.50000049875
+shader_parameter/color_levels = 13.0000005225
 shader_parameter/dither_strength = 0.070000003325
 shader_parameter/chrom_aberration = 0.0
-shader_parameter/vignette_strength = 0.010000000475
+shader_parameter/vignette_strength = 1.6000000760000002
 shader_parameter/grain_strength = 0.2
 shader_parameter/tint_color = Vector3(0, 0, 0)
-shader_parameter/tint_strength = 0.010000000475
+shader_parameter/tint_strength = 0.15
 shader_parameter/viewport_size_override = Vector2(0, 0)

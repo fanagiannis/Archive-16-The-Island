@@ -241,7 +241,7 @@ public partial class HealthSystem : Node3D
 
 		//healthDisplay.UpdateHealthUI(CurrentHealth,MaxHealth);
 
-		GD.Print(GetCurrentHealth()+"/"+MaxHealth);
+		//GD.Print(GetCurrentHealth()+"/"+MaxHealth);
 		Breath();
 	}
 	

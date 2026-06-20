@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cwvksgd3wi88q"]
+
+[ext_resource type="Texture2D" uid="uid://byfjih6w5b0it" path="res://Imports/Assets/Meshes/Outpost/PSXWatchTower_Planks025C_1K-JPG_Color.jpg" id="1_a3k7x"]
+[ext_resource type="Texture2D" uid="uid://cg0or11jkc3ut" path="res://Imports/Assets/Meshes/Outpost/PSXWatchTower_Planks037A_1K-JPG_NormalDX.jpg" id="2_ongpb"]
+
+[resource]
+resource_name = "DarkWood"
+cull_mode = 2
+albedo_texture = ExtResource("1_a3k7x")
+normal_enabled = true
+normal_texture = ExtResource("2_ongpb")
+texture_filter = 2

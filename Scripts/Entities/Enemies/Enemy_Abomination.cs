@@ -12,6 +12,7 @@ public partial class Enemy_Abomination : Enemy
     float walk_speed;
 
     float sprint_speed;
+    bool _IsDamaged=false;
     
     public override void _Ready()
 
@@ -21,7 +22,9 @@ public partial class Enemy_Abomination : Enemy
         SetupAI();
         animator = GetNode<AnimationTree>("Abomination/AnimationTree");
         
-        Dead();
+        //Dead();
+
+        CheckDamage();
 
         if (enemyData != null)
         {
@@ -74,6 +77,62 @@ public partial class Enemy_Abomination : Enemy
             animator.Set("parameters/Movement/blend_position",0);*/
     }
 
+    public void CheckDamage()
+    {
+        UpdateBlackboard();
+        if(HP<=0)
+        {
+            _IsDamaged=true;
+        }
+    }
+
+    public void ResetDamage()
+    {
+        HP = enemyData.GetMaxHP();
+        _IsDamaged=true;
+    }
+
+    
+
+
+    public override void Dead()
+    {
+        CheckDamage();
+        
+    }
+
+    private void UpdateBlackboard()
+    {
+        // Ensure you have a valid reference to your BeehaveTree node
+        if (enemyBehavior != null)
+        {
+            // 1. Fetch the blackboard instance from the BeehaveTree node
+            GodotObject blackboard = enemyBehavior.Get("Blackboard").As<GodotObject>();
+
+            if (blackboard != null)
+            {
+                // 2. Use .Call() to execute the GDScript "set_value" function
+                blackboard.Call("set_value", "AgentSpeed", current_speed);
+                blackboard.Call("set_value", "HealthPoints", HP);
+                blackboard.Call("set_value", "IsDamaged", _IsDamaged);
+            }
+        }
+
+        UpdateAnimator();
+    }
+
+    public void Run()
+    {
+        current_speed=sprint_speed;
+        UpdateSpeed();
+    }
+
+     public void Walk()
+    {
+        current_speed=walk_speed;
+        UpdateSpeed();
+    }
+
     private void UpdateSpeed()
     {
         enemyBehavior.SetBlackboardValue("AgentSpeed",current_speed);
@@ -83,6 +142,11 @@ public partial class Enemy_Abomination : Enemy
     public float GetCurentSpeed()
     {
         return current_speed;
+    }
+
+    public bool GetIsDamaged()
+    {
+        return _IsDamaged;
     }
 }
 

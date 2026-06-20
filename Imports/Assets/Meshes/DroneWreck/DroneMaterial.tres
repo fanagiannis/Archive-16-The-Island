@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://r074647u5es2"]
+
+[ext_resource type="Texture2D" uid="uid://c34rkvjopxicl" path="res://Imports/Assets/Meshes/DroneWreck/metal_plate_02_diff_1k.jpg" id="1_dov17"]
+
+[resource]
+albedo_texture = ExtResource("1_dov17")

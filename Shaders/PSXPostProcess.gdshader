@@ -104,6 +104,7 @@ void fragment(){
 
     col = mix(col, col * tint_color, tint_strength);
 
+	col = adjust_contrast_saturation(col, contrast, saturation);
     if (enable_posterize){
         vec2 frag_xy = floor(uv / px);
         float b = bayer4x4(frag_xy);
@@ -112,7 +113,7 @@ void fragment(){
         col = q / (color_levels - 1.0);
     }
 
-    col = adjust_contrast_saturation(col, contrast, saturation);
+
 
     float vignette = smoothstep(0.5, 0.9, dist) * vignette_strength;
     col *= clamp(1.0 - vignette, 0.0, 1.0);
