@@ -7,6 +7,7 @@ public partial class Enemy : CharacterBody3D
 	[Export] protected EnemyData enemyData;
 	[Export] protected Label3D HPDisplay;
 	[Export] protected DamageArea DamageArea;
+
 	protected int difficultyIndex;
 	
 	protected EnemyBehavior enemyBehavior;
@@ -75,6 +76,11 @@ public partial class Enemy : CharacterBody3D
 			//enemyBehavior.SetTargetPosition(new Vector3(1,1,0));
 		}
         	
+	}
+
+	public bool CheckIfInView()
+	{
+		return true;
 	}
 
 	public virtual void SetDifficulty(int value)

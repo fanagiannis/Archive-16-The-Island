@@ -54,7 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://b3o7rwqmn4y1c" path="res://Scenes/Items/Interactable/LevelExit.tscn" id="30_qtxkk"]
 [ext_resource type="PackedScene" uid="uid://c5yr3ocig12hc" path="res://Imports/Assets/Meshes/Camp/Table.glb" id="30_s0gur"]
 [ext_resource type="PackedScene" uid="uid://2ggeffxo45tr" path="res://Scenes/LevelAssets/Areas/Area_Shrine.tscn" id="32_60b2k"]
-[ext_resource type="PackedScene" path="res://Scenes/Levels/Forest/Lighthouse.tscn" id="33_eap8e"]
+[ext_resource type="PackedScene" uid="uid://dik25ns1gnhsy" path="res://Scenes/Levels/Forest/Lighthouse.tscn" id="33_eap8e"]
 [ext_resource type="PackedScene" uid="uid://dg0wx5wtaedk5" path="res://Scenes/Levels/Forest/Boat.tscn" id="34_1r527"]
 [ext_resource type="PackedScene" uid="uid://b6r7va0wta17y" path="res://Imports/Assets/Meshes/PSXRockShrine.glb" id="34_yt8qq"]
 [ext_resource type="PackedScene" uid="uid://6qmjkelorp5w" path="res://Scenes/LevelAssets/Areas/Area_Rest.tscn" id="35_81a1s"]
@@ -2366,7 +2366,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 77.824425, 4.8406963, 2
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="EnemyBase" parent="Enemies" instance=ExtResource("22_3gjhc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.129712, 0.96392286, 3.8458273)
+transform = Transform3D(0.4468849, 0, -0.89459145, 0, 1, 0, 0.89459145, 0, 0.4468849, 69.529106, 5.8252325, 227.90196)
 
 [node name="EnemyDarkFigure" parent="Enemies" instance=ExtResource("23_horwd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.59187, 5.081836, 219.46648)
