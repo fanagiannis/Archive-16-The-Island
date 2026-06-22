@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bf7mxbxli00tl"]
+[gd_scene load_steps=12 format=3 uid="uid://bf7mxbxli00tl"]
 
 [ext_resource type="Script" uid="uid://efhmw0hmwri7" path="res://Scripts/Entities/Enemies/Enemy.cs" id="1_g1ey0"]
 [ext_resource type="Resource" uid="uid://cbu7g5xmt1i3s" path="res://Scripts/Entities/Enemies/Resources/Enemy_Base.tres" id="2_s6s1n"]
@@ -7,12 +7,7 @@
 [ext_resource type="Script" uid="uid://biai72n2fa7hr" path="res://Scripts/Entities/Enemies/AI/Sensors/DamageArea.cs" id="4_djtal"]
 [ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="5_84pll"]
 [ext_resource type="Script" uid="uid://cj8aq0jppcqa7" path="res://Scripts/Entities/Enemies/EnemyBehavior.cs" id="6_nbjhm"]
-[ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="7_chhsg"]
-[ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="8_j0pjc"]
-[ext_resource type="Script" uid="uid://cw22yurt5l74k" path="res://addons/beehave/nodes/composites/selector_reactive.gd" id="9_osg7y"]
-[ext_resource type="Script" uid="uid://db2iajucstk1v" path="res://Scripts/Entities/Enemies/AI/Conditions/BT_Condition_InView.gd" id="12_4wnf5"]
-[ext_resource type="Script" uid="uid://cq3cx0h4piira" path="res://Scripts/Entities/Enemies/AI/Tasks/BTTask_Chase_Player.gd" id="12_be2q4"]
-[ext_resource type="Script" uid="uid://crkjak4kyv56m" path="res://addons/beehave/nodes/decorators/inverter.gd" id="13_cny4s"]
+[ext_resource type="BlackboardPlan" uid="uid://c1p0c4eoop6g" path="res://Scripts/Entities/ai/Blackboard/DarkFigureBlackboard.tres" id="8_cl8t7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k111r"]
 radius = 3.8993392
@@ -72,48 +67,15 @@ font = ExtResource("5_84pll")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="AI" type="Node" parent="." node_paths=PackedStringArray("enemyNavigation", "enemyVision", "blackboard")]
+[node name="AI" type="Node" parent="." node_paths=PackedStringArray("enemyNavigation", "enemyVision")]
 script = ExtResource("6_nbjhm")
 enemyNavigation = NodePath("../NavigationAgent3D")
 enemyVision = NodePath("../Vision")
-blackboard = NodePath("../Blackboard")
-
-[node name="Blackboard" type="Node" parent="."]
-script = ExtResource("7_chhsg")
-blackboard = {
-"AgentPosition": Vector3(0, 0, 0),
-"AgentSpeed": 0.0,
-"Difficulty": 0,
-"OnSight": false,
-"PlayerPosition": Vector3(0, 0, 0),
-"PlayerSpotted": false,
-"TargetPosition": Vector3(0, 0, 0)
-}
-metadata/_custom_type_script = "uid://dme5f24l0edsf"
-
-[node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
-script = ExtResource("8_j0pjc")
-blackboard = NodePath("../Blackboard")
-actor = NodePath("..")
-metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
-
-[node name="BTSelector" type="Node" parent="BehaviorTree"]
-script = ExtResource("9_osg7y")
-metadata/_custom_type_script = "uid://cw22yurt5l74k"
-
-[node name="InverterDecorator" type="Node" parent="BehaviorTree/BTSelector"]
-script = ExtResource("13_cny4s")
-metadata/_custom_type_script = "uid://crkjak4kyv56m"
-
-[node name="InView" type="Node" parent="BehaviorTree/BTSelector/InverterDecorator"]
-script = ExtResource("12_4wnf5")
-metadata/_custom_type_script = "uid://cbnbvj8prv63i"
-
-[node name="HuntPlayer" type="Node" parent="BehaviorTree/BTSelector"]
-script = ExtResource("12_be2q4")
-metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="OnScreenNotifier" type="VisibleOnScreenNotifier3D" parent="."]
+
+[node name="BehaviorTree" type="LimboHSM" parent="."]
+blackboard_plan = ExtResource("8_cl8t7")
 
 [connection signal="body_entered" from="DamageArea" to="DamageArea" method="OnEnter"]
 [connection signal="body_exited" from="DamageArea" to="DamageArea" method="OnExit"]

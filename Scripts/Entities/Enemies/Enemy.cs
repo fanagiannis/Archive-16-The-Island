@@ -46,6 +46,7 @@ public partial class Enemy : CharacterBody3D
 		HP-=value;
 		HP = Mathf.Max(HP,0);
 		HPDisplay.Text = HP.ToString("0");
+		
 		Dead();
 	}
 
@@ -85,7 +86,7 @@ public partial class Enemy : CharacterBody3D
 
 	public virtual void SetAgentSpeed()
 	{
-		if(difficultyIndex==0)
+		if(difficultyIndex<=0)
 			current_speed = enemyData.walk_speed;
 		else if(difficultyIndex>0)
 			current_speed = enemyData.sprint_speed;
@@ -97,6 +98,11 @@ public partial class Enemy : CharacterBody3D
 		return HP;
 	}
 
+	public float GetMaxHP()
+	{
+		return enemyData.GetMaxHP();
+	}
+
 	public EnemyBehavior GetBehaviorAgent()
 	{
 		if(enemyBehavior!=null)
@@ -104,10 +110,11 @@ public partial class Enemy : CharacterBody3D
 		return null;
 	}
 
-	public void SetEnabled(bool set)
+	public virtual void SetEnabled(bool set)
 	{
 		isEnabled = set;
 		Visible=set;
 		ProcessMode = set ? ProcessModeEnum.Inherit : ProcessModeEnum.Disabled;
+		HP=enemyData.GetMaxHP();
 	}
 }

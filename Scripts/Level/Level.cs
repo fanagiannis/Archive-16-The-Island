@@ -6,7 +6,7 @@ using System.Linq;
 public partial class Level : Node3D
 {
 	[Export] Node3D NorthPoint;
-	EnemyManager enemyManager;
+	[Export]EnemyManager enemyManager;
 	[Export] string LevelName;
 	[Export] Node3D playerSpawn;
 	[Export] Node3D questNode;
@@ -26,7 +26,7 @@ public partial class Level : Node3D
 	{
 		EnemyNode = GetNode<Node3D>("Enemies");
 		DoorNode = GetNode<Node3D>("Doors");
-		enemyManager = GetNode<EnemyManager>("EnemyManager");
+		//enemyManager = GetNode<EnemyManager>("EnemyManager");
 		AreasNode = GetNode<Node3D>("NavigationRegion3D/Forest/Areas");
 		if (DoorNode != null) GetDoorsList();
     	if (EnemyNode != null  && enemyManager!=null) GetEnemiesList();
@@ -35,7 +35,7 @@ public partial class Level : Node3D
 		enemyManager.SetEnemyDifficltyIndex(difficulty);
 		//GD.Print(enemies.Count);
 		//GD.Print(exitDoors.Count);
-		enemyManager.DisableAllEnemies();
+		//enemyManager.DisableAllEnemies();
 
 		if(questNode!=null)
 		{

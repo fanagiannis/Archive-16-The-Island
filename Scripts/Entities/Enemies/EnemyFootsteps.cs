@@ -80,8 +80,7 @@ public partial class EnemyFootsteps : RayCast3D
 							if (TerrainTextureMapping.ContainsKey(textureId))
 							{
 								detectedMaterial = TerrainTextureMapping[textureId];
-								GD.Print(detectedMaterial);
-								
+					
 							}
 			
 							//PlayFootstep(MaterialSounds[detectedMaterial.material.name] );

@@ -13,6 +13,7 @@ func tick(actor: Node, blackboard) -> int:
 	blackboard.set_value("HealthPoints", hp)
 	var damaged = actor.GetIsDamaged();
 	blackboard.set_value("IsDamaged", damaged)
+	blackboard.set_value("PlayerSpotted", true)
 	return SUCCESS
 
 #	

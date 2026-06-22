@@ -11,10 +11,13 @@ func _ready():
 
 func tick(actor: Node, blackboard) -> int:
 	#player_pos = SceneManager.Instance.GetPlayerPosition()
+	
 	var target_pos = get_node("/root/SceneManager").GetPlayerPosition()
 	blackboard.set_value("PlayerPosition", target_pos)
 	#var target_pos = blackboard.get_value("PlayerPosition")
 	var speed = blackboard.get_value("AgentSpeed")
+
+	print(speed)
 	
 	if not actor.has_method("GetBehaviorAgent"):
 		return FAILURE
@@ -25,9 +28,9 @@ func tick(actor: Node, blackboard) -> int:
 	# 1. Check for SUCCESS first
 	# We combine the agent's check with a hard distance check for reliability
 	var dist_to_target = actor.global_position.distance_to(target_pos)
-	if nav_agent.is_navigation_finished() or dist_to_target < 2:
-		actor.velocity = Vector3.ZERO
-		return SUCCESS
+	#if nav_agent.is_navigation_finished() or dist_to_target < 2:
+	#	actor.velocity = Vector3.ZERO
+	#	return SUCCESS
 
 	# 2. Only update the target if it has moved significantly 
 	# (Prevents restarting the path logic every frame)
@@ -46,7 +49,7 @@ func tick(actor: Node, blackboard) -> int:
 	else:
 		time_stuck=0.0
 	
-	if time_stuck>2.0:
+	if time_stuck>10.0:
 		return FAILURE
 
 	# Call your C# movement logic

@@ -6,18 +6,25 @@ public partial class Enemy_Abomination : Enemy
 {
 
     //EnemyAbominationData enemyData;
+    [Signal]
+    public delegate void EnabledEventHandler();
+    [Signal]
+    public delegate void DisabledEventHandler();
+
+    
 
     AnimationTree animator;
 
     float walk_speed;
-
+    float slow_walk_speed;
     float sprint_speed;
     bool _IsDamaged=false;
+    bool _FlashlightDamaged=false;
+    bool _Blinded=false;
+    [Export]float LightDamage=100f;
     
     public override void _Ready()
-
     {
-
         //base._Ready();
         SetupAI();
         animator = GetNode<AnimationTree>("Abomination/AnimationTree");
@@ -25,14 +32,18 @@ public partial class Enemy_Abomination : Enemy
         //Dead();
 
         CheckDamage();
+        CheckLightDamage();
 
         if (enemyData != null)
         {
             walk_speed = enemyData.walk_speed;
             sprint_speed = enemyData.sprint_speed;
+            slow_walk_speed = walk_speed/1.5f;
         }
         
         SetAgentSpeed();
+        //current_speed=walk_speed;
+        HPDisplay.Text = LightDamage.ToString("0");
         //UpdateSpeed();
     }
 
@@ -43,7 +54,10 @@ public partial class Enemy_Abomination : Enemy
     {
         base._Process(delta);
         UpdateAnimator();
+        TakeLightDamage(delta);
         //GD.Print(Velocity.Length());
+        
+        
     }
 
 
@@ -86,15 +100,48 @@ public partial class Enemy_Abomination : Enemy
         }
     }
 
+    public void CheckLightDamage()
+    {
+        
+        if(LightDamage<=0 && !_Blinded)
+        {
+            _Blinded=true;
+           // UpdateBlackboard();
+           GD.Print(_Blinded);
+        }
+        UpdateBlackboard();
+    }
+
     public void ResetDamage()
     {
         HP = enemyData.GetMaxHP();
-        _IsDamaged=true;
+        _IsDamaged=false;
+        LightDamage = 100f;
+        _Blinded = false;
+        ResetBlackboard();
+        HPDisplay.Text = LightDamage.ToString("0");
     }
 
-    
+    public void TakeLightDamage(double delta)
+    {
+        CheckLightDamage();
+        if(_FlashlightDamaged)
+        {
+            LightDamage-=8*(float)delta;
+            //LightDamage = Mathf.Max(0,LightDamage);
+            HPDisplay.Text = LightDamage.ToString("0");
+           
+        }
+    }
 
-
+    public void SetLightDamaged(bool set)
+    {
+        _FlashlightDamaged = set;
+        if(_FlashlightDamaged)
+            current_speed = slow_walk_speed;
+        else
+            current_speed = walk_speed;
+    }
     public override void Dead()
     {
         CheckDamage();
@@ -111,15 +158,52 @@ public partial class Enemy_Abomination : Enemy
 
             if (blackboard != null)
             {
-                // 2. Use .Call() to execute the GDScript "set_value" function
+               // blackboard.Call("PlayerSpotted",true);
                 blackboard.Call("set_value", "AgentSpeed", current_speed);
                 blackboard.Call("set_value", "HealthPoints", HP);
                 blackboard.Call("set_value", "IsDamaged", _IsDamaged);
+                blackboard.Call("set_value", "IsBlinded", _Blinded);
             }
         }
 
         UpdateAnimator();
     }
+
+    private void ResetBlackboard()
+    {
+        // Ensure you have a valid reference to your BeehaveTree node
+        if (enemyBehavior != null)
+        {
+            // 1. Fetch the blackboard instance from the BeehaveTree node
+            GodotObject blackboard = enemyBehavior.Get("Blackboard").As<GodotObject>();
+
+            if (blackboard != null)
+            {
+               // blackboard.Call("PlayerSpotted",true);
+                //blackboard.Call("set_value", "PlayerSpotted", false);
+                blackboard.Call("set_value", "AgentSpeed", current_speed);
+                blackboard.Call("set_value", "HealthPoints", HP);
+                blackboard.Call("set_value", "IsDamaged", _IsDamaged);
+                blackboard.Call("set_value", "IsBlinded", _Blinded);
+            }
+        }
+
+        UpdateAnimator();
+    }
+
+    public override void SetEnabled(bool set)
+    {
+        base.SetEnabled(set);
+        if(set==true)
+            EmitSignal(SignalName.Enabled);
+        else if (set==false)
+            EmitSignal(SignalName.Disabled);
+    }
+
+
+    
+
+
 
     public void Run()
     {
@@ -127,7 +211,7 @@ public partial class Enemy_Abomination : Enemy
         UpdateSpeed();
     }
 
-     public void Walk()
+    public void Walk()
     {
         current_speed=walk_speed;
         UpdateSpeed();
@@ -147,6 +231,10 @@ public partial class Enemy_Abomination : Enemy
     public bool GetIsDamaged()
     {
         return _IsDamaged;
+    }
+     public bool GetIsBlinded()
+    {
+        return _Blinded;
     }
 }
 

@@ -27,7 +27,7 @@ public partial class EnemyBehavior : Node
         {
             //GD.Print("Navigation OK");
             // TEST: Set a target 10 units away on the X axis
-            enemyNavigation.TargetPosition = new Vector3(2, 1, 0);
+           // enemyNavigation.TargetPosition = new Vector3(2, 1, 0);
         }
 		//SetBlackboardValue("AgentSpeed",3f);
 		

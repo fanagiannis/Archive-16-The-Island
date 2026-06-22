@@ -52,6 +52,7 @@ Player=""
 Terrain=""
 Tree=""
 Corpse=""
+Enemy=""
 
 [input]
 

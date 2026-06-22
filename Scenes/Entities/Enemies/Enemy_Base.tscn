@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="7_uvuk6"]
 [ext_resource type="Script" uid="uid://cw22yurt5l74k" path="res://addons/beehave/nodes/composites/selector_reactive.gd" id="8_4j00o"]
 [ext_resource type="Script" uid="uid://dorri1tul8gfx" path="res://addons/beehave/nodes/decorators/delayer.gd" id="8_nl5xj"]
-[ext_resource type="Script" uid="uid://crs3fv4tmgkev" path="res://Scripts/Entities/Enemies/AI/Conditions/BT_Condition_PlayerSpotted.gd" id="9_0rbfc"]
+[ext_resource type="Script" uid="uid://crs3fv4tmgkev" path="res://Scripts/Entities/ai/tasks/Conditions/BT_Condition_PlayerSpotted.gd" id="9_0rbfc"]
 [ext_resource type="Script" uid="uid://crkjak4kyv56m" path="res://addons/beehave/nodes/decorators/inverter.gd" id="9_drl87"]
 [ext_resource type="Script" uid="uid://bsa5phymp8pnh" path="res://Scripts/Entities/Enemies/AI/Tasks/BTTask_Set_RandomTargetPosition.gd" id="9_k111r"]
 [ext_resource type="Script" uid="uid://dtwv54q2e415b" path="res://Scripts/Entities/Enemies/AI/Tasks/BTTask_MoveTo_RandomTargetPosition.gd" id="10_nl5xj"]
