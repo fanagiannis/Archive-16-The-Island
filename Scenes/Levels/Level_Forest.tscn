@@ -955,7 +955,7 @@ transform = Transform3D(0.2677867, 0.08479103, 0.53018945, -0.03368037, 0.593957
 transform = Transform3D(-0.74581593, 0, -2.9058146, 0, 3, 0, 2.9058146, 0, -0.74581593, 111.80962, -20.261505, 70.919106)
 
 [node name="PaperNote" parent="NavigationRegion3D/Forest/Areas/AreaRest" instance=ExtResource("84_jasyc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6338577, -1.4487195, -1.9039917)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6338577, -1.4602518, 9.257568)
 NoteFilePath = "res://Scenes/Items/Interactable/JSON/Notes/Note.json"
 name = "test"
 
@@ -2358,18 +2358,78 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 73.7
 
 [node name="Interactables" type="Node3D" parent="."]
 
-[node name="Item" parent="Interactables" instance=ExtResource("8_li658")]
+[node name="ItemFlashlight" parent="Interactables" instance=ExtResource("8_li658")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 77.824425, 4.8406963, 226.13428)
+
+[node name="ItemPistol" parent="Interactables" instance=ExtResource("86_8mdsj")]
+transform = Transform3D(0.17051132, 0.023899144, -0.10175812, -0.020522421, 0.19856694, 0.012247416, 0.10249251, -9.313226e-10, 0.17174192, 77.361275, 4.8997836, 225.93289)
+
+[node name="ItemBatteries" parent="Interactables" instance=ExtResource("87_anrck")]
+transform = Transform3D(0.18347181, 0, -0.07961214, 0, 0.2, 0, 0.07961214, 0, 0.18347181, 78.172516, 4.392779, 226.63751)
+
+[node name="ItemBullets" parent="Interactables" instance=ExtResource("88_ujj8j")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 76.805664, 4.606899, 225.19527)
+
+[node name="ItemCompass" parent="Interactables" instance=ExtResource("59_11h8x")]
+transform = Transform3D(0.19812977, 0.027128749, 0.0029363965, -0.027161306, 0.19813548, 0.0021444047, -0.0026181461, -0.0025231338, 0.19996695, 76.45465, 4.6303854, 225.64374)
+
+[node name="CompassPointer" parent="Interactables/ItemCompass/Item/PSXCompass/Compass" index="0" node_paths=PackedStringArray("NorthPoint")]
+NorthPoint = NodePath("../../../../../../NorthPoint")
+
+[node name="ItemScanner" parent="Interactables" instance=ExtResource("90_11h8x")]
+transform = Transform3D(0.06773647, 0.008710396, 0.18797846, -0.0060596177, 0.19978298, -0.0070738527, -0.18808256, -0.0032995981, 0.067926876, 77.21225, 4.573955, 224.53687)
+
+[node name="ItemSyringe" parent="Interactables" instance=ExtResource("91_g046y")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 77.36364, 4.682144, 223.995)
+ConsumeAmmount = 50
 
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="Enemies" type="Node3D" parent="."]
 
-[node name="EnemyBase" parent="Enemies" instance=ExtResource("22_3gjhc")]
-transform = Transform3D(0.4468849, 0, -0.89459145, 0, 1, 0, 0.89459145, 0, 0.4468849, 69.529106, 5.8252325, 227.90196)
-
-[node name="EnemyDarkFigure" parent="Enemies" instance=ExtResource("23_horwd")]
+[node name="EnemyAbomination" parent="Enemies" instance=ExtResource("23_horwd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.59187, 5.081836, 219.46648)
+
+[node name="EnemyDarkFigure" parent="Enemies" instance=ExtResource("22_3gjhc")]
+transform = Transform3D(0.5383885, 0, -0.8426968, 0, 1, 0, 0.8426968, 0, 0.5383885, 69.945946, 5.942566, 228.44243)
+
+[node name="Skeleton3D" parent="Enemies/EnemyDarkFigure/DarkFigure/Dark Figure" index="0"]
+bones/0/position = Vector3(-4.2910395, 9.094947e-13, -269.73602)
+bones/0/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
+bones/1/rotation = Quaternion(1.780468e-15, -1.1360463e-16, 0.067914784, 0.9976911)
+bones/5/rotation = Quaternion(-8.881784e-16, 3.1277751e-24, 2.2204459e-16, 1)
+bones/7/rotation = Quaternion(0.026586458, -0.5389973, 0.84170496, 0.017545193)
+bones/8/position = Vector3(1.4305115e-06, 31.77994, -1.8835068e-05)
+bones/8/rotation = Quaternion(-0.002931371, 0.904989, 0.42537916, 0.0062360163)
+bones/9/position = Vector3(4.7683716e-06, 63.75972, -1.04904175e-05)
+bones/9/rotation = Quaternion(-0.049339294, 0.00593295, -0.11921158, 0.9916245)
+bones/10/position = Vector3(-9.119511e-06, 75.90676, -1.0728836e-05)
+bones/10/rotation = Quaternion(-0.017308969, 0.00091002346, -0.052732512, 0.99845827)
+bones/11/position = Vector3(2.503395e-06, 11.486451, 5.1259995e-06)
+bones/11/rotation = Quaternion(0.036930293, 0.005194946, 0.13899632, 0.9895904)
+bones/12/position = Vector3(8.106232e-06, 10.6477375, -9.298325e-06)
+bones/12/rotation = Quaternion(1.2319072e-06, -8.360483e-06, 3.1851238e-07, 1)
+bones/13/position = Vector3(3.9962263, 16.109737, -2.3359928)
+bones/13/rotation = Quaternion(-4.419125e-07, 3.4994443e-06, -5.3900287e-08, 1)
+bones/15/rotation = Quaternion(0.84181017, -0.016972635, 0.025706405, 0.53889406)
+bones/16/position = Vector3(-2.3841858e-06, 31.77992, 2.026558e-05)
+bones/16/rotation = Quaternion(0.425236, 0.0058823572, -0.0027627747, 0.9050592)
+bones/17/position = Vector3(3.33786e-06, 63.75908, 7.6293945e-06)
+bones/17/rotation = Quaternion(0.048999686, -0.0058646076, -0.11867646, 0.9917059)
+bones/18/position = Vector3(-1.3977289e-05, 75.86596, 9.119511e-06)
+bones/18/rotation = Quaternion(0.02085773, -0.0005969563, -0.028441994, 0.99937767)
+bones/19/position = Vector3(-1.937151e-06, 12.285575, 4.7683716e-06)
+bones/19/rotation = Quaternion(-0.06703434, -0.0063009225, 0.093415044, 0.99334806)
+bones/20/position = Vector3(-3.33786e-06, 10.632349, 1.0848045e-05)
+bones/20/rotation = Quaternion(-1.5697443e-06, 7.497147e-07, -1.372071e-06, 1)
+bones/21/position = Vector3(3.255981, 15.186245, 3.6548955)
+bones/21/rotation = Quaternion(6.472692e-07, -1.2004748e-06, 4.592585e-07, 1)
+bones/23/rotation = Quaternion(0.00027632897, -0.007331452, 0.9992573, 0.037827097)
+bones/24/rotation = Quaternion(0.011147638, 0.00014972665, 0.013619688, 0.9998451)
+bones/25/rotation = Quaternion(0.30514976, -0.68226576, 0.38400885, 0.542157)
+bones/28/rotation = Quaternion(-0.0002666454, 0.0073318253, 0.9993072, 0.036486633)
+bones/29/rotation = Quaternion(-0.01114832, -0.000140482, 0.0127902785, 0.99985605)
+bones/30/rotation = Quaternion(0.3870595, -0.54238576, 0.30945206, 0.6784114)
 
 [node name="Doors" type="Node3D" parent="."]
 
@@ -2407,48 +2467,28 @@ visible = false
 
 [node name="QuestItems" type="Node3D" parent="."]
 
-[node name="Corpse" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.78775, 4.513608, 220.14725)
+[node name="Transmitter" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
+transform = Transform3D(-0.36512667, 0.14752989, -0.91919404, 0.046554573, 0.9890218, 0.14024459, 0.9297931, 0.008414365, -0.36798632, 78.58803, 4.7256145, 224.39085)
 
-[node name="Corpse2" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
-transform = Transform3D(0.9776807, -0.21009637, 0, 0.2021625, 0.94076055, 0.27221307, -0.05719098, -0.26613748, 0.962237, 78.21001, -3.2122147, -294.13083)
+[node name="Transmitter2" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
+transform = Transform3D(0.9776807, -0.21009637, 0, 0.2021625, 0.94076055, 0.27221307, -0.05719098, -0.26613748, 0.962237, 78.52683, -4.630901, -293.7295)
 
-[node name="Corpse3" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.201782, 1.0081773, 5.9881783)
+[node name="Transmitter3" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6290803, 0.6966046, 0.70286083)
 
-[node name="Corpse4" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.25197, 11.35984, 9.876602)
+[node name="Transmitter4" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
+transform = Transform3D(0.9929531, 0.11533277, 0.027248634, -0.11850795, 0.9663489, 0.22831056, 0, -0.22993086, 0.973207, -191.25717, 10.477784, 9.886979)
 
-[node name="Corpse5" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -270.1186, -7.237317, 339.7993)
+[node name="Transmitter5" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -270.1186, -8.480904, 339.7993)
 
-[node name="Corpse6" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.81859, 2.7325325, 14.783649)
+[node name="Transmitter6" parent="QuestItems" groups=["Corpse"] instance=ExtResource("82_44he2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.81859, 0.5842126, 12.730842)
+
+[node name="Lanterns" type="Node3D" parent="."]
 
 [node name="NorthPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -730, 0, -730)
-
-[node name="Item" parent="." instance=ExtResource("86_8mdsj")]
-transform = Transform3D(0.17051132, 0.023899144, -0.10175812, -0.020522421, 0.19856694, 0.012247416, 0.10249251, -9.313226e-10, 0.17174192, 77.361275, 4.8997836, 225.93289)
-
-[node name="Item2" parent="." instance=ExtResource("87_anrck")]
-transform = Transform3D(0.18347181, 0, -0.07961214, 0, 0.2, 0, 0.07961214, 0, 0.18347181, 78.172516, 4.392779, 226.63751)
-
-[node name="Item3" parent="." instance=ExtResource("88_ujj8j")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 76.805664, 4.606899, 225.19527)
-
-[node name="Item4" parent="." instance=ExtResource("59_11h8x")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 76.589455, 4.688917, 225.64374)
-
-[node name="CompassPointer" parent="Item4/Item/PSXCompass/Compass" index="0" node_paths=PackedStringArray("NorthPoint")]
-NorthPoint = NodePath("../../../../../NorthPoint")
-
-[node name="Item5" parent="." instance=ExtResource("90_11h8x")]
-transform = Transform3D(0.06773647, 0.008710396, 0.18797846, -0.0060596177, 0.19978298, -0.0070738527, -0.18808256, -0.0032995981, 0.067926876, 77.21225, 4.573955, 224.53687)
-
-[node name="Item6" parent="." instance=ExtResource("91_g046y")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 77.36364, 4.682144, 223.995)
-ConsumeAmmount = 50
 
 [editable path="NavigationRegion3D/Forest/Trees/PSXOakTreeA"]
 [editable path="NavigationRegion3D/Forest/Areas/AreaHarbor"]
@@ -2463,7 +2503,9 @@ ConsumeAmmount = 50
 [editable path="NavigationRegion3D/Forest/Areas/AreaBunker"]
 [editable path="NavigationRegion3D/Forest/Areas/AreaDroneWreck"]
 [editable path="NavigationRegion3D/Forest/Areas/AreaWreck"]
-[editable path="Item4"]
-[editable path="Item4/Item"]
-[editable path="Item4/Item/PSXCompass"]
-[editable path="Item4/PSXCompass"]
+[editable path="Interactables/ItemCompass"]
+[editable path="Interactables/ItemCompass/Item"]
+[editable path="Interactables/ItemCompass/Item/PSXCompass"]
+[editable path="Interactables/ItemCompass/PSXCompass"]
+[editable path="Enemies/EnemyDarkFigure"]
+[editable path="Enemies/EnemyDarkFigure/DarkFigure"]

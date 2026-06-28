@@ -7,6 +7,6 @@ script = ExtResource("1_eluey")
 Name = "Abomination"
 maxHP = 100.0
 Damage = 150.0
-walk_speed = 0.7
+walk_speed = 1.2
 sprint_speed = 2.0
 metadata/_custom_type_script = "uid://di1wi3mj6g74k"

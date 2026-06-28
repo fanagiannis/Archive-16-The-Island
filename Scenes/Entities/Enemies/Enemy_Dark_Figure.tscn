@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bf7mxbxli00tl"]
+[gd_scene load_steps=15 format=3 uid="uid://bf7mxbxli00tl"]
 
 [ext_resource type="Script" uid="uid://efhmw0hmwri7" path="res://Scripts/Entities/Enemies/Enemy.cs" id="1_g1ey0"]
 [ext_resource type="Resource" uid="uid://cbu7g5xmt1i3s" path="res://Scripts/Entities/Enemies/Resources/Enemy_Base.tres" id="2_s6s1n"]
@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dy0wdciviac4f" path="res://Imports/Assets/Models/Enemies/Dark Figure/model_enemy_dark_figure.tscn" id="3_s6s1n"]
 [ext_resource type="Script" uid="uid://biai72n2fa7hr" path="res://Scripts/Entities/Enemies/AI/Sensors/DamageArea.cs" id="4_djtal"]
 [ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="5_84pll"]
-[ext_resource type="Script" uid="uid://cj8aq0jppcqa7" path="res://Scripts/Entities/Enemies/EnemyBehavior.cs" id="6_nbjhm"]
-[ext_resource type="BehaviorTree" uid="uid://urs7pwxmpc76" path="res://Scripts/Entities/ai/BehaviorTrees/DarkFigureBT.tres" id="8_cl8t7"]
+[ext_resource type="Script" uid="uid://d0ma1cxfttarf" path="res://Scripts/Entities/Enemies/DarkFigureBehavior.cs" id="7_0f363"]
+[ext_resource type="Texture2D" uid="uid://dfei5ymcoq2ks" path="res://Imports/Assets/VFX/Textures/31.jpg" id="8_cl8t7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k111r"]
 radius = 3.8993392
@@ -17,14 +17,32 @@ size = Vector3(0.7, 2, 1.8660889)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dpvde"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_cl8t7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8etir"]
+transparency = 1
+blend_mode = 1
+depth_draw_mode = 1
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("8_cl8t7")
+albedo_texture_msdf = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
 
-[node name="EnemyDarkFigure" type="CharacterBody3D" node_paths=PackedStringArray("HPDisplay", "DamageArea", "onScreenNotifier")]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8etir"]
+gravity = Vector3(0, 3, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x482x"]
+lightmap_size_hint = Vector2i(6, 6)
+size = Vector2(0.8, 0.8)
+orientation = 2
+
+[node name="EnemyDarkFigure" type="CharacterBody3D" node_paths=PackedStringArray("HPDisplay", "DamageArea")]
 script = ExtResource("1_g1ey0")
 enemyData = ExtResource("2_s6s1n")
 HPDisplay = NodePath("HP")
 DamageArea = NodePath("DamageArea")
-onScreenNotifier = NodePath("OnScreenNotifier")
 
 [node name="DarkFigure" parent="." instance=ExtResource("3_s6s1n")]
 transform = Transform3D(-0.4, 0, -3.4969112e-08, 0, 0.4, 0, 3.4969112e-08, 0, -0.4, 0, -0.9710467, 0)
@@ -70,17 +88,32 @@ font = ExtResource("5_84pll")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="AI" type="Node" parent="." node_paths=PackedStringArray("enemyNavigation", "enemyVision", "BehaviorTree")]
-script = ExtResource("6_nbjhm")
+[node name="AI" type="Node" parent="." node_paths=PackedStringArray("enemyBody", "enemyNavigation", "enemyVision", "onScreenNotifier")]
+script = ExtResource("7_0f363")
+enemyBody = NodePath("..")
+moveSpeed = 1.0
 enemyNavigation = NodePath("../NavigationAgent3D")
 enemyVision = NodePath("../Vision")
-BehaviorTree = NodePath("")
+onScreenNotifier = NodePath("../OnScreenNotifier")
 
 [node name="OnScreenNotifier" type="VisibleOnScreenNotifier3D" parent="."]
 
-[node name="BehaviorTree" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("8_cl8t7")
-blackboard_plan = SubResource("BlackboardPlan_cl8t7")
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0195003, 0)
+light_color = Color(0, 0, 0, 1)
+light_energy = 0.935
+light_indirect_energy = 1.13
+light_volumetric_fog_energy = 1.382
+distance_fade_enabled = true
+omni_range = 0.1348477
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, -0.8767798, 0)
+material_override = SubResource("StandardMaterial3D_8etir")
+amount = 3
+fixed_fps = 15
+process_material = SubResource("ParticleProcessMaterial_8etir")
+draw_pass_1 = SubResource("PlaneMesh_x482x")
 
 [connection signal="body_entered" from="DamageArea" to="DamageArea" method="OnEnter"]
 [connection signal="body_exited" from="DamageArea" to="DamageArea" method="OnExit"]

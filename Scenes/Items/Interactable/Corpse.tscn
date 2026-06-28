@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://jncixgr0r1wt"]
+[gd_scene load_steps=8 format=3 uid="uid://jncixgr0r1wt"]
 
 [ext_resource type="Script" uid="uid://bjgj08s6x0p0w" path="res://Scripts/Interactable/Corpse.cs" id="1_55cpy"]
+[ext_resource type="PackedScene" uid="uid://bldwlmkrchckp" path="res://Imports/Assets/Meshes/Collectibles/PSXTransmitter.glb" id="2_y7w4u"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_y7w4u"]
 
@@ -25,22 +26,25 @@ stencil_mode = 1
 stencil_flags = 2
 stencil_color = Color(1, 1, 1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_knw07"]
-size = Vector3(1.2769165, 1.8878174, 0.99134827)
+[sub_resource type="SphereShape3D" id="SphereShape3D_y7w4u"]
+radius = 0.14122997
 
 [node name="Corpse" type="StaticBody3D"]
 script = ExtResource("1_55cpy")
-name = "Corpse"
+name = "Transmitter"
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_y7w4u")
 surface_material_override/0 = SubResource("StandardMaterial3D_4uxd1")
 
 [node name="MeshCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.06829071)
-shape = SubResource("BoxShape3D_knw07")
+shape = SubResource("SphereShape3D_y7w4u")
 
 [node name="Item Label" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8824947, 0)
 
 [node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="PSXTransmitter" parent="." instance=ExtResource("2_y7w4u")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

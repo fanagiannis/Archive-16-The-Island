@@ -11,8 +11,9 @@ public partial class FetchQuest : Quest
     {
         base.Progress(amount); 
 		CurrentAmount+=amount;
-		GD.Print(CurrentAmount + "/" + RequiredAmount);
-		
+		string ProgressText = "Transmitting data... "+" Transmitters found : "+CurrentAmount + "/" + RequiredAmount;
+		Log.Instance.SetLog(ProgressText,2);
+
     }
 
 	public void Reset()

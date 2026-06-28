@@ -22,6 +22,7 @@ public partial class Corpse : Interactable
 			base.Interact();
 			Interacted=true;
 			SceneManager.Instance.GetQuestManager().TrackProgress("The Stage",1);
+			
 		}
 	}
 	

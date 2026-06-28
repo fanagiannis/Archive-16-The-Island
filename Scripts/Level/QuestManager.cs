@@ -29,12 +29,12 @@ public partial class QuestManager : Node
 		quest.ActivateQuest();
         ActiveQuests.Add(quest);
 		
-        GD.Print($"Accepted Quest: {quest.Title}");
+        //GD.Print($"Accepted Quest: {quest.Title}");
         EmitSignal(SignalName.QuestAccepted, quest);
         foreach(Quest questactive in ActiveQuests)
         {
-            if(questactive is FetchQuest)
-                GD.Print(questactive.Title);
+            //if(questactive is FetchQuest)
+               // GD.Print(questactive.Title);
         }
 	//	Log.Instance.SetLog(quest.Title,5);
     }
