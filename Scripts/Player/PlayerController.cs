@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Threading.Tasks;
 using Godot;
+using GroveGames.BehaviourTree.Nodes.Decorators;
 
 namespace PolarBears.PlayerControllerAddon;
 
@@ -536,6 +538,16 @@ public partial class PlayerController : CharacterBody3D
 		#endregion
 		
 	}
+	
+	#region Jumpscare
+	public void TriggerJumpscare(Camera3D JSCamera)
+	{
+		JSCamera.MakeCurrent();
+		EnableController(false);
+		//await ToSignal(GetTree().CreateTimer(3.0f), SceneTreeTimer.SignalName.Timeout);
+		//HealthSystem.TakeDamage(1000f);
+	}
+	#endregion
 
 	#region Helper Methods
 	private bool IsHeadTouchingCeiling()

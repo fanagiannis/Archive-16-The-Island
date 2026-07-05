@@ -13,7 +13,7 @@
 radius = 3.8993392
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4j00o"]
-size = Vector3(0.7, 2, 1.8660889)
+size = Vector3(0.7967712, 0.6555176, 0.7013111)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dpvde"]
 
@@ -60,20 +60,15 @@ transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_k111r")
 debug_color = Color(0, 0.43826386, 0.21267879, 0.41960785)
 
-[node name="DamageArea" type="Area3D" parent="."]
+[node name="DamageArea" type="Area3D" parent="." node_paths=PackedStringArray("JSCamera")]
 script = ExtResource("4_djtal")
+JSCamera = NodePath("../JumpscareCamera")
 
 [node name="DamageHitbox" type="CollisionShape3D" parent="DamageArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5669556)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018325806, 0.22668457, -1.1768845)
 shape = SubResource("BoxShape3D_4j00o")
-disabled = true
 debug_color = Color(0.64757043, 0, 0.13092834, 0.41960785)
 debug_fill = false
-
-[node name="CSGBox3D" type="CSGBox3D" parent="DamageArea/DamageHitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0009765625)
-size = Vector3(1, 1, 0.8808594)
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013662577, 0.006040454, 0.003704071)
@@ -114,6 +109,9 @@ amount = 3
 fixed_fps = 15
 process_material = SubResource("ParticleProcessMaterial_8etir")
 draw_pass_1 = SubResource("PlaneMesh_x482x")
+
+[node name="JumpscareCamera" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.7431447, -0.5684378)
 
 [connection signal="body_entered" from="DamageArea" to="DamageArea" method="OnEnter"]
 [connection signal="body_exited" from="DamageArea" to="DamageArea" method="OnExit"]

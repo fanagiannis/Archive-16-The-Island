@@ -10,7 +10,7 @@ public partial class DarkFigureBehavior : EnemyBehavior
 
     // A simple State Machine right in the script
     private enum AIState { Idle, Hunting}
-    private AIState currentState = AIState.Idle;
+    private AIState currentState = AIState.Hunting;
 	
 	public override void _Ready()
 	{
@@ -22,6 +22,7 @@ public partial class DarkFigureBehavior : EnemyBehavior
 
             onScreenNotifier.ScreenExited += OnAgentScreenExited;
         }
+        enemyNavigation.MaxSpeed = moveSpeed;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,6 +45,7 @@ public partial class DarkFigureBehavior : EnemyBehavior
 
 	private void HuntPlayer(double delta)
 	{
+        
         float distanceToPlayer = body.GlobalPosition.DistanceTo(SceneManager.Instance.GetPlayerPosition());
 		Vector3 playerPos = SceneManager.Instance.GetPlayerPosition();
 		
@@ -52,18 +54,16 @@ public partial class DarkFigureBehavior : EnemyBehavior
 		if (enemyNavigation.TargetPosition.DistanceSquaredTo(playerPos) < 0.1f)
 		{
 			// Path is already set for this position, just move
-			MoveTowardsTarget();
+            //GD.Print(distanceToPlayer);
+			MoveTowardsTarget(distanceToPlayer);
 			return;
 		}
 
-        if(distanceToPlayer>=100 || enemyNavigation.IsTargetReachable()==false)
-        {
-            FailsafeRelocate(body,delta);
-        }
+        
 
 		// Only set the target and trigger a recalculation when the player actually moves
 		enemyNavigation.TargetPosition = playerPos;
-		MoveTowardsTarget();
+		MoveTowardsTarget(distanceToPlayer);
 	}
 
 	private void IdleBehavior()
@@ -112,9 +112,18 @@ public partial class DarkFigureBehavior : EnemyBehavior
         enemyNavigation.TargetPosition = enemyBody.GlobalPosition; 
     }
 
-    private void MoveTowardsTarget()
+    private void MoveTowardsTarget(float distanceToPlayer)
     {
         if (enemyNavigation.IsNavigationFinished()) return;
+        if(distanceToPlayer>=100 ) //|| enemyNavigation.IsTargetReachable()==false)
+        {
+           //FailsafeRelocate(body,delta);
+           enemyNavigation.MaxSpeed = moveSpeed*3f;
+        }
+        else if(distanceToPlayer<100)
+        {
+            enemyNavigation.MaxSpeed = moveSpeed;
+        }
 
         Vector3 nextPathPosition = enemyNavigation.GetNextPathPosition();
         Vector3 currentPosition = enemyBody.GlobalPosition;

@@ -101,7 +101,7 @@ public partial class FootstepSystem : Node
 				else if (nodeCollider.IsInGroup("Wood"))
 				{
 					detectedMaterial = "Wood";
-					GD.Print("wood");
+					//GD.Print("wood");
 				}
 
 					//GD.Print("Wood surface");

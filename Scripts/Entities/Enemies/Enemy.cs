@@ -7,7 +7,7 @@ public partial class Enemy : CharacterBody3D
 	[Export] protected EnemyData enemyData;
 	[Export] protected Label3D HPDisplay;
 	[Export] protected DamageArea DamageArea;
-
+	//[Export] protected coll
 	protected int difficultyIndex;
 	
 	protected EnemyBehavior enemyBehavior;
@@ -31,6 +31,8 @@ public partial class Enemy : CharacterBody3D
 			HPDisplay.Text = HP.ToString("0");
 		
 		
+		
+		
 	}
 
 	public override void _Process(double delta)
@@ -40,6 +42,11 @@ public partial class Enemy : CharacterBody3D
         // Move the CharacterBody3D
        // Velocity = enemyBehavior.MoveToTarget();
         //MoveAndSlide();
+	}
+
+	public void TriggerJumpscare()
+	{
+		
 	}
 
 	public void TakeDamage(float value)
@@ -116,6 +123,10 @@ public partial class Enemy : CharacterBody3D
 		return null;
 	}
 
+	public bool GetEnabled()
+	{
+		return isEnabled;
+	}
 	public virtual void SetEnabled(bool set)
 	{
 		isEnabled = set;

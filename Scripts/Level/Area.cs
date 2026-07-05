@@ -7,8 +7,8 @@ public partial class Area : Area3D
 {
 	//DEBUG
 	[Export]Label3D label;
-	
 	//DEBUG
+	
 	[Export] public float MaxDistance = 2000.0f;
 	bool discovered=false;
 	bool isActive=false;

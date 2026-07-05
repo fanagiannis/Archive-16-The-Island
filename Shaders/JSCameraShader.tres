@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bra6excbamq74"]
+
+[ext_resource type="Shader" uid="uid://n8rk1bs5gsfr" path="res://Shaders/JSCameraShader.gdshader" id="1_8euha"]
+
+[resource]
+shader = ExtResource("1_8euha")
+shader_parameter/opacity = 0.0
+shader_parameter/static_density = 3000.0
+shader_parameter/scanlines = 0.0

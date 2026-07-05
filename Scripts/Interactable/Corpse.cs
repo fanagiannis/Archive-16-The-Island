@@ -22,7 +22,12 @@ public partial class Corpse : Interactable
 			base.Interact();
 			Interacted=true;
 			SceneManager.Instance.GetQuestManager().TrackProgress("The Stage",1);
-			
+			FetchQuest fetchQuestref = SceneManager.Instance.GetQuestManager().GetActiveQuest() as FetchQuest;
+			if(fetchQuestref.CurrentAmount>0)
+			{
+				SceneManager.Instance.GetCurrentLevel().GetEnemyManager().EnableAllEnemies();
+				GD.Print("ENEMIES ENABLED");
+			}
 		}
 	}
 	

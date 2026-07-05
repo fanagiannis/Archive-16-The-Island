@@ -156,6 +156,11 @@ public partial class Level : Node3D
 		return LevelQuest;
 	}
 
+	public EnemyManager GetEnemyManager()
+	{
+		return enemyManager;
+	}
+
 	public Node3D GetNorthPoint()
 	{
 		return NorthPoint;

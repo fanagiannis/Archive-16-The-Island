@@ -1,9 +1,11 @@
 using Godot;
 using PolarBears.PlayerControllerAddon;
 using System;
+using System.Threading.Tasks;
 
 public partial class DamageArea : Area3D
 {
+	[Export] public Camera3D JSCamera;
 	PlayerController playeyrReference;	
 	bool playerCanBeDamaged=false;
 	float Damage=10;
@@ -15,17 +17,30 @@ public partial class DamageArea : Area3D
 
 	public override void _Process(double delta)
 	{
-		DamagePlayer((float)delta);
+		//DamagePlayer((float)delta);
 	}
 	public void OnEnter(Node body)
     {
         if (body is PlayerController player)
         {
 			playeyrReference = player;
-			playerCanBeDamaged=true;
+			if(JSCamera!=null)
+			{
+				GD.Print("PLAYER CAUGHT");
+				player.TriggerJumpscare(JSCamera);
+				PlayCameraAnimation(playeyrReference);
+				//cameraAnimator.Play("CameraJumpscare");
+				//await ToSignal(cameraAnimator, AnimationPlayer.SignalName.AnimationFinished);
+				
+			}
             
         }
     }
+	public async Task PlayCameraAnimation(PlayerController player)
+	{
+		await ToSignal(GetTree().CreateTimer(4.0f), SceneTreeTimer.SignalName.Timeout);
+		player.HealthSystem.TakeDamage(1000f);
+	}
 	public void OnExit(Node body)
     {
         if (body is PlayerController player)

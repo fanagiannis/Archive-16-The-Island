@@ -7,13 +7,13 @@ public partial class EnemyManager : Node
     private List<Enemy> enemies = new List<Enemy>();
     Enemy_Abomination Ref_Abomination;
     
-    [Export] private float disabledTime = 10f;
+    [Export] private float disabledTime = 180f;
     [Export] private float disabledTimer = 0;
     private bool DisabledTimerEnabled = false;
 
     public override void _Ready()
     {
-        EnableAllEnemies();
+        DisableAllEnemies();
     }
 
     public override void _Process(double delta)
@@ -95,7 +95,8 @@ public partial class EnemyManager : Node
     {
         foreach (Enemy enemy in enemies)
         {
-            enemy.SetEnabled(true);
+            if(enemy.GetEnabled()==false)
+                enemy.SetEnabled(true);
         }
     }
 }
