@@ -91,12 +91,29 @@ public partial class EnemyManager : Node
         }
     }
 
+    public void EnableEnemy(int ID)
+    {
+        foreach (Enemy enemy in enemies)
+        {
+            if(enemy.GetID()==ID && enemy.GetEnabled()==false)
+                enemy.SetEnabled(true);
+        }
+    }
+
     public void EnableAllEnemies()
     {
         foreach (Enemy enemy in enemies)
         {
             if(enemy.GetEnabled()==false)
                 enemy.SetEnabled(true);
+        }
+    }
+
+    public void EscalateEnemies()
+    {
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.SetDifficulty(1);
         }
     }
 }

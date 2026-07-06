@@ -5,6 +5,8 @@ using System;
 
 public partial class DarkFigureBehavior : EnemyBehavior
 {
+    [Export] AudioStream onScreenAudio;
+     [Export] float JumpscareVolume=8f;
 	[Export]Enemy enemyBody; 
 	[Export] float moveSpeed = 4.0f;
 
@@ -144,6 +146,15 @@ public partial class DarkFigureBehavior : EnemyBehavior
     {
 		
 		currentState = AIState.Idle;
+        if(onScreenAudio!=null)
+        {
+            AudioStreamPlayer3D AudioPlayer = new AudioStreamPlayer3D();
+            AudioPlayer.Stream = onScreenAudio;
+            AudioPlayer.VolumeDb = JumpscareVolume;
+            AddChild(AudioPlayer);
+            AudioPlayer.Finished += ()=> AudioPlayer.QueueFree();
+            AudioPlayer.Play();
+        }
         //SetBlackboardValue("Agent In View", true);
 		//GD.Print(enemyBehavior.GetBlackboardValue("Agent In View"));
     }

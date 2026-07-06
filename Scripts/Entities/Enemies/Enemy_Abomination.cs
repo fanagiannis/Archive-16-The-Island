@@ -1,6 +1,7 @@
 using Godot;
 using GroveGames.BehaviourTree.Collections;
 using System;
+using System.Collections.Generic;
 
 public partial class Enemy_Abomination : Enemy
 {
@@ -10,8 +11,8 @@ public partial class Enemy_Abomination : Enemy
 	public delegate void EnabledEventHandler();
 	[Signal]
 	public delegate void DisabledEventHandler();
+	
 	AnimationTree animator;
-
 	float walk_speed;
 	float slow_walk_speed;
 	float sprint_speed;
@@ -19,6 +20,15 @@ public partial class Enemy_Abomination : Enemy
 	bool _FlashlightDamaged=false;
 	bool _Blinded=false;
 	[Export]float LightDamage=100f;
+	[ExportCategory("SoundEffects")]
+	[Export] 
+    private AudioStream ActivationSoundEffect;
+	[Export] 
+    private AudioStream BreathSoundEffect;
+	[Export] 
+    private Godot.Collections.Array<AudioStream> SoundEffects = new Godot.Collections.Array<AudioStream>();
+	private float randomSoundTime=5f;
+	private float randomSoundTimer=5f;
 	
 	public override void _Ready()
 	{
@@ -41,6 +51,11 @@ public partial class Enemy_Abomination : Enemy
 		SetAgentSpeed();
 		//current_speed=walk_speed;
 		HPDisplay.Text = LightDamage.ToString("0");
+
+		AudioStreamPlayer3D BreathAudioPlayer = new AudioStreamPlayer3D();
+		AddChild(BreathAudioPlayer );
+		BreathAudioPlayer.Stream = BreathSoundEffect;
+		BreathAudioPlayer.Play();
 		//UpdateSpeed();
 	}
 
@@ -52,6 +67,7 @@ public partial class Enemy_Abomination : Enemy
 		base._Process(delta);
 		UpdateAnimator();
 		TakeLightDamage(delta);
+		PlayRandomSound(delta);
 		//GD.Print(Velocity.Length());
 		
 		
@@ -188,6 +204,31 @@ public partial class Enemy_Abomination : Enemy
 		UpdateAnimator();
 	}
 
+	public void PlayRandomSound(double delta)
+	{
+		randomSoundTimer-=1f*(float)delta;
+		if(randomSoundTimer<0f)
+		{
+			int randomIndex = GD.RandRange(0, SoundEffects.Count - 1);
+			AudioStreamPlayer3D audioplayer = new AudioStreamPlayer3D();
+			audioplayer.Stream = SoundEffects[randomIndex];
+			AddChild(audioplayer);
+			audioplayer.Finished += () => QueueFree();
+			audioplayer.Play();
+			randomSoundTimer = GD.RandRange(10, 30); 
+			return;
+		}
+	}
+
+	public void SetEnabledSound()
+	{
+		AudioStreamPlayer3D audioplayer = new AudioStreamPlayer3D();
+		audioplayer.Stream = ActivationSoundEffect;
+		AddChild(audioplayer);
+		audioplayer.Finished += () => QueueFree();
+		audioplayer.Play();
+	}
+
 	public override void SetEnabled(bool set)
 	{
 		base.SetEnabled(set);
@@ -196,11 +237,6 @@ public partial class Enemy_Abomination : Enemy
 		else if (set==false)
 			EmitSignal(SignalName.Disabled);
 	}
-
-
-	
-
-
 
 	public void Run()
 	{
@@ -211,6 +247,12 @@ public partial class Enemy_Abomination : Enemy
 	public void Walk()
 	{
 		current_speed=walk_speed;
+		UpdateSpeed();
+	}
+
+	public void FailsafeSpeed()
+	{
+		current_speed=sprint_speed*3f;
 		UpdateSpeed();
 	}
 

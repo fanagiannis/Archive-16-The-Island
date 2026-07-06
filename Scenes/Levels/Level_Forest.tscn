@@ -2782,7 +2782,7 @@ ConsumeAmmount = 50
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.59187, 5.081836, 219.46648)
 
 [node name="EnemyDarkFigure" parent="Enemies" instance=ExtResource("22_3gjhc")]
-transform = Transform3D(-0.9613098, 0, 0.27546963, 0, 1, 0, -0.27546963, 0, -0.9613098, 198.18883, -2.8471975, 228.44243)
+transform = Transform3D(-0.9613098, 0, 0.27546963, 0, 1, 0, -0.27546963, 0, -0.9613098, 68.492546, 5.335442, 221.4967)
 
 [node name="Skeleton3D" parent="Enemies/EnemyDarkFigure/DarkFigure/Dark Figure" index="0"]
 bones/0/position = Vector3(-4.2910395, 9.094947e-13, -269.73602)

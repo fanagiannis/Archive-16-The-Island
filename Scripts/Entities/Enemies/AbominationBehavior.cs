@@ -1,6 +1,7 @@
 using Godot;
 using PolarBears.PlayerControllerAddon;
 using System;
+using System.Linq.Expressions;
 
 public partial class AbominationBehavior : EnemyBehavior
 {
@@ -95,10 +96,7 @@ public partial class AbominationBehavior : EnemyBehavior
             return;
         }
 
-        if(distanceToPlayer>=500 || enemyNavigation.IsTargetReachable()==false)
-        {
-            FailsafeRelocate(body,delta);
-        }
+       
         
         pathUpdateTimer += delta;
         if (pathUpdateTimer >= PathUpdateInterval)
@@ -112,7 +110,20 @@ public partial class AbominationBehavior : EnemyBehavior
         
         Enemy_Abomination abom = enemyBody as Enemy_Abomination;
         abom.Walk();
-        abom.UpdateAnimator();
+        if(distanceToPlayer>=500 )//|| enemyNavigation.IsTargetReachable()==false)
+        {
+            abom.FailsafeSpeed();
+
+            //FailsafeRelocate(body,delta);
+        }
+        else if (distanceToPlayer<500)
+        {
+            if(abom.GetDifficulty()<1)
+                abom.Walk();
+            else if(abom.GetDifficulty()>0)
+                abom.Run();      
+        }
+      // abom.UpdateAnimator();
         MoveTowardsTarget(abom.GetCurentSpeed(), delta);
     }
 

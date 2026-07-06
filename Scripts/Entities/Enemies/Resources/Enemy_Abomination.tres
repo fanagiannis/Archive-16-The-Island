@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_eluey")
+ID = 1
 Name = "Abomination"
 maxHP = 100.0
 Damage = 150.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bf7mxbxli00tl"]
+[gd_scene load_steps=16 format=3 uid="uid://bf7mxbxli00tl"]
 
 [ext_resource type="Script" uid="uid://efhmw0hmwri7" path="res://Scripts/Entities/Enemies/Enemy.cs" id="1_g1ey0"]
 [ext_resource type="Resource" uid="uid://cbu7g5xmt1i3s" path="res://Scripts/Entities/Enemies/Resources/Enemy_Base.tres" id="2_s6s1n"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://biai72n2fa7hr" path="res://Scripts/Entities/Enemies/AI/Sensors/DamageArea.cs" id="4_djtal"]
 [ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="5_84pll"]
 [ext_resource type="Script" uid="uid://d0ma1cxfttarf" path="res://Scripts/Entities/Enemies/DarkFigureBehavior.cs" id="7_0f363"]
+[ext_resource type="AudioStream" uid="uid://bfors1asjloxm" path="res://Imports/Assets/Audio/SFX/Enemies/Jumpscares/DF_OnScreenSFX.mp3" id="8_8etir"]
 [ext_resource type="Texture2D" uid="uid://dfei5ymcoq2ks" path="res://Imports/Assets/VFX/Textures/31.jpg" id="8_cl8t7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k111r"]
@@ -82,9 +83,13 @@ text = "HP"
 font = ExtResource("5_84pll")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+height = 0.6
 
 [node name="AI" type="Node" parent="." node_paths=PackedStringArray("enemyBody", "enemyNavigation", "enemyVision", "onScreenNotifier")]
 script = ExtResource("7_0f363")
+onScreenAudio = ExtResource("8_8etir")
+JumpscareVolume = 16.0
 enemyBody = NodePath("..")
 moveSpeed = 1.0
 enemyNavigation = NodePath("../NavigationAgent3D")

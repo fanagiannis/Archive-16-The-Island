@@ -96,6 +96,10 @@ public partial class Enemy : CharacterBody3D
 		enemyBehavior.SetBlackboardValue("Difficulty",difficultyIndex);
 		SetAgentSpeed();
 	}
+	public virtual int GetDifficulty()
+	{
+		return difficultyIndex;
+	}
 
 	public virtual void SetAgentSpeed()
 	{
@@ -126,6 +130,10 @@ public partial class Enemy : CharacterBody3D
 	public bool GetEnabled()
 	{
 		return isEnabled;
+	}
+	public int GetID()
+	{
+		return enemyData.GetID();
 	}
 	public virtual void SetEnabled(bool set)
 	{

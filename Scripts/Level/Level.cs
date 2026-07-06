@@ -104,6 +104,7 @@ public partial class Level : Node3D
                 enemyManager.AddEnemy(enemy);
             }
         }
+		enemyManager.DisableAllEnemies();
 	}
 
 	private void GetAreasList()

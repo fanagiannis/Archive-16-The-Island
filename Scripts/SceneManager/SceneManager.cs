@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 [GlobalClass]
 public partial class SceneManager : Node
 {
+    [Signal]
+	public delegate void EscalationEventHandler();
+	[Signal]
+	public delegate void EscalationBEventHandler();
+	[Signal]
+	public delegate void EscalationCEventHandler();
 	public ChunkLoader ChunkLoader;
 	[Export] Godot.AnimationPlayer ManagerAnimator;
 	[Export] PlayerController playerInstance;
@@ -17,7 +23,7 @@ public partial class SceneManager : Node
 	[Export] Node3D MainMenuBackground;
 	[Export] public VictoryScreen victoryScreen;
 	
- 	AudioStreamPlayer3D AudioPlayer;
+ 	[Export]AudioStreamPlayer3D AudioPlayer;
 	Vector3 PlayerPosition;
 	int selectedScene=0;
 	[Export] string[] Scenes; //ARRAY
@@ -48,7 +54,17 @@ public partial class SceneManager : Node
 		ManagerAnimator.Play("FadeIn");
 		if(AudioPlayer!=null)
 		{
-			GD.Print(AudioPlayer);
+			AudioPlayer.Stop();
+			Escalation += () => {
+				AudioPlayer.Play();
+				AudioPlayer.VolumeDb = 12f;
+				GD.Print("ESCALATION");
+			};
+
+			EscalationB += () => {
+				AudioPlayer.VolumeDb = AudioPlayer.VolumeDb *2f;
+			};
+			//GD.Print(AudioPlayer);
 		}
 		if(ManagerAnimator!=null)
 		{	
@@ -81,6 +97,7 @@ public partial class SceneManager : Node
 	public async void Start()
 	{
 		
+
 		if (ManagerAnimator != null )
 		{
 			MainMenu.Visible = false;
