@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bxu0dled47erq" path="res://Scripts/Dialogue/NoteDisplay.cs" id="2_13mec"]
 [ext_resource type="AudioStream" uid="uid://dkdnccrvnicr6" path="res://Imports/Assets/Audio/SFX/SFX_NoteCollect.wav" id="3_p7mpa"]
 
-[node name="NoteDisplay" type="PanelContainer" node_paths=PackedStringArray("nameLabel", "dialogueLabel")]
+[node name="NoteDisplay" type="PanelContainer" node_paths=PackedStringArray("nameLabel", "dialogueLabel", "ReadNotification")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -21,6 +21,13 @@ script = ExtResource("2_13mec")
 nameLabel = NodePath("HBoxContainer/Name")
 dialogueLabel = NodePath("HBoxContainer/Dialogue")
 audio = ExtResource("3_p7mpa")
+ReadNotification = NodePath("ReadDisplay")
+
+[node name="ReadDisplay" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "Already read"
 
 [node name="HBoxContainer" type="BoxContainer" parent="."]
 clip_contents = true

@@ -5,7 +5,7 @@ using System.Dynamic;
 public partial class Interactable : Node3D
 {
 	[Signal]
-	delegate void InteractionEventHandler();
+    public delegate void HasInteractedEventHandler();
 	[Signal]
 	delegate void EnterInteractEventHandler();
 	[Signal]
@@ -43,8 +43,8 @@ public partial class Interactable : Node3D
 		{
 			audioPlayer.Stream = itemAudio;
 			audioPlayer.Play();
-
 		}
+		EmitSignal(SignalName.HasInteracted);
 		//GD.Print("Interact");
 	}
 

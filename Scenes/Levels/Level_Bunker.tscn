@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=3 uid="uid://6mcc4kiqchhy"]
+
+[ext_resource type="Script" uid="uid://dlohclqb33upa" path="res://Scripts/Level/Level.cs" id="1_5nnha"]
+[ext_resource type="PackedScene" uid="uid://dhs8rgwvhuaxx" path="res://Scenes/LevelAssets/Cabin/WoodenFloor.tscn" id="3_0m0x1"]
+[ext_resource type="PackedScene" uid="uid://d1ffnbt2sysup" path="res://Scenes/LevelAssets/Cabin/ExitDoor.tscn" id="4_05wm1"]
+[ext_resource type="PackedScene" uid="uid://bhurf4iloqjn8" path="res://Scenes/Items/Pickable/PickUp.tscn" id="5_xnraf"]
+[ext_resource type="PackedScene" uid="uid://dr2ogpgurap0y" path="res://Scenes/Items/Pickable/PickUp_Flashlight.tscn" id="6_2jc2o"]
+[ext_resource type="PackedScene" uid="uid://clelel5pvak4x" path="res://Scenes/Levels/Bunker/BunkerPuzzle.tscn" id="6_5nnha"]
+[ext_resource type="PackedScene" uid="uid://b2bl64wsnabem" path="res://Scenes/Levels/Bunker/Stabalizer.tscn" id="7_tuiqq"]
+[ext_resource type="PackedScene" uid="uid://bcgxs3awu3n43" path="res://Scenes/Levels/Bunker/PuzzleInteract.tscn" id="8_0m0x1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_awgfw"]
+sky_top_color = Color(0.524999, 0.699586, 0.930476, 1)
+sky_horizon_color = Color(0.885751, 0.528093, 0.662718, 1)
+ground_bottom_color = Color(0.154839, 0.15629, 0.181573, 1)
+sun_angle_max = 252.28
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_j2rwf"]
+sky_material = SubResource("ProceduralSkyMaterial_awgfw")
+
+[sub_resource type="Environment" id="Environment_l208q"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_j2rwf")
+sky_custom_fov = 49.5
+ambient_light_color = Color(0.29219013, 0.29219, 0.29219002, 1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_yj8jm"]
+vertices = PackedVector3Array(7.4558773, 0.3175769, -4.950532, 8.205877, 0.3175769, -5.200532, 8.205877, 0.3175769, -7.950532, -8.044123, 0.3175769, -7.950532, -1.0441227, 0.3175769, -5.200532, -8.044123, 0.3175769, -5.200532, -2.0441227, 0.3175769, -5.200532, -0.7941227, 0.3175769, -4.450532, 7.4558773, 0.3175769, -4.450532, -8.044123, 6.067577, -7.950532, -8.044123, 6.067577, 8.299468, 8.205877, 6.067577, 8.299468, 8.205877, 6.067577, -7.950532, -8.044123, 0.3175769, 5.049468, -2.0441227, 0.3175769, 5.049468, 1.9558773, 0.3175769, 1.299468, -0.7941227, 0.3175769, 1.799468, 2.2058773, 0.3175769, 1.799468, 5.9558773, 0.3175769, 1.799468, 6.2058773, 0.3175769, 3.299468, 7.4558773, 0.3175769, 3.299468, 7.4558773, 0.3175769, -2.950532, -0.7941227, 0.3175769, -0.45053196, -0.044122696, 0.3175769, -0.45053196, 0.2058773, 0.3175769, -2.700532, -0.7941227, 0.3175769, -2.950532, 1.9558773, 0.3175769, -2.450532, 2.2058773, 0.5675769, 2.799468, -0.7941227, 0.3175769, 3.299468, 6.4558773, 3.317577, -1.700532, 6.2058773, 3.317577, 2.799468, 7.4558773, 3.317577, 3.299468, 7.4558773, 3.317577, -2.950532, 3.5392103, 1.8175769, 2.799468, 1.9558773, 0.5675769, 3.299468, 6.0808773, 3.317577, 3.299468, -0.7941227, 3.317577, -2.950532, -0.7941227, 3.317577, -1.950532, 7.7058773, 0.3175769, 4.799468, 6.2058773, 0.3175769, 4.799468, 5.9558773, 0.3175769, 5.549468, 8.205877, 0.3175769, 8.299468, 8.205877, 0.3175769, 5.049468, 2.2058773, 0.3175769, 5.549468, -8.044123, 0.3175769, 8.299468, 2.2058773, 0.5675769, 4.799468)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(6, 5, 3), PackedInt32Array(4, 6, 3), PackedInt32Array(8, 7, 0), PackedInt32Array(0, 7, 4), PackedInt32Array(12, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(5, 6, 13), PackedInt32Array(13, 6, 14), PackedInt32Array(17, 16, 15), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(17, 15, 18), PackedInt32Array(18, 15, 26), PackedInt32Array(18, 26, 21), PackedInt32Array(24, 25, 26), PackedInt32Array(26, 25, 21), PackedInt32Array(17, 27, 16), PackedInt32Array(16, 27, 28), PackedInt32Array(30, 29, 31), PackedInt32Array(31, 29, 32), PackedInt32Array(31, 35, 30), PackedInt32Array(30, 35, 33), PackedInt32Array(33, 35, 27), PackedInt32Array(27, 35, 34), PackedInt32Array(27, 34, 28), PackedInt32Array(37, 36, 29), PackedInt32Array(29, 36, 32), PackedInt32Array(38, 42, 39), PackedInt32Array(39, 42, 40), PackedInt32Array(40, 42, 41), PackedInt32Array(43, 40, 41), PackedInt32Array(13, 14, 44), PackedInt32Array(44, 14, 43), PackedInt32Array(44, 43, 41), PackedInt32Array(14, 45, 43)]
+sample_partition_type = 1
+geometry_parsed_geometry_type = 0
+agent_height = 1.0
+
+[node name="World" type="Node3D" node_paths=PackedStringArray("playerSpawn")]
+script = ExtResource("1_5nnha")
+LevelName = "RECEPTION"
+playerSpawn = NodePath("PlayerSpawn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660249, 0.31250513, -0.39030778, 7.450581e-09, 0.7806165, 0.6250104, 0.5, -0.54127514, 0.6760335, 0, 36.0983, 22.6606)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l208q")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_yj8jm")
+
+[node name="Blockout" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Wall" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.69, 1.229, -2.599)
+use_collision = true
+size = Vector3(10, 6, 0.181)
+
+[node name="Wall3" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.69, 1.229, 6.081)
+use_collision = true
+size = Vector3(10, 6, 0.181)
+
+[node name="Wall2" type="CSGBox3D" parent="NavigationRegion3D/Blockout"]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 8.03, 1.209, 1.4989998)
+use_collision = true
+size = Vector3(10, 6, 0.181)
+
+[node name="Reception" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Walls" type="Node3D" parent="NavigationRegion3D/Reception"]
+
+[node name="Columns" type="Node3D" parent="NavigationRegion3D/Reception"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.18, 0)
+
+[node name="Floors" type="Node3D" parent="NavigationRegion3D/Reception"]
+
+[node name="WoodenFloor" parent="NavigationRegion3D/Reception/Floors" groups=["Wood"] instance=ExtResource("3_0m0x1")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 15.874143, -0.1527741, -0.110601366)
+
+[node name="WoodenFloor2" parent="NavigationRegion3D/Reception/Floors" groups=["Wood"] instance=ExtResource("3_0m0x1")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 5.7979875, 0)
+
+[node name="Doors" type="Node3D" parent="NavigationRegion3D/Reception"]
+
+[node name="PlayerSpawn" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.706671, 1.78, 0.79999995)
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="ExitDoorHallwayOutdoors" parent="Doors" instance=ExtResource("4_05wm1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.161262, 0.9212569, 1.0385638)
+SceneToLoad = "res://Scenes/Levels/Level_Reception.tscn"
+Locked = true
+Tag = "A0"
+
+[node name="Events" type="Node3D" parent="."]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.226774, 5.769129, 0)
+light_color = Color(0.9999998, 0.6410427, 0.2106039, 1)
+light_energy = 12.68
+light_indirect_energy = 1.4
+spot_range = 17.805
+spot_attenuation = 0.95
+spot_angle = 88.7
+
+[node name="Item3" parent="." instance=ExtResource("5_xnraf")]
+transform = Transform3D(0.14254485, 0, -0.14028887, 0, 0.2, 0, 0.14028887, 0, 0.14254485, 14.094708, 0.8779335, 3.5009716)
+
+[node name="Item" parent="." instance=ExtResource("6_2jc2o")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 14.084202, 0.81170136, -4.050023)
+
+[node name="BunkerPuzzle" parent="." node_paths=PackedStringArray("puzzleSolveInteraction", "stabalizerA", "stabalizerB") instance=ExtResource("6_5nnha")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 20.769999, 0.39999998, 2.59)
+puzzleSolveInteraction = NodePath("../PuzzleInteract")
+stabalizerA = NodePath("../Stabalizer")
+stabalizerB = NodePath("../Stabalizer2")
+
+[node name="Stabalizer" parent="." instance=ExtResource("7_tuiqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.97, 0.39999998, 3.55)
+
+[node name="Stabalizer2" parent="." instance=ExtResource("7_tuiqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.75, 0.39999998, -0.65)
+
+[node name="PuzzleInteract" parent="." instance=ExtResource("8_0m0x1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.32, 0.39999998, -0.84)

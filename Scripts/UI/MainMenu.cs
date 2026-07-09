@@ -14,6 +14,7 @@ public partial class MainMenu : Control
     private Button _optionsButton;
     private Button _exitButton;
     private Button _backButton;
+    private Button _collectiblesButton;
     [Export] Panel _LevelSelectionScreen;
     [Export] VBoxContainer _LevelsLabel;
     private List<Button> LevelButtons = new List<Button>();
@@ -27,12 +28,14 @@ public partial class MainMenu : Control
         _optionsButton = GetNode<Button>("Panel/Label/OptionsButton");
         _exitButton = GetNode<Button>("Panel/Label/ExitButton");
         _backButton = GetNode<Button>("Dev_Levels/VBoxContainer/BackButton");
+        _collectiblesButton = GetNode<Button>("Panel/CollectiblesButton");
 
         // Connect button signals to methods
         _startButton.Pressed += OnStartButtonPressed;
         _optionsButton.Pressed += OnOptionsButtonPressed;
         _exitButton.Pressed += OnExitButtonPressed;
         _backButton.Pressed +=LoadMainMenu;
+        _collectiblesButton.Pressed += LoadNotes;
 
         
 
@@ -124,6 +127,11 @@ public partial class MainMenu : Control
             LevelButtons.Add(button);
             _LevelsLabel.AddChild(button);
         }
+    }
+
+    public void LoadNotes()
+    {
+        GD.Print(NoteManager.Instance.LoadCollectedNotes());
     }
 
     private void OnLevelSelected(string path)

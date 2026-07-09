@@ -24,6 +24,7 @@ public partial class SceneManager : Node
 	[Export] public VictoryScreen victoryScreen;
 	
  	[Export]AudioStreamPlayer3D AudioPlayer;
+	[Export]NoteManager noteManager;
 	Vector3 PlayerPosition;
 	int selectedScene=0;
 	[Export] string[] Scenes; //ARRAY
@@ -206,6 +207,8 @@ public partial class SceneManager : Node
 		// 5. Cleanup
 		EntranceTag = null;
 		_isLoading = false;
+
+		noteManager.SetNode(GetCurrentLevel().GetNode());
 		//GD.Print($"Scene loaded successfully. Player at: {PlayerSpawn}");
 	//GD.Print(CurrentLevel.GetQuest());
 		//Log.Instance.SetLog(CurrentLevel.GetQuest().Title,5);

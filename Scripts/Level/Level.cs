@@ -11,6 +11,7 @@ public partial class Level : Node3D
 	[Export] Node3D playerSpawn;
 	[Export] Node3D questNode;
 	[Export] public CompleteLevelItem completeLevelItem;
+	[Export] Node3D NoteNode;
 	private List<ExitDoor> exitDoors = new List<ExitDoor>();
 	//AREAS
 	private List<Area> levelAreas = new List<Area>();
@@ -94,6 +95,16 @@ public partial class Level : Node3D
 		
 		
 	}
+
+	public void SetNode(Node3D node)
+    {
+        NoteNode = node;
+    }
+
+	public Node3D GetNode()
+    {
+        return NoteNode;
+    }
 
 	private void GetEnemiesList()
 	{

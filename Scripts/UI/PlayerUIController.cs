@@ -59,10 +59,10 @@ public partial class PlayerUIController : Control
 		DialogueController.ShowDialogueScreen(npc,dialoguue);
 	}
 
-	public void ReadNote(string note,string notetext)
+	public void ReadNote(string note,string notetext,bool setNotification)
 	{
 		SetEquipmentSlotVisibility(false);
-		NoteController.ShowNoteScreen(note,notetext);
+		NoteController.ShowNoteScreen(note,notetext,setNotification);
 	}
 
 	public void EndDialogue()

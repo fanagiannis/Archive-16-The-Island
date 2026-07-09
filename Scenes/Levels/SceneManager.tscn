@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c85cvv78x2vc4"]
+[gd_scene load_steps=16 format=3 uid="uid://c85cvv78x2vc4"]
 
 [ext_resource type="PackedScene" uid="uid://bei4nhkf8lwdo" path="res://Scenes/PlayerController.tscn" id="1_26csl"]
 [ext_resource type="Script" uid="uid://dvjyv2br3m44f" path="res://Scripts/SceneManager/SceneManager.cs" id="1_o727u"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://da77n8tvxqrwt" path="res://Scenes/ChunkLoader.cs" id="7_vx4fo"]
 [ext_resource type="AudioStream" uid="uid://bex8pa5wq4wfq" path="res://Imports/Assets/Audio/SFX/Ambience/Ambience.mp3" id="8_exj2w"]
 [ext_resource type="Script" uid="uid://c82wylxohy37n" path="res://Scripts/Level/QuestManager.cs" id="8_ndhyf"]
+[ext_resource type="Script" uid="uid://dm5ilq1gjv0fw" path="res://Scripts/Collectibles/NoteManager.cs" id="11_5cam3"]
 
 [sub_resource type="Animation" id="Animation_qt5fn"]
 resource_name = "FadeIn"
@@ -62,7 +63,7 @@ _data = {
 &"RESET": SubResource("Animation_b8fpo")
 }
 
-[node name="SceneManager" type="Node3D" node_paths=PackedStringArray("ManagerAnimator", "questManager", "loadingScreen", "victoryScreen", "AudioPlayer", "MainMenu")]
+[node name="SceneManager" type="Node3D" node_paths=PackedStringArray("ManagerAnimator", "questManager", "loadingScreen", "victoryScreen", "AudioPlayer", "noteManager", "MainMenu")]
 script = ExtResource("1_o727u")
 ManagerAnimator = NodePath("MainMenu/MainMenuUIAnimation")
 questManager = NodePath("QuestManager")
@@ -70,7 +71,8 @@ loadingScreen = NodePath("LoadingScreen")
 PlayerScene = ExtResource("1_26csl")
 victoryScreen = NodePath("VictoryScreen")
 AudioPlayer = NodePath("AudioPlayer")
-Scenes = PackedStringArray("res://Scenes/Levels/Level_Outdoor.tscn", "res://Scenes/Levels/Level_Reception.tscn", "res://Scenes/Levels/Dev/MovementTestbed/MovementTestbed.tscn", "res://Scenes/Levels/Level_Forest.tscn", "res://Scenes/Levels/Menu/MainMenu3DBG.tscn")
+noteManager = NodePath("NoteManager")
+Scenes = PackedStringArray("res://Scenes/Levels/Level_Outdoor.tscn", "res://Scenes/Levels/Level_Reception.tscn", "res://Scenes/Levels/Dev/MovementTestbed/MovementTestbed.tscn", "res://Scenes/Levels/Level_Forest.tscn", "res://Scenes/Levels/Menu/MainMenu3DBG.tscn", "res://Scenes/Levels/Level_Bunker.tscn")
 MainMenu = NodePath("MainMenu")
 
 [node name="MainMenu" parent="." node_paths=PackedStringArray("_LevelSelectionScreen", "_LevelsLabel") instance=ExtResource("4_qt5fn")]
@@ -100,6 +102,7 @@ visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="VictoryScreen" parent="." instance=ExtResource("7_8nyjl")]
+visible = false
 
 [node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_exj2w")
@@ -111,6 +114,9 @@ script = ExtResource("7_vx4fo")
 
 [node name="QuestManager" type="Node" parent="."]
 script = ExtResource("8_ndhyf")
+
+[node name="NoteManager" type="Node3D" parent="."]
+script = ExtResource("11_5cam3")
 
 [editable path="MainMenu"]
 [editable path="LoadingScreen"]

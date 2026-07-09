@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://clelel5pvak4x"]
+
+[ext_resource type="Script" uid="uid://caqu3i4y50spv" path="res://Scripts/Puzzles/Puzzle.cs" id="1_8v88d"]
+
+[node name="BunkerPuzzle" type="Node3D"]
+script = ExtResource("1_8v88d")
+PuzzleName = "Core Stabalizer"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[node name="TargetLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97999996, 0)
+text = "test"

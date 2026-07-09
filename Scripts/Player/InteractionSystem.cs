@@ -94,8 +94,11 @@ public partial class InteractionSystem : Node
 			if (itemToInteract is Note note)
 			{
 				//NPC npc = Interaction.GetInteractable() as NPC;
+				bool checkReadNote = NoteManager.Instance.IsNoteUnlocked(note.GetID());
 				itemToInteract.Interact();
-				playerUI.ReadNote(note.GetNoteName(), note.GetNoteText());
+				
+				//note.GetRead();
+				playerUI.ReadNote(note.GetNoteName(), note.GetNoteText(),checkReadNote);
 				EmitSignal(SignalName.NoteInteraction);
 			}
 			if (itemToInteract is NPC npc)

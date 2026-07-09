@@ -5,11 +5,12 @@ using System.Text.Json;
 
 public partial class Note : Interactable
 {
+    [Export]private string _UniqueNoteID;
 	[Export(PropertyHint.File, "*.json")]
     public string NoteFilePath { get; set; }
-
     private string _noteTitle = "Unknown";
     private string _noteContent = "No text found.";
+    private bool _Read = false;
 	public override void _Ready()
 	{
         audioPlayer = GetNode<AudioStreamPlayer3D>("AudioPlayer");
@@ -26,11 +27,23 @@ public partial class Note : Interactable
         base.Interact();
         audioPlayer.Stream= itemAudio; 
         audioPlayer.Play();
+        SetRead(true);
+        NoteManager.Instance.RecordNoteAsRead(_UniqueNoteID);
     }
 
     public override void SetOutline(bool set)
     {
       //  base.SetOutline(set);
+    }
+
+    public void SetRead(bool set)
+    {
+        _Read=set;
+    }
+
+    public bool GetRead()
+    {
+        return _Read;
     }
 
 	public string GetNoteName()
@@ -42,6 +55,11 @@ public partial class Note : Interactable
 	{
 		return _noteContent ;
 	}
+
+    public string GetID()
+    {
+        return _UniqueNoteID;
+    }
 
 	private void LoadJsonText()
     {
