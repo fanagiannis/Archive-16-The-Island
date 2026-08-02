@@ -1,7 +1,9 @@
 using Godot;
 using GroveGames.BehaviourTree.Collections;
+using PolarBears.PlayerControllerAddon;
 using System;
 using System.Collections.Generic;
+using System.Formats.Asn1;
 
 public partial class Enemy_Abomination : Enemy
 {
@@ -29,12 +31,14 @@ public partial class Enemy_Abomination : Enemy
     private Godot.Collections.Array<AudioStream> SoundEffects = new Godot.Collections.Array<AudioStream>();
 	private float randomSoundTime=5f;
 	private float randomSoundTimer=5f;
+	private Area3D Hitbox;
 	
 	public override void _Ready()
 	{
 		//base._Ready();
 		SetupAI();
 		animator = GetNode<AnimationTree>("Abomination/AnimationTree");
+		Hitbox = GetNode<Area3D>("Abomination/rig_001/Skeleton3D/BoneAttachment3D/Hitbox");
 		
 		//Dead();
 
@@ -53,10 +57,14 @@ public partial class Enemy_Abomination : Enemy
 		HPDisplay.Text = LightDamage.ToString("0");
 
 		AudioStreamPlayer3D BreathAudioPlayer = new AudioStreamPlayer3D();
-		AddChild(BreathAudioPlayer );
+		AddChild(BreathAudioPlayer);
 		BreathAudioPlayer.Stream = BreathSoundEffect;
 		BreathAudioPlayer.Play();
 		//UpdateSpeed();
+
+		if(Hitbox==null) GD.PrintErr("NO HITBOX");
+		else GD.PrintErr("HITBOX");
+		Hitbox.BodyEntered += TryDamagePlayer;
 	}
 
 
@@ -83,6 +91,19 @@ public partial class Enemy_Abomination : Enemy
 	public void UpdateAnimator()
 	{
 		if (animator == null) return;
+
+		// 1. Exact path with the space in "Blend Tree"
+		string blendPath = "parameters/BlendTree/Idle Walk/blend_amount";
+		
+
+		float target_blend = (Velocity.Length() > 0.1f) ? 1.0f : 0.0f;
+		float actual_blend = (float)animator.Get(blendPath);
+		float smoothed_blend = Mathf.Lerp(actual_blend, target_blend,  10f);
+
+		animator.Set(blendPath, target_blend );
+		GD.PrintErr(target_blend);
+		/*
+		if (animator == null) return;
 		if (animator == null) return;
 
 		// Determine the target we WANT to reach
@@ -102,6 +123,24 @@ public partial class Enemy_Abomination : Enemy
 			animator.Set("parameters/Movement/blend_position",current_speed);
 		else
 			animator.Set("parameters/Movement/blend_position",0);*/
+	}
+
+	public void PlayAttack()
+	{
+		if (animator == null) return;
+
+		animator.Set("parameters/BlendTree/AttackShot/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+	}
+
+	public void TryDamagePlayer(Node3D body)
+	{
+		GD.Print(body.Name);
+		if(body.IsInGroup("Player"))
+		{
+			GD.Print(body.Name);
+			PlayerController player = body as PlayerController;
+			player.HealthSystem.TakeDamage(10f);
+		}
 	}
 
 	public void CheckDamage()
@@ -213,7 +252,7 @@ public partial class Enemy_Abomination : Enemy
 			AudioStreamPlayer3D audioplayer = new AudioStreamPlayer3D();
 			audioplayer.Stream = SoundEffects[randomIndex];
 			AddChild(audioplayer);
-			audioplayer.Finished += () => QueueFree();
+			audioplayer.Finished += () => audioplayer.QueueFree();
 			audioplayer.Play();
 			randomSoundTimer = GD.RandRange(10, 30); 
 			return;

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://hc7y2i5ovm4e"]
+
+[ext_resource type="Texture2D" uid="uid://dti5c2lcwnylj" path="res://Imports/Assets/UI/Icons/Icon_Compass.png" id="1_3tsi6"]
+[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_d5thv"]
+[ext_resource type="Script" uid="uid://b5iq8bsaq04wv" path="res://Scripts/UI/CollectibleDisplay.cs" id="2_ejw5h"]
+
+[node name="CollectibleDisplay" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 750.0
+offset_top = 500.0
+offset_right = -670.001
+offset_bottom = -530.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_d5thv")
+button_mask = 0
+text = "TEST"
+icon = ExtResource("1_3tsi6")
+alignment = 0
+clip_text = true
+text_direction = 1
+script = ExtResource("2_ejw5h")

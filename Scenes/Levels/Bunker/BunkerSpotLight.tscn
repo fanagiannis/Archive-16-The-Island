@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://biadq5fin27w"]
+
+[ext_resource type="PackedScene" uid="uid://cqc4gkcpndvr1" path="res://Imports/Assets/Bunker/PSXBunkerLight.glb" id="1_w2yvv"]
+
+[node name="PSXBunkerLight" instance=ExtResource("1_w2yvv")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24555874, 0)
+light_color = Color(0.73349315, 0.40745994, 0, 1)
+light_energy = 2.75
+light_indirect_energy = 2.635
+light_volumetric_fog_energy = 7.94
+omni_range = 4.178974
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0.73333335, 0.40784314, 0, 1)
+spot_range = 98.909996
+spot_angle = 14.0014

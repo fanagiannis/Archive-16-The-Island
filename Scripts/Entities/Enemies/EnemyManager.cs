@@ -13,7 +13,9 @@ public partial class EnemyManager : Node
 
     public override void _Ready()
     {
-        DisableAllEnemies();
+        //DisableAllEnemies();
+        //Ref_Abomination.SetEnabled(true);
+        EnableAllEnemies();
     }
 
     public override void _Process(double delta)
@@ -104,6 +106,7 @@ public partial class EnemyManager : Node
     {
         foreach (Enemy enemy in enemies)
         {
+            GD.Print(enemy);
             if(enemy.GetEnabled()==false)
                 enemy.SetEnabled(true);
         }

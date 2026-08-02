@@ -1,25 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2bl64wsnabem"]
+[gd_scene load_steps=6 format=3 uid="uid://b2bl64wsnabem"]
 
 [ext_resource type="Script" uid="uid://bmc4v5g68y2xg" path="res://Scripts/Puzzles/Stabalizer.cs" id="1_pcx6v"]
 [ext_resource type="PackedScene" uid="uid://bgov8n0ete8s8" path="res://Scenes/Levels/Bunker/Increaser.tscn" id="2_rcauj"]
 [ext_resource type="PackedScene" uid="uid://cb3ql4jbswr2i" path="res://Scenes/Levels/Bunker/Decreaser.tscn" id="3_je8mj"]
+[ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="4_nliyl"]
+[ext_resource type="PackedScene" uid="uid://fu8jjsk78qiy" path="res://Imports/Assets/Bunker/PSXIncreaser_Decreaser.glb" id="5_2nqhc"]
 
 [node name="Stabalizer" type="Node3D" node_paths=PackedStringArray("Increaser", "Decreaser")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_pcx6v")
 Increaser = NodePath("Increaser")
 Decreaser = NodePath("Decreaser")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-
 [node name="Increaser" parent="." instance=ExtResource("2_rcauj")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.9, 0.53)
+transform = Transform3D(0.1250385, -0.12948118, 0, 0.12948118, 0.1250385, 0, 0, 0, 0.18, -0.4147845, 0.7284986, 0.31939995)
 name = "Increase"
 itemAudio = null
 
 [node name="Decreaser" parent="." instance=ExtResource("3_je8mj")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.9, -0.45)
+transform = Transform3D(0.1250385, -0.12948117, 0, 0.12948117, 0.1250385, 0, 0, 0, 0.18, -0.44571084, 0.7309359, -0.288)
 name = "Decrease"
 itemAudio = null
 
 [node name="ValueLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43, 0)
+transform = Transform3D(-4.701789e-08, 0.5718752, -0.55225337, -1.1846422e-08, 0.55225337, 0.5718752, 0.795, 4.2051056e-08, -2.413976e-08, -0.05382003, 0.99533945, -1.8007087e-10)
+modulate = Color(1, 0, 0, 1)
+text = "test"
+font = ExtResource("4_nliyl")
+font_size = 17
+
+[node name="PSXIncreaser_Decreaser" parent="." instance=ExtResource("5_2nqhc")]

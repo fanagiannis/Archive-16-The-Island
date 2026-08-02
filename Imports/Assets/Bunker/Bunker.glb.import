@@ -1,0 +1,1298 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://1as1ir0ojhyt"
+path="res://.godot/imported/Bunker.glb-48dd99b55cdf41c49cca7fcd17ccb3af.scn"
+
+[deps]
+
+source_file="res://Imports/Assets/Bunker/Bunker.glb"
+dest_files=["res://.godot/imported/Bunker.glb-48dd99b55cdf41c49cca7fcd17ccb3af.scn"]
+
+[params]
+
+nodes/root_type="StaticBody3D"
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"nodes": {
+"PATH:Cylinder": {
+"generate/physics": true
+},
+"PATH:Cylinder_001": {
+"generate/physics": true
+},
+"PATH:Cylinder_004": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_002": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_003": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_006": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_007": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_008": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_009": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_012": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_013": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_014": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_015": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_016": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_017": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_018": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_019": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_020": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_021": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_022": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_023": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_024": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_025": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_026": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_027": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_028": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_029": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_030": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_031": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_032": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_033": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_034": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_035": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_036": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_037": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_038": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_039": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_040": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_041": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_042": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_043": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_044": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_045": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_046": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_047": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_048": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_049": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_050": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_051": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_052": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_053": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_054": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_055": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_056": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_057": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_058": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_059": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_060": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_061": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_062": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_063": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_064": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_065": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_066": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_067": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_068": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_069": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_070": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_071": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_072": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_073": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_074": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_075": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_076": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_077": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_078": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_079": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_080": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_081": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_082": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_083": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_084": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_085": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_086": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_087": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_088": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_089": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_090": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_091": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_092": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_093": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_094": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_095": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_097": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_098": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_099": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_100": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_101": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_102": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_103": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_104": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_105": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_106": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_107": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_108": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_109": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_110": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_111": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_112": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_113": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_114": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_115": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_116": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_117": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_118": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_119": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_120": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_121": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_122": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_123": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_124": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_125": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_126": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_127": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_128": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_129": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_130": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_131": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_132": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_133": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_134": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_135": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_136": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_137": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_138": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_139": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_140": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_141": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_142": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_143": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_144": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_145": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_146": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_147": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_148": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_149": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_150": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_151": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_152": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_153": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_154": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_155": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_156": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_157": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_158": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_159": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_160": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_161": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_162": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_163": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_164": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_165": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_166": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_167": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_168": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_169": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_170": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_171": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_172": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_173": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_174": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_175": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_176": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_177": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_178": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_179": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_180": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_181": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_182": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_183": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_184": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_185": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_186": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_187": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_188": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_189": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_190": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_191": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_192": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_193": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_194": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_195": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_196": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_197": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_198": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_199": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_200": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_201": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_202": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_203": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_204": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_205": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_206": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_207": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_208": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_209": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_210": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_211": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_212": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_213": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallConnector_214": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallCorner_001": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallCorner_002": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallCorner_003": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallCorner_004": {
+"generate/physics": true
+},
+"PATH:ShipwreckWallDoor_001": {
+"generate/navmesh": 2,
+"generate/occluder": 1,
+"generate/physics": true
+},
+"PATH:ShipwreckWall_001": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_002": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_005": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_007": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_008": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_009": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_010": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_011": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_012": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_013": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_014": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_015": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_016": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_017": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_018": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_019": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_020": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_021": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_022": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_023": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_024": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_025": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_026": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_027": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_028": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_029": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_030": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_031": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_032": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_033": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_034": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_035": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_036": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_037": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_038": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_039": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_040": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_041": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_042": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_043": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_044": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_045": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_046": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_047": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_048": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_049": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_050": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_051": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_052": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_053": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_054": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_055": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_056": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_057": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_058": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_059": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_060": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_061": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_062": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_063": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_064": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_065": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_066": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_067": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_068": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_069": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_070": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_071": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_072": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_073": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_074": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_075": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_076": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_077": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_078": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_079": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_080": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_081": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_082": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_083": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_084": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_085": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_086": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_087": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_088": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_089": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_090": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_091": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_092": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_093": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_094": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_095": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_096": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_097": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_098": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_099": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_100": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_101": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_102": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_103": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_104": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_105": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_106": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_107": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_108": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_109": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_110": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_111": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_112": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_113": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_114": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_115": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_116": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_117": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_118": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_119": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_120": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_121": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_122": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_123": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_124": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_125": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_126": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_127": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_128": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_129": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_130": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_131": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_132": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_133": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_134": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_135": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_136": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_137": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_138": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_139": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_140": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_141": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_142": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_143": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_144": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_145": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_146": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_147": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_148": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_149": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_150": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_151": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_152": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_153": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_154": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_155": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_156": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_157": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_158": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_159": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_160": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_161": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_162": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_163": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_164": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_165": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_166": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_167": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_168": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_169": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_170": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_171": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_172": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_173": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_174": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_175": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_176": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_177": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_178": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_179": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_180": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_181": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_182": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_183": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_184": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_185": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_186": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_187": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_188": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_189": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_190": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_191": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_192": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_193": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_194": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_195": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_196": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_197": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_198": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_199": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_200": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_201": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_202": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_203": {
+"generate/physics": true
+},
+"PATH:ShipwreckWall_204": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://fr7qhrl3xxwa"]
+
+[ext_resource type="PackedScene" uid="uid://ggnagnb0ltkd" path="res://Imports/Assets/PSXLightCone.glb" id="1_vqtgv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqtgv"]
+transparency = 1
+albedo_color = Color(0.81, 0.59400004, 0, 0.4627451)
+emission_enabled = true
+emission = Color(0.622996, 0.36519817, 8.663535e-07, 1)
+disable_receive_shadows = true
+
+[node name="PSXLightCone" instance=ExtResource("1_vqtgv")]
+
+[node name="Cone" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013908863, 5.9604645e-08, -0.007598877)
+surface_material_override/0 = SubResource("StandardMaterial3D_vqtgv")

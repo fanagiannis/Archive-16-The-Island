@@ -19,10 +19,10 @@ public partial class DarkFigureBehavior : EnemyBehavior
 		body = enemyBody as CharacterBody3D;
 		if (onScreenNotifier != null)
         {
-            onScreenNotifier.ScreenEntered += OnAgentScreenEntered;
+           // onScreenNotifier.ScreenEntered += OnAgentScreenEntered;
 
 
-            onScreenNotifier.ScreenExited += OnAgentScreenExited;
+          //  onScreenNotifier.ScreenExited += OnAgentScreenExited;
         }
         enemyNavigation.MaxSpeed = moveSpeed;
 	}
@@ -144,7 +144,6 @@ public partial class DarkFigureBehavior : EnemyBehavior
 
 	protected override void OnAgentScreenEntered()
     {
-		
 		currentState = AIState.Idle;
         if(onScreenAudio!=null)
         {

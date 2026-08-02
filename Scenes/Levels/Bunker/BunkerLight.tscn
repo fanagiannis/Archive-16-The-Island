@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbyrqm6sndftq"]
+
+[ext_resource type="PackedScene" uid="uid://cqc4gkcpndvr1" path="res://Imports/Assets/Bunker/PSXBunkerLight.glb" id="1_7ey5b"]
+[ext_resource type="Script" uid="uid://dii043vaihx2l" path="res://Scripts/Environment/BunkerLight.cs" id="2_let0h"]
+[ext_resource type="Material" uid="uid://jnugf0s3vo5r" path="res://Imports/Assets/Bunker/Materials/Light.tres" id="3_uubg0"]
+[ext_resource type="Material" uid="uid://2vxkablj8dwh" path="res://Imports/Assets/Bunker/Materials/LightOff.tres" id="4_3kcgb"]
+
+[node name="PSXBunkerLight" node_paths=PackedStringArray("omnilight", "lightMesh") instance=ExtResource("1_7ey5b")]
+script = ExtResource("2_let0h")
+omnilight = NodePath("Light")
+lightMesh = NodePath("BunkerLight")
+lightOnMaterial = ExtResource("3_uubg0")
+lightOffMaterial = ExtResource("4_3kcgb")
+
+[node name="Light" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24555874, 0)
+light_color = Color(0.73349315, 0.40745994, 0, 1)
+light_energy = 2.75
+light_indirect_energy = 2.635
+light_volumetric_fog_energy = 7.94
+omni_range = 4.2
+omni_shadow_mode = 0

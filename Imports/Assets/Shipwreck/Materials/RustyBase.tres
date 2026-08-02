@@ -6,6 +6,6 @@
 resource_name = "RustyBase"
 cull_mode = 2
 albedo_texture = ExtResource("1_gir8b")
-uv1_scale = Vector3(10, 10, 10)
-uv2_scale = Vector3(10, 10, 10)
+metallic_specular = 0.0
+roughness = 0.0
 texture_filter = 2

@@ -96,6 +96,7 @@ public partial class AbominationBehavior : EnemyBehavior
             return;
         }
 
+
        
         
         pathUpdateTimer += delta;
@@ -237,6 +238,8 @@ public partial class AbominationBehavior : EnemyBehavior
         if (SceneManager.Instance.GetPlayer() is PlayerController playerCtrl)
         {
             GD.Print($"FLEEING AGENT: Damaged player for {attackDamage}!");
+            Enemy_Abomination abom = enemyBody as Enemy_Abomination;
+            abom.PlayAttack();
             // playerCtrl.TakeDamage(attackDamage);
             attackTimer = attackCooldown;
         }

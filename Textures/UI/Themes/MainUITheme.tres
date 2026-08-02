@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://dosejjh54155f"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://dosejjh54155f"]
 
 [ext_resource type="FontFile" uid="uid://c7otqom2msvt5" path="res://Textures/UI/Fonts/help_me/HelpMe.ttf" id="1_60jl3"]
 [ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="1_844ms"]
@@ -81,6 +81,30 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q8oj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qebaq"]
+
 [resource]
 default_font = ExtResource("1_60jl3")
 BoxContainer/constants/separation = 10
@@ -106,4 +130,6 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_5y8nr")
 ProgressBar/fonts/font = ExtResource("1_60jl3")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_djfqn")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_387w7")
+ScrollContainer/styles/focus = SubResource("StyleBoxFlat_6q8oj")
+ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_qebaq")
 VBoxContainer/constants/separation = 45

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://lh0rb0r4x37s"]
+
+[ext_resource type="PackedScene" uid="uid://cjavc6acwb8e8" path="res://Imports/Assets/Shipwreck/PSXShipwreckPlatform.glb" id="1_xe2g7"]
+
+[node name="PSXShipwreckPlatform" groups=["Metal"] instance=ExtResource("1_xe2g7")]

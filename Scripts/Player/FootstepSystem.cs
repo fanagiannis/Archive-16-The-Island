@@ -17,6 +17,7 @@ public partial class FootstepSystem : Node
 		MaterialSounds["Wood"] = CreateRandomizerFromFolder("res://Imports/Assets/Audio/SFX/Footsteps/Wood-20260209T195312Z-3-001/Wood/");
 		MaterialSounds["Dirt"] = CreateRandomizerFromFolder("res://Imports/Assets/Audio/SFX/Footsteps/Dirt-20260209T195307Z-3-001/Dirt/");
 		MaterialSounds["Grass"] = CreateRandomizerFromFolder("res://Imports/Assets/Audio/SFX/Footsteps/Gravel-20260209T195309Z-3-001/Gravel");
+		MaterialSounds["Metal"] = CreateRandomizerFromFolder("res://Imports/Assets/Audio/SFX/Footsteps/Metal");
 		//MaterialSounds["Grass"] = CreateRandomizerFromFolder("res://Imports/Assets/Audio/SFX/Footsteps/Dirt-20260209T195307Z-3-001/Dirt/");
 
 
@@ -43,6 +44,7 @@ public partial class FootstepSystem : Node
         
 		if (MaterialDetector.IsColliding())
 		{
+			
 			if (MaterialDetector.GetCollider() is Node nodeCollider)
 			{
 				if (nodeCollider.IsInGroup("Terrain"))
@@ -103,12 +105,22 @@ public partial class FootstepSystem : Node
 					detectedMaterial = "Wood";
 					//GD.Print("wood");
 				}
-
+				else if (nodeCollider.IsInGroup("Metal"))
+				{
+					detectedMaterial = "Metal";
+						GD.Print(detectedMaterial);
+					
+				}
 					//GD.Print("Wood surface");
 
 				else if (nodeCollider.IsInGroup("stone"))
 				{
 					detectedMaterial = "Stone";
+				}
+				if(SceneManager.Instance.GetCurrentLevel().GetLevelName()=="BUNKER")
+				{
+					GD.Print("OK");
+					detectedMaterial = "Metal";
 				}
 					
 					//GD.Print("Stone surface");
@@ -125,8 +137,14 @@ public partial class FootstepSystem : Node
 						//GD.PrintErr($"No audio loaded in MaterialSounds for the key: '{detectedMaterial}'");
 					}
 				}
-					}
+			
+			}
+				
 		}
+
+		
+
+		
 
 		/*
 		if(AudioPlayer!=null )

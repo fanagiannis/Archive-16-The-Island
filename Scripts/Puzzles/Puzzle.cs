@@ -5,6 +5,8 @@ using System;
 public partial class Puzzle : Interactable
 {
 	public static Puzzle Instance {get; private set;}
+	[Signal]
+	public delegate void UpdatePuzzleEventHandler();
 	[Export]string PuzzleName;
 	[Export]float TargetValue=100f;
 	private float CurrentValue=0.5f;
@@ -62,6 +64,22 @@ public partial class Puzzle : Interactable
 			CurrentValue = TargetValue;
 			Label_TargetValue.Text = CurrentValue.ToString();
 		}
+		EmitSignal(SignalName.UpdatePuzzle);
         
+	}
+
+	public float GetTargetValue()
+	{
+		return TargetValue;
+	}
+
+	public Stabalizer GetStabalizerA()
+	{
+		return stabalizerA;
+	}
+
+	public Stabalizer GetStabalizerB()
+	{
+		return stabalizerB;
 	}
 }

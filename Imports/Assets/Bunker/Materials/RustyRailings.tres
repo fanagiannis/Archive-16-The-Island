@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://eovp55bv2hyr"]
+
+[ext_resource type="Texture2D" uid="uid://djcjx4qom84ux" path="res://Imports/Assets/Bunker/PSXBunkerLight_rusty_metal_03_diff_1k.jpg" id="1_dxj6h"]
+
+[resource]
+resource_name = "RustyRailings"
+cull_mode = 2
+albedo_texture = ExtResource("1_dxj6h")

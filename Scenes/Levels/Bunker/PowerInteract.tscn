@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://cyg0quyba5ouh"]
+
+[ext_resource type="Script" uid="uid://ch4vjpoenpy81" path="res://Scripts/Environment/PowerInteract.cs" id="1_m6kc6"]
+[ext_resource type="PackedScene" uid="uid://chscphf3e4457" path="res://Scenes/Levels/Bunker/PSXTerminal.glb" id="2_lsk77"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ef3p0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knw07"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vw2nf"]
+render_priority = 1
+next_pass = SubResource("StandardMaterial3D_knw07")
+transparency = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.01
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4uxd1"]
+next_pass = SubResource("StandardMaterial3D_vw2nf")
+albedo_color = Color(0.0008296779, 0, 0.7537193, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_knw07"]
+size = Vector3(1.12, 2.1699998, 1.5699999)
+
+[node name="Item" type="StaticBody3D"]
+script = ExtResource("1_m6kc6")
+name = "Power"
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = SubResource("SphereMesh_ef3p0")
+surface_material_override/0 = SubResource("StandardMaterial3D_4uxd1")
+
+[node name="MeshCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0715, 0.051, -0.039500028)
+shape = SubResource("BoxShape3D_knw07")
+
+[node name="Item Label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8824947, 0)
+
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="PSXTerminal" parent="." instance=ExtResource("2_lsk77")]
+
+[node name="Cylinder_044" parent="PSXTerminal/Terminal" index="0"]
+transform = Transform3D(0.029758906, 1.5807024e-10, 0.2603667, 0.03180384, -3.6438422e-10, -0.24362558, 6.0306576e-10, 0.011416365, -1.138099e-08, -0.4347661, 0.6507397, 0)
+
+[connection signal="HasInteracted" from="." to="PSXTerminal/AnimationPlayer" method="play" flags=6 binds= ["Cylinder_044Action"]]
+
+[editable path="PSXTerminal"]

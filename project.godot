@@ -53,6 +53,7 @@ Terrain=""
 Tree=""
 Corpse=""
 Enemy=""
+Metal=""
 
 [input]
 

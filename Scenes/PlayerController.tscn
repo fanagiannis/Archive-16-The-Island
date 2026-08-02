@@ -43,6 +43,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xc2g5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wydro"]
+height = 2.6362305
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o1np4"]
 shader = ExtResource("4_jyscr")
@@ -575,6 +576,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(49.611847, 14)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 floor_snap_length = 0.24
 script = ExtResource("1_poq2x")
 WalkSpeed = 1.0
@@ -588,12 +590,12 @@ layers = 32
 mesh = SubResource("CapsuleMesh_xc2g5")
 
 [node name="CapsuleCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3181152, 0)
 shape = SubResource("CapsuleShape3D_wydro")
 script = ExtResource("8_lmtjd")
 
 [node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("MouseController", "playerUIController", "PlayerAnimationTree", "equipmentManager")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9979526, 0)
 script = ExtResource("3_t6wjg")
 MouseController = NodePath("../Mouse")
 playerUIController = NodePath("../UI")
@@ -655,16 +657,16 @@ visible = false
 
 [node name="Skeleton3D" parent="Head/CameraSmooth/Camera3D/GodotProjectArms/LVA4_Armature" index="0"]
 bones/1/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
-bones/3/position = Vector3(0.1557009, 0.41704953, 0.13107242)
+bones/3/position = Vector3(0.15638661, 0.41704953, 0.13107242)
 bones/3/rotation = Quaternion(-0.7071067, 0, 0, 0.7071068)
-bones/4/rotation = Quaternion(-0.14725979, 0.5458854, -0.5239053, 0.6370613)
-bones/4/scale = Vector3(1.4401344, 0.48216325, 1.4401343)
-bones/5/position = Vector3(-0.12769853, 0.40862697, 0.12580127)
-bones/6/rotation = Quaternion(-0.2784151, -0.29531106, 0.28646153, 0.86788034)
-bones/6/scale = Vector3(1.3637894, 0.53765726, 1.3637896)
-bones/9/rotation = Quaternion(-0.41935462, -0.60808533, 0.3771103, 0.5587145)
-bones/10/rotation = Quaternion(0.3283563, 0.11359078, 0.056741983, 0.9359807)
-bones/11/rotation = Quaternion(-0.03490865, -0.18622452, -0.056723382, 0.9802471)
+bones/4/rotation = Quaternion(-0.14459562, 0.55047727, -0.5282525, 0.63009226)
+bones/4/scale = Vector3(1.4436067, 0.47984654, 1.4436065)
+bones/5/position = Vector3(-0.11726609, 0.40862697, 0.12580127)
+bones/6/rotation = Quaternion(-0.26389882, -0.31931508, 0.30917782, 0.85603994)
+bones/6/scale = Vector3(1.3572005, 0.54289037, 1.3572006)
+bones/9/rotation = Quaternion(-0.42032248, -0.6108784, 0.37572688, 0.555865)
+bones/10/rotation = Quaternion(0.3357065, 0.114033476, 0.05584699, 0.9333695)
+bones/11/rotation = Quaternion(-0.039848223, -0.1846316, -0.056048743, 0.98039883)
 bones/12/rotation = Quaternion(0.10475202, 0.020426368, -0.023414843, 0.99401283)
 bones/13/position = Vector3(4.253313e-08, 0.06492268, -1.6186704e-08)
 bones/13/rotation = Quaternion(-0.021425769, 0.20401044, 0.1654232, 0.9646532)
@@ -686,32 +688,32 @@ bones/27/rotation = Quaternion(-0.015459503, 0.052895308, 0.395258, 0.91691566)
 bones/28/rotation = Quaternion(0.37683278, -0.59025985, 0.018939065, 0.71360475)
 bones/29/rotation = Quaternion(0.04804936, 0.00027764039, 0.36088815, 0.9313705)
 bones/30/rotation = Quaternion(-0.060791977, 0.020285571, 0.3482503, 0.93520826)
-bones/31/rotation = Quaternion(0.013576191, -0.054351028, -0.0028843991, 0.9984254)
-bones/32/rotation = Quaternion(0.013237533, -0.14966269, -0.004170517, 0.9886397)
-bones/33/rotation = Quaternion(0.013388139, -0.11158906, -0.0036592397, 0.9936575)
+bones/31/rotation = Quaternion(0.013577228, -0.053983983, -0.0028794063, 0.9984454)
+bones/32/rotation = Quaternion(0.013242778, -0.14842647, -0.004153966, 0.98882604)
+bones/33/rotation = Quaternion(0.013391089, -0.11079137, -0.003648473, 0.9937468)
 bones/34/rotation = Quaternion(0.8627004, 0.18465324, -0.26383367, -0.38992706)
-bones/35/rotation = Quaternion(0.013575996, -0.054351054, -0.0028846138, 0.9984254)
-bones/36/rotation = Quaternion(-0.02316877, -0.062305864, 0.023944864, 0.99750084)
-bones/37/rotation = Quaternion(-8.4748095e-08, 0.1214407, 3.102489e-08, 0.9925987)
-bones/39/rotation = Quaternion(-0.41287223, 0.4916538, -0.49998328, 0.58123136)
+bones/35/rotation = Quaternion(0.0135770375, -0.05398401, -0.0028796324, 0.9984454)
+bones/36/rotation = Quaternion(-0.023177547, -0.06194053, 0.02393638, 0.99752355)
+bones/37/rotation = Quaternion(-5.673278e-08, 0.12261522, 3.8679442e-08, 0.9924543)
+bones/39/rotation = Quaternion(-0.4318677, 0.47262937, -0.4881274, 0.59316397)
 bones/40/rotation = Quaternion(0.06670815, -0.0943323, -0.08499372, 0.9896603)
-bones/41/rotation = Quaternion(-0.029282564, 0.15848368, -0.10389917, 0.98144305)
+bones/41/rotation = Quaternion(-0.07308362, 0.21131925, -0.123911984, 0.96677244)
 bones/51/position = Vector3(-0.0007933108, 0.059851095, -0.000653869)
 bones/51/rotation = Quaternion(0.06784294, 0.031333636, -0.13678437, 0.9877782)
 bones/55/position = Vector3(0.00034548962, 0.061507687, 0.0009602425)
 bones/55/rotation = Quaternion(0.19488339, 0.0022451936, -0.038810983, 0.98005575)
 bones/56/rotation = Quaternion(0.04631516, -0.06403667, 0.0896932, 0.992829)
-bones/61/rotation = Quaternion(0.013601543, 0.04538181, 0.0027623547, 0.99887335)
-bones/62/rotation = Quaternion(0.013333721, 0.12593098, 0.003852149, 0.991942)
-bones/63/rotation = Quaternion(0.0134518035, 0.09370604, 0.0034179257, 0.99550325)
+bones/61/rotation = Quaternion(0.01355514, 0.061518237, 0.0029818073, 0.99800956)
+bones/62/rotation = Quaternion(0.01315288, 0.16910835, 0.004430478, 0.98549974)
+bones/63/rotation = Quaternion(0.013333017, 0.1261637, 0.0038553672, 0.9919124)
 bones/64/rotation = Quaternion(0.8627004, -0.18465324, 0.26383376, -0.389927)
-bones/65/rotation = Quaternion(0.013601345, 0.045391284, 0.0027626806, 0.99887294)
-bones/66/rotation = Quaternion(-0.023382086, 0.05337854, -0.023736604, 0.9980183)
-bones/67/rotation = Quaternion(-2.8849271e-08, -0.03909749, 2.0532067e-08, 0.9992354)
-bones/68/position = Vector3(0.32064632, 0.07493749, -0.11849198)
+bones/65/rotation = Quaternion(0.013554958, 0.061518244, 0.002981996, 0.99800956)
+bones/66/rotation = Quaternion(-0.02299689, 0.06943941, -0.024109973, 0.9970296)
+bones/67/rotation = Quaternion(-2.2504922e-08, -0.0040317825, 1.2287799e-08, 0.9999919)
+bones/68/position = Vector3(0.3206535, 0.07559383, -0.11853008)
 bones/68/rotation = Quaternion(-0.93920344, -0.22683191, 0.10566528, 0.23511498)
-bones/69/position = Vector3(-0.20060764, 0.019554585, -0.13009915)
-bones/69/rotation = Quaternion(-0.9814728, -0.09222647, -0.092533775, 0.1401536)
+bones/69/position = Vector3(-0.19861564, 0.019554555, -0.13009915)
+bones/69/rotation = Quaternion(-0.98088634, -0.11299817, -0.11931515, 0.104198955)
 bones/70/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
 
 [node name="Arms" parent="Head/CameraSmooth/Camera3D/GodotProjectArms/LVA4_Armature/Skeleton3D" index="0"]
@@ -775,6 +777,7 @@ TerrainTextureMapping = Dictionary[int, String]({
 FootstepPace = 0.9
 
 [node name="FootstepRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8557352, 0)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 debug_shape_custom_color = Color(0.972549, 0, 0, 1)

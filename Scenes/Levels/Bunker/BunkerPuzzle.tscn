@@ -1,13 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://clelel5pvak4x"]
+[gd_scene load_steps=4 format=3 uid="uid://clelel5pvak4x"]
 
 [ext_resource type="Script" uid="uid://caqu3i4y50spv" path="res://Scripts/Puzzles/Puzzle.cs" id="1_8v88d"]
+[ext_resource type="FontFile" uid="uid://degcdsjdayxoo" path="res://Textures/UI/Fonts/unispace/Unispace Rg.otf" id="2_ambr5"]
+[ext_resource type="PackedScene" uid="uid://d2hcmc3q4wlkq" path="res://Imports/Assets/Bunker/PSXStabalizer.glb" id="3_dtcbi"]
 
 [node name="BunkerPuzzle" type="Node3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_8v88d")
 PuzzleName = "Core Stabalizer"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-
 [node name="TargetLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97999996, 0)
+transform = Transform3D(-4.371139e-08, 0.6832738, -0.73016226, 0, 0.73016226, 0.6832738, 1, 2.9866847e-08, -3.1916407e-08, -0.053536758, 0.9937367, 2.8251704e-10)
+modulate = Color(1, 0, 0, 1)
 text = "test"
+font = ExtResource("2_ambr5")
+font_size = 17
+
+[node name="PSXStabalizer" parent="." instance=ExtResource("3_dtcbi")]

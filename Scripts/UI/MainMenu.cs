@@ -9,12 +9,14 @@ public partial class MainMenu : Control
 {
 
     private Panel _mainMenuPanel;
+    private Panel _CollectiblesPanel;
     [Export] Theme MainMenuTheme;
     private Button _startButton;
     private Button _optionsButton;
     private Button _exitButton;
     private Button _backButton;
     private Button _collectiblesButton;
+    private Button _collectiblesBackButton;
     [Export] Panel _LevelSelectionScreen;
     [Export] VBoxContainer _LevelsLabel;
     private List<Button> LevelButtons = new List<Button>();
@@ -24,18 +26,21 @@ public partial class MainMenu : Control
     {
         // Get references to the panel and buttons
         _mainMenuPanel = GetNode<Panel>("Panel");
+        _CollectiblesPanel = GetNode<Panel>("CollectiblesPanel");
         _startButton = GetNode<Button>("Panel/Label/StartButton");
         _optionsButton = GetNode<Button>("Panel/Label/OptionsButton");
         _exitButton = GetNode<Button>("Panel/Label/ExitButton");
         _backButton = GetNode<Button>("Dev_Levels/VBoxContainer/BackButton");
-        _collectiblesButton = GetNode<Button>("Panel/CollectiblesButton");
+        _collectiblesButton = GetNode<Button>("Panel/Label/CollectiblesButton");
+        _collectiblesBackButton = GetNode<Button>("CollectiblesPanel/BackButton");
 
         // Connect button signals to methods
         _startButton.Pressed += OnStartButtonPressed;
         _optionsButton.Pressed += OnOptionsButtonPressed;
         _exitButton.Pressed += OnExitButtonPressed;
         _backButton.Pressed +=LoadMainMenu;
-        _collectiblesButton.Pressed += LoadNotes;
+        _collectiblesButton.Pressed += LoadCollectiblesList;
+        _collectiblesBackButton.Pressed += LoadMainMenu;
 
         
 
@@ -104,6 +109,7 @@ public partial class MainMenu : Control
     {
         _mainMenuPanel.Visible=true;
         _LevelSelectionScreen.Visible=false;
+        _CollectiblesPanel.Visible=false;
         //LoadLevelButtons(SceneManager.Instance.GetLevelsList());
     }
 
@@ -127,6 +133,14 @@ public partial class MainMenu : Control
             LevelButtons.Add(button);
             _LevelsLabel.AddChild(button);
         }
+    }
+
+    public void LoadCollectiblesList()
+    {
+        _mainMenuPanel.Visible=false;
+        _CollectiblesPanel.Visible=true;
+        CollectiblesPanel collectiblesPanel = _CollectiblesPanel as CollectiblesPanel;
+        collectiblesPanel.InstantiateNoteDisplays();
     }
 
     public void LoadNotes()

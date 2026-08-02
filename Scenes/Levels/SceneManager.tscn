@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c85cvv78x2vc4"]
+[gd_scene load_steps=18 format=3 uid="uid://c85cvv78x2vc4"]
 
 [ext_resource type="PackedScene" uid="uid://bei4nhkf8lwdo" path="res://Scenes/PlayerController.tscn" id="1_26csl"]
 [ext_resource type="Script" uid="uid://dvjyv2br3m44f" path="res://Scripts/SceneManager/SceneManager.cs" id="1_o727u"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bufbt05hc3uk2" path="res://Scenes/Levels/Menu/MainMenu.tscn" id="4_qt5fn"]
 [ext_resource type="Script" uid="uid://dd4xuht61uq6j" path="res://Scripts/UI/MainMenu.cs" id="5_38h0w"]
 [ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="5_vx4fo"]
+[ext_resource type="PackedScene" uid="uid://bivendoumfxp" path="res://Scenes/UI/CollectiblesPanel.tscn" id="6_xk2ck"]
 [ext_resource type="PackedScene" uid="uid://cvltm28otar1g" path="res://Scenes/Player/VictoryScreen.tscn" id="7_8nyjl"]
 [ext_resource type="Script" uid="uid://da77n8tvxqrwt" path="res://Scenes/ChunkLoader.cs" id="7_vx4fo"]
+[ext_resource type="Script" uid="uid://cfoly6vyxjfng" path="res://Scripts/UI/CollectiblesPanel.cs" id="7_x5ccq"]
 [ext_resource type="AudioStream" uid="uid://bex8pa5wq4wfq" path="res://Imports/Assets/Audio/SFX/Ambience/Ambience.mp3" id="8_exj2w"]
 [ext_resource type="Script" uid="uid://c82wylxohy37n" path="res://Scripts/Level/QuestManager.cs" id="8_ndhyf"]
 [ext_resource type="Script" uid="uid://dm5ilq1gjv0fw" path="res://Scripts/Collectibles/NoteManager.cs" id="11_5cam3"]
@@ -83,6 +85,22 @@ _LevelsLabel = NodePath("Dev_Levels/VBoxContainer")
 MainGameLevelPath = "res://Scenes/Levels/Level_Forest.tscn"
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" parent="MainMenu/Panel" index="1"]
+text = "ARCHIVE 16: THE ISLAND"
+
+[node name="OptionsButton" parent="MainMenu/Panel/Label" index="1"]
+offset_top = 247.35995
+offset_bottom = 307.35995
+
+[node name="ExitButton" parent="MainMenu/Panel/Label" index="2"]
+offset_top = 307.35995
+offset_bottom = 367.35995
+
+[node name="CollectiblesPanel" parent="MainMenu" instance=ExtResource("6_xk2ck")]
+visible = false
+layout_mode = 1
+script = ExtResource("7_x5ccq")
+
 [node name="FadeRect" type="ColorRect" parent="MainMenu"]
 visible = false
 z_index = 1
@@ -100,6 +118,9 @@ libraries = {
 [node name="LoadingScreen" parent="." instance=ExtResource("2_b8fpo")]
 visible = false
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" parent="LoadingScreen" index="0"]
+visible = false
 
 [node name="VictoryScreen" parent="." instance=ExtResource("7_8nyjl")]
 visible = false

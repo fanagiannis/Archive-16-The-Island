@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=3 uid="uid://bivendoumfxp"]
+
+[ext_resource type="Script" uid="uid://cfoly6vyxjfng" path="res://Scripts/UI/CollectiblesPanel.cs" id="1_5msb3"]
+[ext_resource type="Theme" uid="uid://dosejjh54155f" path="res://Textures/UI/Themes/MainUITheme.tres" id="1_h0v17"]
+[ext_resource type="PackedScene" uid="uid://hc7y2i5ovm4e" path="res://Scenes/UI/CollectibleDisplay.tscn" id="3_h0v17"]
+[ext_resource type="FontFile" uid="uid://cd4gsbrvtj1es" path="res://Textures/UI/Fonts/unispace/Unispace Bd.otf" id="5_evgj2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtxi5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0v17"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="CollectiblesPanel" type="Panel" node_paths=PackedStringArray("CollectibleContainer")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5msb3")
+CollectibleContainer = NodePath("ScrollContainer/GridContainer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -471.0
+offset_right = 478.0
+offset_bottom = 480.0
+grow_vertical = 2
+theme = ExtResource("1_h0v17")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xtxi5")
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(435, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CollectibleDisplay" parent="ScrollContainer/GridContainer" instance=ExtResource("3_h0v17")]
+layout_mode = 2
+
+[node name="CollectibleDisplay2" parent="ScrollContainer/GridContainer" instance=ExtResource("3_h0v17")]
+layout_mode = 2
+
+[node name="CollectibleDisplay3" parent="ScrollContainer/GridContainer" instance=ExtResource("3_h0v17")]
+layout_mode = 2
+
+[node name="CollectibleDisplay4" parent="ScrollContainer/GridContainer" instance=ExtResource("3_h0v17")]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -60.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_h0v17")
+text = "BACK"
+
+[node name="NoteName2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -367.0
+offset_bottom = 69.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_evgj2")
+theme_override_font_sizes/font_size = 50
+text = "COLLECTIBLES"
+horizontal_alignment = 2
+
+[node name="NoteName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 513.0
+offset_top = 69.0
+offset_right = -960.0
+offset_bottom = -922.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_evgj2")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 2
+
+[node name="NoteText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 513.0
+offset_top = 181.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h0v17")
+theme_override_font_sizes/normal_font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_h0v17")
